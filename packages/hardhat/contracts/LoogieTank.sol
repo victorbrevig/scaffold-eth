@@ -24,7 +24,7 @@ contract LoogieTank is ERC721Enumerable, IERC721Receiver {
 
   Counters.Counter private _tokenIds;
 
-  uint256 constant price = 500000000000000; // 0.0005 eth
+  uint256 constant public price = 500000000000000; // 0.0005 eth
   LoogiesContract immutable loogies;
   mapping(uint256 => uint256[]) loogiesById;
 
