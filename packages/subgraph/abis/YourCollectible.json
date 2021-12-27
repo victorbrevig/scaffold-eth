@@ -156,6 +156,25 @@
         "type": "uint256"
       }
     ],
+    "name": "bodycolor",
+    "outputs": [
+      {
+        "internalType": "bytes3",
+        "name": "",
+        "type": "bytes3"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
     "name": "chubbiness",
     "outputs": [
       {
@@ -176,6 +195,44 @@
       }
     ],
     "name": "color",
+    "outputs": [
+      {
+        "internalType": "bytes3",
+        "name": "",
+        "type": "bytes3"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "color2",
+    "outputs": [
+      {
+        "internalType": "bytes3",
+        "name": "",
+        "type": "bytes3"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "eyecolor",
     "outputs": [
       {
         "internalType": "bytes3",

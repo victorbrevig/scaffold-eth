@@ -179,11 +179,11 @@ function App(props) {
   ]);*/
 
   // keep track of a variable from the contract in the local React state:
-  const balance = useContractReader(readContracts, "YourCollectible", "balanceOf", [address]);
+  const balance = useContractReader(readContracts, "Bloopers", "balanceOf", [address]);
   console.log("🤗 balance:", balance);
 
   // 📟 Listen for broadcast events
-  const transferEvents = useEventListener(readContracts, "YourCollectible", "Transfer", localProvider, 1);
+  const transferEvents = useEventListener(readContracts, "Bloopers", "Transfer", localProvider, 1);
   console.log("📟 Transfer events:", transferEvents);
 
   //
@@ -198,9 +198,9 @@ function App(props) {
       for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
         try {
           console.log("GEtting token index", tokenIndex);
-          const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
+          const tokenId = await readContracts.Bloopers.tokenOfOwnerByIndex(address, tokenIndex);
           console.log("tokenId", tokenId);
-          const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
+          const tokenURI = await readContracts.Bloopers.tokenURI(tokenId);
           const jsonManifestString = atob(tokenURI.substring(29))
           console.log("jsonManifestString", jsonManifestString);
 /*
@@ -406,7 +406,7 @@ function App(props) {
               }}
               to="/"
             >
-              Your Loogies
+              Your Bloopers
             </Link>
           </Menu.Item>
           <Menu.Item key="/debug">
@@ -432,7 +432,7 @@ function App(props) {
             <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
               {isSigner?(
                 <Button type={"primary"} onClick={()=>{
-                  tx( writeContracts.YourCollectible.mintItem() )
+                  tx( writeContracts.Bloopers.mintItem() )
                 }}>MINT</Button>
               ):(
                 <Button type={"primary"} onClick={loadWeb3Modal}>CONNECT WALLET</Button>
@@ -458,7 +458,7 @@ function App(props) {
                           </div>
                         }
                       >
-                        <a href={"https://opensea.io/assets/"+(readContracts && readContracts.YourCollectible && readContracts.YourCollectible.address)+"/"+item.id} target="_blank">
+                        <a href={"https://opensea.io/assets/"+(readContracts && readContracts.Bloopers && readContracts.Bloopers.address)+"/"+item.id} target="_blank">
                         <img src={item.image} />
                         </a>
                         <div>{item.description}</div>
@@ -507,11 +507,11 @@ function App(props) {
           <Route path="/debug">
 
             <div style={{padding:32}}>
-              <Address value={readContracts && readContracts.YourCollectible && readContracts.YourCollectible.address} />
+              <Address value={readContracts && readContracts.Bloopers && readContracts.Bloopers.address} />
             </div>
 
             <Contract
-              name="YourCollectible"
+              name="Bloopers"
               signer={userProvider.getSigner()}
               provider={localProvider}
               address={address}
