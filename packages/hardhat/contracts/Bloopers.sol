@@ -7,8 +7,10 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import 'base64-sol/base64.sol';
 
+
 import './HexStrings.sol';
 import './ToColor.sol';
+import './BloopToken.sol';
 //learn more: https://docs.openzeppelin.com/contracts/3.x/erc721
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
@@ -20,6 +22,8 @@ contract Bloopers is ERC721, Ownable {
   using ToColor for bytes3;
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
+
+  BloopToken bloopToken;
 
   constructor() public ERC721("Bloopers", "BLOOP") {
     
@@ -36,62 +40,77 @@ contract Bloopers is ERC721, Ownable {
 
   mapping (uint256 => uint256) public chubbiness;
 
+  uint256 fusePrice = 1_000 * 1e18;
 
-  function mintItem()
-      public
-      returns (uint256)
-  {
-      _tokenIds.increment();
 
-      uint256 id = _tokenIds.current();
-      _mint(msg.sender, id);
+  function mintItem() public returns (uint256) {
+    _tokenIds.increment();
 
-      bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
-      bodyColor[id]      = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[1]) >> 8 ) | ( bytes3(predictableRandom[2]) >> 16 );
-      gradientColor1[id] = bytes2(predictableRandom[3]) | ( bytes2(predictableRandom[4]) >> 8 ) | ( bytes3(predictableRandom[5]) >> 16 );
-      gradientColor2[id] = bytes2(predictableRandom[6]) | ( bytes2(predictableRandom[7]) >> 8 ) | ( bytes3(predictableRandom[8]) >> 16 ); 
-      tiers[id]          = uint8(predictableRandom[9])%3;
-      hats[id]           = uint8(predictableRandom[10])%10;
-      faces[id]          = uint8(predictableRandom[11])%11;
-      chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
-      
-      return id;
+    uint256 id = _tokenIds.current();
+    _mint(msg.sender, id);
+
+    bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
+    bodyColor[id]      = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[1]) >> 8 ) | ( bytes3(predictableRandom[2]) >> 16 );
+    gradientColor1[id] = bytes2(predictableRandom[3]) | ( bytes2(predictableRandom[4]) >> 8 ) | ( bytes3(predictableRandom[5]) >> 16 );
+    gradientColor2[id] = bytes2(predictableRandom[6]) | ( bytes2(predictableRandom[7]) >> 8 ) | ( bytes3(predictableRandom[8]) >> 16 ); 
+    tiers[id]          = uint8(predictableRandom[9])%3;
+    hats[id]           = uint8(predictableRandom[10])%10;
+    faces[id]          = uint8(predictableRandom[11])%11;
+    chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
+    
+    return id;
   }
 
-function tokenURI(uint256 id) public view override returns (string memory) {
-      require(_exists(id), "not exist");
-      string memory name = string(abi.encodePacked('Loogie #',id.toString()));
-      string memory description = string(abi.encodePacked('This Loogie is the color #',bodyColor[id].toColor(),' with a chubbiness of ',uint2str(chubbiness[id]),'!!!'));
-      string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
+  function fuseBloopers(uint256 _consumerId, uint256 _victimId) public {
+    // should transfer to DAO or this function should be in DAO contract (msg.sender is paying the DAO to fuse)
+    require(ownerOf(_consumerId) == msg.sender && ownerOf(_victimId) == msg.sender);
+    require(tiers[_consumerId] < 3);
+    bool paymentSuccess = bloopToken.transferFrom(msg.sender, address(this), fusePrice);
+    require(paymentSuccess, "PAYMENT NOT SUCCESSFUL");
 
-      return
-          string(
-              abi.encodePacked(
-                'data:application/json;base64,',
-                Base64.encode(
-                    bytes(
-                          abi.encodePacked(
-                              '{"name":"',
-                              name,
-                              '", "description":"',
-                              description,
-                              '", "external_url":"https://burnyboys.com/token/',
-                              id.toString(),
-                              '", "attributes": [{"trait_type": "color", "value": "#',
-                              bodyColor[id].toColor(),
-                              '"},{"trait_type": "chubbiness", "value": ',
-                              uint2str(chubbiness[id]),
-                              '}], "owner":"',
-                              (uint160(ownerOf(id))).toHexString(20),
-                              '", "image": "',
-                              'data:image/svg+xml;base64,',
-                              image,
-                              '"}'
+    tiers[_consumerId]++;
+    hats[_consumerId] = hats[_victimId];
+
+
+  }
+
+
+
+
+  function tokenURI(uint256 id) public view override returns (string memory) {
+        require(_exists(id), "not exist");
+        string memory name = string(abi.encodePacked('Loogie #',id.toString()));
+        string memory description = string(abi.encodePacked('This Loogie is the color #',bodyColor[id].toColor(),' with a chubbiness of ',uint2str(chubbiness[id]),'!!!'));
+        string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
+
+        return
+            string(
+                abi.encodePacked(
+                  'data:application/json;base64,',
+                  Base64.encode(
+                      bytes(
+                            abi.encodePacked(
+                                '{"name":"',
+                                name,
+                                '", "description":"',
+                                description,
+                                '", "external_url":"https://burnyboys.com/token/',
+                                id.toString(),
+                                '", "attributes": [{"trait_type": "color", "value": "#',
+                                bodyColor[id].toColor(),
+                                '"},{"trait_type": "chubbiness", "value": ',
+                                uint2str(chubbiness[id]),
+                                '}], "owner":"',
+                                (uint160(ownerOf(id))).toHexString(20),
+                                '", "image": "',
+                                'data:image/svg+xml;base64,',
+                                image,
+                                '"}'
+                            )
                           )
-                        )
-                    )
-              )
-          );
+                      )
+                )
+            );
   }
 
   function generateSVGofTokenById(uint256 id) internal view returns (string memory) {

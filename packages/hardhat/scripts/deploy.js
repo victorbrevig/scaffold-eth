@@ -28,7 +28,8 @@ const main = async () => {
 
   var result = await bloopers.transferOwnership("0x93F82f49f40be5a5e6f1e665AcCf96f56b2ae721") 
 
-  
+  // MINT BLOOPERS TO FRONT END ADDRESS
+  /*
   for(let i=1; i<=50; i++) {
     const id = await bloopers.mintItem();
     // transfer this damn id btih
@@ -37,6 +38,7 @@ const main = async () => {
     await bloopers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x93F82f49f40be5a5e6f1e665AcCf96f56b2ae721", i.toString());
     
   }
+  */
   
   
 
