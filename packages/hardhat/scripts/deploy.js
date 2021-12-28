@@ -22,9 +22,24 @@ const main = async () => {
   console.log(" \n")*/
 
   // deploy the contract with all the artworks forSale
-  const yourCollectible = await deploy("YourCollectible"/*,[ bytes32Array ]*/) // <-- add in constructor args like line 19 vvvv
+  
 
-  yourCollectible.transferOwnership("0x34aA3F359A9D614239015126635CE7732c18fDF3") //austingriffith.eth
+  const bloopers = await deploy("Bloopers"/*,[ bytes32Array ]*/) // <-- add in constructor args like line 19 vvvv
+
+  var result = await bloopers.transferOwnership("0x93F82f49f40be5a5e6f1e665AcCf96f56b2ae721") 
+
+  
+  for(let i=1; i<=50; i++) {
+    const id = await bloopers.mintItem();
+    // transfer this damn id btih
+    //console.log(await bloopers.ownerOf("1"));
+    
+    await bloopers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x93F82f49f40be5a5e6f1e665AcCf96f56b2ae721", i.toString());
+    
+  }
+  
+  
+
 
   //const yourContract = await ethers.getContractAt('YourContract', "0xaAC799eC2d00C013f1F11c37E654e59B0429DF6A") //<-- if you want to instantiate a version of a contract at a specific address!
   //const secondContract = await deploy("SecondContract")
