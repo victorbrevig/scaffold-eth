@@ -29,7 +29,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   SVGFaceGenerator faceGenerator;
   SVGHatGenerator hatGenerator;
   
-  
+
   Counters.Counter private _tokenIds;
   
   address payable public constant recipient =
@@ -45,10 +45,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     hatGenerator = SVGHatGenerator(hatGeneratorAddress);
   }
 
-
-
-
   mapping (uint256 => bytes3) public bodyColor;
+  mapping (uint256 => bytes3) public hatColor;
   mapping (uint256 => bytes3) public gradientColor1;
   mapping (uint256 => bytes3) public gradientColor2;
 
@@ -58,6 +56,29 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   mapping (uint256 => uint256) public chubbiness;
   mapping (uint256 => uint256) public mouthLength;
+
+  // NFT id => timestamp of last time BLP collected
+  mapping (uint256 => uint256) public lastBlockHarvestedById;
+
+
+  uint256 issuancePerBlock = 1000;
+
+
+  // when a mint happens, the issuancePerBlock is split between one more Blooper
+
+  // calculating rewards:
+  // 40 blocks * 1000/1 -> (next mint happens) + 69 blocks * 1000/2 -> (next mint happens) + 100 blocks * 1000/3 + ...
+
+  // we need to store triples (supply, start block with that supply, end block with that supply) 
+
+  function harvestBLP(uint256 id) public {
+    require(ownerOf(id) == msg.sender);
+    require(lastBlockHarvestedById[id] > block.number);
+
+
+    // want to divide rewards by totalSupply
+
+  }
 
   
 
@@ -79,11 +100,16 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     tiers[id]          = uint8(predictableRandom[9])%3;
     hats[id]           = uint8(predictableRandom[10])%15;
     faces[id]          = uint8(predictableRandom[11])%19;
+    // condom (no. 11) must have same color as body
+    hatColor[id]       = hats[id]==11 ? bodyColor[id] : bytes2(predictableRandom[12]) | ( bytes2(predictableRandom[13]) >> 8 ) | ( bytes3(predictableRandom[14]) >> 16 );
+    
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
     // Send to recipient address
     (bool success, ) = recipient.call{value: msg.value}("");
     require(success, "could not send");
+
+    lastBlockHarvestedById[id] = block.number;
     return id;
   }
 
@@ -148,7 +174,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
       bodyColor[id].toColor(),'">',
       bodyGenerator.renderTokenBodyById(tiers[id]),
       '</g>',
-      hatGenerator.renderTokenHatById(hats[id]),
+      hatGenerator.renderTokenHatById(hats[id], hatColor[id]),
       faceGenerator.renderTokenFaceById(faces[id]),
       '</g></svg>'
     ));

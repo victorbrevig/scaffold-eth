@@ -1,14 +1,15 @@
 pragma solidity ^0.8.0;
 //SPDX-License-Identifier: MIT
 
+import './ToColor.sol';
+
 contract SVGHatGenerator {
 
+  using ToColor for bytes3;
 
-    constructor() {
-        
-    }
+  constructor() {}
 
-  function renderTokenHatById(uint8 hat) external pure returns (string memory) {
+  function renderTokenHatById(uint8 hat, bytes3 color) external pure returns (string memory) {
 
     if(hat==0){ // planet
       return string(abi.encodePacked(
@@ -31,21 +32,21 @@ contract SVGHatGenerator {
       ));
     } else if(hat==3){ // sweat band
       return string(abi.encodePacked(
-      '<g fill="#4a8bff" >',
+      '<g fill="#',color.toColor(),'" >',
       '<rect x="326" y="273" width="437" height="53"/>',
       '<rect x="316" y="291" width="457" height="17" fill="#fff" />',
       '</g>'
       ));
     } else if(hat==4){ // mochigan
       return string(abi.encodePacked(
-      '<g fill="#4a8bff">',
+      '<g fill="#',color.toColor(),'" >',
       '<rect x="552" y="114" width="42" height="132"/>',
       '<path d="M552,246V114h0a99,99,0,0,0-99,99v14.16S519,216,552,246Z"/>',
       '</g>'
       ));
     } else if(hat==5){ // horns
       return string(abi.encodePacked(
-      '<g fill="#f1ece4">',
+      '<g fill="#',color.toColor(),'" >',
       '<path d="M407.5,242H366a67,67,0,0,1-67-67v50a74,74,0,0,0,74,74H407.5a28.5,28.5,0,0,0,0-57Z" />',
       '<path d="M376.5,242h0A28.5,28.5,0,0,1,405,270.5h0A28.5,28.5,0,0,1,376.5,299h0" fill="none" />',
       '<path d="M725,242H683.5a28.36,28.36,0,0,0-12.61,2.94,230.29,230.29,0,0,1,55.5,53.58A74,74,0,0,0,792,225V175A67,67,0,0,1,725,242Z" />',
@@ -53,7 +54,7 @@ contract SVGHatGenerator {
       ));
     } else if(hat==6){ // cap
       return string(abi.encodePacked(
-      '<g fill="#bd15ff" transform="translate(20 -10)">',
+      '<g fill="#',color.toColor(),'" transform="translate(20 -10)">',
       '<path d="M504.08,84h37.83A46.09,46.09,0,0,1,588,130.09V183a0,0,0,0,1,0,0H441a0,0,0,0,1,0,0V147.08A63.08,63.08,0,0,1,504.08,84Z" />',
       '<path d="M588,167h77a8,8,0,0,1,8,8v0a8,8,0,0,1-8,8H588a0,0,0,0,1,0,0V167A0,0,0,0,1,588,167Z" />',
       '<path d="M443,136h15a14,14,0,0,1,14,14h0a14,14,0,0,1-14,14H441" fill="#000" />',
@@ -63,7 +64,7 @@ contract SVGHatGenerator {
       ));
     } else if(hat==7){ // beanie
       return string(abi.encodePacked(
-      '<g transform="translate(0 15)" fill="#28345c">',
+      '<g transform="translate(0 15)" fill="#',color.toColor(),'">',
       '<rect x="358.5" y="246.5" width="367" height="29" />',
       '<path d="M712.76,246.5a229,229,0,0,0-342.52,0Z" />',
       '<line x1="376.91" y1="248" x2="376.91" y2="268" />',
@@ -81,7 +82,7 @@ contract SVGHatGenerator {
       ));
     } else if(hat==8){ // afro
       return string(abi.encodePacked(
-      '<g fill="#ff46c7">',
+      '<g fill="#',color.toColor(),'" >',
       '<circle cx="358.5" cy="342.5" r="3.5" />',
       '<circle cx="391.5" cy="362.5" r="3.5" />',
       '<circle cx="351.5" cy="382.5" r="3.5" />',
@@ -101,13 +102,13 @@ contract SVGHatGenerator {
       ));
     } else if(hat==10){ // toupe
       return string(abi.encodePacked(
-      '<g fill="#000000">',
+      '<g fill="#',color.toColor(),'" >',
       '<path d="M742.94,145a37.07,37.07,0,0,0-37.07,36.94l0,13.06H383.6A103.6,103.6,0,0,0,280,298.6V468a28,28,0,0,0-28,28v17a28,28,0,0,0,28,28h32V409.45A57.45,57.45,0,0,1,369.45,352H434V275H719.11A60.89,60.89,0,0,0,780,214.11V182.06A37.06,37.06,0,0,0,742.94,145Z" />',
       '</g>'
       ));
     } else if(hat==11) { // condom
       return string(abi.encodePacked(
-      '<g fill="#8688ff">',
+      '<g fill="#',color.toColor(),'" >',
       '<path d="M504,222V169a37,37,0,0,1,37-37h0a37,37,0,0,1,37,37v53" />',
       '<path d="M541,150h0a19,19,0,0,1,19,19" stroke="#ffffff" />',
       '</g>'
@@ -126,7 +127,7 @@ contract SVGHatGenerator {
       ));
     } else if(hat==12) { // cowboy
       return string(abi.encodePacked(
-      '<g fill="#68e217">',
+      '<g fill="#',color.toColor(),'" >',
       '<path d="M639,115.76v30.68a15.39,15.39,0,0,1-15.39,15.39H455.77a15.39,15.39,0,0,1-15.39-15.39V115.76a21,21,0,0,0-21-21h0a21,21,0,0,0-21,21v30h0a29.52,29.52,0,0,0,29.52,29.52H651.48A29.52,29.52,0,0,0,681,145.73h0v-30a21,21,0,0,0-21-21h0A21,21,0,0,0,639,115.76Z" />',
       '<path d="M639,115.76v30.68a15.39,15.39,0,0,1-15.39,15.39H455.77a15.39,15.39,0,0,1-15.39-15.39V115.76a21,21,0,0,0-21-21h0a21,21,0,0,0-21,21v30h0a29.52,29.52,0,0,0,29.52,29.52H651.48A29.52,29.52,0,0,0,681,145.73h0v-30a21,21,0,0,0-21-21h0A21,21,0,0,0,639,115.76Z" fill="#000" opacity="0.3" />',
       '<path d="M549.73,71.15v1.28a9.85,9.85,0,0,1-9.84,9.84h0a9.85,9.85,0,0,1-9.84-9.84V71.15a27.39,27.39,0,0,0-27.39-27.4h-.45a27.4,27.4,0,0,0-27.4,27.4v90.68H604.52V71.15a27.4,27.4,0,0,0-27.4-27.4h0A27.39,27.39,0,0,0,549.73,71.15Z" />',

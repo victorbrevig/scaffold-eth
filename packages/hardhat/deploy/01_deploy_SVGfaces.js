@@ -57,7 +57,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   if (chainId !== localChainId) {
     await run("verify:verify", {
       address: SVGFaceGenerator.address,
-      contract: "contracts/SVGFaceGenerator.sol:SVGFaceGenerator",
+      contract: "contracts/FaceGenerator.sol:SVGFaceGenerator",
       contractArguments: [],
     });
   }

@@ -196,9 +196,9 @@ function renderTokenFaceById(uint8 face) external pure returns (string memory) {
       '<line x1="676.91" y1="569" x2="676.91" y2="600" />',
       '<line x1="706.91" y1="569" x2="706.91" y2="600" /><line x1="736.91" y1="569" x2="736.91" y2="600" /></g>'
       ));
-    } else if(face==17) {
+    } else if(face==17) { // ape
       return string(abi.encodePacked(
-      '<g fill="#2cff25">',
+      '<g fill="#ede0a9">',
       '<path d="M714,390H456a58,58,0,0,0-58,58h0a58,58,0,0,0,58,58h71v31a58,58,0,0,0,58,58h0a58,58,0,0,0,58-58V506h71a58,58,0,0,0,58-58h0A58,58,0,0,0,714,390Z" fill="#ede0a9" />',
       '<path d="M650.63,264.75a28.42,28.42,0,0,0,20-8.2,28.5,28.5,0,1,0,0-40.6,28.49,28.49,0,0,0-40,0,28.48,28.48,0,0,0-48.5,20.3" />',
       '<path d="M772,528a53,53,0,0,0,0-106Z" fill="#ede0a9" /><circle cx="454.88" cy="448.25" r="26" fill="#fff" />',
@@ -206,7 +206,7 @@ function renderTokenFaceById(uint8 face) external pure returns (string memory) {
       '<path d="M315,500a25,25,0,0,1,0-50" fill="none" /><circle cx="583" cy="485" r="19" fill="#000" />',
       '<line x1="583.5" y1="487.5" x2="583.5" y2="543.5" /></g>'
       ));
-    } else if(face==18){
+    } else if(face==18){ // pc
       return string(abi.encodePacked(
       '<g fill="#227cff"><rect x="304" y="540" width="68" height="24" fill="#000"/><rect x="341" y="173" width="465" height="410" rx="52.21" fill="#fff7d4" />',
       '<rect x="387.5" y="214" width="372" height="297" rx="33.3"/><path d="M341,230.5l-53.44,53.43a19.89,19.89,0,0,0-5.81,14V520.14A19.86,19.86,0,0,0,301.61,540h41.65Z" fill="#d3c89c"/>',

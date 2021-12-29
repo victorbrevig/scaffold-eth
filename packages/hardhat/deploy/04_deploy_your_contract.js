@@ -1,3 +1,4 @@
+// deploy/00_deploy_your_contract.js
 
 const { ethers } = require("hardhat");
 
@@ -8,15 +9,38 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deployer } = await getNamedAccounts();
   const chainId = await getChainId();
 
-  await deploy("SVGBodyGenerator", {
+  const svgBody = await ethers.getContract("SVGBodyGenerator", deployer);
+  const svgHat = await ethers.getContract("SVGHatGenerator", deployer);
+  const svgFace = await ethers.getContract("SVGFaceGenerator", deployer);
+
+  const bloopToken = await ethers.getContract("BloopToken", deployer);
+  
+
+  await deploy("YourCollectible", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
+    args: [svgBody.address, svgFace.address, svgHat.address],
     log: true,
   });
 
   // Getting a previously deployed contract
-  const SVGBodyGenerator = await ethers.getContract("SVGBodyGenerator", deployer);
+  const bloopers = await ethers.getContract("YourCollectible", deployer);
+
+  // transfer all BLP to this contract
+  const result = await bloopToken.transfer(
+    bloopers.address,
+    ethers.utils.parseEther("1000000000")
+  );
+
+  // MINT 100
+  /*
+  for(let i=1; i<=100; i++) {
+    const id = await bloopers.mintItem({value: ethers.utils.parseEther("0.02")});
+    //console.log(await bloopers.ownerOf("1"));
+    await bloopers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6", i.toString()); 
+  }
+  */
 
 
   /*  await YourContract.setPurpose("Hello");
@@ -56,10 +80,10 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   // You don't want to verify on localhost
   if (chainId !== localChainId) {
     await run("verify:verify", {
-      address: SVGBodyGenerator.address,
-      contract: "contracts/BodyGenerator.sol:SVGBodyGenerator",
+      address: YourCollectible.address,
+      contract: "contracts/YourCollectible.sol:YourCollectible",
       contractArguments: [],
     });
   }
 };
-module.exports.tags = ["SVGBodyGenerator"];
+module.exports.tags = ["YourCollectible"];
