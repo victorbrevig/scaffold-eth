@@ -7,11 +7,11 @@ export default function Header() {
   return (
     <a href="/">
       <div style={{ position: "absolute", left: -20, top: -30 }}>
-        <img src="optimistic-loogie.svg" width="130" height="130" alt="Optimistic Loogie" />
+        <img src="blooper_logo.svg" width="130" height="130" alt="Blooper" />
       </div>
       <PageHeader
-        title={<div style={{ marginLeft: 50 }}>Optimistic Loogies</div>}
-        subTitle="Loogies with a smile :-)"
+        title={<div style={{ marginLeft: 50 }}>Bloopers</div>}
+        subTitle="Join the Boys"
         style={{ cursor: "pointer" }}
       />
     </a>
