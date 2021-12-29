@@ -10,7 +10,9 @@ import 'base64-sol/base64.sol';
 
 import './HexStrings.sol';
 import './ToColor.sol';
-import './SVGgenerator.sol';
+import './BodyGenerator.sol';
+import './FaceGenerator.sol';
+import './HatGenerator.sol';
 
 //learn more: https://docs.openzeppelin.com/contracts/3.x/erc721
 
@@ -23,9 +25,11 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   using ToColor for bytes3;
   using Counters for Counters.Counter;
 
-  SVGgenerator svgGenerator;
-
-
+  SVGBodyGenerator bodyGenerator;
+  SVGFaceGenerator faceGenerator;
+  SVGHatGenerator hatGenerator;
+  
+  
   Counters.Counter private _tokenIds;
   
   address payable public constant recipient =
@@ -35,8 +39,10 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint256 public constant curve = 1002; // price increase 0,4% with each purchase
   uint256 public price = 0.001 ether;
 
-  constructor(address svgGeneratorAddress) ERC721("Bloopers", "BLOOP") {
-    svgGenerator = SVGgenerator(svgGeneratorAddress);
+  constructor(address bodyGeneratorAddress, address faceGeneratorAddress, address hatGeneratorAddress) ERC721("Bloopers", "BLOOP") {
+    bodyGenerator = SVGBodyGenerator(bodyGeneratorAddress);
+    faceGenerator = SVGFaceGenerator(faceGeneratorAddress);
+    hatGenerator = SVGHatGenerator(hatGeneratorAddress);
   }
 
 
@@ -71,8 +77,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     gradientColor1[id] = bytes2(predictableRandom[3]) | ( bytes2(predictableRandom[4]) >> 8 ) | ( bytes3(predictableRandom[5]) >> 16 );
     gradientColor2[id] = bytes2(predictableRandom[6]) | ( bytes2(predictableRandom[7]) >> 8 ) | ( bytes3(predictableRandom[8]) >> 16 ); 
     tiers[id]          = uint8(predictableRandom[9])%3;
-    hats[id]           = uint8(predictableRandom[10])%10;
-    faces[id]          = uint8(predictableRandom[11])%11;
+    hats[id]           = uint8(predictableRandom[10])%15;
+    faces[id]          = uint8(predictableRandom[11])%19;
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
     // Send to recipient address
@@ -140,10 +146,10 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     string memory svgP2 = string(abi.encodePacked(
       '</linearGradient></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"><g fill="#',
       bodyColor[id].toColor(),'">',
-      svgGenerator.renderTokenBodyById(tiers[id]),
+      bodyGenerator.renderTokenBodyById(tiers[id]),
       '</g>',
-      svgGenerator.renderTokenHatById(hats[id]),
-      svgGenerator.renderTokenFaceById(faces[id]),
+      hatGenerator.renderTokenHatById(hats[id]),
+      faceGenerator.renderTokenFaceById(faces[id]),
       '</g></svg>'
     ));
     
