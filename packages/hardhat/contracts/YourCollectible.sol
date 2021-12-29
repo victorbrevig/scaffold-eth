@@ -22,21 +22,21 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   using HexStrings for uint160;
   using ToColor for bytes3;
   using Counters for Counters.Counter;
-  Counters.Counter private _tokenIds;
 
   SVGgenerator svgGenerator;
 
+
+  Counters.Counter private _tokenIds;
   
   address payable public constant recipient =
-    payable(0x93F82f49f40be5a5e6f1e665AcCf96f56b2ae721);
-
+    payable(0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6);
 
   uint256 public constant limit = 3728;
   uint256 public constant curve = 1002; // price increase 0,4% with each purchase
   uint256 public price = 0.001 ether;
 
-  constructor() ERC721("Bloopers", "BLOOP") {
-    
+  constructor(address svgGeneratorAddress) ERC721("Bloopers", "BLOOP") {
+    svgGenerator = SVGgenerator(svgGeneratorAddress);
   }
 
 
@@ -103,14 +103,17 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                               uint2str(chubbiness[id]),
                               '},{"trait_type": "mouthLength", "value": ',
                               uint2str(mouthLength[id]),
-                              '}], "owner":"'));
+                              '}], "owner":"'
+              ));
+      
       string memory secondPart = string(
               abi.encodePacked(
                               (uint160(ownerOf(id))).toHexString(20),
                               '", "image": "',
                               'data:image/svg+xml;base64,',
                               image,
-                              '"}'));
+                              '"}'
+              ));
       
       return
           string(
@@ -125,13 +128,14 @@ contract YourCollectible is ERC721Enumerable, Ownable {
           
   }
 
-  function generateSVGofTokenById(uint256 id) internal view returns (string memory) {
+  function generateSVGofTokenById(uint256 id) public view returns (string memory) {
     
     string memory svgP1 = string(abi.encodePacked(
       '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><title>Bloops</title><defs><linearGradient id="linear-gradient" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">',
       '<stop offset="0" stop-color="#',gradientColor1[id].toColor(),'" />',
       '<stop offset="1" stop-color="#',gradientColor2[id].toColor(),'" />'
       ));
+    
 
     string memory svgP2 = string(abi.encodePacked(
       '</linearGradient></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"><g fill="#',
@@ -144,6 +148,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     ));
     
     return string(abi.encodePacked(svgP1,svgP2));
+    
     
   }
 
