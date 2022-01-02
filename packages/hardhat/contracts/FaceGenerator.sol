@@ -8,7 +8,7 @@ contract SVGFaceGenerator {
         
     }
 
-function renderTokenFaceById(uint8 face) external pure returns (string memory) {
+function render(uint8 face) external pure returns (string memory) {
     if(face==0){ // default
       return string(abi.encodePacked(
       '<g>',

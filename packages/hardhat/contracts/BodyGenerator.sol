@@ -8,15 +8,13 @@ contract SVGBodyGenerator {
         
     }
 
-    function renderTokenBodyById(uint8 tier) external pure returns (string memory) { 
+    function render(uint8 tier) external pure returns (string memory) { 
         // Body
         if(tier==0){
         return string(abi.encodePacked(
         '<path d="M806.25,804.25h-34V434.75c0-126.75-102.75-229.5-229.5-229.5h0c-126.75,0-229.5,102.75-229.5,229.5v369.5h-38a29,29,0,0,0-29,29h0a29,29,0,0,0,29,29h531a29,29,0,0,0,29-29h0A29,29,0,0,0,806.25,804.25Z" />',
-        '<rect x="704" y="901" width="77" height="51" rx="25.5" />',
-        '<rect x="155" y="854.88" width="50" height="33.12" rx="16.56" />',
-        '<rect x="870" y="837.88" width="50" height="33.12" rx="16.56" />',
-        '<line x1="320.25" y1="636.08" x2="365" y2="636.08" opacity="0.2" stroke-width="25" stroke-linecap="round" />'
+        '<rect x="704" y="901" width="77" height="51" rx="25.5" /><rect x="155" y="854.88" width="50" height="33.12" rx="16.56" /><rect x="870" y="837.88" width="50" height="33.12" rx="16.56" />',
+        '<line x1="313" y1="804" x2="481" y2="804" />'
         ));
         } else if(tier==1){
         return string(abi.encodePacked(
