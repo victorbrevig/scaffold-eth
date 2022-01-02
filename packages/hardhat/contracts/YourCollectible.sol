@@ -13,6 +13,7 @@ import './HexStrings.sol';
 import './ToColor.sol';
 import './BodyGenerator.sol';
 import './FaceGenerator.sol';
+import './FullFaceGenerator.sol';
 import './HatGenerator.sol';
 
 //learn more: https://docs.openzeppelin.com/contracts/3.x/erc721
@@ -29,6 +30,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   SVGBodyGenerator bodyGenerator;
   SVGFaceGenerator faceGenerator;
   SVGHatGenerator hatGenerator;
+  SVGFullFaceGenerator fullFaceGenerator;
   
 
   Counters.Counter private _tokenIds;
@@ -40,10 +42,11 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint256 public constant curve = 1002; // price increase 0,4% with each purchase
   uint256 public price = 0.001 ether;
 
-  constructor(address bodyGeneratorAddress, address faceGeneratorAddress, address hatGeneratorAddress) ERC721("Bloopers", "BLOOP") {
+  constructor(address bodyGeneratorAddress, address faceGeneratorAddress, address hatGeneratorAddress, address fullFaceGeneratorAddress) ERC721("Bloopers", "BLOOP") {
     bodyGenerator = SVGBodyGenerator(bodyGeneratorAddress);
     faceGenerator = SVGFaceGenerator(faceGeneratorAddress);
     hatGenerator = SVGHatGenerator(hatGeneratorAddress);
+    fullFaceGenerator = SVGFullFaceGenerator(fullFaceGeneratorAddress);
   }
 
 
@@ -55,6 +58,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 tier;
     uint8 hat;
     uint8 face;
+    uint8 fullFace;
   }
 
   mapping (uint256 => Blooper) public idToBlooper;
@@ -112,10 +116,16 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     idToBlooper[id].bodyColor      = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[1]) >> 8 ) | ( bytes3(predictableRandom[2]) >> 16 );
     idToBlooper[id].gradientColor1 = bytes2(predictableRandom[3]) | ( bytes2(predictableRandom[4]) >> 8 ) | ( bytes3(predictableRandom[5]) >> 16 );
     idToBlooper[id].gradientColor2 = bytes2(predictableRandom[6]) | ( bytes2(predictableRandom[7]) >> 8 ) | ( bytes3(predictableRandom[8]) >> 16 ); 
-    //tiers[id]          = uint8(predictableRandom[9])%3;
-    idToBlooper[id].tier          = 0;
-    idToBlooper[id].hat           = uint8(predictableRandom[10])%15;
-    idToBlooper[id].face          = uint8(predictableRandom[11])%19;
+    idToBlooper[id].tier          = uint8(predictableRandom[9])%3;
+    //idToBlooper[id].tier          = 0;
+    idToBlooper[id].fullFace      = uint8(predictableRandom[14])%25;
+    if(idToBlooper[id].fullFace < 6){
+      idToBlooper[id].hat = 30;
+      idToBlooper[id].face = 0;
+    } else {
+      idToBlooper[id].hat         = uint8(predictableRandom[10])%18;
+      idToBlooper[id].face        = uint8(predictableRandom[11])%20;
+    }
     // condom (no. 11) must have same color as body
     idToBlooper[id].hatColor       = idToBlooper[id].hat==11 ? idToBlooper[id].bodyColor : bytes2(predictableRandom[12]) | ( bytes2(predictableRandom[13]) >> 8 ) | ( bytes3(predictableRandom[14]) >> 16 );
     
@@ -192,6 +202,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
       '</g>',
       hatGenerator.renderTokenHatById(idToBlooper[id].hat, idToBlooper[id].hatColor),
       faceGenerator.renderTokenFaceById(idToBlooper[id].face),
+      fullFaceGenerator.renderTokenFullFaceById(idToBlooper[id].fullFace, idToBlooper[id].bodyColor),
       '</g></svg>'
     ));
     
