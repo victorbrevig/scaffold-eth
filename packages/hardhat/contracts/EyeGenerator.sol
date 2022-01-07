@@ -9,7 +9,7 @@ contract SVGEyeGenerator {
 
     constructor() {}
 
-    function render(uint8 eye, bytes3 color) external pure returns (string memory) {
+    function render(uint8 eye, string memory color) external pure returns (string memory) {
 
         if(eye==0){ // default eyes
             return string(abi.encodePacked(
@@ -47,7 +47,7 @@ contract SVGEyeGenerator {
             ));
         }else if(eye==4){ // joker
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'">',
+            '<g fill="#',color,'">',
             '<polygon points="399.79 450 457 354 514.21 450 457 546 399.79 450" />',
             '<polygon points="659.79 450 717 354 774.21 450 717 546 659.79 450" />',
             '<circle cx="457" cy="448" r="26" fill="#fff" />',
@@ -56,7 +56,7 @@ contract SVGEyeGenerator {
             ));
         }else if(eye==5){ // IG GLASSES
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'">',
+            '<g fill="#',color,'">',
             '<circle cx="453.88" cy="448.25" r="26" fill="#fff" />',
             '<circle cx="713.88" cy="448.25" r="26" fill="#fff" />',
             '<rect x="377" y="448" width="154" height="30" rx="15" opacity="0.5" />',
@@ -69,7 +69,7 @@ contract SVGEyeGenerator {
             ));
         }else if(eye==6){ // NINJA
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'" transform="translate(0 -6)">',
+            '<g fill="#',color,'" transform="translate(0 -6)">',
             '<rect x="302" y="420" width="479" height="72" />',
             '<path d="M481,446a26,26,0,0,1-52,0Z" fill="#fff" />',
             '<path d="M741,446a26,26,0,0,1-52,0Z" fill="#fff" />',
@@ -111,7 +111,7 @@ contract SVGEyeGenerator {
             ));
         }else if(eye==11){ // BOUJEE SHADES
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'" transform="translate(0 -10)">',
+            '<g fill="#',color,'" transform="translate(0 -10)">',
             '<path d="M796.36,391.26H702.85a47.71,47.71,0,0,0-32.41,12.65,393.9,393.9,0,0,0-165.11,1.72,47.72,47.72,0,0,0-34.18-14.37H377.64A11.62,11.62,0,0,0,366.05,402H291a32,32,0,0,0-32,32,10,10,0,0,0,20,0,12,12,0,0,1,12-12h75.22a79.29,79.29,0,0,0,79.09,73.74h25.84A47.84,47.84,0,0,0,519,447.9v-8.8a47.6,47.6,0,0,0-2.55-15.4,373.79,373.79,0,0,1,141.74-1.78A47.84,47.84,0,0,0,655,439.1v8.8a47.84,47.84,0,0,0,47.85,47.84h25.84A79.3,79.3,0,0,0,808,416.44V402.89A11.64,11.64,0,0,0,796.36,391.26Z" fill="#fff" />',
             '<path d="M403.46,409h61.36a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H448.9a57.22,57.22,0,0,1-57.22-57.22v0A11.78,11.78,0,0,1,403.46,409Z" />',
             '<path d="M732.9,409h15.92a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H687.46a11.78,11.78,0,0,1-11.78-11.78v0A57.22,57.22,0,0,1,732.9,409Z" transform="translate(1459 887) rotate(-180)" />',

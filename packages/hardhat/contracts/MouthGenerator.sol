@@ -9,7 +9,7 @@ contract SVGMouthGenerator {
 
   constructor() {}
 
-  function render(uint8 mouth, bytes3 color) external pure returns (string memory) {
+  function render(uint8 mouth, string memory color) external pure returns (string memory) {
     if(mouth==0){ // default
       return '<g><line x1="545.38" y1="513" x2="624.38" y2="513" /></g>';
     } else if(mouth==1){ // covid mask
@@ -37,7 +37,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==3){ // mobster
       return string(abi.encodePacked(
-        '<g><g fill="#',color.toColor(),'">',
+        '<g><g fill="#',color,'">',
         '<rect x="594.5" y="592.5" width="19" height="50" /><rect x="325" y="572.56" width="440" height="20" />',
         '<rect x="562" y="618" width="79.5" height="55.5" rx="13.11" /><rect x="302" y="563.06" width="39" height="39" rx="13.22" />',
         '<rect x="364.86" y="563.06" width="39" height="39" rx="13.22" /><rect x="427.71" y="563.06" width="39" height="39" rx="13.22" />',
@@ -49,7 +49,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==4){ // bandana
       return string(abi.encodePacked(
-      '<g fill="#',color.toColor(),'"><polygon points="303 503 585 648 654.64 598.71 780 510 780 490 303 490 303 503" /><circle cx="288" cy="498" r="21" />',
+      '<g fill="#',color,'"><polygon points="303 503 585 648 654.64 598.71 780 510 780 490 303 490 303 503" /><circle cx="288" cy="498" r="21" />',
       '<path d="M267,498H239.69A24.68,24.68,0,0,1,215,473.31V446Z" /><path d="M267,498v27.31A24.68,24.68,0,0,1,242.31,550H215Z" /><path d="M615,495a39,39,0,0,1-78,0" />',
       '<path d="M595,495a19,19,0,0,1-38,0" fill="none" stroke="#fff" stroke-linecap="butt" /><circle cx="455" cy="446" r="26" fill="#fff" /><circle cx="715" cy="446" r="26" fill="#fff" />',
       '<polyline points="738.93 498.94 642.56 567.14 588.52 605.38" fill="none" stroke="#000" stroke-dasharray="1 14.98" /><polyline points="582.41 609.71 582 610 582 610.32 581.55 610.09" />',
@@ -70,7 +70,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==6){ // puffer jacket
       return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'" transform="translate(0 10)">',
+        '<g fill="#',color,'" transform="translate(0 10)">',
         '<rect x="292" y="620.33" width="503" height="46.67" rx="23.33" transform="translate(0 -30)" />',
         '<rect x="292" y="573.67" width="503" height="46.67" rx="23.33" transform="translate(0 -30)" />',
         '<rect x="292" y="520" width="503" height="53.67" rx="24.31" fill="#1e1e1e" transform="translate(0 -30)" />',
@@ -83,7 +83,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==7){ // floatie
       return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'" transform="translate(-10 0)">',
+        '<g fill="#',color,'" transform="translate(-10 0)">',
         '<path d="M241.39,512.39A10.74,10.74,0,0,0,239,524l-1.88-1.88A10.72,10.72,0,1,0,222,537.27l1.88,1.88a10.73,10.73,0,0,0-11.59,17.54l64.62,52.48,8.49-8.49.61-.61,13.95-14,.61-.6L309,577l-52.48-64.62A10.73,10.73,0,0,0,241.39,512.39Z" />',
         '<rect x="257.15" y="561.14" width="628.85" height="63.86" rx="30.5" />',
         '<path d="M889.36,447h24.08a0,0,0,0,1,0,0v56.56a23,23,0,0,1-23,23h-1.08a0,0,0,0,1,0,0V447A0,0,0,0,1,889.36,447Z" fill="#000" />',
@@ -96,7 +96,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==8){ // scarf
       return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'"><rect x="305" y="494" width="479" height="84" />',
+        '<g fill="#',color,'"><rect x="305" y="494" width="479" height="84" />',
         '<path d="M784,561H305a5,5,0,0,1,0-10H784a5,5,0,0,1,0,10Z" stroke="none" opacity="0.8" fill="#000" />',
         '<path d="M784,551H305a5,5,0,0,1,0-10H784a5,5,0,0,1,0,10Z" fill="#fff" stroke="none" opacity="0.6" />',
         '<path d="M632,583a5,5,0,0,1-5-5V494a5,5,0,0,1,10,0v84A5,5,0,0,1,632,583Z" opacity="0.8" stroke="none" fill="#000" />',
@@ -125,7 +125,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==10){ // SUIT
       return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'"><rect x="300" y="531" width="485" height="108" stroke-width="10" /><line x1="319" y1="536" x2="319" y2="634" fill="none" stroke="#fff" opacity="0.2" />',
+        '<g fill="#',color,'"><rect x="300" y="531" width="485" height="108" stroke-width="10" /><line x1="319" y1="536" x2="319" y2="634" fill="none" stroke="#fff" opacity="0.2" />',
         '<line x1="349" y1="536" x2="349" y2="634" fill="none" stroke="#fff" opacity="0.2" /><line x1="379" y1="536" x2="379" y2="634" fill="none" stroke="#fff" opacity="0.2" /><line x1="409" y1="536" x2="409" y2="634" fill="none" stroke="#fff" opacity="0.2" />',
         '<line x1="439" y1="536" x2="439" y2="634" fill="none" stroke="#fff" opacity="0.2" /><line x1="469" y1="536" x2="469" y2="634" fill="none" stroke="#fff" opacity="0.2" />',
         '<line x1="499" y1="536" x2="499" y2="634" fill="none" stroke="#fff" opacity="0.2" /><line x1="529" y1="536" x2="529" y2="634" fill="none" stroke="#fff" opacity="0.2" />',
@@ -150,7 +150,7 @@ contract SVGMouthGenerator {
       ));
     }else if(mouth==12){ // FOOTBALL KIT
       return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'"><rect x="305" y="529" width="475" height="107" />',
+        '<g fill="#',color,'"><rect x="305" y="529" width="475" height="107" />',
         '<path d="M624,511H565a20,20,0,0,1-20-20h0" fill="none" /><rect x="305" y="529" width="475" height="24" stroke-width="10" fill="#fff" />',
         '<rect x="320" y="558" width="12" height="73" fill="#fff" stroke="none" /><rect x="342" y="558" width="12" height="73" fill="#fff" stroke="none" />',
         '<circle cx="705" cy="589.75" r="16" fill="#fff" /><line x1="439" y1="582.25" x2="465" y2="582.25" />',

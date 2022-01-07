@@ -9,7 +9,7 @@ contract SVGDetailGenerator {
 
   constructor() {}
 
-  function render(uint8 detail, bytes3 color) external pure returns (string memory) {
+  function render(uint8 detail, string memory color) external pure returns (string memory) {
       if(detail==0){ // LIGHTNING
         return string(abi.encodePacked(
         '<g transform="translate(200 -19)" opacity="0.5"><polyline points="488 392 488 369 501.5 382.5 501.5 359" /></g>'
@@ -26,11 +26,11 @@ contract SVGDetailGenerator {
         ));
       }else if(detail==3){ // STUD EARRING
         return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'" transform="translate(-20 -10)"><circle cx="338.5" cy="483.5" r="18.5" /></g>'
+        '<g fill="#',color,'" transform="translate(-20 -10)"><circle cx="338.5" cy="483.5" r="18.5" /></g>'
         ));
       }else if(detail==4){ // RING EARRING
         return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'"><path d="M355.45,476.7l-11.23,16.54a11,11,0,1,1-12.44,0L320.55,476.7a31,31,0,1,0,34.9,0Z" /></g>'
+        '<g fill="#',color,'"><path d="M355.45,476.7l-11.23,16.54a11,11,0,1,1-12.44,0L320.55,476.7a31,31,0,1,0,34.9,0Z" /></g>'
         ));
       }else if(detail==5){ // DIAMOND EARRING
         return string(abi.encodePacked(
@@ -43,7 +43,7 @@ contract SVGDetailGenerator {
         ));
       }else if(detail==6){ //  PRECIOUS STONE
         return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'">',
+        '<g fill="#',color,'">',
         '<path d="M729.67,901H755.5A25.5,25.5,0,0,1,781,926.5h0A25.5,25.5,0,0,1,755.5,952h-26A25.5,25.5,0,0,1,704,926.5h0A25.5,25.5,0,0,1,729.5,901Z" />',
         '<circle cx="725" cy="915" r="5" fill="#fff" stroke="none" opacity="0.6" /><circle cx="739" cy="920" r="5" fill="#000" stroke="none" opacity="0.3" />',
         '<circle cx="757" cy="914" r="5" fill="#fff" stroke="none" opacity="0.6" /><circle cx="754" cy="926" r="5" fill="#fff" stroke="none" opacity="0.6" />',

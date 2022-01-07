@@ -7,7 +7,7 @@ contract SVGExtraGenerator {
     using ToColor for bytes3;
     constructor() {}
 
-    function render(uint8 extra, bytes3 color) external pure returns (string memory) {
+    function render(uint8 extra, string memory color) external pure returns (string memory) {
 
         if(extra==0) { // wings
         return string(abi.encodePacked(
@@ -21,7 +21,7 @@ contract SVGExtraGenerator {
         ));
         }else if(extra==1) { // backpack
         return string(abi.encodePacked(
-        '<g fill="#',color.toColor(),'" transform="translate(20 10)"><rect x="247" y="627" width="15" height="51" fill="#000" stroke="none" /><path d="M266.63,670.6V666H243.38v4.6a10,10,0,0,1,0,18.8V696h23.25v-6.6a10,10,0,0,1,0-18.8Z" fill="#000" />  <path d="M269.19,389H345a0,0,0,0,1,0,0V637a0,0,0,0,1,0,0H269.19A40.19,40.19,0,0,1,229,596.81V429.19A40.19,40.19,0,0,1,269.19,389Z" /><path d="M309.19,389H385a0,0,0,0,1,0,0V637a0,0,0,0,1,0,0H309.19A40.19,40.19,0,0,1,269,596.81V429.19A40.19,40.19,0,0,1,309.19,389Z" /><path d="M309.19,389H385a0,0,0,0,1,0,0V637a0,0,0,0,1,0,0H309.19A40.19,40.19,0,0,1,269,596.81V429.19A40.19,40.19,0,0,1,309.19,389Z" fill="#000" opacity="0.3" />',
+        '<g fill="#',color,'" transform="translate(20 10)"><rect x="247" y="627" width="15" height="51" fill="#000" stroke="none" /><path d="M266.63,670.6V666H243.38v4.6a10,10,0,0,1,0,18.8V696h23.25v-6.6a10,10,0,0,1,0-18.8Z" fill="#000" />  <path d="M269.19,389H345a0,0,0,0,1,0,0V637a0,0,0,0,1,0,0H269.19A40.19,40.19,0,0,1,229,596.81V429.19A40.19,40.19,0,0,1,269.19,389Z" /><path d="M309.19,389H385a0,0,0,0,1,0,0V637a0,0,0,0,1,0,0H309.19A40.19,40.19,0,0,1,269,596.81V429.19A40.19,40.19,0,0,1,309.19,389Z" /><path d="M309.19,389H385a0,0,0,0,1,0,0V637a0,0,0,0,1,0,0H309.19A40.19,40.19,0,0,1,269,596.81V429.19A40.19,40.19,0,0,1,309.19,389Z" fill="#000" opacity="0.3" />',
         '<line x1="249" y1="466.81" x2="249" y2="466.31" />',
         '<path d="M249,456.14V429.19a40.2,40.2,0,0,1,34.61-39.81" fill="none" stroke-dasharray="1.02 10.18" />',
         '<path d="M288.69,389h.5" /><path d="M212.9,432H229a0,0,0,0,1,0,0v68a0,0,0,0,1,0,0H212.9A18.9,18.9,0,0,1,194,481.1V450.9A18.9,18.9,0,0,1,212.9,432Z" /><path d="M212.9,518H229a0,0,0,0,1,0,0v86a0,0,0,0,1,0,0h-4.89A30.11,30.11,0,0,1,194,573.89v-37A18.9,18.9,0,0,1,212.9,518Z" /><path d="M212.9,432H229a0,0,0,0,1,0,0v68a0,0,0,0,1,0,0H212.9A18.9,18.9,0,0,1,194,481.1V450.9A18.9,18.9,0,0,1,212.9,432Z" fill="#000" opacity="0.3" />',

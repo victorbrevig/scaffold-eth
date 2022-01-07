@@ -9,7 +9,7 @@ contract SVGMaskGenerator {
 
     constructor() {}
 
-    function render(uint8 mask, bytes3 color) external pure returns (string memory) {
+    function render(uint8 mask, string memory color) external pure returns (string memory) {
         if(mask==0){ // munchies
             return string(abi.encodePacked(
             '<g><path d="M481,446a26,26,0,0,1-52,0Z" fill="#e58080" /><path d="M741,446a26,26,0,0,1-52,0Z" fill="#e58080" /><path d="M645.39,531a10.39,10.39,0,0,1,0-20.78,11.85,11.85,0,0,0,11.83-11.83,10.39,10.39,0,0,1,20.78,0A32.65,32.65,0,0,1,645.39,531Z" fill="#ffa329" />',
@@ -46,7 +46,7 @@ contract SVGMaskGenerator {
             ));
         } else if(mask==3){ // googles
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'"><rect x="533.5" y="466.5" width="101" height="46" fill="#000" />',
+            '<g fill="#',color,'"><rect x="533.5" y="466.5" width="101" height="46" fill="#000" />',
             '<rect x="739.5" y="196.5" width="38" height="196" fill="#fff" /><rect x="299.5" y="422.5" width="71" height="44" /><rect x="739.5" y="216.5" width="38" height="17" />',
             '<path d="M584,433a53,53,0,0,1,37.57,15.53l31.11,31.12a51.81,51.81,0,0,0,36.88,15.27H714a46.93,46.93,0,1,0,0-93.86H453a46.93,46.93,0,1,0,0,93.86h25.46a51.81,51.81,0,0,0,36.88-15.27l31.11-31.12A53,53,0,0,1,584,433Z" fill="#fff" fill-opacity="0.5" />',
             '<polygon points="446.5 395.5 540 489 601.55 462.44 654 515 727.5 515.5 581.5 369.5 446.5 395.5" fill="#ffffff" stroke="none" />',
@@ -56,7 +56,7 @@ contract SVGMaskGenerator {
             ));
         } else if(mask==4) { // Lazer eye
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'">',
+            '<g fill="#',color,'">',
             '<path d="M634.86,448.5h0a132.18,132.18,0,0,0,70.5-83.09l9.14-31.91,9.14,31.91a132.18,132.18,0,0,0,70.5,83.09h0a132.18,132.18,0,0,0-70.5,83.09L714.5,563.5l-9.14-31.91a132.18,132.18,0,0,0-70.5-83.09Z" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="11.79" />',
             '<circle cx="714.88" cy="448.25" r="26" /><line x1="545" y1="513" x2="624" y2="513" />',
             '<circle cx="454.87" cy="448.25" r="26" fill="#fff" />',
@@ -76,7 +76,7 @@ contract SVGMaskGenerator {
             ));
         } else if(mask==6) { // ray googles
             return string(abi.encodePacked(
-            '<g fill="#',color.toColor(),'"><line x1="545.38" y1="511" x2="624.38" y2="511" /><rect x="377" y="403" width="416" height="86" rx="43" fill="#fff" />',
+            '<g fill="#',color,'"><line x1="545.38" y1="511" x2="624.38" y2="511" /><rect x="377" y="403" width="416" height="86" rx="43" fill="#fff" />',
             '<path d="M753.26,434H419.84a12,12,0,1,0,0,24H753.26a12,12,0,0,0,0-24Z" stroke="none" /></g>'
             ));
         }

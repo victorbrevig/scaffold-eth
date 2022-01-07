@@ -61,16 +61,16 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   }
 
   struct Blooper {
-    bytes3 bodyColor;
-    bytes3 hatColor;
-    bytes3 gradientColor1;
-    bytes3 gradientColor2;
-    bytes3 mouthColor;
-    bytes3 detailColor;
-    bytes3 extraColor;
-    bytes3 maskColor;
-    bytes3 eyeColor;
-    bytes3 fullFaceColor;
+    uint8 bodyColor;
+    uint8 hatColor;
+    uint8 gradientColor1;
+    uint8 gradientColor2;
+    uint8 mouthColor;
+    uint8 detailColor;
+    uint8 extraColor;
+    uint8 maskColor;
+    uint8 eyeColor;
+    uint8 fullFaceColor;
     uint8 tier;
     uint8 hat;
     uint8 eye;
@@ -89,7 +89,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
 
   string[74] cols = ["000000","ffffff","849e85","c9ae90","cfcfcf","9b9b9b","686868","363636","ffaeae","ffc7b0","ffe0b3","fff5b9","e9ffb5","c7ffb9","b9ffdc","64ffea","b7e5ff","becdff","bcbbff","d6bfff","e5bfff","fdb8ff","ffc1e3","ffbcd0","ff6464","ff9064","ffaa64","ffc164","ffe864","d0ff64","83ff64","64ffb1","64ffea","64c6ff","6488ff","6764ff","9a64ff","c164ff","fa64ff","ff64b9","ff6492","ff2929","ff6022","ff831e","ffa318","ffde20","bdff23","4fff23","22ff90","26ffe2","25afff","2850d3","3330c9","7226ff","ab2dff","f82fff","ff2fa2","ff1d61","9c2525","a84b26","a05f29","3e7e2e","3d8f66","33857a","357296","334788","2e2c81","482d7a","542474","8c308f","8b2e61","8f2b49","da9760","484872"];
-
+  uint8 colsLength = 74;
   
 
   /*
@@ -126,12 +126,12 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     _mint(msg.sender, id);
 
     bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
-    idToBlooper[id].bodyColor      = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[1]) >> 8 ) | ( bytes3(predictableRandom[2]) >> 16 );
-    idToBlooper[id].gradientColor1 = bytes2(predictableRandom[3]) | ( bytes2(predictableRandom[4]) >> 8 ) | ( bytes3(predictableRandom[5]) >> 16 );
-    idToBlooper[id].gradientColor2 = bytes2(predictableRandom[6]) | ( bytes2(predictableRandom[7]) >> 8 ) | ( bytes3(predictableRandom[8]) >> 16 ); 
-    idToBlooper[id].tier          = uint8(predictableRandom[9])%3;
+    idToBlooper[id].bodyColor      = uint8(predictableRandom[0])%(colsLength);
+    idToBlooper[id].gradientColor1 = uint8(predictableRandom[1])%(colsLength);
+    idToBlooper[id].gradientColor2 = uint8(predictableRandom[2])%(colsLength); 
+    idToBlooper[id].tier          = uint8(predictableRandom[3])%3;
     //idToBlooper[id].tier          = 0;
-    idToBlooper[id].fullFace      = uint8(predictableRandom[9])%(6*9); // 11% chance for fullface
+    idToBlooper[id].fullFace      = uint8(predictableRandom[4])%(6*9); // 11% chance for fullface
 
     if(idToBlooper[id].fullFace < 6){ 
        // set all others to default
@@ -144,7 +144,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
       // else we are not using full face
 
       // Check if we roll a mask
-      idToBlooper[id].mask           = uint8(predictableRandom[10])%(7*5); // 20% chance for mask if not a fullface
+      idToBlooper[id].mask           = uint8(predictableRandom[5])%(7*5); // 20% chance for mask if not a fullface
       if(idToBlooper[id].mask < 7){
         // we rolled a mask, set eye and mouth to default
         idToBlooper[id].mouth          = 99;
@@ -153,23 +153,23 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
       } else {
         // We didnt roll a mask, set mouth and eye
-        idToBlooper[id].mouth          = uint8(predictableRandom[10])%14;
-        idToBlooper[id].eye            = uint8(predictableRandom[11])%16;
+        idToBlooper[id].mouth          = uint8(predictableRandom[6])%14;
+        idToBlooper[id].eye            = uint8(predictableRandom[7])%16;
       }
       
-      idToBlooper[id].hat            = uint8(predictableRandom[12])%19;
-      idToBlooper[id].extra          = uint8(predictableRandom[13])%5;
-      idToBlooper[id].detail         = uint8(predictableRandom[14])%8;
+      idToBlooper[id].hat            = uint8(predictableRandom[8])%19;
+      idToBlooper[id].extra          = uint8(predictableRandom[9])%5;
+      idToBlooper[id].detail         = uint8(predictableRandom[10])%8;
     }
     
     // condom (no. 11) must have same color as body
-    idToBlooper[id].hatColor       = idToBlooper[id].hat==11 ? idToBlooper[id].bodyColor : bytes2(predictableRandom[15]) | ( bytes2(predictableRandom[16]) >> 8 ) | ( bytes3(predictableRandom[17]) >> 16 );
-    idToBlooper[id].mouthColor     = bytes2(predictableRandom[18]) | ( bytes2(predictableRandom[19]) >> 8 ) | ( bytes3(predictableRandom[6]) >> 16 );
-    idToBlooper[id].extraColor     = bytes2(predictableRandom[21]) | ( bytes2(predictableRandom[3]) >> 8 ) | ( bytes3(predictableRandom[23]) >> 16 );
-    idToBlooper[id].detailColor    = bytes2(predictableRandom[24]) | ( bytes2(predictableRandom[25]) >> 8 ) | ( bytes3(predictableRandom[26]) >> 16 );
-    idToBlooper[id].eyeColor       = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[28]) >> 8 ) | ( bytes3(predictableRandom[29]) >> 16 );
-    idToBlooper[id].fullFaceColor  = bytes2(predictableRandom[30]) | ( bytes2(predictableRandom[31]) >> 8 ) | ( bytes3(predictableRandom[1]) >> 16 );
-    idToBlooper[id].maskColor      = bytes2(predictableRandom[22]) | ( bytes2(predictableRandom[27]) >> 8 ) | ( bytes3(predictableRandom[20]) >> 16 );
+    idToBlooper[id].hatColor       = idToBlooper[id].hat==11 ? idToBlooper[id].bodyColor : uint8(predictableRandom[11])%(colsLength);
+    idToBlooper[id].mouthColor     = uint8(predictableRandom[12])%(colsLength);
+    idToBlooper[id].extraColor     = uint8(predictableRandom[13])%(colsLength);
+    idToBlooper[id].detailColor    = uint8(predictableRandom[14])%(colsLength);
+    idToBlooper[id].eyeColor       = uint8(predictableRandom[15])%(colsLength);
+    idToBlooper[id].fullFaceColor  = uint8(predictableRandom[16])%(colsLength);
+    idToBlooper[id].maskColor      = uint8(predictableRandom[17])%(colsLength);
 
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
@@ -183,8 +183,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   
   function tokenURI(uint256 id) public view override returns (string memory) {
       require(_exists(id), "not exist");
-      string memory name = string(abi.encodePacked('Loogie #',id.toString()));
-      string memory description = string(abi.encodePacked('This Loogie is the color #',idToBlooper[id].bodyColor.toColor(),' with a chubbiness of ',uint2str(chubbiness[id]),' and mouth length of ',uint2str(mouthLength[id]),'!!!'));
+      string memory name = string(abi.encodePacked('Blooper #',id.toString()));
+      string memory description = string(abi.encodePacked('This Blooper is the color #',cols[idToBlooper[id].bodyColor]));
       string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
 
       string memory firstPart = string(
@@ -196,7 +196,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                               '", "external_url":"https://burnyboys.com/token/',
                               id.toString(),
                               '", "attributes": [{"trait_type": "color", "value": "#',
-                              idToBlooper[id].bodyColor.toColor(),
+                              cols[idToBlooper[id].bodyColor],
                               '"},{"trait_type": "chubbiness", "value": ',
                               uint2str(chubbiness[id]),
                               '},{"trait_type": "mouthLength", "value": ',
@@ -230,26 +230,26 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     
     string memory svgP1 = string(abi.encodePacked(
       '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><title>Bloops</title><defs><linearGradient id="linear-gradient" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">',
-      '<stop offset="0" stop-color="#',idToBlooper[id].gradientColor1.toColor(),'" />',
-      '<stop offset="1" stop-color="#',idToBlooper[id].gradientColor2.toColor(),'" />'
+      '<stop offset="0" stop-color="#',cols[idToBlooper[id].gradientColor1],'" />',
+      '<stop offset="1" stop-color="#',cols[idToBlooper[id].gradientColor2],'" />'
       ));
     
 
     string memory svgP2 = string(abi.encodePacked(
       '</linearGradient></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
-      extraGenerator.render(idToBlooper[id].extra, idToBlooper[id].extraColor),
-      '<g fill="#',idToBlooper[id].bodyColor.toColor(),'">',
+      extraGenerator.render(idToBlooper[id].extra, cols[idToBlooper[id].extraColor]),
+      '<g fill="#',cols[idToBlooper[id].bodyColor],'">',
       bodyGenerator.render(idToBlooper[id].tier),
       '</g>',
-      fullFaceGenerator.render(idToBlooper[id].fullFace, idToBlooper[id].fullFaceColor),
-      hatGenerator.render(idToBlooper[id].hat, idToBlooper[id].hatColor)
+      fullFaceGenerator.render(idToBlooper[id].fullFace, cols[idToBlooper[id].fullFaceColor]),
+      hatGenerator.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor])
     ));
 
     string memory svgP3 = string(abi.encodePacked(
-      eyeGenerator.render(idToBlooper[id].eye, idToBlooper[id].eyeColor),
-      mouthGenerator.render(idToBlooper[id].mouth, idToBlooper[id].mouthColor),
-      maskGenerator.render(idToBlooper[id].mask, idToBlooper[id].maskColor),
-      detailGenerator.render(idToBlooper[id].detail, idToBlooper[id].detailColor),
+      eyeGenerator.render(idToBlooper[id].eye, cols[idToBlooper[id].eyeColor]),
+      mouthGenerator.render(idToBlooper[id].mouth, cols[idToBlooper[id].mouthColor]),
+      maskGenerator.render(idToBlooper[id].mask, cols[idToBlooper[id].maskColor]),
+      detailGenerator.render(idToBlooper[id].detail, cols[idToBlooper[id].detailColor]),
       '</g></svg>'
     ));
     
