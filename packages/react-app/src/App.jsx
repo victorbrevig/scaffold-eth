@@ -153,9 +153,12 @@ function App(props) {
   const priceToMint = useContractReader(readContracts, "YourCollectible", "price");
   if (DEBUG) console.log("🤗 priceToMint:", priceToMint);
 
-  const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply");
+  const maxSupply = useContractReader(readContracts, "YourCollectible", "limit")-0;
+  const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply")-0;
   if (DEBUG) console.log("🤗 totalSupply:", totalSupply);
-  const bloopersLeft = 929 - totalSupply;
+  const bloopersLeft = maxSupply - totalSupply;
+
+  
 
   // keep track of a variable from the contract in the local React state:
   const balance = useContractReader(readContracts, "YourCollectible", "balanceOf", [address]);
@@ -278,18 +281,12 @@ function App(props) {
         <Menu.Item key="/yourBloopers">
           <Link to="/yourBloopers">Your Bloopers</Link>
         </Menu.Item>
-        <Menu.Item key="/howto">
-          <Link to="/howto">How To Use Optimistic Network</Link>
-        </Menu.Item>
-        <Menu.Item key="/debug">
-          <Link to="/debug">Debug Contracts</Link>
-        </Menu.Item>
       </Menu>
 
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
           <p>
-            Only <strong>929 Bloopers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
+            Only <strong>{ maxSupply } Bloopers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
           </p>
         </div>
 
