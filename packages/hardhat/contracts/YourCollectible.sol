@@ -46,7 +46,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     payable(0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6);
 
   uint256 public constant limit = 929;
-  uint256 public constant curve = 1002; // price increase 0,4% with each purchase
+  uint256 public constant curve = 1002; // price increase 0,2% with each purchase
   uint256 public price = 0.001 ether;
 
   constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address detailGeneratorAddress, address extraGeneratorAddress) ERC721("Bloopers", "BLOOP") {

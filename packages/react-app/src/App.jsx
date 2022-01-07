@@ -289,9 +289,8 @@ function App(props) {
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
           <p>
-            Only <strong>3728 Optimistic Loogies</strong> available (2X the supply of the <a href="https://loogies.io" target="_blank">Original Ethereum Mainnet Loogies</a>) on a price curve <strong>increasing 0.2%</strong> with each new mint.
+            Only <strong>929 Bloopers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
           </p>
-          <p>All Ether from sales goes to public goods!!</p>
         </div>
 
         <Button
