@@ -140,19 +140,21 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     //idToBlooper[id].tier          = 0;
     idToBlooper[id].fullFace      = uint8(predictableRandom[4])%(noOfFullFaces*10); // 10% chance for fullface
 
-    if(idToBlooper[id].fullFace < 6){ 
+    if(idToBlooper[id].fullFace < noOfFullFaces){ 
        // set all others to default
       idToBlooper[id].mouth          = 99;
       idToBlooper[id].eye            = 99;
       idToBlooper[id].hat            = 99;
       idToBlooper[id].extra          = uint8(predictableRandom[5])%(noOfExtras*2); // 50% chance of extra when full face
       idToBlooper[id].detail         = 99;
-    } else {
+      idToBlooper[id].detail         = 99;
+    } 
+    else {
       // else we are not using full face
 
       // Check if we roll a mask
-      idToBlooper[id].mask           = uint8(predictableRandom[5])%(noOfMasks*5); // 20% chance for mask if not a fullface
-      if(idToBlooper[id].mask <= noOfMasks){
+      idToBlooper[id].mask             = uint8(predictableRandom[5])%(noOfMasks*5); // 20% chance for mask if not a fullface
+      if(idToBlooper[id].mask < noOfMasks){
         // we rolled a mask, set eye and mouth to default
         idToBlooper[id].mouth          = 99;
         idToBlooper[id].eye            = 99;
