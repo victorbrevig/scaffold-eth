@@ -4,23 +4,23 @@ import { Button, Card, List, Spin } from "antd";
 import { Address } from "../components";
 import { ethers } from "ethers";
 
-function Loogies({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBUG }) {
-  const [allLoogies, setAllLoogies] = useState();
+function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBUG }) {
+  const [allBloopers, setAllBloopers] = useState();
   const [page, setPage] = useState(1);
-  const [loadingLoogies, setLoadingLoogies] = useState(true);
+  const [loadingBloopers, setLoadingBloopers] = useState(true);
   const perPage = 8;
 
   useEffect(() => {
-    const updateAllLoogies = async () => {
+    const updateAllBloopers = async () => {
       if (readContracts.YourCollectible && totalSupply) {
-        setLoadingLoogies(true);
+        setLoadingBloopers(true);
         const collectibleUpdate = [];
         let startIndex = totalSupply - 1 - perPage * (page - 1);
         for (let tokenIndex = startIndex; tokenIndex > startIndex - perPage && tokenIndex >= 0; tokenIndex--) {
           try {
             if (DEBUG) console.log("Getting token index", tokenIndex);
             const tokenId = await readContracts.YourCollectible.tokenByIndex(tokenIndex);
-            if (DEBUG) console.log("Getting Loogie tokenId: ", tokenId);
+            if (DEBUG) console.log("Getting Blooper tokenId: ", tokenId);
             const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
             if (DEBUG) console.log("tokenURI: ", tokenURI);
             const jsonManifestString = atob(tokenURI.substring(29));
@@ -35,11 +35,11 @@ function Loogies({ readContracts, mainnetProvider, blockExplorer, totalSupply, D
             console.log(e);
           }
         }
-        setAllLoogies(collectibleUpdate);
-        setLoadingLoogies(false);
+        setAllBloopers(collectibleUpdate);
+        setLoadingBloopers(false);
       }
     };
-    updateAllLoogies();
+    updateAllBloopers();
   }, [readContracts.YourCollectible, (totalSupply || "0").toString(), page]);
 
   return (
@@ -67,8 +67,8 @@ function Loogies({ readContracts, mainnetProvider, blockExplorer, totalSupply, D
               },
               showTotal: (total, range) => `${range[0]}-${range[1]} of ${totalSupply} items`,
             }}
-            loading={loadingLoogies}
-            dataSource={allLoogies}
+            loading={loadingBloopers}
+            dataSource={allBloopers}
             renderItem={item => {
               const id = item.id.toNumber();
 
@@ -81,7 +81,7 @@ function Loogies({ readContracts, mainnetProvider, blockExplorer, totalSupply, D
                       </div>
                     }
                   >
-                    <img src={item.image} alt={"Loogie #" + id} width="200" />
+                    <img src={item.image} alt={"Blooper #" + id} width="200" />
                     <div>{item.description}</div>
                     <div>
                       <Address
@@ -102,4 +102,4 @@ function Loogies({ readContracts, mainnetProvider, blockExplorer, totalSupply, D
   );
 }
 
-export default Loogies;
+export default Bloopers;

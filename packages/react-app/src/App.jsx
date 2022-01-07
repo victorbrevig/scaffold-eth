@@ -29,7 +29,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { YourLoogies, Loogies } from "./views";
+import { YourBloopers, Bloopers } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -56,7 +56,7 @@ const { ethers } = require("ethers");
 const targetNetwork = NETWORKS.localhost; // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 
 // 😬 Sorry for all the console logging
-const DEBUG = true;
+const DEBUG = false;
 const NETWORKCHECK = true;
 
 // 🛰 providers
@@ -155,7 +155,7 @@ function App(props) {
 
   const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply");
   if (DEBUG) console.log("🤗 totalSupply:", totalSupply);
-  const loogiesLeft = 929 - totalSupply;
+  const bloopersLeft = 929 - totalSupply;
 
   // keep track of a variable from the contract in the local React state:
   const balance = useContractReader(readContracts, "YourCollectible", "balanceOf", [address]);
@@ -175,7 +175,7 @@ function App(props) {
         try {
           if (DEBUG) console.log("Getting token index", tokenIndex);
           const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
-          if (DEBUG) console.log("Getting Loogie tokenId: ", tokenId);
+          if (DEBUG) console.log("Getting Blooper tokenId: ", tokenId);
           const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
           if (DEBUG) console.log("tokenURI: ", tokenURI);
           const jsonManifestString = atob(tokenURI.substring(29));
@@ -275,8 +275,8 @@ function App(props) {
         <Menu.Item key="/">
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="/yourLoogies">
-          <Link to="/yourLoogies">Your Optimistic Loogies</Link>
+        <Menu.Item key="/yourBloopers">
+          <Link to="/yourBloopers">Your Bloopers</Link>
         </Menu.Item>
         <Menu.Item key="/howto">
           <Link to="/howto">How To Use Optimistic Network</Link>
@@ -309,13 +309,13 @@ function App(props) {
         </Button>
 
         <p style={{ fontWeight: "bold" }}>
-          { loogiesLeft } left
+          { bloopersLeft } left
         </p>
       </div>
 
       <Switch>
         <Route exact path="/">
-          <Loogies
+          <Bloopers
             readContracts={readContracts}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}
@@ -323,8 +323,8 @@ function App(props) {
             DEBUG={DEBUG}
           />
         </Route>
-        <Route exact path="/yourLoogies">
-          <YourLoogies
+        <Route exact path="/yourBLoopers">
+          <YourBloopers
             readContracts={readContracts}
             writeContracts={writeContracts}
             priceToMint={priceToMint}
@@ -375,11 +375,6 @@ function App(props) {
           />
         </Route>
       </Switch>
-
-      <div style={{ maxWidth: 820, margin: "auto", marginTop: 32 }}>
-        🛠 built with <a href="https://github.com/scaffold-eth/scaffold-eth" target="_blank">🏗 scaffold-eth</a>
-        🍴 <a href="https://github.com/scaffold-eth/scaffold-eth" target="_blank">Fork this repo</a> and build a cool SVG NFT!
-      </div>
 
       <ThemeSwitch />
 
