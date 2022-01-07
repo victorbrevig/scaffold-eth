@@ -65,12 +65,12 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     bytes3 hatColor;
     bytes3 gradientColor1;
     bytes3 gradientColor2;
-    //bytes3 mouthColor;
-    //bytes3 detailColor;
-    //bytes3 extraColor;
-    //bytes3 maskColor;
-    //bytes3 eyeColor;
-    //bytes3 fullFaceColor;
+    bytes3 mouthColor;
+    bytes3 detailColor;
+    bytes3 extraColor;
+    bytes3 maskColor;
+    bytes3 eyeColor;
+    bytes3 fullFaceColor;
     uint8 tier;
     uint8 hat;
     uint8 eye;
@@ -82,12 +82,15 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   }
 
 
-  mapping (uint256 => Blooper) public idToBlooper;
+  mapping (uint256 => Blooper) private idToBlooper;
 
   mapping (uint256 => uint256) public chubbiness; // Not used
   mapping (uint256 => uint256) public mouthLength; // Not used
 
 
+  string[74] cols = ["000000","ffffff","849e85","c9ae90","cfcfcf","9b9b9b","686868","363636","ffaeae","ffc7b0","ffe0b3","fff5b9","e9ffb5","c7ffb9","b9ffdc","64ffea","b7e5ff","becdff","bcbbff","d6bfff","e5bfff","fdb8ff","ffc1e3","ffbcd0","ff6464","ff9064","ffaa64","ffc164","ffe864","d0ff64","83ff64","64ffb1","64ffea","64c6ff","6488ff","6764ff","9a64ff","c164ff","fa64ff","ff64b9","ff6492","ff2929","ff6022","ff831e","ffa318","ffde20","bdff23","4fff23","22ff90","26ffe2","25afff","2850d3","3330c9","7226ff","ab2dff","f82fff","ff2fa2","ff1d61","9c2525","a84b26","a05f29","3e7e2e","3d8f66","33857a","357296","334788","2e2c81","482d7a","542474","8c308f","8b2e61","8f2b49","da9760","484872"];
+
+  
 
   /*
   // NFT id => timestamp of last time BLP collected
@@ -161,12 +164,12 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     
     // condom (no. 11) must have same color as body
     idToBlooper[id].hatColor       = idToBlooper[id].hat==11 ? idToBlooper[id].bodyColor : bytes2(predictableRandom[15]) | ( bytes2(predictableRandom[16]) >> 8 ) | ( bytes3(predictableRandom[17]) >> 16 );
-    //idToBlooper[id].mouthColor     = bytes2(predictableRandom[18]) | ( bytes2(predictableRandom[19]) >> 8 ) | ( bytes3(predictableRandom[6]) >> 16 );
-    //idToBlooper[id].extraColor     = bytes2(predictableRandom[21]) | ( bytes2(predictableRandom[3]) >> 8 ) | ( bytes3(predictableRandom[23]) >> 16 );
-    //idToBlooper[id].detailColor    = bytes2(predictableRandom[24]) | ( bytes2(predictableRandom[25]) >> 8 ) | ( bytes3(predictableRandom[26]) >> 16 );
-    //idToBlooper[id].eyeColor       = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[28]) >> 8 ) | ( bytes3(predictableRandom[29]) >> 16 );
-    //idToBlooper[id].fullFaceColor  = bytes2(predictableRandom[30]) | ( bytes2(predictableRandom[31]) >> 8 ) | ( bytes3(predictableRandom[1]) >> 16 );
-    //idToBlooper[id].maskColor      = bytes2(predictableRandom[22]) | ( bytes2(predictableRandom[27]) >> 8 ) | ( bytes3(predictableRandom[20]) >> 16 );
+    idToBlooper[id].mouthColor     = bytes2(predictableRandom[18]) | ( bytes2(predictableRandom[19]) >> 8 ) | ( bytes3(predictableRandom[6]) >> 16 );
+    idToBlooper[id].extraColor     = bytes2(predictableRandom[21]) | ( bytes2(predictableRandom[3]) >> 8 ) | ( bytes3(predictableRandom[23]) >> 16 );
+    idToBlooper[id].detailColor    = bytes2(predictableRandom[24]) | ( bytes2(predictableRandom[25]) >> 8 ) | ( bytes3(predictableRandom[26]) >> 16 );
+    idToBlooper[id].eyeColor       = bytes2(predictableRandom[0]) | ( bytes2(predictableRandom[28]) >> 8 ) | ( bytes3(predictableRandom[29]) >> 16 );
+    idToBlooper[id].fullFaceColor  = bytes2(predictableRandom[30]) | ( bytes2(predictableRandom[31]) >> 8 ) | ( bytes3(predictableRandom[1]) >> 16 );
+    idToBlooper[id].maskColor      = bytes2(predictableRandom[22]) | ( bytes2(predictableRandom[27]) >> 8 ) | ( bytes3(predictableRandom[20]) >> 16 );
 
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
@@ -177,8 +180,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     //lastBlockHarvestedById[id] = block.number;
     return id;
   }
-
-  
   
   function tokenURI(uint256 id) public view override returns (string memory) {
       require(_exists(id), "not exist");
@@ -236,20 +237,23 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     string memory svgP2 = string(abi.encodePacked(
       '</linearGradient></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
-      extraGenerator.render(idToBlooper[id].extra, idToBlooper[id].hatColor),
+      extraGenerator.render(idToBlooper[id].extra, idToBlooper[id].extraColor),
       '<g fill="#',idToBlooper[id].bodyColor.toColor(),'">',
       bodyGenerator.render(idToBlooper[id].tier),
       '</g>',
-      fullFaceGenerator.render(idToBlooper[id].fullFace, idToBlooper[id].hatColor),
-      hatGenerator.render(idToBlooper[id].hat, idToBlooper[id].hatColor),
-      eyeGenerator.render(idToBlooper[id].eye, idToBlooper[id].hatColor),
-      mouthGenerator.render(idToBlooper[id].mouth, idToBlooper[id].hatColor),
-      maskGenerator.render(idToBlooper[id].mask, idToBlooper[id].hatColor),
-      detailGenerator.render(idToBlooper[id].detail, idToBlooper[id].hatColor),
+      fullFaceGenerator.render(idToBlooper[id].fullFace, idToBlooper[id].fullFaceColor),
+      hatGenerator.render(idToBlooper[id].hat, idToBlooper[id].hatColor)
+    ));
+
+    string memory svgP3 = string(abi.encodePacked(
+      eyeGenerator.render(idToBlooper[id].eye, idToBlooper[id].eyeColor),
+      mouthGenerator.render(idToBlooper[id].mouth, idToBlooper[id].mouthColor),
+      maskGenerator.render(idToBlooper[id].mask, idToBlooper[id].maskColor),
+      detailGenerator.render(idToBlooper[id].detail, idToBlooper[id].detailColor),
       '</g></svg>'
     ));
     
-    return string(abi.encodePacked(svgP1,svgP2));
+    return string(abi.encodePacked(svgP1,svgP2,svgP3));
     
     
   }

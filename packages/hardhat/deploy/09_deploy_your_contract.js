@@ -11,8 +11,13 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
 
   const svgBody = await ethers.getContract("SVGBodyGenerator", deployer);
   const svgHat = await ethers.getContract("SVGHatGenerator", deployer);
-  const svgFace = await ethers.getContract("SVGFaceGenerator", deployer);
   const svgFullFace = await ethers.getContract("SVGFullFaceGenerator", deployer);
+  const svgMask = await ethers.getContract("SVGMaskGenerator", deployer);
+  const svgEye = await ethers.getContract("SVGEyeGenerator", deployer);
+  const svgMouth = await ethers.getContract("SVGMouthGenerator", deployer);
+  const svgDetail = await ethers.getContract("SVGDetailGenerator", deployer);
+  const svgExtra = await ethers.getContract("SVGExtraGenerator", deployer);
+  
 
   const bloopToken = await ethers.getContract("BloopToken", deployer);
   
@@ -21,7 +26,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    args: [svgBody.address, svgFace.address, svgHat.address, svgFullFace.address],
+    args: [svgBody.address, svgHat.address, svgFullFace.address, svgMask.address, svgEye.address, svgMouth.address, svgDetail.address, svgExtra.address],
     log: true,
   });
 
