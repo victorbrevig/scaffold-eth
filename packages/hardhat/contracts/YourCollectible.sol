@@ -88,7 +88,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   mapping (uint256 => uint256) public mouthLength; // Not used
 
   uint8 constant colsLength = 74;
-  string[colsLength] cols = ["000000","ffffff","849e85","c9ae90","cfcfcf","9b9b9b","686868","363636","ffaeae","ffc7b0","ffe0b3","fff5b9","e9ffb5","c7ffb9","b9ffdc","64ffea","b7e5ff","becdff","bcbbff","d6bfff","e5bfff","fdb8ff","ffc1e3","ffbcd0","ff6464","ff9064","ffaa64","ffc164","ffe864","d0ff64","83ff64","64ffb1","64ffea","64c6ff","6488ff","6764ff","9a64ff","c164ff","fa64ff","ff64b9","ff6492","ff2929","ff6022","ff831e","ffa318","ffde20","bdff23","4fff23","22ff90","26ffe2","25afff","2850d3","3330c9","7226ff","ab2dff","f82fff","ff2fa2","ff1d61","9c2525","a84b26","a05f29","3e7e2e","3d8f66","33857a","357296","334788","2e2c81","482d7a","542474","8c308f","8b2e61","8f2b49","da9760","484872"];
+  string[colsLength] cols = ["252525","ffffff","849e85","c9ae90","cfcfcf","9b9b9b","686868","363636","ffaeae","ffc7b0","ffe0b3","fff5b9","e9ffb5","c7ffb9","b9ffdc","64ffea","b7e5ff","becdff","bcbbff","d6bfff","e5bfff","fdb8ff","ffc1e3","ffbcd0","ff6464","ff9064","ffaa64","ffc164","ffe864","d0ff64","83ff64","64ffb1","64ffea","64c6ff","6488ff","6764ff","9a64ff","c164ff","fa64ff","ff64b9","ff6492","ff2929","ff6022","ff831e","ffa318","ffde20","bdff23","4fff23","22ff90","26ffe2","25afff","2850d3","3330c9","7226ff","ab2dff","f82fff","ff2fa2","ff1d61","9c2525","a84b26","a05f29","3e7e2e","3d8f66","33857a","357296","334788","2e2c81","482d7a","542474","8c308f","8b2e61","8f2b49","da9760","484872"];
   
   
 
