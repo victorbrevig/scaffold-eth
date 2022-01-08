@@ -238,12 +238,13 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     string memory svgP1 = string(abi.encodePacked(
       '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><title>Bloops</title><defs><linearGradient id="linear-gradient" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">',
       '<stop offset="0" stop-color="#',cols[idToBlooper[id].gradientColor1],'" />',
-      '<stop offset="1" stop-color="#',cols[idToBlooper[id].gradientColor2],'" />'
+      '<stop offset="1" stop-color="#',cols[idToBlooper[id].gradientColor2],'" /></linearGradient>'
       ));
     
 
     string memory svgP2 = string(abi.encodePacked(
-      '</linearGradient></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
+      '<filter id="glow"><feGaussianBlur stdDeviation="20" result="coloredBlur" /><feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>'
+      '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
       extraGenerator.render(idToBlooper[id].extra, cols[idToBlooper[id].extraColor]),
       '<g fill="#',cols[idToBlooper[id].bodyColor],'">',
       bodyGenerator.render(idToBlooper[id].tier),
