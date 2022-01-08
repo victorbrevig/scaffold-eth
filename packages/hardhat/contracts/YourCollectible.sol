@@ -79,6 +79,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 extra;
     uint8 mask;
     uint8 fullFace;
+    uint8 mode;
   }
 
 
@@ -90,10 +91,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint8 constant colsLength = 74;
   string[colsLength] cols = ["252525","ffffff","849e85","c9ae90","cfcfcf","9b9b9b","686868","363636","ffaeae","ffc7b0","ffe0b3","fff5b9","e9ffb5","c7ffb9","b9ffdc","64ffea","b7e5ff","becdff","bcbbff","d6bfff","e5bfff","fdb8ff","ffc1e3","ffbcd0","ff6464","ff9064","ffaa64","ffc164","ffe864","d0ff64","83ff64","64ffb1","64ffea","64c6ff","6488ff","6764ff","9a64ff","c164ff","fa64ff","ff64b9","ff6492","ff2929","ff6022","ff831e","ffa318","ffde20","bdff23","4fff23","22ff90","26ffe2","25afff","2850d3","3330c9","7226ff","ab2dff","f82fff","ff2fa2","ff1d61","9c2525","a84b26","a05f29","3e7e2e","3d8f66","33857a","357296","334788","2e2c81","482d7a","542474","8c308f","8b2e61","8f2b49","da9760","484872"];
   
-  
   uint8 constant noOfHats = 19;
   uint8 constant noOfEyes = 16;
-  uint8 constant noOfMouths = 14;
+  uint8 constant noOfMouths = 15;
   uint8 constant noOfFullFaces = 6;
   uint8 constant noOfMasks = 7;
   uint8 constant noOfExtras = 5;
@@ -121,6 +121,10 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   }
   */
  
+
+  function getBlooper(uint _id) public view returns(Blooper memory) {
+    return idToBlooper[_id];
+  }
 
   function mintItem() public payable returns (uint256) {
     require(_tokenIds.current() < limit, "DONE MINTING");
@@ -177,6 +181,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     idToBlooper[id].eyeColor       = uint8(predictableRandom[15])%(colsLength);
     idToBlooper[id].fullFaceColor  = uint8(predictableRandom[16])%(colsLength);
     idToBlooper[id].maskColor      = uint8(predictableRandom[17])%(colsLength);
+    // 3 modes (set rarity)
+    idToBlooper[id].mode           = uint8(predictableRandom[18])%3;
 
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
@@ -235,33 +241,43 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   function generateSVGofTokenById(uint256 id) public view returns (string memory) {
     
+    string memory svgMode = '';
+    if(idToBlooper[id].mode == 1) { //transparent
+      svgMode = ' fill-opacity="0.3" ';
+    } 
+    else if(idToBlooper[id].mode ==2 ) { //glow
+      svgMode =  ' stroke="none" style="filter:url(#glow)" ';
+    }
+
     string memory svgP1 = string(abi.encodePacked(
       '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><title>Bloops</title><defs><linearGradient id="linear-gradient" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">',
       '<stop offset="0" stop-color="#',cols[idToBlooper[id].gradientColor1],'" />',
       '<stop offset="1" stop-color="#',cols[idToBlooper[id].gradientColor2],'" /></linearGradient>'
       ));
     
-
     string memory svgP2 = string(abi.encodePacked(
-      '<filter id="glow"><feGaussianBlur stdDeviation="20" result="coloredBlur" /><feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>'
+      '<filter id="glow"><feGaussianBlur stdDeviation="20" result="coloredBlur" /><feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>',
       '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
       extraGenerator.render(idToBlooper[id].extra, cols[idToBlooper[id].extraColor]),
-      '<g fill="#',cols[idToBlooper[id].bodyColor],'">',
+      '<g fill="#',cols[idToBlooper[id].bodyColor],'"', svgMode, '>',
       bodyGenerator.render(idToBlooper[id].tier),
-      '</g>',
+      '</g>'
+    ));
+    
+    string memory svgP3 = string(abi.encodePacked(
       fullFaceGenerator.render(idToBlooper[id].fullFace, cols[idToBlooper[id].fullFaceColor]),
-      hatGenerator.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor])
+      hatGenerator.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor]),
+      eyeGenerator.render(idToBlooper[id].eye, cols[idToBlooper[id].eyeColor])
     ));
 
-    string memory svgP3 = string(abi.encodePacked(
-      eyeGenerator.render(idToBlooper[id].eye, cols[idToBlooper[id].eyeColor]),
+    string memory svgP4 = string(abi.encodePacked(
       mouthGenerator.render(idToBlooper[id].mouth, cols[idToBlooper[id].mouthColor]),
       maskGenerator.render(idToBlooper[id].mask, cols[idToBlooper[id].maskColor]),
       detailGenerator.render(idToBlooper[id].detail, cols[idToBlooper[id].detailColor]),
       '</g></svg>'
     ));
     
-    return string(abi.encodePacked(svgP1,svgP2,svgP3));
+    return string(abi.encodePacked(svgP1,svgP2,svgP3,svgP4));
     
     
   }

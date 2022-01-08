@@ -110,9 +110,8 @@ contract SVGMaskGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g fill="#',
-                        color,
-                        '"><line x1="545.38" y1="511" x2="624.38" y2="511" /><rect x="377" y="403" width="416" height="86" rx="43" fill="#fff" />',
+                        '<g fill="#',color,'">',
+                        '<line x1="545.38" y1="511" x2="624.38" y2="511" /><rect x="377" y="403" width="416" height="86" rx="43" fill="#fff" />',
                         '<path d="M753.26,434H419.84a12,12,0,1,0,0,24H753.26a12,12,0,0,0,0-24Z" stroke="none" /></g>'
                     )
                 );
