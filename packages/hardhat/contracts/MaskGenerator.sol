@@ -118,7 +118,7 @@ contract SVGMaskGenerator {
                     )
                 );
         } else if (mask == 7) {
-            // ray googles
+            // purge
             return
                 string(
                     abi.encodePacked(
@@ -128,6 +128,22 @@ contract SVGMaskGenerator {
                         '<line x1="441.42" y1="508" x2="508.84" y2="428" /><line x1="450.26" y1="514" x2="521" y2="436" /><line x1="445.84" y1="430" x2="521" y2="493" /><line x1="437" y1="441" x2="515.47" y2="508" /><line x1="734" y1="505" x2="654" y2="443" />',
                         '<line x1="738" y1="494" x2="663" y2="432" /><line x1="658" y1="498" x2="726" y2="429" /><line x1="671" y1="513" x2="736" y2="440" /></g>'
                         "</g>"
+                    )
+                );
+        } else if (mask == 8) {
+            // rolex
+            return
+                string(
+                    abi.encodePacked(
+                        '<g transform="translate(0 -130)"><path d="M567.85,714.07h18.58a9.47,9.47,0,0,1,9.47,9.47v22a9.47,9.47,0,0,1-9.47,9.47H567.85a0,0,0,0,1,0,0V714.07A0,0,0,0,1,567.85,714.07Z" transform="translate(1316.38 152.64) rotate(90)" fill="#b7a456" /><path d="M711.56,685.83c-49.47,37.46-129.18,45.8-129.18,45.8h3.06s-79.7-8.34-129.18-45.8V539.46c49.48-37.46,129.18-45.8,129.18-45.8h-3.06s79.71,8.34,129.18,45.8Z" fill="#d1c386" />',
+                        '<rect x="624.81" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(1306.1 -80.81) rotate(90)" fill="#b7a456" /><rect x="659.87" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(1341.15 -115.86) rotate(90)" fill="#b7a456" /><rect x="694.92" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(1376.2 -150.91) rotate(90)" fill="#b7a456" /><rect x="722.08" y="603.37" width="137.28" height="18.55" rx="6.77"',
+                        'transform="translate(1403.37 -178.08) rotate(90)" fill="#b7a456" /><rect x="629.17" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1286.23 -60.94) rotate(90)" fill="#b7a456" /><rect x="295.32" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(976.6 248.69) rotate(90)" fill="#b7a456" /><rect x="330.37" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(1011.66 213.64) rotate(90)" fill="#b7a456" />',
+                        '<rect x="365.42" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(1046.71 178.58) rotate(90)" fill="#b7a456" /><rect x="401.64" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(1082.93 142.36) rotate(90)" fill="#b7a456" /><rect x="443.97" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1101.04 124.25) rotate(90)" fill="#b7a456" /><rect x="737.25" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1394.31 -169.02) rotate(90)" fill="#bcad6f" />',
+                        '<rect x="702.19" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1359.26 -133.97) rotate(90)" fill="#bcad6f" /><rect x="665.97" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1323.04 -97.75) rotate(90)" fill="#bcad6f" /><rect x="408.92" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1065.99 159.3) rotate(90)" fill="#bcad6f" /><rect x="372.7" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(1029.77 195.53) rotate(90)" fill="#bcad6f" />',
+                        '<rect x="335.89" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(992.96 232.33) rotate(90)" fill="#bcad6f" /><rect x="259.32" y="594.53" width="137.28" height="36.22" rx="9.45" transform="translate(940.6 284.69) rotate(90)" fill="#b7a456" /><rect x="230.89" y="602.11" width="137.28" height="21.07" rx="7.21" transform="translate(912.18 313.11) rotate(90)" fill="#b7a456" /><rect x="263.09" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(920.16 305.14) rotate(90)" fill="#bcad6f" /><circle cx="581.87" cy="612.65" r="119.18" fill="#b7a456" />',
+                        '<circle cx="581.87" cy="612.65" r="94.64" fill="#136319" /><circle cx="581.87" cy="612.65" r="74.78" fill="none" stroke="#f4efd9" stroke-width="14.61" stroke-dasharray="19.58 19.58" stroke-linecap="butt" /><circle cx="581.87" cy="612.65" r="107.55" fill="none" stroke="#a08d3d" stroke-linecap="butt" stroke-width="14.61" stroke-dasharray="5.83 5.83" /><line x1="611.08" y1="568.83" x2="572.23" y2="627.54" fill="none" stroke="#b7a456" /><line x1="617.21" y1="681.29" x2="573.98" y2="598.92" fill="none" stroke="#b7a456" /><circle cx="580.99" cy="612.94" r="4.67" />',
+                        '<line x1="637.37" y1="613" x2="625.1" y2="613" stroke="#b7a456" stroke-width="5" /><line x1="636.2" y1="620.59" x2="625.1" y2="617.67" stroke="#b7a456" stroke-width="5" /><line x1="636.2" y1="605.4" x2="625.1" y2="608.32" stroke="#b7a456" stroke-width="5" /><rect x="617.5" y="610.66" width="9.35" height="4.67" rx="2.34" transform="translate(1235.18 -9.18) rotate(90)" stroke-width="5" stroke="#b7a456" /><line x1="608.08" y1="598.39" x2="608.08" y2="627.6" opacity="0.4" stroke="#b7a456" /><line x1="546.56" y1="590.8" x2="546.56" y2="634.03" opacity="0.4" stroke="#b7a456" />',
+                        '<line x1="533.38" y1="587.88" x2="533.38" y2="636.95" opacity="0.4" stroke="#b7a456" /><rect x="299.09" y="594.53" width="88.84" height="36.22" rx="7.6" transform="translate(956.16 269.14) rotate(90)" fill="#bcad6f" /></g>'
                     )
                 );
         }
