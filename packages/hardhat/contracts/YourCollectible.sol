@@ -20,6 +20,8 @@ import './FullFaceGenerator.sol';
 import './HatGenerator.sol';
 import './MaskGenerator.sol';
 
+import './BloopToken.sol';
+
 //learn more: https://docs.openzeppelin.com/contracts/3.x/erc721
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
@@ -30,6 +32,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   using HexStrings for uint160;
   using ToColor for bytes3;
   using Counters for Counters.Counter;
+
+  BloopToken bloopToken;
 
   SVGBodyGenerator bodyGenerator;
   SVGHatGenerator hatGenerator;
@@ -45,11 +49,13 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   address payable public constant recipient =
     payable(0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6);
 
-  uint256 public constant limit = 929;
+  uint256 public constant limit = 1000;
   uint256 public constant curve = 1002; // price increase 0,2% with each purchase
   uint256 public price = 0.001 ether;
 
-  constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address detailGeneratorAddress, address extraGeneratorAddress) ERC721("Bloopers", "BLOOP") {
+  uint256 issuancePerBlock = 1000 * 1e18;
+
+  constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address detailGeneratorAddress, address extraGeneratorAddress, address bloopTokenAddress) ERC721("Bloopers", "BLOOP") {
     bodyGenerator = SVGBodyGenerator(bodyGeneratorAddress);
     hatGenerator = SVGHatGenerator(hatGeneratorAddress);
     fullFaceGenerator = SVGFullFaceGenerator(fullFaceGeneratorAddress);
@@ -58,6 +64,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     mouthGenerator = SVGMouthGenerator(mouthGeneratorAddress);
     detailGenerator = SVGDetailGenerator(detailGeneratorAddress);
     extraGenerator = SVGExtraGenerator(extraGeneratorAddress);
+    bloopToken = BloopToken(bloopTokenAddress);
   }
 
   struct Blooper {
@@ -109,19 +116,80 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   // calculating rewards:
   // 40 blocks * 1000/1 -> (next mint happens) + 69 blocks * 1000/2 -> (next mint happens) + 100 blocks * 1000/3 + ...
 
+
+  // 22, 23, 26
+  // 20 blocks * 1000/1 -> (20-22)
+
+  // 2*(issuance #block 20)
+
   // we need to store triples (supply, start block with that supply, end block with that supply) 
 
-  function harvestBLP(uint256 id) public {
-    require(ownerOf(id) == msg.sender);
-    require(lastBlockHarvestedById[id] > block.number);
-
-
-    // want to divide rewards by totalSupply
-
-  }
+  
   */
 
+  function viewBlockNumber() public view returns(uint256) {
+    return block.number;
+  }
+
+  uint256 lastFarmBlockNumber = 5000;
+
+  
+
   mapping (uint256 => uint256) idToLastBlockClaimed;
+  uint256[limit] mintBlockNumbersArray;
+
+
+  function claimBLP(uint256 id) public {
+    require(ownerOf(id) == msg.sender, "NOT OWNER");
+    require(idToLastBlockClaimed[id] < block.number, "NOTHING TO CLAIM");
+
+    uint256 amountToClaim = amountAvailableToClaim(id);
+    require(amountToClaim > 0);
+    
+    idToLastBlockClaimed[id] = block.number;
+
+    bloopToken.transfer(msg.sender, amountToClaim);
+
+  }
+
+
+
+  function getMintBlockNumberById(uint256 id) public view returns(uint256) {
+    return mintBlockNumbersArray[id];
+  }
+
+
+  // blooper id 55 last claim in block 140
+  // want to claim in block 200
+
+  // from block 140 to 150 there were X amounts of bloopers 
+  // from block 150 to 175 there were Y amounts of bloopers 
+  // from block 175 to 200 there were Z amounts of bloopers
+
+  function amountAvailableToClaim(uint256 id) public view returns(uint256) {
+
+    uint256 amountAvailable = 0;
+
+    uint256 lastBlock = idToLastBlockClaimed[id];
+    for(uint256 i = 0; i < totalMinted(); i++){
+      if(mintBlockNumbersArray[i] >= lastBlock && mintBlockNumbersArray[i] < lastFarmBlockNumber){
+        amountAvailable += (1+(mintBlockNumbersArray[i]-lastBlock))*issuancePerBlock/(i+1);
+
+        lastBlock = mintBlockNumbersArray[i];
+      }
+    }
+
+    if(block.number < lastFarmBlockNumber) {
+      amountAvailable += (1+block.number-mintBlockNumbersArray[totalMinted()-1])*issuancePerBlock/(totalMinted());
+    }
+    else {
+      amountAvailable += (lastFarmBlockNumber-mintBlockNumbersArray[totalMinted()-1])*issuancePerBlock/(totalMinted());
+    }
+  
+    return amountAvailable;
+  }
+
+  
 
   // in mint, set it to current block number for the ID
 
@@ -137,9 +205,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     require(msg.value >= price, "NOT ENOUGH");
     price = (price * curve) / 1000;
 
+    uint256 id = _tokenIds.current();
     _tokenIds.increment();
 
-    uint256 id = _tokenIds.current();
     _mint(msg.sender, id);
 
     bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
@@ -157,7 +225,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
       idToBlooper[id].hat            = 99;
       idToBlooper[id].extra          = uint8(predictableRandom[5])%(noOfExtras*2); // 50% chance of extra when full face
       idToBlooper[id].detail         = 99;
-      idToBlooper[id].detail         = 99;
+      idToBlooper[id].mask           = 99;
     } 
     else {
       // else we are not using full face
@@ -196,7 +264,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     (bool success, ) = recipient.call{value: msg.value}("");
     require(success, "could not send");
 
-    //lastBlockHarvestedById[id] = block.number;
+    idToLastBlockClaimed[id] = block.number;
+    mintBlockNumbersArray[id] = block.number;
+
     return id;
   }
   
