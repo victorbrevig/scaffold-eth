@@ -202,6 +202,12 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   }
   */
 
+    mapping(uint256 => uint256) idToLastBlockClaimed;
+
+    // in mint, set it to current block number for the ID
+
+    // when claiming, set to current block number
+
     function getBlooper(uint256 _id) public view returns (Blooper memory) {
         return idToBlooper[_id];
     }
