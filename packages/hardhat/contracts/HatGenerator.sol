@@ -18,10 +18,12 @@ contract SVGHatGenerator {
             return
                 string(
                     abi.encodePacked(
-                        "<g>",
-                        '<circle cx="543" cy="116" r="38" fill="#ff0000"/>',
-                        '<path d="M579.05,104h24a12,12,0,0,1,12,12h0a12,12,0,0,1-12,12H483a12,12,0,0,1-12-12h0a12,12,0,0,1,12-12h23.94" fill="none" />',
-                        "</g>"
+                        '<g fill="#',color,'" transform="translate(0 -20)"><circle cx="540" cy="131.75" r="64.75" /><circle cx="508.21" cy="137.29" r="7.62" fill="#fff" opacity="0.3" stroke="none" />',
+                        '<circle cx="530.85" cy="131.76" r="7.62" fill="#000" opacity="0.2" stroke="none" /><circle cx="540.13" cy="171.01" r="4.57" fill="#000" opacity="0.2" stroke="none" /><circle cx="511.43" cy="111.94" r="4.57" fill="#fff" opacity="0.3" stroke="none" />',
+                        '<g opacity="0.2"><path d="M579.54,182.86a64.64,64.64,0,0,0,25-52.83c-26.5-32.3-54.45-46.4-92.92-54.84-.89.8-16.65,9.87-17.5,10.71a195.19,195.19,0,0,1,35.69,20.29c8.11,5.68,16,11.83,22.45,19.37,11,13,17.11,29.29,23,45.26C576.69,174.82,578.16,178.83,579.54,182.86Z" transform="translate(0.19)" fill="#fff" stroke="none" />',
+                        '</g><g opacity="0.4"><path d="M497.6,83.66A308.63,308.63,0,0,1,604.52,130c-26.5-32.3-54.45-46.4-92.92-54.84C511,75.77,502.54,80.67,497.6,83.66Z" transform="translate(0.19)" fill="#fff" stroke="none" /></g>',
+                        '<circle cx="540" cy="131.75" r="64.75" fill="none" /><path d="M601.47,111.94h32a19.8,19.8,0,0,1,19.8,19.81h0a19.8,19.8,0,0,1-19.8,19.81H446.12a19.81,19.81,0,0,1-19.81-19.81h0a19.81,19.81,0,0,1,19.81-19.81h32" transform="translate(0.19)" fill="none" />',
+                        '</g>'
                     )
                 );
         } else if (hat == 1) {
