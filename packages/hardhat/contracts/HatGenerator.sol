@@ -308,7 +308,7 @@ contract SVGHatGenerator {
                     )
                 );
         } else if (hat == 19) {
-            //
+            // chicken
             return
                 string(
                     abi.encodePacked(
