@@ -1,154 +1,240 @@
 pragma solidity ^0.8.0;
 //SPDX-License-Identifier: MIT
 
-import './ToColor.sol';
+import "./ToColor.sol";
 
 contract SVGEyeGenerator {
-
     using ToColor for bytes3;
 
     constructor() {}
 
-    function render(uint8 eye, string memory color) external pure returns (string memory) {
-
-        if(eye==0){ // default eyes
-            return string(abi.encodePacked(
-            '<g transform="translate(0 10)">',
-            '<circle cx="451.88" cy="437.25" r="26" fill="#fff" />',
-            '<circle cx="711.88" cy="437.25" r="26" fill="#fff" />',
-            '</g>'));
-        }else if(eye==1){ // three eyes
-            return string(abi.encodePacked(
-            '<g>',
-            '<circle cx="451.88" cy="437.25" r="26" fill="#fff" />',
-            '<circle cx="711.88" cy="437.25" r="26" fill="#fff" />',
-            '<circle cx="582" cy="407" r="26" fill="#fff" />',
-            '</g>'
-            ));
-        }else if(eye==2){ // shades
-            return string(abi.encodePacked(
-            '<g transform="translate(30 25) scale(0.95 0.95)">',
-            '<path d="M390,396H279a14,14,0,0,0-14,14h0v19" fill="none" />',
-            '<line x1="514" y1="396.45" x2="650" y2="396.45" />',
-            '<path d="M530,385.39H374V408h15.1v27.68a62.9,62.9,0,0,0,62.9,62.9h0a62.9,62.9,0,0,0,62.9-62.9V408H530Z" fill="#000000" opacity="0.9" />',
-            '<path d="M790,385.39H634V408h15.1v27.68a62.9,62.9,0,0,0,62.9,62.9h0a62.9,62.9,0,0,0,62.9-62.9V408H790Z" fill="#000000" opacity="0.9" />',
-            '<path d="M530,385.39H374V408h15.1v27.68a62.9,62.9,0,0,0,62.9,62.9h0a62.9,62.9,0,0,0,62.9-62.9V408H530Z" fill="none" />',
-            '<path d="M790,385.39H634V408h15.1v27.68a62.9,62.9,0,0,0,62.9,62.9h0a62.9,62.9,0,0,0,62.9-62.9V408H790Z" fill="none" />',
-            '</g>'
-            ));
-        }else if(eye==3){ // 3d glasses 
-            return string(abi.encodePacked(
-            '<g>',
-            '<path d="M258,446.69V488h40V469.6a5.6,5.6,0,0,1,5.6-5.6H383V412H292.69A34.69,34.69,0,0,0,258,446.69Z" fill="#fff" />',
-            '<path d="M383,389v99H553.77a35,35,0,0,1,66.46,0H791V389Z" fill="#fff" />',
-            '<rect x="671" y="413" width="100" height="51" transform="translate(1424 877) rotate(180)" fill="#ff4848" />',
-            '<rect x="411" y="413" width="100" height="51" transform="translate(924 877) rotate(180)" fill="#4a8bff" />',
-            '</g>'
-            ));
-        }else if(eye==4){ // joker
-            return string(abi.encodePacked(
-            '<g fill="#',color,'">',
-            '<polygon points="399.79 450 457 354 514.21 450 457 546 399.79 450" />',
-            '<polygon points="659.79 450 717 354 774.21 450 717 546 659.79 450" />',
-            '<circle cx="457" cy="448" r="26" fill="#fff" />',
-            '<circle cx="717" cy="448" r="26" fill="#fff" />',
-            '</g>'
-            ));
-        }else if(eye==5){ // IG GLASSES
-            return string(abi.encodePacked(
-            '<g fill="#',color,'">',
-            '<circle cx="453.88" cy="448.25" r="26" fill="#fff" />',
-            '<circle cx="713.88" cy="448.25" r="26" fill="#fff" />',
-            '<rect x="377" y="448" width="154" height="30" rx="15" opacity="0.5" />',
-            '<rect x="637" y="448" width="154" height="30" rx="15" opacity="0.5" />',
-            '<rect x="377" y="448" width="154" height="30" rx="15" fill="none" />',
-            '<rect x="637" y="448" width="154" height="30" rx="15" fill="none" />',
-            '<line x1="531" y1="463" x2="637" y2="463" />',
-            '<path d="M377,463H292.73A10.72,10.72,0,0,0,282,473.73V489" fill="none" />',
-            '</g>'
-            ));
-        }else if(eye==6){ // NINJA
-            return string(abi.encodePacked(
-            '<g fill="#',color,'" transform="translate(0 -6)">',
-            '<rect x="302" y="420" width="479" height="72" />',
-            '<path d="M481,446a26,26,0,0,1-52,0Z" fill="#fff" />',
-            '<path d="M741,446a26,26,0,0,1-52,0Z" fill="#fff" />',
-            '<circle cx="278" cy="456" r="21" />',
-            '<path d="M257,456H229.69A24.68,24.68,0,0,1,205,431.31V404Z" />',
-            '<path d="M257,456v27.31A24.68,24.68,0,0,1,232.31,508H205Z" />',
-            '</g>'
-            ));
-        }else if(eye==7){ // tired
-            return string(abi.encodePacked(
-            '<g><path d="M481,446a26,26,0,0,1-52,0Z" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" />',
-            '<path d="M741,446a26,26,0,0,1-52,0Z" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" /></g>'
-            ));
-        }else if(eye==8){ // TEARY
-            return string(abi.encodePacked(
-            '<g><circle cx="455" cy="446" r="26" />',
-            '<circle cx="439" cy="448" r="5" fill="#fff" stroke="none" />',
-            '<path d="M475.23,425.54a26,26,0,0,0-37.2,2.82,20.48,20.48,0,0,0,37.2-2.82Z" fill="#fff" stroke="none" />',
-            '<path d="M482.76,452.51a20,20,0,0,0-32.43,21.62A25.73,25.73,0,0,0,457,475,26,26,0,0,0,482.76,452.51Z" fill="#fff" stroke="none" />',
-            '<circle cx="455" cy="446" r="26" fill="none" /><circle cx="715" cy="446" r="26" />',
-            '<circle cx="699" cy="448" r="5" fill="#fff" stroke="none" />',
-            '<path d="M735.23,425.54a26,26,0,0,0-37.2,2.82,20.48,20.48,0,0,0,37.2-2.82Z" fill="#fff" stroke="none" />',
-            '<path d="M742.76,452.51a20,20,0,0,0-32.43,21.62A25.73,25.73,0,0,0,717,475,26,26,0,0,0,742.76,452.51Z" fill="#fff" stroke="none" />',
-            '<circle cx="715" cy="446" r="26" fill="none" /></g>'
-            ));
-        }else if(eye==9){ // HAPPY
-            return string(abi.encodePacked(
-            '<g>',
-            '<path d="M739,436a26,26,0,0,0-48,0" fill="none" />',
-            '<path d="M479,436a26,26,0,0,0-48,0" fill="none" />',
-            '</g>'
-            ));
-        }else if(eye==10){ // sad
-            return string(abi.encodePacked(
-            '<g>',
-            '<path d="M739,456a26,26,0,0,1-48,0" fill="none" />',
-            '<path d="M479,456a26,26,0,0,1-48,0" fill="none" />',
-            '</g>'
-            ));
-        }else if(eye==11){ // BOUJEE SHADES
-            return string(abi.encodePacked(
-            '<g fill="#',color,'" transform="translate(0 -10)">',
-            '<path d="M796.36,391.26H702.85a47.71,47.71,0,0,0-32.41,12.65,393.9,393.9,0,0,0-165.11,1.72,47.72,47.72,0,0,0-34.18-14.37H377.64A11.62,11.62,0,0,0,366.05,402H291a32,32,0,0,0-32,32,10,10,0,0,0,20,0,12,12,0,0,1,12-12h75.22a79.29,79.29,0,0,0,79.09,73.74h25.84A47.84,47.84,0,0,0,519,447.9v-8.8a47.6,47.6,0,0,0-2.55-15.4,373.79,373.79,0,0,1,141.74-1.78A47.84,47.84,0,0,0,655,439.1v8.8a47.84,47.84,0,0,0,47.85,47.84h25.84A79.3,79.3,0,0,0,808,416.44V402.89A11.64,11.64,0,0,0,796.36,391.26Z" fill="#fff" />',
-            '<path d="M403.46,409h61.36a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H448.9a57.22,57.22,0,0,1-57.22-57.22v0A11.78,11.78,0,0,1,403.46,409Z" />',
-            '<path d="M732.9,409h15.92a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H687.46a11.78,11.78,0,0,1-11.78-11.78v0A57.22,57.22,0,0,1,732.9,409Z" transform="translate(1459 887) rotate(-180)" />',
-            '<path d="M403.46,409h61.36a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H448.9a57.22,57.22,0,0,1-57.22-57.22v0A11.78,11.78,0,0,1,403.46,409Z" fill="none" />',
-            '<path d="M732.9,409h15.92a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H687.46a11.78,11.78,0,0,1-11.78-11.78v0A57.22,57.22,0,0,1,732.9,409Z" transform="translate(1459 887) rotate(-180)" fill="none" />',
-            '</g>'
-            ));
-        }else if(eye==12){ // VISOR SHADES
-            return string(abi.encodePacked(
-            '<g transform="translate(0 -15)">',
-            '<defs><linearGradient id="linear-gradient-visor" x1="585" y1="402" x2="585" y2="490" gradientUnits="userSpaceOnUse">',
-            '<stop offset="0" stop-color="#ff005c" /><stop offset="1" stop-color="#f9ff08" /></linearGradient></defs>',
-            '<path d="M791,402H298a15,15,0,0,0-15,15v49h15V434.87A14.87,14.87,0,0,1,312.87,420h0a22,22,0,0,1,13.66,4.75L418,490l-9.73-70H791Z" />',
-            '<path d="M388,402l7.47,65.72a25.12,25.12,0,0,0,25,22.28h119a27.37,27.37,0,0,0,23.3-13.48,26,26,0,0,1,44.48,0A27.37,27.37,0,0,0,630.54,490h119a25.12,25.12,0,0,0,25-22.28L782,402Z" fill="url(#linear-gradient-visor)" />',
-            '</g>'
-            ));
-        }else if(eye==13){ // DEAD
-            return string(abi.encodePacked(
-            '<g><line x1="473.38" y1="427.62" x2="436.62" y2="464.38" /><line x1="473.38" y1="464.38" x2="436.62" y2="427.62" />',
-            '<line x1="733.38" y1="427.62" x2="696.62" y2="464.38" /><line x1="733.38" y1="464.38" x2="696.62" y2="427.62" /></g>'
-            ));
-        }else if(eye==14){ // WINK
-            return string(abi.encodePacked(
-            '<g><circle cx="455" cy="446" r="26" fill="#fff" /><polyline points="715 472 689 446 715 420" fill="none" />',
-            '<line x1="689" y1="446" x2="741" y2="446" /></g>'
-            ));
-        }else if(eye==15){ // EYE LINER
-            return string(abi.encodePacked(
-            '<g>',
-            '<path d="M455,420H413.27a18,18,0,0,0,18,18H455Z" />',
-            '<path d="M715.27,420H757a18,18,0,0,1-18,18H715.27Z" />',
-            '<circle cx="455" cy="446" r="26" fill="#fff" />',
-            '<circle cx="715" cy="446" r="26" fill="#fff" />',
-            '</g>'
-            ));
+    function render(uint8 eye, string memory color)
+        external
+        pure
+        returns (string memory)
+    {
+        if (eye == 0) {
+            // default eyes
+            return
+                string(
+                    abi.encodePacked(
+                        '<g transform="translate(0 10)">',
+                        '<circle cx="451.88" cy="437.25" r="26" fill="#fff" />',
+                        '<circle cx="711.88" cy="437.25" r="26" fill="#fff" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 1) {
+            // three eyes
+            return
+                string(
+                    abi.encodePacked(
+                        "<g>",
+                        '<circle cx="451.88" cy="437.25" r="26" fill="#fff" />',
+                        '<circle cx="711.88" cy="437.25" r="26" fill="#fff" />',
+                        '<circle cx="582" cy="407" r="26" fill="#fff" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 2) {
+            // shades
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#3d3512" fill-opacity="0.8"><path d="M542,412.44c4.2,6.44,5.73,14.11,6.32,21.77h0a30.74,30.74,0,0,1-1,10.51c-6.43,23.16-20,44.66-39.93,58C486,517,456.85,520.61,433.87,508.87a56.53,56.53,0,0,1-21.46-18.77c-6.64-10-9.46-22.1-10.77-34.05-.84-7.72-1.1-15.6.47-23.21s5.07-16,10.85-21.19c6.13-5.53,14.29-9.21,22.33-11.08,24.57-5.72,50.1-4.23,75.32-3.71C510.61,396.86,531.57,396.39,542,412.44Z" />',
+                        '<path d="M639.39,412.44c-4.2,6.44-5.73,14.11-6.32,21.77h0a30.49,30.49,0,0,0,1,10.51c6.43,23.16,20,44.66,39.93,58,21.47,14.33,50.61,17.92,73.59,6.18A56.45,56.45,0,0,0,769,490.1c6.64-10,9.46-22.1,10.77-34.05.84-7.72,1.1-15.6-.47-23.21s-5.07-16-10.85-21.19c-6.13-5.53-14.29-9.21-22.33-11.08-24.57-5.72-50.1-4.23-75.32-3.71C670.81,396.86,649.86,396.39,639.39,412.44Z" /><line x1="464.88" y1="396.66" x2="704.88" y2="396.66"/>',
+                        '<path d="M547.05,425s31.18-19.51,87.31,0" fill="none"/><path d="M400.5,432.5h-90a29,29,0,0,0-29,29h0" fill="none"/>',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 3) {
+            // 3d glasses
+            return
+                string(
+                    abi.encodePacked(
+                        "<g>",
+                        '<path d="M258,446.69V488h40V469.6a5.6,5.6,0,0,1,5.6-5.6H383V412H292.69A34.69,34.69,0,0,0,258,446.69Z" fill="#fff" />',
+                        '<path d="M383,389v99H553.77a35,35,0,0,1,66.46,0H791V389Z" fill="#fff" />',
+                        '<rect x="671" y="413" width="100" height="51" transform="translate(1424 877) rotate(180)" fill="#ff4848" />',
+                        '<rect x="411" y="413" width="100" height="51" transform="translate(924 877) rotate(180)" fill="#4a8bff" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 4) {
+            // joker
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '">',
+                        '<polygon points="399.79 450 457 354 514.21 450 457 546 399.79 450" />',
+                        '<polygon points="659.79 450 717 354 774.21 450 717 546 659.79 450" />',
+                        '<circle cx="457" cy="448" r="26" fill="#fff" />',
+                        '<circle cx="717" cy="448" r="26" fill="#fff" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 5) {
+            // IG GLASSES
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '">',
+                        '<circle cx="453.88" cy="448.25" r="26" fill="#fff" />',
+                        '<circle cx="713.88" cy="448.25" r="26" fill="#fff" />',
+                        '<rect x="377" y="448" width="154" height="30" rx="15" opacity="0.5" />',
+                        '<rect x="637" y="448" width="154" height="30" rx="15" opacity="0.5" />',
+                        '<rect x="377" y="448" width="154" height="30" rx="15" fill="none" />',
+                        '<rect x="637" y="448" width="154" height="30" rx="15" fill="none" />',
+                        '<line x1="531" y1="463" x2="637" y2="463" />',
+                        '<path d="M377,463H292.73A10.72,10.72,0,0,0,282,473.73V489" fill="none" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 6) {
+            // NINJA
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '" transform="translate(0 -6)">',
+                        '<rect x="302" y="420" width="479" height="72" />',
+                        '<path d="M481,446a26,26,0,0,1-52,0Z" fill="#fff" />',
+                        '<path d="M741,446a26,26,0,0,1-52,0Z" fill="#fff" />',
+                        '<circle cx="278" cy="456" r="21" />',
+                        '<path d="M257,456H229.69A24.68,24.68,0,0,1,205,431.31V404Z" />',
+                        '<path d="M257,456v27.31A24.68,24.68,0,0,1,232.31,508H205Z" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 7) {
+            // tired
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><path d="M481,446a26,26,0,0,1-52,0Z" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" />',
+                        '<path d="M741,446a26,26,0,0,1-52,0Z" fill="#fff" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10" /></g>'
+                    )
+                );
+        } else if (eye == 8) {
+            // TEARY
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><circle cx="455" cy="446" r="26" />',
+                        '<circle cx="439" cy="448" r="5" fill="#fff" stroke="none" />',
+                        '<path d="M475.23,425.54a26,26,0,0,0-37.2,2.82,20.48,20.48,0,0,0,37.2-2.82Z" fill="#fff" stroke="none" />',
+                        '<path d="M482.76,452.51a20,20,0,0,0-32.43,21.62A25.73,25.73,0,0,0,457,475,26,26,0,0,0,482.76,452.51Z" fill="#fff" stroke="none" />',
+                        '<circle cx="455" cy="446" r="26" fill="none" /><circle cx="715" cy="446" r="26" />',
+                        '<circle cx="699" cy="448" r="5" fill="#fff" stroke="none" />',
+                        '<path d="M735.23,425.54a26,26,0,0,0-37.2,2.82,20.48,20.48,0,0,0,37.2-2.82Z" fill="#fff" stroke="none" />',
+                        '<path d="M742.76,452.51a20,20,0,0,0-32.43,21.62A25.73,25.73,0,0,0,717,475,26,26,0,0,0,742.76,452.51Z" fill="#fff" stroke="none" />',
+                        '<circle cx="715" cy="446" r="26" fill="none" /></g>'
+                    )
+                );
+        } else if (eye == 9) {
+            // HAPPY
+            return
+                string(
+                    abi.encodePacked(
+                        "<g>",
+                        '<path d="M739,436a26,26,0,0,0-48,0" fill="none" />',
+                        '<path d="M479,436a26,26,0,0,0-48,0" fill="none" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 10) {
+            // sad
+            return
+                string(
+                    abi.encodePacked(
+                        "<g>",
+                        '<path d="M739,456a26,26,0,0,1-48,0" fill="none" />',
+                        '<path d="M479,456a26,26,0,0,1-48,0" fill="none" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 11) {
+            // BOUJEE SHADES
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '" transform="translate(0 -10)">',
+                        '<path d="M796.36,391.26H702.85a47.71,47.71,0,0,0-32.41,12.65,393.9,393.9,0,0,0-165.11,1.72,47.72,47.72,0,0,0-34.18-14.37H377.64A11.62,11.62,0,0,0,366.05,402H291a32,32,0,0,0-32,32,10,10,0,0,0,20,0,12,12,0,0,1,12-12h75.22a79.29,79.29,0,0,0,79.09,73.74h25.84A47.84,47.84,0,0,0,519,447.9v-8.8a47.6,47.6,0,0,0-2.55-15.4,373.79,373.79,0,0,1,141.74-1.78A47.84,47.84,0,0,0,655,439.1v8.8a47.84,47.84,0,0,0,47.85,47.84h25.84A79.3,79.3,0,0,0,808,416.44V402.89A11.64,11.64,0,0,0,796.36,391.26Z" fill="#fff" />',
+                        '<path d="M403.46,409h61.36a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H448.9a57.22,57.22,0,0,1-57.22-57.22v0A11.78,11.78,0,0,1,403.46,409Z" />',
+                        '<path d="M732.9,409h15.92a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H687.46a11.78,11.78,0,0,1-11.78-11.78v0A57.22,57.22,0,0,1,732.9,409Z" transform="translate(1459 887) rotate(-180)" />',
+                        '<path d="M403.46,409h61.36a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H448.9a57.22,57.22,0,0,1-57.22-57.22v0A11.78,11.78,0,0,1,403.46,409Z" fill="none" />',
+                        '<path d="M732.9,409h15.92a34.5,34.5,0,0,1,34.5,34.5v0a34.5,34.5,0,0,1-34.5,34.5H687.46a11.78,11.78,0,0,1-11.78-11.78v0A57.22,57.22,0,0,1,732.9,409Z" transform="translate(1459 887) rotate(-180)" fill="none" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 12) {
+            // VISOR SHADES
+            return
+                string(
+                    abi.encodePacked(
+                        '<g transform="translate(0 -15)">',
+                        '<defs><linearGradient id="linear-gradient-visor" x1="585" y1="402" x2="585" y2="490" gradientUnits="userSpaceOnUse">',
+                        '<stop offset="0" stop-color="#ff005c" /><stop offset="1" stop-color="#f9ff08" /></linearGradient></defs>',
+                        '<rect x="392" y="411" width="18" height="50" rx="9" fill="#3a3a3a" /><rect x="311" y="421" width="81" height="30" fill="#161616" />',
+                        '<path d="M605,444h26l26,42H632.28a14.26,14.26,0,0,1-10.52-4.63h0A22.74,22.74,0,0,0,605,474H592a22.74,22.74,0,0,0-16.76,7.37h0A14.26,14.26,0,0,1,564.72,486H540l26-42h39Z" fill="#3a3a3a" />',
+                        '<path d="M774.75,397.66c-44.66-14.65-95-17.9-118.08-18.6-.4,0-.79-.06-1.19-.06h-1c-6.8-.17-10.74-.12-10.74-.12V379H551.22v-.12s-70.63-1-131,18.78c-6.24,2-10.25,6.72-10.25,11.86v51.86c0,13.62,15.81,25.07,26,31.87,13.92,9.3,46.3,14.62,74.68,14.9,0,0,26.55,1.38,43.88-22.21A38.67,38.67,0,0,1,585.67,470h23.66a38.67,38.67,0,0,1,31.12,15.94c17.33,23.59,43.88,22.21,43.88,22.21,28.38-.28,60.76-6.6,74.68-15.9,10.18-6.8,26-17.25,26-30.87V409.52C785,404.38,781,399.7,774.75,397.66Z" fill="url(#linear-gradient-visor)" />',
+                        '<path d="M662,379.25c-1.9-.08-3.69-.14-5.33-.19-.4,0-.79-.06-1.19-.06h-1c-6.8-.17-10.74-.12-10.74-.12V379H597v91h12.33a38.67,38.67,0,0,1,31.12,15.94A53.37,53.37,0,0,0,662,503.36Z" fill="#fff" opacity="0.3" stroke="none" />',
+                        '<path d="M774.75,397.66c-44.66-14.65-95-17.9-118.08-18.6-.4,0-.79-.06-1.19-.06h-1c-6.8-.17-10.74-.12-10.74-.12V379H551.22v-.12s-70.63-1-131,18.78c-6.24,2-10.25,6.72-10.25,11.86v51.86c0,13.62,15.81,25.07,26,31.87,13.92,9.3,46.3,14.62,74.68,14.9,0,0,26.55,1.38,43.88-22.21A38.67,38.67,0,0,1,585.67,470h23.66a38.67,38.67,0,0,1,31.12,15.94c17.33,23.59,43.88,22.21,43.88,22.21,28.38-.28,60.76-6.6,74.68-15.9,10.18-6.8,26-17.25,26-30.87V409.52C785,404.38,781,399.7,774.75,397.66Z" fill="none" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 13) {
+            // DEAD
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><line x1="473.38" y1="427.62" x2="436.62" y2="464.38" /><line x1="473.38" y1="464.38" x2="436.62" y2="427.62" />',
+                        '<line x1="733.38" y1="427.62" x2="696.62" y2="464.38" /><line x1="733.38" y1="464.38" x2="696.62" y2="427.62" /></g>'
+                    )
+                );
+        } else if (eye == 14) {
+            // WINK
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><circle cx="455" cy="446" r="26" fill="#fff" /><polyline points="715 472 689 446 715 420" fill="none" />',
+                        '<line x1="689" y1="446" x2="741" y2="446" /></g>'
+                    )
+                );
+        } else if (eye == 15) {
+            // EYE LINER
+            return
+                string(
+                    abi.encodePacked(
+                        "<g>",
+                        '<path d="M455,420H413.27a18,18,0,0,0,18,18H455Z" />',
+                        '<path d="M715.27,420H757a18,18,0,0,1-18,18H715.27Z" />',
+                        '<circle cx="455" cy="446" r="26" fill="#fff" />',
+                        '<circle cx="715" cy="446" r="26" fill="#fff" />',
+                        "</g>"
+                    )
+                );
+        } else if (eye == 16) {
+            // CATEYE SHADES
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#8a8fcf" transform="translate(0 -5)"><path d="M386,415H282a17,17,0,0,0-17,17h0v17.5a8.51,8.51,0,0,0,8.5,8.5h0a8.51,8.51,0,0,0,8.5-8.5V432H386Z" />',
+                        '<path d="M649.06,430.84l18.46,34.45a14,14,0,0,0,12.72,7.38l42.25-1.21A14,14,0,0,0,734,464.83l27.34-44.27a3.54,3.54,0,0,0-3.36-5.38L651.83,425.65A3.54,3.54,0,0,0,649.06,430.84Z" fill="#191919" opacity="0.7" />',
+                        '<path d="M520.58,430.84l-18.46,34.45a14,14,0,0,1-12.73,7.38l-42.25-1.21a14,14,0,0,1-11.5-6.63L408.3,420.56a3.54,3.54,0,0,1,3.36-5.38L517.8,425.65A3.54,3.54,0,0,1,520.58,430.84Z" fill="#191919" opacity="0.7" />',
+                        '<path d="M808.13,397.6l-3.89-5.44A10.08,10.08,0,0,0,794.7,388l-166.42,22.6H541.36L374.94,388a10.1,10.1,0,0,0-9.55,4.12l-3.88,5.44a10.13,10.13,0,0,0-1,9.89c19.23,44.7,57.21,73.05,67.54,80.15a10,10,0,0,0,5.69,1.76h73a10.12,10.12,0,0,0,8-4c14.6-18.85,23.64-40,27.12-49.05a7,7,0,0,1,6.53-4.46h72.88a7,7,0,0,1,6.53,4.46c3.48,9,12.52,30.2,27.11,49.05a10.15,10.15,0,0,0,8,4h73a10,10,0,0,0,5.7-1.76c10.33-7.1,48.3-35.45,67.54-80.15A10.15,10.15,0,0,0,808.13,397.6ZM520.58,430.84l-18.46,34.45a14,14,0,0,1-12.73,7.38l-42.25-1.21a14,14,0,0,1-11.5-6.63L408.3,420.56a3.54,3.54,0,0,1,3.36-5.38L517.8,425.65A3.54,3.54,0,0,1,520.58,430.84Zm240.76-10.28L734,464.83a14,14,0,0,1-11.5,6.63l-42.26,1.21a14,14,0,0,1-12.72-7.38l-18.46-34.45a3.54,3.54,0,0,1,2.77-5.19L758,415.18A3.54,3.54,0,0,1,761.34,420.56Z" />',
+                        "</g>"
+                    )
+                );
         }
 
-        return '';
+        return "";
     }
 }

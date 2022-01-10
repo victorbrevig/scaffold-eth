@@ -173,7 +173,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     ];
 
     uint8 constant noOfHats = 20;
-    uint8 constant noOfEyes = 16;
+    uint8 constant noOfEyes = 17;
     uint8 constant noOfMouths = 17;
     uint8 constant noOfFullFaces = 7;
     uint8 constant noOfMasks = 9;
