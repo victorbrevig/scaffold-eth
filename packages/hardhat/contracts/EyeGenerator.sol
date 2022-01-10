@@ -233,6 +233,19 @@ contract SVGEyeGenerator {
                         "</g>"
                     )
                 );
+        } else if (eye == 17) {
+            // CATEYE SHADES
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><circle cx="455" cy="443" r="40" fill="#e0e0e0" fill-opacity="0.9" /><circle cx="715" cy="443" r="40" fill="#e0e0e0" fill-opacity="0.9" />',
+                        '<circle cx="455" cy="443" r="20" fill="none" stroke="#565656" opacity="0.4" /><line x1="496.97" y1="432.91" x2="674.03" y2="432.91" />',
+                        '<line x1="496.97" y1="442.91" x2="674.03" y2="442.91" /><path d="M414,442.91H303.58A10.61,10.61,0,0,0,293,453.52V469H283V453.87a21,21,0,0,1,20.95-21H414" />',
+                        '<polygon points="556 448.3 604 448.3 594 426.7 552 426.7 556 448.3" fill="#b49487" /><polygon points="614 451 566 451 576 424 624 424 614 451" fill="#b49487" stroke="#000"',
+                        'stroke-linecap="round" stroke-linejoin="round" stroke-width="10" /><circle cx="715" cy="443" r="20" fill="none" stroke="#565656" opacity="0.4" />',
+                        "</g>"
+                    )
+                );
         }
 
         return "";
