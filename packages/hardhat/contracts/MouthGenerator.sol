@@ -207,7 +207,7 @@ contract SVGMouthGenerator {
                         '<g fill="#',
                         color,
                         '"><rect x="305" y="529" width="475" height="107" />',
-                        '<path d="M624,511H565a20,20,0,0,1-20-10h0" fill="none" /><rect x="305" y="529" width="475" height="24" stroke-width="10" fill="#fff" />',
+                        '<line x1="545.38" y1="513" x2="624.38" y2="513" /><rect x="305" y="529" width="475" height="24" stroke-width="10" fill="#fff" />',
                         '<rect x="320" y="558" width="12" height="73" fill="#fff" stroke="none" /><rect x="342" y="558" width="12" height="73" fill="#fff" stroke="none" />',
                         '<circle cx="705" cy="589.75" r="16" fill="#fff" /><line x1="439" y1="582.25" x2="465" y2="582.25" />',
                         '<line x1="439" y1="597.25" x2="465" y2="597.25" opacity="0.3" /><polyline points="589 579 572 579 572 609 589 609 589 594 572 594" fill="none" stroke="#fff" /></g>'
