@@ -52,12 +52,9 @@ contract SVGEyeGenerator {
             return
                 string(
                     abi.encodePacked(
-                        "<g>",
-                        '<path d="M258,446.69V488h40V469.6a5.6,5.6,0,0,1,5.6-5.6H383V412H292.69A34.69,34.69,0,0,0,258,446.69Z" fill="#fff" />',
-                        '<path d="M383,389v99H553.77a35,35,0,0,1,66.46,0H791V389Z" fill="#fff" />',
-                        '<rect x="671" y="413" width="100" height="51" transform="translate(1424 877) rotate(180)" fill="#ff4848" />',
-                        '<rect x="411" y="413" width="100" height="51" transform="translate(924 877) rotate(180)" fill="#4a8bff" />',
-                        "</g>"
+                        '<g><path d="M782,401H371v28h16v56H550.39a15.86,15.86,0,0,0,14.13-8.67l8.74-17.23a12.69,12.69,0,0,1,21.48,0l8.74,17.23A15.86,15.86,0,0,0,617.61,485H782V429h16V401Z" fill="#f4f4f4"/>',
+                        '<path d="M371,401H302.91A20.91,20.91,0,0,0,282,421.91V450h27V429h62Z" fill="#d6d6d6" /><rect x="415.52" y="423" width="117.96" height="41" fill="#ff3636" />',
+                        '<rect x="634.97" y="423" width="117.96" height="41" fill="#3948ff" /></g>'
                     )
                 );
         } else if (eye == 4) {
