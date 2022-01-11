@@ -230,7 +230,7 @@ contract SVGEyeGenerator {
                     )
                 );
         } else if (eye == 17) {
-            // NERD SHADES
+            // NERD GLASSES
             return
                 string(
                     abi.encodePacked(
@@ -240,6 +240,18 @@ contract SVGEyeGenerator {
                         '<polygon points="556 448.3 604 448.3 594 426.7 552 426.7 556 448.3" fill="#b49487" /><polygon points="614 451 566 451 576 424 624 424 614 451" fill="#b49487" stroke="#000"',
                         'stroke-linecap="round" stroke-linejoin="round" stroke-width="10" /><circle cx="715" cy="443" r="20" fill="none" stroke="#565656" opacity="0.4" />',
                         "</g>"
+                    )
+                );
+        } else if (eye == 18) {
+            // VR HEADSET
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><rect x="349" y="382" width="400.28" height="95" rx="32.5" fill="#fff" /><rect x="382.36" y="374" width="400.28" height="111" rx="32.5" fill="#3d3d3d" /><rect x="401.72" y="374" width="400.28" height="111" rx="32.5" fill="#1b1b1b" />',
+                        '<rect x="304" y="418" width="24" height="23" /><path d="M332.5,411H349a0,0,0,0,1,0,0v37a0,0,0,0,1,0,0H332.5A18.5,18.5,0,0,1,314,429.5v0A18.5,18.5,0,0,1,332.5,411Z" fill="#3d3d3d" /><path d="M417,431h23a13,13,0,0,1,13,13v0a13,13,0,0,1-13,13H417a0,0,0,0,1,0,0V431A0,0,0,0,1,417,431Z" stroke="none" />',
+                        '<path d="M417,401h23a13,13,0,0,1,13,13v0a13,13,0,0,1-13,13H417a0,0,0,0,1,0,0V401A0,0,0,0,1,417,401Z" stroke="none" /><path d="M751,431h23a13,13,0,0,1,13,13v0a13,13,0,0,1-13,13H751a0,0,0,0,1,0,0V431A0,0,0,0,1,751,431Z" transform="translate(1538 888) rotate(-180)" stroke="none" />',
+                        '<path d="M751,401h23a13,13,0,0,1,13,13v0a13,13,0,0,1-13,13H751a0,0,0,0,1,0,0V401A0,0,0,0,1,751,401Z" transform="translate(1538 828) rotate(-180)" stroke="none" /><rect x="575" y="397" width="54" height="26" rx="13" fill="#3d3d3d" /><circle cx="602" cy="457" r="6" stroke="none" />',
+                        '<circle cx="572" cy="457" r="6" stroke="none" /><circle cx="542" cy="457" r="6" stroke="none" /><circle cx="632" cy="457" r="6" stroke="none" /><circle cx="662" cy="457" r="6" stroke="none" /></g>'
                     )
                 );
         }
