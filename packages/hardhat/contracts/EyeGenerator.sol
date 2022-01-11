@@ -204,8 +204,7 @@ contract SVGEyeGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g><circle cx="455" cy="446" r="26" fill="#fff" /><polyline points="715 472 689 446 715 420" fill="none" />',
-                        '<line x1="689" y1="446" x2="741" y2="446" /></g>'
+                        '<g><circle cx="455" cy="446" r="26" fill="#fff" /><path d="M739,436a26,26,0,0,0-48,0" fill="none" transform="translate(0 10)"/></g>'
                     )
                 );
         } else if (eye == 15) {
