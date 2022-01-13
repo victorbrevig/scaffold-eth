@@ -118,7 +118,7 @@ contract SVGHatGenerator {
                         '<g transform="translate(0 15)" fill="#',
                         color,
                         '">',
-                        '<rect x="358.5" y="246.5" width="367" height="29" /><path d="M712.76,246.5a229,229,0,0,0-342.52,0Z" />',
+                        '<rect x="358.5" y="246.5" width="367" height="29" rx="10"/><path d="M712.76,246.5a229,229,0,0,0-342.52,0Z" />',
                         '<line x1="376.91" y1="248" x2="376.91" y2="268" /><line x1="406.91" y1="248" x2="406.91" y2="268" />',
                         '<line x1="436.91" y1="248" x2="436.91" y2="268" /><line x1="466.91" y1="248" x2="466.91" y2="268" />',
                         '<line x1="496.91" y1="248" x2="496.91" y2="268" /><line x1="526.91" y1="248" x2="526.91" y2="268" />',
@@ -149,8 +149,8 @@ contract SVGHatGenerator {
                     abi.encodePacked(
                         '<g transform="translate(0 -10)">',
                         '<defs><linearGradient id="linear-gradient-crown" x1="459" y1="126" x2="621" y2="126" gradientUnits="userSpaceOnUse">',
-                        '<stop offset="0" stop-color="#ffe000" />',
-                        '<stop offset="1" stop-color="#ff00a4" />',
+                        '<stop offset="0" stop-color="#ff00a4" />',
+                        '<stop offset="1" stop-color="#ffe000" />',
                         "</linearGradient></defs>",
                         '<polygon points="621 182 621 70 580.5 110.5 540 70 499.5 110.5 459 70 459 182 621 182" fill="url(#linear-gradient-crown)" />',
                         '<circle cx="494" cy="143" r="9" fill="#fff" /><circle cx="584" cy="143" r="9" fill="#fff" /><circle cx="540" cy="143" r="9" fill="#fff" /></g>'
@@ -175,12 +175,9 @@ contract SVGHatGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g fill="#',
-                        color,
-                        '" >',
-                        '<path d="M504,222V169a37,37,0,0,1,37-37h0a37,37,0,0,1,37,37v53" />',
-                        '<path d="M541,150h0a19,19,0,0,1,19,19" stroke="#ffffff" />',
-                        "</g>"
+                        '<g fill="#f1dde9" fill-opacity="0.6"><path d="M445,141.6" /><rect x="310" y="291" width="467" height="38.03" rx="19.02" fill-opacity="0.9" />',
+                        '<path d="M579,184.71V147a35,35,0,0,0-35-35h0a35,35,0,0,0-35,35v37.31A243.45,243.45,0,0,0,339.64,291h406A243.5,243.5,0,0,0,579,184.71Z" /><path d="M561,168V148.59a18,18,0,0,0-18-18h0" fill="none" stroke="#fff" />',
+                        '<line x1="721" y1="307" x2="758" y2="307" fill="none" stroke="#fff" /></g>'
                     )
                 );
         } else if (hat == 12) {
