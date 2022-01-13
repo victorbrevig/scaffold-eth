@@ -132,7 +132,7 @@ contract SVGMouthGenerator {
                     abi.encodePacked(
                         '<g fill="#',
                         color,
-                        '"><rect x="305" y="494" width="479" height="84" />',
+                        '" transform="translate(0 20)"><rect x="305" y="494" width="479" height="84" />',
                         '<path d="M784,561H305a5,5,0,0,1,0-10H784a5,5,0,0,1,0,10Z" stroke="none" opacity="0.8" fill="#000" />',
                         '<path d="M784,551H305a5,5,0,0,1,0-10H784a5,5,0,0,1,0,10Z" fill="#fff" stroke="none" opacity="0.6" />',
                         '<path d="M632,583a5,5,0,0,1-5-5V494a5,5,0,0,1,10,0v84A5,5,0,0,1,632,583Z" opacity="0.8" stroke="none" fill="#000" />',
