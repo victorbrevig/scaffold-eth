@@ -117,16 +117,12 @@ contract SVGMouthGenerator {
                     abi.encodePacked(
                         '<g fill="#',
                         color,
-                        '" transform="translate(-10 0)">',
-                        '<path d="M241.39,512.39A10.74,10.74,0,0,0,239,524l-1.88-1.88A10.72,10.72,0,1,0,222,537.27l1.88,1.88a10.73,10.73,0,0,0-11.59,17.54l64.62,52.48,8.49-8.49.61-.61,13.95-14,.61-.6L309,577l-52.48-64.62A10.73,10.73,0,0,0,241.39,512.39Z" />',
-                        '<rect x="257.15" y="561.14" width="628.85" height="63.86" rx="30.5" />',
-                        '<path d="M889.36,447h24.08a0,0,0,0,1,0,0v56.56a23,23,0,0,1-23,23h-1.08a0,0,0,0,1,0,0V447A0,0,0,0,1,889.36,447Z" fill="#000" />',
-                        '<rect x="889.36" y="447.03" width="24.08" height="49.2" fill="#fff" />',
-                        '<path d="M856.91,581V395.73a9.42,9.42,0,0,1,9.42-9.42h0a9.42,9.42,0,0,1,9.42,9.42v45a25.12,25.12,0,0,0,25.12,25.12h0A25.13,25.13,0,0,0,926,440.75v-45a59.68,59.68,0,0,0-59.67-59.67h0a59.67,59.67,0,0,0-59.67,59.67V581" />',
-                        '<circle cx="901.92" cy="432.37" r="3.14" />',
-                        '<path d="M866.33,357a38.73,38.73,0,0,1,38.73,38.73" fill="none" stroke="#fff" /><line x1="780.59" y1="578.94" x2="649.73" y2="578.94" stroke="#fff" /><path d="M555.51,606.16h-44a13.62,13.62,0,0,1-13.61-13.61h0a13.61,13.61,0,0,1,13.61-13.61h44" />',
-                        '<path d="M573.5,499H605a0,0,0,0,1,0,0v31a0,0,0,0,1,0,0H573.5A15.5,15.5,0,0,1,558,514.5v0A15.5,15.5,0,0,1,573.5,499Z" fill="#fff" />',
-                        '<line x1="587.76" y1="514.66" x2="603.47" y2="514.66" /><line x1="620" y1="499" x2="605" y2="499" /><line x1="620" y1="530" x2="605" y2="530" /></g>'
+                        '" transform="translate(-10 0)"><path d="M238.39,512.39A10.74,10.74,0,0,0,236,524l-1.88-1.88A10.72,10.72,0,1,0,219,537.27l1.88,1.88a10.73,10.73,0,0,0-11.59,17.54l64.62,52.48,8.49-8.49.61-.61,13.95-14,.61-.6L306,577l-52.48-64.62A10.73,10.73,0,0,0,238.39,512.39Z" />',
+                        '<line x1="249" y1="536" x2="259" y2="548" fill="none" stroke="#fff" /><rect x="254.15" y="549" width="599.85" height="83.74" rx="41.87" /><path d="M886.36,457h24.08a0,0,0,0,1,0,0v56.56a23,23,0,0,1-23,23h-1.08a0,0,0,0,1,0,0V457A0,0,0,0,1,886.36,457Z" fill="#000" />',
+                        '<rect x="886.36" y="457.03" width="24.08" height="49.2" fill="#fff" /><path d="M853.91,586V405.73a9.42,9.42,0,0,1,9.42-9.42h0a9.42,9.42,0,0,1,9.42,9.42v45a25.12,25.12,0,0,0,25.12,25.12h0A25.13,25.13,0,0,0,923,450.75v-45a59.68,59.68,0,0,0-59.67-59.67h0a59.67,59.67,0,0,0-59.67,59.67V576" /><circle cx="898.92" cy="442.37" r="3.14" fill="#fff" />',
+                        '<path d="M863.33,367a38.73,38.73,0,0,1,38.73,38.73" fill="none" stroke="#fff" /><line x1="316" y1="568" x2="396.72" y2="568" stroke="#fff"/><line x1="662.65" y1="582.4" x2="662.65" y2="609" /><<line x1="645.72" y1="609" x2="679.58" y2="609" /><circle cx="596" cy="515" r="6" fill="none" />',
+                        '<polyline points="596 515 641 515 661 568" fill="none" stroke="#ffaaaa" /><circle cx="689" cy="530" r="23" fill="#ffd62c" /><circle cx="689" cy="530" r="11" fill="#fffbeb" stroke="none" /><path d="M633.18,564a32.65,32.65,0,0,0,58.94,0Z" fill="#d22" opacity="0.6" stroke="none" />',
+                        '<path d="M636.66,530.19a32.65,32.65,0,1,0,52,0Z" fill="none" /><path d="M557,499a16,16,0,0,1,0,32" fill="none" /></g>'
                     )
                 );
         } else if (mouth == 8) {
@@ -136,7 +132,7 @@ contract SVGMouthGenerator {
                     abi.encodePacked(
                         '<g fill="#',
                         color,
-                        '"><rect x="305" y="494" width="479" height="84" />',
+                        '" transform="translate(0 20)"><rect x="305" y="494" width="479" height="84" />',
                         '<path d="M784,561H305a5,5,0,0,1,0-10H784a5,5,0,0,1,0,10Z" stroke="none" opacity="0.8" fill="#000" />',
                         '<path d="M784,551H305a5,5,0,0,1,0-10H784a5,5,0,0,1,0,10Z" fill="#fff" stroke="none" opacity="0.6" />',
                         '<path d="M632,583a5,5,0,0,1-5-5V494a5,5,0,0,1,10,0v84A5,5,0,0,1,632,583Z" opacity="0.8" stroke="none" fill="#000" />',
@@ -211,7 +207,7 @@ contract SVGMouthGenerator {
                         '<g fill="#',
                         color,
                         '"><rect x="305" y="529" width="475" height="107" />',
-                        '<path d="M624,511H565a20,20,0,0,1-20-10h0" fill="none" /><rect x="305" y="529" width="475" height="24" stroke-width="10" fill="#fff" />',
+                        '<line x1="545.38" y1="513" x2="624.38" y2="513" /><rect x="305" y="529" width="475" height="24" stroke-width="10" fill="#fff" />',
                         '<rect x="320" y="558" width="12" height="73" fill="#fff" stroke="none" /><rect x="342" y="558" width="12" height="73" fill="#fff" stroke="none" />',
                         '<circle cx="705" cy="589.75" r="16" fill="#fff" /><line x1="439" y1="582.25" x2="465" y2="582.25" />',
                         '<line x1="439" y1="597.25" x2="465" y2="597.25" opacity="0.3" /><polyline points="589 579 572 579 572 609 589 609 589 594 572 594" fill="none" stroke="#fff" /></g>'
@@ -222,7 +218,7 @@ contract SVGMouthGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g><path d="M651,511a30.68,30.68,0,0,0-30.63-29H544.68a30.68,30.68,0,0,0-30.63,29H313v57H772V511Z" fill="#4b4b4b" stroke="none" opacity="0.7" />',
+                        '<g><path d="M652,518a30.68,30.68,0,0,0-30.63-29H545.68a30.68,30.68,0,0,0-30.63,29H318v57H777V518Z" fill="#606060" stroke="none" fill-opacity="0.6"/><line x1="544" y1="511" x2="624" y2="511"/><path d="M651,511a30.68,30.68,0,0,0-30.63-29H544.68a30.68,30.68,0,0,0-30.63,29H313v57H772V511Z" fill="#4b4b4b" stroke="none" opacity="0.7" />',
                         '<line x1="313" y1="509" x2="313" y2="553" transform="translate(2 0)" /><line x1="772" y1="509" x2="772" y2="553" transform="translate(2 0)" />',
                         '<polygon points="750 553 750 502 710 502 710 545 460 545 460 502 410 502 410 553 297 553 297 641 782 641 782 553 750 553" fill="#262626" />',
                         '<rect x="460" y="545" width="250" height="35" stroke-width="10" /><rect x="460" y="580" width="250" height="20.22" fill="#424242" /><rect x="460" y="600.39" width="250" height="20.22" fill="#424242" /><rect x="460" y="620.78" width="250" height="20.22" fill="#424242" />',
@@ -232,7 +228,7 @@ contract SVGMouthGenerator {
                         '<path d="M364,607.05v23.52H346V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,364,607.05Z" fill="#ffd62c" />',
                         '<path d="M384,607.05v23.52H366V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,384,607.05Z" fill="#ffd62c" />',
                         '<path d="M404,607.05v23.52H386V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,404,607.05Z" fill="#ffd62c" />',
-                        '<path d="M566.93,501a15.18,15.18,0,0,0-15.18,15.18h0a15.18,15.18,0,0,0,15.18,15.18h48.68V501Z" /><rect x="565" y="501" width="26" height="21" stroke-width="10" fill="#fff" /></g>'
+                        "</g>"
                     )
                 );
         } else if (mouth == 14) {
@@ -274,6 +270,47 @@ contract SVGMouthGenerator {
                         '"><path d="M564.19,492.5h-.49a42.85,42.85,0,0,0-27.32,10.11,62.48,62.48,0,0,1-66.22,8.57A49.51,49.51,0,0,0,516,542h48.75a24.75,24.75,0,0,0,24.75-24.27C589.76,503.86,578.07,492.5,564.19,492.5Z" />',
                         '<path d="M615.46,492.5h.5a42.85,42.85,0,0,1,27.32,10.11,62.48,62.48,0,0,0,66.22,8.57A49.52,49.52,0,0,1,663.66,542H614.91a24.75,24.75,0,0,1-24.75-24.27C589.9,503.86,601.59,492.5,615.46,492.5Z" />',
                         '<path d="M590,560h0a20.9,20.9,0,0,0-19.83,27.51L590,647l19.83-59.49A20.9,20.9,0,0,0,590,560Z" />',
+                        "</g>"
+                    )
+                );
+        } else if (mouth == 17) {
+            // RICH
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#cccced"><line x1="545" y1="511" x2="624" y2="511" /><path d="M501,520s91.56,48,171,0" fill="none" stroke="#ddc047" /><polygon points="647.16 527 587.95 559.89 528.75 527 304 527 304 615 781 615 781 527 647.16 527" />',
+                        '<polyline points="587 564 493 504 443 534 587 564" /><rect x="309" y="615" width="467" height="25" stroke-width="10" fill="#b56924" /><polyline points="587 615 587 564 681 504 731 534 587 564" />',
+                        '<g fill="#965520" stroke="none"><rect x="314" y="627.5" width="11" height="7.5" /><rect x="325" y="620" width="11" height="7.5" /><rect x="336" y="627.5" width="11" height="7.5" /><rect x="347" y="620" width="11" height="7.5" />',
+                        '<rect x="358" y="627.5" width="11" height="7.5" /><rect x="369" y="620" width="11" height="7.5" /><rect x="380" y="627.5" width="11" height="7.5" /><rect x="391" y="620" width="11" height="7.5" /><rect x="402" y="627.5" width="11" height="7.5" /><rect x="413" y="620" width="11" height="7.5" /><rect x="424" y="627.5" width="11" height="7.5" /><rect x="435" y="620" width="11" height="7.5" />',
+                        '<rect x="446" y="627.5" width="11" height="7.5" /><rect x="457" y="620" width="11" height="7.5" /><rect x="468" y="627.5" width="11" height="7.5" /><rect x="479" y="620" width="11" height="7.5" /><rect x="490" y="627.5" width="11" height="7.5" /><rect x="501" y="620" width="11" height="7.5" /><rect x="512" y="627.5" width="11" height="7.5" /><rect x="523" y="620" width="11" height="7.5" />',
+                        '<rect x="534" y="627.5" width="11" height="7.5" /><rect x="545" y="620" width="11" height="7.5" /><rect x="556" y="627.5" width="11" height="7.5" /><rect x="567" y="620" width="11" height="7.5" /><rect x="578" y="627.5" width="11" height="7.5" /><rect x="589" y="620" width="11" height="7.5" /><rect x="600" y="627.5" width="11" height="7.5" /><rect x="611" y="620" width="11" height="7.5" />',
+                        '<rect x="622" y="627.5" width="11" height="7.5" /><rect x="633" y="620" width="11" height="7.5" /><rect x="644" y="627.5" width="11" height="7.5" /><rect x="655" y="620" width="11" height="7.5" /><rect x="666" y="627.5" width="11" height="7.5" /><rect x="677" y="620" width="11" height="7.5" /><rect x="688" y="627.5" width="11" height="7.5" /><rect x="699" y="620" width="11" height="7.5" />',
+                        '<rect x="710" y="627.5" width="11" height="7.5" /><rect x="721" y="620" width="11" height="7.5" /><rect x="732" y="627.5" width="11" height="7.5" /><rect x="743" y="620" width="11" height="7.5" /><rect x="754" y="627.5" width="11" height="7.5" /><rect x="765" y="620" width="6" height="7.5" /></g>',
+                        '<rect x="560" y="608" width="54" height="40" stroke-width="10" stroke="#ddc047" fill="none" /><line x1="614" y1="628" x2="590" y2="628" fill="none" stroke="#ddc047" /></g>'
+                    )
+                );
+        } else if (mouth == 18) {
+            // STRIPED TSHIRT
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><rect x="305" y="540" width="474" height="96" stroke-width="10" fill="#efe6c7" /><rect x="305" y="530" width="474" height="10" stroke-width="10" /><g stroke="none"><rect x="357" y="545" width="10" height="86" fill="#2f604c" />',
+                        '<rect x="437" y="545" width="10" height="86" fill="#cc4646" /><rect x="457" y="545" width="10" height="86" fill="#765849" /><rect x="377" y="545" width="30" height="86" fill="#315d93" /><rect x="507" y="545" width="10" height="86" fill="#2f604c" />',
+                        '<rect x="587" y="545" width="10" height="86" fill="#cc4646" /><rect x="607" y="545" width="10" height="86" fill="#765849" /><rect x="647" y="545" width="10" height="86" fill="#2f604c" /><rect x="727" y="545" width="10" height="86" fill="#cc4646" />',
+                        '<rect x="747" y="545" width="10" height="86" fill="#765849" /><rect x="527" y="545" width="30" height="86" fill="#315d93" /><rect x="667" y="545" width="30" height="86" fill="#315d93" /></g>',
+                        '<rect x="545" y="572" width="79" height="10" stroke-width="10" stroke="#ffd62c" /><line x1="545" y1="511" x2="624" y2="511" /></g>'
+                    )
+                );
+        } else if (mouth == 19) {
+            // BEARD
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '"><path d="M778,548.33V507H641a56,56,0,0,1-112,0H361V470H338v37h0v4h.07A128,128,0,0,0,466,635H761a45,45,0,0,0,45-45h0A45,45,0,0,0,778,548.33Z" />',
+                        '<path d="M559.19,490.5h-.49a42.85,42.85,0,0,0-27.32,10.11,62.48,62.48,0,0,1-66.22,8.57A49.51,49.51,0,0,0,511,540h48.75a24.75,24.75,0,0,0,24.75-24.27C584.76,501.86,573.07,490.5,559.19,490.5Z" />',
+                        '<path d="M610.46,490.5h.5a42.85,42.85,0,0,1,27.32,10.11,62.48,62.48,0,0,0,66.22,8.57A49.52,49.52,0,0,1,658.66,540H609.91a24.75,24.75,0,0,1-24.75-24.27C584.9,501.86,596.59,490.5,610.46,490.5Z" /><path d="M761,545a45,45,0,0,1,45,45h0" fill="none" />',
                         "</g>"
                     )
                 );

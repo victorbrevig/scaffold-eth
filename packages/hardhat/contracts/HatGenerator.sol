@@ -18,9 +18,13 @@ contract SVGHatGenerator {
             return
                 string(
                     abi.encodePacked(
-                        "<g>",
-                        '<circle cx="543" cy="116" r="38" fill="#ff0000"/>',
-                        '<path d="M579.05,104h24a12,12,0,0,1,12,12h0a12,12,0,0,1-12,12H483a12,12,0,0,1-12-12h0a12,12,0,0,1,12-12h23.94" fill="none" />',
+                        '<g fill="#',
+                        color,
+                        '" transform="translate(0 -20)"><circle cx="540" cy="131.75" r="64.75" /><circle cx="508.21" cy="137.29" r="7.62" fill="#fff" opacity="0.3" stroke="none" />',
+                        '<circle cx="530.85" cy="131.76" r="7.62" fill="#000" opacity="0.2" stroke="none" /><circle cx="540.13" cy="171.01" r="4.57" fill="#000" opacity="0.2" stroke="none" /><circle cx="511.43" cy="111.94" r="4.57" fill="#fff" opacity="0.3" stroke="none" />',
+                        '<g opacity="0.2"><path d="M579.54,182.86a64.64,64.64,0,0,0,25-52.83c-26.5-32.3-54.45-46.4-92.92-54.84-.89.8-16.65,9.87-17.5,10.71a195.19,195.19,0,0,1,35.69,20.29c8.11,5.68,16,11.83,22.45,19.37,11,13,17.11,29.29,23,45.26C576.69,174.82,578.16,178.83,579.54,182.86Z" transform="translate(0.19)" fill="#fff" stroke="none" />',
+                        '</g><g opacity="0.4"><path d="M497.6,83.66A308.63,308.63,0,0,1,604.52,130c-26.5-32.3-54.45-46.4-92.92-54.84C511,75.77,502.54,80.67,497.6,83.66Z" transform="translate(0.19)" fill="#fff" stroke="none" /></g>',
+                        '<circle cx="540" cy="131.75" r="64.75" fill="none" /><path d="M601.47,111.94h32a19.8,19.8,0,0,1,19.8,19.81h0a19.8,19.8,0,0,1-19.8,19.81H446.12a19.81,19.81,0,0,1-19.81-19.81h0a19.81,19.81,0,0,1,19.81-19.81h32" transform="translate(0.19)" fill="none" />',
                         "</g>"
                     )
                 );
@@ -114,7 +118,7 @@ contract SVGHatGenerator {
                         '<g transform="translate(0 15)" fill="#',
                         color,
                         '">',
-                        '<rect x="358.5" y="246.5" width="367" height="29" /><path d="M712.76,246.5a229,229,0,0,0-342.52,0Z" />',
+                        '<rect x="358.5" y="246.5" width="367" height="29" rx="10"/><path d="M712.76,246.5a229,229,0,0,0-342.52,0Z" />',
                         '<line x1="376.91" y1="248" x2="376.91" y2="268" /><line x1="406.91" y1="248" x2="406.91" y2="268" />',
                         '<line x1="436.91" y1="248" x2="436.91" y2="268" /><line x1="466.91" y1="248" x2="466.91" y2="268" />',
                         '<line x1="496.91" y1="248" x2="496.91" y2="268" /><line x1="526.91" y1="248" x2="526.91" y2="268" />',
@@ -145,8 +149,8 @@ contract SVGHatGenerator {
                     abi.encodePacked(
                         '<g transform="translate(0 -10)">',
                         '<defs><linearGradient id="linear-gradient-crown" x1="459" y1="126" x2="621" y2="126" gradientUnits="userSpaceOnUse">',
-                        '<stop offset="0" stop-color="#ffe000" />',
-                        '<stop offset="1" stop-color="#ff00a4" />',
+                        '<stop offset="0" stop-color="#ff00a4" />',
+                        '<stop offset="1" stop-color="#ffe000" />',
                         "</linearGradient></defs>",
                         '<polygon points="621 182 621 70 580.5 110.5 540 70 499.5 110.5 459 70 459 182 621 182" fill="url(#linear-gradient-crown)" />',
                         '<circle cx="494" cy="143" r="9" fill="#fff" /><circle cx="584" cy="143" r="9" fill="#fff" /><circle cx="540" cy="143" r="9" fill="#fff" /></g>'
@@ -171,12 +175,9 @@ contract SVGHatGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g fill="#',
-                        color,
-                        '" >',
-                        '<path d="M504,222V169a37,37,0,0,1,37-37h0a37,37,0,0,1,37,37v53" />',
-                        '<path d="M541,150h0a19,19,0,0,1,19,19" stroke="#ffffff" />',
-                        "</g>"
+                        '<g fill="#f1dde9" fill-opacity="0.6"><path d="M445,141.6" /><rect x="310" y="291" width="467" height="38.03" rx="19.02" fill-opacity="0.9" />',
+                        '<path d="M579,184.71V147a35,35,0,0,0-35-35h0a35,35,0,0,0-35,35v37.31A243.45,243.45,0,0,0,339.64,291h406A243.5,243.5,0,0,0,579,184.71Z" /><path d="M561,168V148.59a18,18,0,0,0-18-18h0" fill="none" stroke="#fff" />',
+                        '<line x1="721" y1="307" x2="758" y2="307" fill="none" stroke="#fff" /></g>'
                     )
                 );
         } else if (hat == 12) {
@@ -195,7 +196,7 @@ contract SVGHatGenerator {
                         '<circle cx="758" cy="142" r="20" fill="#545454" /></g>'
                     )
                 );
-        } else if (hat == 12) {
+        } else if (hat == 13) {
             // cowboy
             return
                 string(
@@ -211,7 +212,7 @@ contract SVGHatGenerator {
                         "</g>"
                     )
                 );
-        } else if (hat == 13) {
+        } else if (hat == 14) {
             // KFC
             return
                 string(
@@ -229,7 +230,7 @@ contract SVGHatGenerator {
                         "</g>"
                     )
                 );
-        } else if (hat == 14) {
+        } else if (hat == 15) {
             // sombrero
             return
                 string(
@@ -244,7 +245,7 @@ contract SVGHatGenerator {
                         '<rect x="488.59" y="79.5" width="99.41" height="12" fill="#ff3636" stroke="none" /><rect x="488.59" y="90.5" width="99.41" height="12" stroke="none" /></g>'
                     )
                 );
-        } else if (hat == 15) {
+        } else if (hat == 16) {
             // bun
             return
                 string(
@@ -257,7 +258,7 @@ contract SVGHatGenerator {
                         "</g>"
                     )
                 );
-        } else if (hat == 16) {
+        } else if (hat == 17) {
             // bunny ears
             return
                 string(
@@ -273,7 +274,7 @@ contract SVGHatGenerator {
                         "</g>"
                     )
                 );
-        } else if (hat == 17) {
+        } else if (hat == 18) {
             // airmax 1s
             return
                 string(
@@ -292,7 +293,7 @@ contract SVGHatGenerator {
                         ' stroke-linejoin="round" stroke-width="10" /></g>'
                     )
                 );
-        } else if (hat == 18) {
+        } else if (hat == 19) {
             //bucket hat
             return
                 string(
@@ -305,6 +306,49 @@ contract SVGHatGenerator {
                         '<line x1="490" y1="143" x2="490" y2="159.67" /><line x1="503" y1="143" x2="503" y2="159.67" />',
                         '<line x1="586" y1="78" x2="586" y2="88" stroke="#fff" /><line x1="599" y1="83" x2="599" y2="88" stroke="#fff" />',
                         '<line x1="573" y1="83" x2="573" y2="88" stroke="#fff" /><line x1="575" y1="101" x2="597" y2="101" opacity="0.3" stroke="#fff" /></g>'
+                    )
+                );
+        } else if (hat == 20) {
+            // chicken
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '"><line x1="531.26" y1="210.47" x2="551.18" y2="261.67" /><polyline points="560.14 250.19 544.78 245.49 537.08 259.21" fill="none" />',
+                        '<line x1="576.36" y1="205.18" x2="611.35" y2="247.54" /><polyline points="616.25 233.83 600.19 234.18 597.18 249.62" fill="none" />',
+                        '<path d="M499,88.12a7,7,0,0,0-7,7,7,7,0,0,0-14,0,7,7,0,0,0-14,0V136h42V95.12A7,7,0,0,0,499,88.12Z" /><path d="M595,68a27,27,0,0,0-27,27v25H480a16,16,0,0,0-16,16h0a78.78,78.78,0,0,0,25.38,58H487.5a10.5,10.5,0,0,0,0,21h113a10.5,10.5,0,0,0,0-21h-3.88A78.78,78.78,0,0,0,622,136h0V95A27,27,0,0,0,595,68Z" />',
+                        '<circle cx="585" cy="91" r="1" /><circle cx="603" cy="91" r="1" /><polygon points="621 99.12 650 116 621 124.49 621 99.12" fill="#ff2e2e" />',
+                        '<path d="M477,204.5h0A10.5,10.5,0,0,1,487.5,194h23" fill="none" /><path d="M547,176H514.5A17.51,17.51,0,0,1,497,158.5h0A17.51,17.51,0,0,1,514.5,141H547" />',
+                        '<rect x="445.04" y="244" width="28.93" height="15" rx="7.5" transform="translate(207 718) rotate(-90)" fill="#fff" stroke="none" />',
+                        '<rect x="472.52" y="237.52" width="15.96" height="15" rx="7.5" transform="translate(234.48 725.52) rotate(-90)" fill="#fff" stroke="none" />',
+                        "</g>"
+                    )
+                );
+        } else if (hat == 21) {
+            // chameleon
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#48804d"><path d="M842.53,135.22a12.73,12.73,0,0,0-4.2.23c-23.66,5.29-48,6.92-72.23,7.13L638,143.71l125.65,6.12c25,1.22,50,3.95,74.08,10.57a12.86,12.86,0,1,0,4.8-25.18Z" fill="#ff83bb" /><path d="M472,197l34.55.62a12.9,12.9,0,0,1,11.06,19.15L502,245" />',
+                        '<path d="M620.91,210.91l.18-.2-3.17-2.79-2-2-.13.13-21.87-19.27a10.78,10.78,0,0,1-3.54-6.66l-5.46-41.88-14.15,14.71,4.6,35.29a8.86,8.86,0,0,0,2.94,5.52L604.72,217l-4.08,4.08a6.55,6.55,0,0,0,9.26,9.26l15.24-15.24Z" /><path d="M465.81,229.79S470.19,173,606.6,158.5" fill="none" />',
+                        '<path d="M583.6,123s-109.52-17.76-138.79,66.5A108.64,108.64,0,0,0,439,224.12L439,229a41.44,41.44,0,0,0,41.44,41.44,33.15,33.15,0,0,0,33.15-33.15A26.52,26.52,0,0,0,487,210.77,21.22,21.22,0,0,0,465.8,232l.12-2.19S470.29,173,606.7,158.5Z" /><path d="M588.17,95.5h11.09a50.24,50.24,0,0,1,50.24,50.24v0a12.76,12.76,0,0,1-12.76,12.76H596.26a12.76,12.76,0,0,1-12.76-12.76V100.17A4.67,4.67,0,0,1,588.17,95.5Z" />',
+                        '<circle cx="612" cy="126" r="13" fill="#fff" fill-opacity="0.5" /><circle cx="612" cy="126" r="3" fill="#000" stroke-width="3" /><path d="M583.5,123S474,105.24,444.71,189.5a108.64,108.64,0,0,0-5.81,34.62l0,4.88a41.44,41.44,0,0,0,41.44,41.44,33.15,33.15,0,0,0,33.15-33.15,26.52,26.52,0,0,0-26.52-26.52A21.22,21.22,0,0,0,465.7,232a17,17,0,0,0,17,17,13.58,13.58,0,0,0,13.58-13.58,10.86,10.86,0,0,0-10.86-10.86" fill="none" />',
+                        '<path d="M536.92,160.29l-7.43,34.81a8.86,8.86,0,0,0,.93,6.18l21.11,37.88.21-.12-5.6,19.72a8.5,8.5,0,0,0,16.35,4.65l6.19-21.77,9.33,2.65a6.54,6.54,0,1,0,3.58-12.59l-18.9-5.37-.16.57-15.06-27a10.73,10.73,0,0,1-1.12-7.45l8.81-41.31" /><circle cx="485" cy="162" r="6" opacity="0.2" stroke="none" fill="#000" /><circle cx="503" cy="150" r="6" opacity="0.2" stroke="none" fill="#000" />',
+                        '<circle cx="524" cy="142" r="6" opacity="0.2" stroke="none" fill="#000" /><circle cx="547" cy="138" r="6" opacity="0.2" stroke="none" fill="#000" /><circle cx="470" cy="178" r="6" opacity="0.2" stroke="none" fill="#000" /><circle cx="460" cy="198" r="6" opacity="0.2" stroke="none" fill="#000" />',
+                        "</g>"
+                    )
+                );
+        } else if (hat == 22) {
+            // BOWL HAIR
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '">',
+                        '<path d="M656.06,161H455.45V121a7,7,0,0,0-14,0v30.6L424,134.1a7,7,0,0,0-9.9,9.9l17,17h-2.11C359.94,161,304,214.83,304,281.23V309h94.05l19.22-37,7.42,37h123l25.66-48,6,48h9.36l13.78-37,5.41,37H781V281.23C781,214.83,725.06,161,656.06,161Z" />',
+                        "</g>"
                     )
                 );
         }
