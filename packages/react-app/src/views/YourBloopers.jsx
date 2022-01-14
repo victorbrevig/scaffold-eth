@@ -54,6 +54,9 @@ function Home({
                       Transfer
                     </Button>
                   </div>
+                  <div style={{ marginTop: 10 }}>
+                      DISPLAY TOKENS TO CLAIM HERE
+                  </div>
                 </Card>
               </List.Item>
             );

@@ -19,7 +19,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   // Getting a previously deployed contract
   const bloopToken = await ethers.getContract("BloopToken", deployer);
 
-
+  
 
   /*  await YourContract.setPurpose("Hello");
   
