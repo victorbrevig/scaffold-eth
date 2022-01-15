@@ -145,8 +145,17 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   // from block 175 to 200 there were Z amounts of bloopers
   
   function amountAvailableToClaim(uint256 id) public view returns(uint256) {
+    // only necessary while debugging
+    require(id < totalMinted(), "this id has not been minted");
+    
     uint256 amountAvailable = 0;
     uint256 lastBlock = idToLastBlockClaimed[id];
+
+    // lastBlock is current block
+    // mintBlockNumbersArray = [12,14,16]
+    // enter at i=2
+
+
     for(uint256 i = 0; i < totalMinted(); i++){
       if(mintBlockNumbersArray[i] >= lastBlock && mintBlockNumbersArray[i] < lastFarmBlockNumber){
         amountAvailable += (1+(mintBlockNumbersArray[i]-lastBlock))*issuancePerBlock/(i+1);
@@ -325,6 +334,11 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     require(_isApprovedOrOwner(msg.sender, toUpgradeId) && _isApprovedOrOwner(msg.sender, toBurnId), "NOT OWNER/APPROVED");
     require(idToBlooper[toUpgradeId].tier == idToBlooper[toBurnId].tier, "NOT SAME TIER");
     require(idToBlooper[toUpgradeId].tier < 2, "Already tier 3");
+
+    uint256 tokenAmount = 4000;
+
+    bool toContractTransfer = bloopToken.transferFrom(msg.sender, address(this), tokenAmount);
+    require(toContractTransfer, "NOT SUCCESSFUL INGOING TRANSFER");
 
     // Effects
     burn(toBurnId);
