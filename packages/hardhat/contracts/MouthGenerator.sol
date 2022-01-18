@@ -84,11 +84,10 @@ contract SVGMouthGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g><path d="M485,493a31,31,0,0,1,0,62" fill="none" />',
-                        '<path d="M659,493a31,31,0,0,1,0,62" fill="none" /><circle cx="817" cy="543" r="10" />',
-                        '<line x1="827" y1="514" x2="827" y2="546" /><rect x="827" y="512" width="12" height="4.94" />',
-                        '<path d="M571,520a11,11,0,1,1,11,11" fill="none" /><path d="M571,542a11,11,0,1,0,11-11" fill="none" />',
-                        '<path d="M367.39,475.27a17.5,17.5,0,1,0-12.56,29.86l18.22,18.22a9.5,9.5,0,0,0,13.43-13.43L371.1,494.53A17.49,17.49,0,0,0,367.39,475.27Z" fill="#fff" /></g>'
+                        '<g><path d="M485,493a31,31,0,0,1,0,62" fill="none" transform="translate(40 0)" /><path d="M659,493a31,31,0,0,1,0,62" fill="none" transform="translate(-10 0)" />',
+                        '<circle cx="817" cy="543" r="10" fill="#000" /><line x1="827" y1="514" x2="827" y2="546" /><rect x="827" y="512" width="12" height="4.94" />',
+                        '<path d="M571,520a11,11,0,1,1,11,11" fill="none" transform="translate(20 0)" /><path d="M571,542a11,11,0,1,0,11-11" fill="none" transform="translate(20 0)" />',
+                        '<path d="M367.39,475.27a17.5,17.5,0,1,0-12.56,29.86l18.22,18.22a9.5,9.5,0,0,0,13.43-13.43L371.1,494.53A17.49,17.49,0,0,0,367.39,475.27Z" fill="#fff" transform="translate(0 20)" /></g>'
                     )
                 );
         } else if (mouth == 6) {
@@ -184,7 +183,7 @@ contract SVGMouthGenerator {
                         '<line x1="709" y1="600" x2="769" y2="600" /></g>'
                     )
                 );
-        } 
+        }
         return "";
     }
 }

@@ -124,6 +124,18 @@ contract SVGFullFaceGenerator {
                         "</g>"
                     )
                 );
+        } else if (fullFace == 7) {
+            // atronaut
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><path d="M541.5,176h0A251.5,251.5,0,0,1,793,427.5V574a0,0,0,0,1,0,0H290a0,0,0,0,1,0,0V427.5A251.5,251.5,0,0,1,541.5,176Z" fill="#efe9dc" /><path d="M793,427.5a250.37,250.37,0,0,0-27.82-115.07c-36.89-29-91.69-51.43-173-51.43C347,261,344,442.36,344,442.36v77.55l449,.51Z" fill="#8c8c8c" /><path d="M793,499.45V427.5a252.33,252.33,0,0,0-7.63-61.68C757.4,325.4,701.61,282,591,282c-207,0-222,152-222,152v65Z" fill="#22273a" /><circle cx="316" cy="474" r="10" fill="none" stroke="#000" /><circle cx="589" cy="223.53" r="19" fill="#548ae2" stroke="#548ae2" />',
+                        '<polyline points="567 237.62 608 202.29 578.59 247" fill="none" stroke="#ff3636" /><rect x="578.94" y="222.06" width="20.12" height="2.94" rx="1.47" stroke="#fff" /><path d="M608,499.25c0-145.74-58-215.09-58-215.09S501,286.91,460.5,310c0,0,33.22,84.56,33.22,189.3Z" fill="#fff" opacity="0.1" stroke="none" /><rect x="301" y="580" width="483" height="41" rx="11.15" fill="#efe9dc" /><g fill="#cec3ae"><rect x="276" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="308.03" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="340.06" y="561.26" width="32.03" height="47.45" rx="16.01" />',
+                        '<rect x="372.08" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="404.11" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="436.14" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="468.17" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="682.6" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="714.63" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="746.66" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="778.69" y="561.26" width="32.03" height="47.45" rx="16.01" /><rect x="500.19" y="553.39" width="182.41" height="65.22" rx="28.24" />',
+                        '<rect x="520.19" y="553.39" width="182.41" height="65.22" rx="28.24" fill="#efe9dc" /></g><rect x="563" y="574" width="8" height="24" /><rect x="593" y="574" width="8" height="24" /><rect x="623" y="574" width="8" height="24" /><rect x="653" y="574" width="8" height="24" /><g fill="#fff" stroke="none" style="filter:url(#glow)" opacity="0.6"><circle cx="569" cy="346" r="4" /><circle cx="486" cy="403" r="6" /><circle cx="718" cy="466" r="6" /></g><line x1="308" y1="501" x2="324" y2="501" /><line x1="308" y1="517" x2="324" y2="517" /><line x1="382.34" y1="390.67" x2="362.44" y2="380" /><line x1="374.34" y1="406.67" x2="354.44" y2="396" />',
+                        '<path d="M793,499.45V427.5a252.33,252.33,0,0,0-7.63-61.68C757.4,325.4,701.61,282,591,282c-207,0-222,152-222,152v65Z" fill="none" /></g>'
+                    )
+                );
         } else {
             return "";
         }
