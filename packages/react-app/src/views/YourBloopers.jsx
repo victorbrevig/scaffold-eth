@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button, Card, List } from "antd";
 import { Address, AddressInput } from "../components";
 import { ethers } from "ethers";
+import {useContractReader} from "eth-hooks";
 
 function Home({
   readContracts,
@@ -15,6 +16,7 @@ function Home({
   transferToAddresses,
   setTransferToAddresses,
   address,
+  tokenBalance,
 }) {
   return (
     <div>
@@ -55,8 +57,15 @@ function Home({
                     </Button>
                   </div>
                   <div style={{ marginTop: 10 }}>
-                      DISPLAY TOKENS TO CLAIM HERE
+                    {tokenBalance}
                   </div>
+                  <Button
+                    onClick={() => {
+                      tx(writeContracts.YourCollectible.claimBLP(id));
+                    }}
+                  >
+                    CLAIM TOKENS
+                  </Button>
                 </Card>
               </List.Item>
             );

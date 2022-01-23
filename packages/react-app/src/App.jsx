@@ -158,8 +158,8 @@ function App(props) {
   if (DEBUG) console.log("🤗 totalSupply:", totalSupply);
   const bloopersLeft = maxSupply - totalSupply;
 
-  
-
+  const tokenBalance = useContractReader(readContracts, "BloopToken", "balanceOf", [address]);
+  console.log("TOKEN BALANCE -------------------- " + tokenBalance);
   // keep track of a variable from the contract in the local React state:
   const balance = useContractReader(readContracts, "YourCollectible", "balanceOf", [address]);
   if (DEBUG) console.log("🤗 address: ", address, " balance:", balance);
@@ -332,6 +332,7 @@ function App(props) {
             transferToAddresses={transferToAddresses}
             setTransferToAddresses={setTransferToAddresses}
             address={address}
+            tokenBalance={tokenBalance}
           />
         </Route>
         <Route exact path="/howto">
