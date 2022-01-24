@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, List } from "antd";
 import { Address, AddressInput } from "../components";
+import Balance from "../components/Balance";
 import { ethers } from "ethers";
-import {useContractReader} from "eth-hooks";
 
 function Home({
   readContracts,
@@ -24,7 +24,7 @@ function Home({
           dataSource={yourCollectibles}
           renderItem={item => {
             const id = item.id.toNumber();
-            //const toClaimBalance = useContractReader(readContracts, "YourCollectible", "claimBLP", [id]);
+            const tokensToClaim = item.tokensToClaim;
             return (
               <List.Item key={id + "_" + item.uri + "_" + item.owner}>
                 <Card
@@ -35,7 +35,6 @@ function Home({
                   }
                 >
                   <img src={item.image} alt={"Blooper #" + id} />
-                  <div>{item.description}</div>
                   <div style={{ marginTop: 20 }}>
                     <AddressInput
                       ensProvider={mainnetProvider}
@@ -55,12 +54,17 @@ function Home({
                       Transfer
                     </Button>
                   </div>
+                  <p>
+                      Available to claim:
+                    </p>
+                  <Balance balance={tokensToClaim} fontSize={24} />
                   <Button
                     onClick={() => {
                       tx(writeContracts.YourCollectible.claimBLP(id));
+                      // REFRESH COMPONENT (need to update yourCollectibles at this id index)
                     }}
                   >
-                    CLAIM TOKENS
+                    CLAIM BLP
                   </Button>
                 </Card>
               </List.Item>

@@ -174,6 +174,10 @@ function App(props) {
   const [yourCollectibles, setYourCollectibles] = useState();
   const [transferToAddresses, setTransferToAddresses] = useState({});
 
+  console.log("YOUR COLLECTIBLES ----------------");
+  console.log(yourCollectibles);
+  console.log("----------------------------------");
+
   useEffect(() => {
     const updateYourCollectibles = async () => {
       const collectibleUpdate = [];
@@ -183,12 +187,19 @@ function App(props) {
           const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
           if (DEBUG) console.log("Getting Blooper tokenId: ", tokenId);
           const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
+          
+          
+          const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
+          console.log("TOKENSTOCLAIM");
+          console.log(tokensToClaim);
+          console.log("END");
+
           if (DEBUG) console.log("tokenURI: ", tokenURI);
           const jsonManifestString = atob(tokenURI.substring(29));
 
           try {
             const jsonManifest = JSON.parse(jsonManifestString);
-            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, ...jsonManifest });
+            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, tokensToClaim: tokensToClaim, ...jsonManifest });
           } catch (e) {
             console.log(e);
           }
