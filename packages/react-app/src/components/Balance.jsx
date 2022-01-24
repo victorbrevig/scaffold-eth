@@ -47,11 +47,10 @@ export default function Balance(props) {
 
   let displayBalance = floatBalance.toFixed(4);
 
-  const price = props.price || props.dollarMultiplier || 1;
+  displayBalance = floatBalance.toFixed(2) + " BLP";
 
-  if (dollarMode) {
-    displayBalance = "$" + (floatBalance * price).toFixed(2);
-  }
+  const price = props.price || props.dollarMultiplier || 1;
+  
 
   return (
     <span
@@ -59,10 +58,7 @@ export default function Balance(props) {
         verticalAlign: "middle",
         fontSize: props.size ? props.size : 24,
         padding: 8,
-        cursor: "pointer",
-      }}
-      onClick={() => {
-        setDollarMode(!dollarMode);
+        cursor: "auto",
       }}
     >
       {displayBalance}

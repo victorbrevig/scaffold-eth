@@ -16,7 +16,6 @@ function Home({
   transferToAddresses,
   setTransferToAddresses,
   address,
-  tokenBalance,
 }) {
   return (
     <div>
@@ -25,7 +24,7 @@ function Home({
           dataSource={yourCollectibles}
           renderItem={item => {
             const id = item.id.toNumber();
-
+            //const toClaimBalance = useContractReader(readContracts, "YourCollectible", "claimBLP", [id]);
             return (
               <List.Item key={id + "_" + item.uri + "_" + item.owner}>
                 <Card
@@ -55,9 +54,6 @@ function Home({
                     >
                       Transfer
                     </Button>
-                  </div>
-                  <div style={{ marginTop: 10 }}>
-                    {tokenBalance}
                   </div>
                   <Button
                     onClick={() => {

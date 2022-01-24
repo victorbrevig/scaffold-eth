@@ -50,6 +50,7 @@ export default function Account({
   loadWeb3Modal,
   logoutOfWeb3Modal,
   blockExplorer,
+  yourTokenBalance,
 }) {
   const { currentTheme } = useThemeSwitcher();
 
@@ -64,15 +65,7 @@ export default function Account({
           ) : (
             "Connecting..."
           )}
-          <Balance address={address} provider={localProvider} price={price} />
-          <Wallet
-            address={address}
-            provider={localProvider}
-            signer={userSigner}
-            ensProvider={mainnetProvider}
-            price={price}
-            color={currentTheme === "light" ? "#1890ff" : "#2caad9"}
-          />
+          <Balance balance={yourTokenBalance} fontSize={64} />
         </span>
       )}
       {web3Modal &&
