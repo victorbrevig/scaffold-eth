@@ -153,6 +153,8 @@ function App(props) {
   const priceToMint = useContractReader(readContracts, "YourCollectible", "price");
   if (DEBUG) console.log("🤗 priceToMint:", priceToMint);
 
+  const priceToUpgrade = useContractReader(readContracts, "YourCollectible", "priceToUpgrade");
+
   const maxSupply = useContractReader(readContracts, "YourCollectible", "limit")-0;
   const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply")-0;
   if (DEBUG) console.log("🤗 totalSupply:", totalSupply);
@@ -166,11 +168,11 @@ function App(props) {
   const yourTokenBalance = useContractReader(readContracts, "BloopToken", "balanceOf", [address]);
   
 
-  //const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, readContracts.YourCollectible.address])
-  console.log("----------Token allowance----------------");
-  console.log(readContracts.YourCollectible);
-  console.log("------------------------------------------");
 
+  const yourCollectibleAddress = "0xddE78e6202518FF4936b5302cC2891ec180E8bFf";
+
+  const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, yourCollectibleAddress]);
+  
 
   //
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
@@ -193,18 +195,14 @@ function App(props) {
           if (DEBUG) console.log("Getting Blooper tokenId: ", tokenId);
           const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
           
-          
           const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
-          console.log("TOKENSTOCLAIM");
-          console.log(tokensToClaim);
-          console.log("END");
 
           if (DEBUG) console.log("tokenURI: ", tokenURI);
           const jsonManifestString = atob(tokenURI.substring(29));
 
           try {
             const jsonManifest = JSON.parse(jsonManifestString);
-            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, tokensToClaim: tokensToClaim, ...jsonManifest });
+            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, tokensToClaim: tokensToClaim, tokenAllowance: tokenAllowance, ...jsonManifest });
           } catch (e) {
             console.log(e);
           }
@@ -215,7 +213,7 @@ function App(props) {
       setYourCollectibles(collectibleUpdate.reverse());
     };
     updateYourCollectibles();
-  }, [address, yourBalance, yourTokenBalance]);
+  }, [address, yourBalance, yourTokenBalance, tokenAllowance]);
 
   //
   // 🧫 DEBUG 👨🏻‍🔬
@@ -344,13 +342,16 @@ function App(props) {
             readContracts={readContracts}
             writeContracts={writeContracts}
             priceToMint={priceToMint}
+            priceToUpgrade={priceToUpgrade}
             yourCollectibles={yourCollectibles}
+            yourBalance={yourBalance}
             tx={tx}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}
             transferToAddresses={transferToAddresses}
             setTransferToAddresses={setTransferToAddresses}
             address={address}
+            yourCollectibleAddress={yourCollectibleAddress}
           />
         </Route>
         <Route exact path="/howto">

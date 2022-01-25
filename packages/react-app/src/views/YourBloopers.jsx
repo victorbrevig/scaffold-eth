@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, Card, List } from "antd";
@@ -10,13 +11,16 @@ function Home({
   readContracts,
   writeContracts,
   priceToMint,
+  priceToUpgrade,
   yourCollectibles,
+  yourBalance,
   tx,
   mainnetProvider,
   blockExplorer,
   transferToAddresses,
   setTransferToAddresses,
   address,
+  yourCollectibleAddress,
 }) {
   return (
     <div>
@@ -27,6 +31,51 @@ function Home({
           renderItem={item => {
             const id = item.id.toNumber();
             const tokensToClaim = item.tokensToClaim;
+
+
+            const renderClaimButton = () => {
+              if(item.id.tokenAllowance > 0) {
+                const hasEnoughTokens = yourBalance >= priceToUpgrade;
+                return (
+                  <Button
+                    // disabled if not enough BLP or already upgraded
+                    disabled={!hasEnoughTokens}
+                    onClick={() => {
+                      tx(writeContracts.YourCollectible.upgrade(id));
+                    }}
+                  >
+                    UPGRADE
+                  </Button>
+                );
+              } 
+              else {
+                return (
+                  <Button
+                    onClick={() => {
+                      // current 1000000000000, maybe set higher
+                      tx(writeContracts.BloopToken.approve(yourCollectibleAddress, ethers.utils.parseEther("1000000000000")));
+                    }}
+                  >
+                    APPROVE BLP
+                  </Button>
+                );
+               //return <Button>APPROVE BLP</Button>;
+              }
+            };
+
+            const renderUpgradeButton = () => {
+              return (
+                <Button
+                  onClick={() => {
+                    tx(writeContracts.YourCollectible.claimBLP(id));
+                    // REFRESH COMPONENT (need to update yourCollectibles at this id index)
+                  }}
+                >
+                  CLAIM BLP
+                </Button>
+              );
+            };
+
             return (
               <List.Item key={id + "_" + item.uri + "_" + item.owner}>
                 <Card
@@ -60,22 +109,8 @@ function Home({
                       Available to claim:
                     </p>
                   <Balance balance={tokensToClaim} fontSize={24} />
-                  <Button
-                    onClick={() => {
-                      tx(writeContracts.YourCollectible.claimBLP(id));
-                      // REFRESH COMPONENT (need to update yourCollectibles at this id index)
-                    }}
-                  >
-                    CLAIM BLP
-                  </Button>
-                  <Button
-                    onClick={() => {
-                      tx(writeContracts.YourCollectible.upgrade(id));
-                      // REFRESH COMPONENT (need to update yourCollectibles at this id index)
-                    }}
-                  >
-                    UPGRADE
-                  </Button>
+                  {renderUpgradeButton()}
+                  {renderClaimButton()}
                 </Card>
               </List.Item>
             );

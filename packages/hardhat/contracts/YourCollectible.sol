@@ -49,6 +49,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint256 public constant curve = 1002; // price increase 0,2% with each purchase
   uint256 public price = 0.001 ether;
 
+  uint256 priceToUpgrade = 4000; // in BLP
+
+
   uint256 issuancePerBlock = 1000 * 1e18;
 
   constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address detailGeneratorAddress, address extraGeneratorAddress, address bloopTokenAddress) ERC721("Bloopers", "BLOOP") {
@@ -337,9 +340,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     require(_isApprovedOrOwner(msg.sender, id), "NOT OWNER/APPROVED");
     require(!idToBlooper[id].upgraded, "Already upgraded");
 
-    uint256 tokenAmount = 4000;
-
-    bool toContractTransfer = bloopToken.transferFrom(msg.sender, address(this), tokenAmount);
+    bool toContractTransfer = bloopToken.transferFrom(msg.sender, address(this), priceToUpgrade);
     require(toContractTransfer, "NOT SUCCESSFUL INGOING TRANSFER");
 
 
