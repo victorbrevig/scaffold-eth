@@ -164,7 +164,12 @@ function App(props) {
   if (DEBUG) console.log("🤗 address: ", address, " balance:", balance);
 
   const yourTokenBalance = useContractReader(readContracts, "BloopToken", "balanceOf", [address]);
-  console.log("TOKEN BALANCE -------------------- " + yourTokenBalance);
+  
+
+  //const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, readContracts.YourCollectible.address])
+  console.log("----------Token allowance----------------");
+  console.log(readContracts.YourCollectible);
+  console.log("------------------------------------------");
 
 
   //
@@ -210,7 +215,7 @@ function App(props) {
       setYourCollectibles(collectibleUpdate.reverse());
     };
     updateYourCollectibles();
-  }, [address, yourBalance]);
+  }, [address, yourBalance, yourTokenBalance]);
 
   //
   // 🧫 DEBUG 👨🏻‍🔬

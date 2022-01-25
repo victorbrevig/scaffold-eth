@@ -66,6 +66,14 @@ function Home({
                   >
                     CLAIM BLP
                   </Button>
+                  <Button
+                    onClick={() => {
+                      tx(writeContracts.YourCollectible.upgrade(id));
+                      // REFRESH COMPONENT (need to update yourCollectibles at this id index)
+                    }}
+                  >
+                    UPGRADE
+                  </Button>
                 </Card>
               </List.Item>
             );

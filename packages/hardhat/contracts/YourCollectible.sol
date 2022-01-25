@@ -83,6 +83,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 mask;
     uint8 fullFace;
     uint8 mode;
+    bool upgraded;
   }
 
 
@@ -120,7 +121,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   }
   uint256 lastFarmBlockNumber = 5000;
   
-  mapping (uint256 => uint256) idToLastBlockClaimed;
+  mapping (uint256 => uint256) public idToLastBlockClaimed;
   uint256[limit] mintBlockNumbersArray;
 
 
@@ -154,7 +155,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     // lastBlock is current block
     // mintBlockNumbersArray = [12,14,16]
     // enter at i=2
-
 
     for(uint256 i = 0; i < totalMinted(); i++){
       if(mintBlockNumbersArray[i] >= lastBlock && mintBlockNumbersArray[i] < lastFarmBlockNumber){
@@ -229,6 +229,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     idToBlooper[id].maskColor      = uint8(predictableRandom[17])%(colsLength);
     // 3 modes (set rarity)
     idToBlooper[id].mode           = uint8(predictableRandom[18])%3;
+
+    idToBlooper[id].upgraded       = false;
 
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
@@ -329,32 +331,22 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   }
 
-  function upgrade(uint256 toUpgradeId, uint256 toBurnId) public {
-    // Checks
-    require(_isApprovedOrOwner(msg.sender, toUpgradeId) && _isApprovedOrOwner(msg.sender, toBurnId), "NOT OWNER/APPROVED");
-    require(idToBlooper[toUpgradeId].tier == idToBlooper[toBurnId].tier, "NOT SAME TIER");
-    require(idToBlooper[toUpgradeId].tier < 2, "Already tier 3");
+  function upgrade(uint256 id) public {
+    require(_isApprovedOrOwner(msg.sender, id), "NOT OWNER/APPROVED");
+    require(!idToBlooper[id].upgraded, "Already upgraded");
 
     uint256 tokenAmount = 4000;
 
     bool toContractTransfer = bloopToken.transferFrom(msg.sender, address(this), tokenAmount);
     require(toContractTransfer, "NOT SUCCESSFUL INGOING TRANSFER");
 
-    // Effects
-    burn(toBurnId);
 
-    // Interactions
-    // At this point we are allowed to merge the two bloops
-    idToBlooper[toUpgradeId].tier++; // upgrade the tier;
+    idToBlooper[id].upgraded = true; // upgrade the tier;
 
     // Randomly choose a few traits from toBurnId and use in toUpgradeId instead.
-    bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), toUpgradeId ));
-    if((uint8(predictableRandom[1])%2)==0){
-      idToBlooper[toUpgradeId].hat = idToBlooper[toBurnId].hat;
-      idToBlooper[toBurnId].hat==11 ? idToBlooper[toUpgradeId].hatColor = idToBlooper[toUpgradeId].bodyColor : idToBlooper[toUpgradeId].hatColor = idToBlooper[toBurnId].hatColor;
-    } else {
-      //idToBlooper[toUpgradeId].face = idToBlooper[toBurnId].face;
-    }
+    bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
+    idToBlooper[id].eye = uint8(predictableRandom[7])%noOfEyes;
+
   }
 
 
