@@ -149,26 +149,28 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     // only necessary while debugging
     require(id < totalMinted(), "this id has not been minted");
     
-    uint256 amountAvailable = 0;
+
     uint256 lastBlock = idToLastBlockClaimed[id];
 
-    // lastBlock is current block
-    // mintBlockNumbersArray = [12,14,16]
-    // enter at i=2
+    // if last claimed block >= last mint block, result returned instantly
+    if(lastBlock >= mintBlockNumbersArray[totalMinted()-1]) {
+      return ((block.number - lastBlock) * issuancePerBlock/totalMinted());
+    }
 
-    for(uint256 i = 0; i < totalMinted(); i++){
-      if(mintBlockNumbersArray[i] >= lastBlock && mintBlockNumbersArray[i] < lastFarmBlockNumber){
-        amountAvailable += (1+(mintBlockNumbersArray[i]-lastBlock))*issuancePerBlock/(i+1);
-        lastBlock = mintBlockNumbersArray[i];
+    uint256 amountAvailable = 0;
+    
+    for(uint256 i = 1; i < totalMinted(); i++){
+      if(mintBlockNumbersArray[i] > lastBlock && mintBlockNumbersArray[i] < lastFarmBlockNumber){
+        amountAvailable += ((mintBlockNumbersArray[i]-1)-lastBlock)*issuancePerBlock/i;
+        lastBlock = mintBlockNumbersArray[i]-1;
       }
     }
     if(block.number < lastFarmBlockNumber) {
-      amountAvailable += (1+block.number-mintBlockNumbersArray[totalMinted()-1])*issuancePerBlock/(totalMinted());
+      amountAvailable += (block.number-lastBlock)*issuancePerBlock/totalMinted();
     }
     else {
-      amountAvailable += (lastFarmBlockNumber-mintBlockNumbersArray[totalMinted()-1])*issuancePerBlock/(totalMinted());
+      amountAvailable += (lastFarmBlockNumber-lastBlock)*issuancePerBlock/totalMinted();
     }
-  
     return amountAvailable;
   }
 
@@ -238,7 +240,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     (bool success, ) = recipient.call{value: msg.value}("");
     require(success, "could not send");
 
-    idToLastBlockClaimed[id] = block.number;
+    idToLastBlockClaimed[id] = block.number-1;
     mintBlockNumbersArray[id] = block.number;
     return id;
   }

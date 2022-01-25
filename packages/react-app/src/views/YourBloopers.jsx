@@ -4,6 +4,7 @@ import { Button, Card, List } from "antd";
 import { Address, AddressInput } from "../components";
 import Balance from "../components/Balance";
 import { ethers } from "ethers";
+import { list } from "postcss";
 
 function Home({
   readContracts,
@@ -22,6 +23,7 @@ function Home({
       <div style={{ width: 600, margin: "auto", paddingBottom: 25 }}>
         <List
           dataSource={yourCollectibles}
+          grid={{gutter: 20, column: 2}}
           renderItem={item => {
             const id = item.id.toNumber();
             const tokensToClaim = item.tokensToClaim;
