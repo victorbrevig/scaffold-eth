@@ -49,7 +49,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint256 public constant curve = 1002; // price increase 0,2% with each purchase
   uint256 public price = 0.001 ether;
 
-  uint256 priceToUpgrade = 4000; // in BLP
+  uint256 public priceToUpgrade = 4000e18; // in BLP
 
 
   uint256 issuancePerBlock = 1000 * 1e18;

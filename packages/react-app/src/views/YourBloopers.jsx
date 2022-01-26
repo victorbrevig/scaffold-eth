@@ -13,7 +13,8 @@ function Home({
   priceToMint,
   priceToUpgrade,
   yourCollectibles,
-  yourBalance,
+  yourTokenBalance,
+  tokenAllowance,
   tx,
   mainnetProvider,
   blockExplorer,
@@ -34,8 +35,11 @@ function Home({
 
 
             const renderClaimButton = () => {
-              if(item.id.tokenAllowance > 0) {
-                const hasEnoughTokens = yourBalance >= priceToUpgrade;
+              console.log("ALLOWANCE:   " + tokenAllowance);
+              if(tokenAllowance > 0) {
+                const hasEnoughTokens = yourTokenBalance >= priceToUpgrade;
+                console.log("YOURBALANCE:  " + yourTokenBalance);
+                console.log("PRICE:   " + priceToUpgrade);
                 return (
                   <Button
                     // disabled if not enough BLP or already upgraded
@@ -53,7 +57,7 @@ function Home({
                   <Button
                     onClick={() => {
                       // current 1000000000000, maybe set higher
-                      tx(writeContracts.BloopToken.approve(yourCollectibleAddress, ethers.utils.parseEther("1000000000000")));
+                      tx(writeContracts.BloopToken.approve(yourCollectibleAddress, ethers.utils.parseEther("10000000000000000")));
                     }}
                   >
                     APPROVE BLP

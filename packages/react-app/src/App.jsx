@@ -169,10 +169,10 @@ function App(props) {
   
 
 
-  const yourCollectibleAddress = "0xddE78e6202518FF4936b5302cC2891ec180E8bFf";
+  const yourCollectibleAddress = "0x8fC8CFB7f7362E44E472c690A6e025B80E406458";
 
   const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, yourCollectibleAddress]);
-  
+
 
   //
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
@@ -202,7 +202,7 @@ function App(props) {
 
           try {
             const jsonManifest = JSON.parse(jsonManifestString);
-            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, tokensToClaim: tokensToClaim, tokenAllowance: tokenAllowance, ...jsonManifest });
+            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, tokensToClaim: tokensToClaim, ...jsonManifest });
           } catch (e) {
             console.log(e);
           }
@@ -344,7 +344,8 @@ function App(props) {
             priceToMint={priceToMint}
             priceToUpgrade={priceToUpgrade}
             yourCollectibles={yourCollectibles}
-            yourBalance={yourBalance}
+            yourTokenBalance={yourTokenBalance}
+            tokenAllowance={tokenAllowance}
             tx={tx}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}
