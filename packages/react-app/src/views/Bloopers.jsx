@@ -82,7 +82,6 @@ function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, 
                     }
                   >
                     <img src={item.image} alt={"Blooper #" + id} width="200" />
-                    <div>{item.description}</div>
                     <div>
                       <Address
                         address={item.owner}

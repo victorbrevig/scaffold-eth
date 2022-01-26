@@ -122,8 +122,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   function viewBlockNumber() public view returns(uint256) {
     return block.number;
   }
-  uint256 lastFarmBlockNumber = 5000;
   
+  uint256 public lastFarmBlockNumber = 5000;
   mapping (uint256 => uint256) public idToLastBlockClaimed;
   uint256[limit] mintBlockNumbersArray;
 
