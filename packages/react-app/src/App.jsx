@@ -368,6 +368,7 @@ function App(props) {
 
   const faucetAvailable = localProvider && localProvider.connection && targetNetwork.name.indexOf("local") !== -1;
 
+
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
@@ -378,7 +379,8 @@ function App(props) {
         selectedChainId={selectedChainId}
         targetNetwork={targetNetwork}
       />
-      <Menu style={{ textAlign: "center" }} selectedKeys={[location.pathname]} mode="horizontal">
+      <div className="glass">
+      <Menu style={{textAlign: "center"}} selectedKeys={[location.pathname]} mode="horizontal">
         <Menu.Item key="/">
           <Link to="/">Home</Link>
         </Menu.Item>
@@ -386,7 +388,8 @@ function App(props) {
           <Link to="/yourBloopers">Your Bloopers</Link>
         </Menu.Item>
       </Menu>
-
+      </div>
+      
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
           <p>

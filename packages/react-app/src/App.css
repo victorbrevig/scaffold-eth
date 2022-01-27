@@ -1,5 +1,16 @@
 .App {
   text-align: center;
-  background-image: url("dark-mode-bg.png");
-  background-repeat: repeat;
+  background-image: url("stars-bg.png");
+  background-size: cover; /* or contain depending on what you want */
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-align:center;
+  margin:auto;
+  padding:0;
+}
+
+.glass {
+  background-color: rgba(255,255,255,0.2);
+  backdrop-filter: blur(20px);
+  height: 100px;
 }
