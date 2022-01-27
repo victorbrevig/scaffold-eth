@@ -171,7 +171,7 @@ function App(props) {
   
 
 
-  const yourCollectibleAddress = "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f";
+  const yourCollectibleAddress = "0x998abeb3E57409262aE5b751f60747921B33613E";
 
   const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, yourCollectibleAddress]);
 
@@ -194,7 +194,7 @@ function App(props) {
   console.log("UpgradeEvent ----------------");
   console.log(upgradeEvent);
   console.log("----------------------------------");
-
+  
   console.log("YourCollectibles ----------------");
   console.log(yourCollectibles);
   console.log("----------------------------------");
@@ -269,6 +269,7 @@ function App(props) {
       }
       console.log("/////////////////////////////////////////");
       setYourCollectibles(collectibleUpdate);
+      console.log(yourCollectibles);
     };
     updateYourCollectibles();
   }, [upgradeEvent]);
@@ -295,6 +296,7 @@ function App(props) {
       }
       console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
       setYourCollectibles(collectibleUpdate);
+      console.log(yourCollectibles);
     };
     updateYourCollectibles();
   }, [yourTokenBalance]);
