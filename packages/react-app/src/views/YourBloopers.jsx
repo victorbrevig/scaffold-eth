@@ -33,13 +33,9 @@ function Home({
             const id = item.id.toNumber();
             const tokensToClaim = item.tokensToClaim;
 
-
             const renderClaimButton = () => {
-              console.log("ALLOWANCE:   " + tokenAllowance);
               if(tokenAllowance > 0) {
-                const hasEnoughTokens = yourTokenBalance >= priceToUpgrade;
-                console.log("YOURBALANCE:  " + yourTokenBalance);
-                console.log("PRICE:   " + priceToUpgrade);
+                const hasEnoughTokens = yourTokenBalance.gte(priceToUpgrade);
                 return (
                   <Button
                     // disabled if not enough BLP or already upgraded

@@ -29,6 +29,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   using ToColor for bytes3;
   using Counters for Counters.Counter;
 
+  event Mint(address indexed _to, uint256 indexed _id);
+  event Upgrade(address indexed _by, uint256 indexed _id);
+
   BloopToken bloopToken;
 
   SVGBodyGenerator bodyGenerator;
@@ -245,6 +248,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     idToLastBlockClaimed[id] = block.number-1;
     mintBlockNumbersArray[id] = block.number;
+
+    emit Mint(msg.sender, id);
     return id;
   }
 
@@ -349,7 +354,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     // Randomly choose a few traits from toBurnId and use in toUpgradeId instead.
     bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
     idToBlooper[id].eye = uint8(predictableRandom[7])%noOfEyes;
-
+    emit Upgrade(msg.sender, id);
   }
 
 

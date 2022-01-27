@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Alert, Button, Col, Menu, Row } from "antd";
 import "antd/dist/antd.css";
 import {
@@ -9,6 +10,7 @@ import {
   useUserProviderAndSigner,
 } from "eth-hooks";
 import { useExchangeEthPrice } from "eth-hooks/dapps/dex";
+import { useEventListener } from "eth-hooks/events/useEventListener";
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, Route, Switch, useLocation } from "react-router-dom";
 import "./App.css";
@@ -169,10 +171,13 @@ function App(props) {
   
 
 
-  const yourCollectibleAddress = "0x8fC8CFB7f7362E44E472c690A6e025B80E406458";
+  const yourCollectibleAddress = "0xa85233C63b9Ee964Add6F2cffe00Fd84eb32338f";
 
   const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, yourCollectibleAddress]);
 
+  // EVENT LISTENERS
+  const mintEvent = useEventListener(readContracts, "YourCollectible", "Mint", localProvider, 1);
+  const upgradeEvent = useEventListener(readContracts, "YourCollectible", "Upgrade", localProvider, 1);
 
   //
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
@@ -181,9 +186,20 @@ function App(props) {
   const [yourCollectibles, setYourCollectibles] = useState();
   const [transferToAddresses, setTransferToAddresses] = useState({});
 
-  console.log("YOUR COLLECTIBLES ----------------");
+  /*
+  console.log("MintEvent ----------------");
+  console.log(mintEvent);
+  console.log("----------------------------------");
+
+  console.log("UpgradeEvent ----------------");
+  console.log(upgradeEvent);
+  console.log("----------------------------------");
+
+  console.log("YourCollectibles ----------------");
   console.log(yourCollectibles);
   console.log("----------------------------------");
+  */
+  
 
   useEffect(() => {
     const updateYourCollectibles = async () => {
@@ -210,10 +226,79 @@ function App(props) {
           console.log(e);
         }
       }
+      console.log("::::::::::::::::::::::::::::::::::::");
       setYourCollectibles(collectibleUpdate.reverse());
     };
     updateYourCollectibles();
-  }, [address, yourBalance, yourTokenBalance, tokenAllowance]);
+  }, [address, yourBalance]);
+
+  // When Upgrade event is emitted, ONLY fetch tokenURI for the upraded nft
+  useEffect(() => {
+    const updateYourCollectibles = async () => {
+      const collectibleUpdate = [];
+      let tokenId;
+      try {
+        const lastEvent = upgradeEvent[upgradeEvent.length-1];
+        tokenId = lastEvent.args[1].toNumber();
+      } catch(e) {
+        console.log(e);
+      }
+      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
+        try {
+          const collectible = yourCollectibles[tokenIndex];
+          if(tokenId == collectible.id) {
+            const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
+            const jsonManifestString = atob(tokenURI.substring(29));
+            try {
+              const jsonManifest = JSON.parse(jsonManifestString);
+              collectibleUpdate.push({ id: collectible.id, uri: tokenURI, owner: address, tokensToClaim: collectible.tokensToClaim, ...jsonManifest });
+            } catch(e) {
+              console.log(e);
+            }
+          }
+          else {
+            try {
+              collectibleUpdate.push(collectible);
+            } catch (e) {
+              console.log(e);
+            }
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      console.log("/////////////////////////////////////////");
+      setYourCollectibles(collectibleUpdate);
+    };
+    updateYourCollectibles();
+  }, [upgradeEvent]);
+
+  // Only fetch tokensToClaim yourTokenBalance changes
+  useEffect(() => {
+    const updateYourCollectibles = async () => {
+      const collectibleUpdate = [];
+      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
+        try {
+          let collectible = yourCollectibles[tokenIndex];
+          let tokenId = collectible.id;
+          const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
+          collectible.tokensToClaim = tokensToClaim;
+
+          try {
+            collectibleUpdate.push(collectible);
+          } catch (e) {
+            console.log(e);
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+      setYourCollectibles(collectibleUpdate);
+    };
+    updateYourCollectibles();
+  }, [yourTokenBalance]);
+
 
   //
   // 🧫 DEBUG 👨🏻‍🔬
