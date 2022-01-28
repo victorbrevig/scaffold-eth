@@ -13,10 +13,12 @@ import './ToColor.sol';
 import './BodyGenerator.sol';
 import './EyeGenerator.sol';
 import './MouthGenerator.sol';
+import './MouthGenerator2.sol';
 import './DetailGenerator.sol';
 import './ExtraGenerator.sol';
 import './FullFaceGenerator.sol';
 import './HatGenerator.sol';
+import './HatGenerator2.sol';
 import './MaskGenerator.sol';
 
 import './BloopToken.sol';
@@ -36,10 +38,12 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   SVGBodyGenerator bodyGenerator;
   SVGHatGenerator hatGenerator;
+  SVGHatGenerator2 hatGenerator2;
   SVGFullFaceGenerator fullFaceGenerator;
   SVGMaskGenerator maskGenerator;
   SVGEyeGenerator eyeGenerator;
   SVGMouthGenerator mouthGenerator;
+  SVGMouthGenerator2 mouthGenerator2;
   SVGDetailGenerator detailGenerator;
   SVGExtraGenerator extraGenerator;
 
@@ -57,13 +61,15 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   uint256 issuancePerBlock = 1000 * 1e18;
 
-  constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address detailGeneratorAddress, address extraGeneratorAddress, address bloopTokenAddress) ERC721("Bloopers", "BLOOP") {
+  constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address hatGenerator2Address, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address mouthGenerator2Address, address detailGeneratorAddress, address extraGeneratorAddress, address bloopTokenAddress) ERC721("Bloopers", "BLOOP") {
     bodyGenerator = SVGBodyGenerator(bodyGeneratorAddress);
     hatGenerator = SVGHatGenerator(hatGeneratorAddress);
+    hatGenerator2 = SVGHatGenerator2(hatGenerator2Address);
     fullFaceGenerator = SVGFullFaceGenerator(fullFaceGeneratorAddress);
     maskGenerator = SVGMaskGenerator(maskGeneratorAddress);
     eyeGenerator = SVGEyeGenerator(eyeGeneratorAddress);
     mouthGenerator = SVGMouthGenerator(mouthGeneratorAddress);
+    mouthGenerator2 = SVGMouthGenerator2(mouthGenerator2Address);
     detailGenerator = SVGDetailGenerator(detailGeneratorAddress);
     extraGenerator = SVGExtraGenerator(extraGeneratorAddress);
     bloopToken = BloopToken(bloopTokenAddress);
@@ -101,11 +107,11 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint8 constant colsLength = 74;
   string[colsLength] cols = ["252525","ffffff","849e85","c9ae90","cfcfcf","9b9b9b","686868","363636","ffaeae","ffc7b0","ffe0b3","fff5b9","e9ffb5","c7ffb9","b9ffdc","64ffea","b7e5ff","becdff","bcbbff","d6bfff","e5bfff","fdb8ff","ffc1e3","ffbcd0","ff6464","ff9064","ffaa64","ffc164","ffe864","d0ff64","83ff64","64ffb1","64ffea","64c6ff","6488ff","6764ff","9a64ff","c164ff","fa64ff","ff64b9","ff6492","ff2929","ff6022","ff831e","ffa318","ffde20","bdff23","4fff23","22ff90","26ffe2","25afff","2850d3","3330c9","7226ff","ab2dff","f82fff","ff2fa2","ff1d61","9c2525","a84b26","a05f29","3e7e2e","3d8f66","33857a","357296","334788","2e2c81","482d7a","542474","8c308f","8b2e61","8f2b49","da9760","484872"];
 
-  uint8 constant noOfHats = 19;
-  uint8 constant noOfEyes = 16;
-  uint8 constant noOfMouths = 15;
-  uint8 constant noOfFullFaces = 6;
-  uint8 constant noOfMasks = 7;
+  uint8 constant noOfHats = 23;
+  uint8 constant noOfEyes = 19;
+  uint8 constant noOfMouths = 20;
+  uint8 constant noOfFullFaces = 8;
+  uint8 constant noOfMasks = 9;
   uint8 constant noOfExtras = 5;
   uint8 constant noOfDetails = 8;
 
@@ -326,11 +332,13 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     string memory svgP3 = string(abi.encodePacked(
       fullFaceGenerator.render(idToBlooper[id].fullFace, cols[idToBlooper[id].fullFaceColor]),
       hatGenerator.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor]),
+      hatGenerator2.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor]),
       eyeGenerator.render(idToBlooper[id].eye, cols[idToBlooper[id].eyeColor])
     ));
 
     string memory svgP4 = string(abi.encodePacked(
       mouthGenerator.render(idToBlooper[id].mouth, cols[idToBlooper[id].mouthColor]),
+      mouthGenerator2.render(idToBlooper[id].mouth, cols[idToBlooper[id].mouthColor]),
       maskGenerator.render(idToBlooper[id].mask, cols[idToBlooper[id].maskColor]),
       detailGenerator.render(idToBlooper[id].detail, cols[idToBlooper[id].detailColor]),
       '</g></svg>'
