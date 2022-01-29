@@ -21,7 +21,7 @@ import './HatGenerator.sol';
 import './HatGenerator2.sol';
 import './MaskGenerator.sol';
 
-import './BloopToken.sol';
+import './BlobToken.sol';
 
 // GET LISTED ON OPENSEA: https://testnets.opensea.io/get-listed/step-two
 
@@ -34,7 +34,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   event Mint(address indexed _to, uint256 indexed _id);
   event Upgrade(address indexed _by, uint256 indexed _id);
 
-  BloopToken bloopToken;
+  BlobToken blobToken;
 
   SVGBodyGenerator bodyGenerator;
   SVGHatGenerator hatGenerator;
@@ -56,12 +56,12 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint256 public constant curve = 1002; // price increase 0,2% with each purchase
   uint256 public price = 0.001 ether;
 
-  uint256 public priceToUpgrade = 4000e18; // in BLP
+  uint256 public priceToUpgrade = 4000e18; // in BLB
 
 
   uint256 issuancePerBlock = 1000 * 1e18;
 
-  constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address hatGenerator2Address, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address mouthGenerator2Address, address detailGeneratorAddress, address extraGeneratorAddress, address bloopTokenAddress) ERC721("Bloopers", "BLOOP") {
+  constructor(address bodyGeneratorAddress, address hatGeneratorAddress, address hatGenerator2Address, address fullFaceGeneratorAddress, address maskGeneratorAddress, address eyeGeneratorAddress, address mouthGeneratorAddress, address mouthGenerator2Address, address detailGeneratorAddress, address extraGeneratorAddress, address blobTokenAddress) ERC721("Blobbers", "BLOB") {
     bodyGenerator = SVGBodyGenerator(bodyGeneratorAddress);
     hatGenerator = SVGHatGenerator(hatGeneratorAddress);
     hatGenerator2 = SVGHatGenerator2(hatGenerator2Address);
@@ -72,10 +72,10 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     mouthGenerator2 = SVGMouthGenerator2(mouthGenerator2Address);
     detailGenerator = SVGDetailGenerator(detailGeneratorAddress);
     extraGenerator = SVGExtraGenerator(extraGeneratorAddress);
-    bloopToken = BloopToken(bloopTokenAddress);
+    blobToken = BlobToken(blobTokenAddress);
   }
 
-  struct Blooper {
+  struct Blobber {
     uint8 bodyColor;
     uint8 hatColor;
     uint8 gradientColor1;
@@ -99,7 +99,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   }
 
 
-  mapping (uint256 => Blooper) private idToBlooper;
+  mapping (uint256 => Blobber) private idToBlobber;
 
   mapping (uint256 => uint256) public chubbiness; // Not used
   mapping (uint256 => uint256) public mouthLength; // Not used
@@ -116,10 +116,10 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint8 constant noOfDetails = 8;
 
   /*
-  // NFT id => timestamp of last time BLP collected
+  // NFT id => timestamp of last time BLB collected
   mapping (uint256 => uint256) public lastBlockHarvestedById;
   uint256 issuancePerBlock = 1000;
-  // when a mint happens, the issuancePerBlock is split between one more Blooper
+  // when a mint happens, the issuancePerBlock is split between one more Blobber
   // calculating rewards:
   // 40 blocks * 1000/1 -> (next mint happens) + 69 blocks * 1000/2 -> (next mint happens) + 100 blocks * 1000/3 + ...
   // 22, 23, 26
@@ -137,25 +137,20 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   uint256[limit] mintBlockNumbersArray;
 
 
-  function claimBLP(uint256 id) public {
+  function claimBLB(uint256 id) public {
     require(ownerOf(id) == msg.sender, "NOT OWNER");
     require(idToLastBlockClaimed[id] < block.number, "NOTHING TO CLAIM");
     uint256 amountToClaim = amountAvailableToClaim(id);
     require(amountToClaim > 0);
     
     idToLastBlockClaimed[id] = block.number;
-    bloopToken.transfer(msg.sender, amountToClaim);
+    blobToken.transfer(msg.sender, amountToClaim);
   }
 
   function getMintBlockNumberById(uint256 id) public view returns(uint256) {
     return mintBlockNumbersArray[id];
   }
 
-  // blooper id 55 last claim in block 140
-  // want to claim in block 200
-  // from block 140 to 150 there were X amounts of bloopers 
-  // from block 150 to 175 there were Y amounts of bloopers 
-  // from block 175 to 200 there were Z amounts of bloopers
   
   function amountAvailableToClaim(uint256 id) public view returns(uint256) {
     // only necessary while debugging
@@ -186,8 +181,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     return amountAvailable;
   }
 
-  function getBlooper(uint _id) public view returns(Blooper memory) {
-    return idToBlooper[_id];
+  function getBlobber(uint _id) public view returns(Blobber memory) {
+    return idToBlobber[_id];
   }
 
   function mintItem() public payable returns (uint256) {
@@ -198,53 +193,53 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     _tokenIds.increment();
     _mint(msg.sender, id);
     bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
-    idToBlooper[id].bodyColor      = uint8(predictableRandom[0])%(colsLength);
-    idToBlooper[id].gradientColor1 = uint8(predictableRandom[1])%(colsLength);
-    idToBlooper[id].gradientColor2 = uint8(predictableRandom[2])%(colsLength); 
-    idToBlooper[id].tier          = uint8(predictableRandom[3])%3;
-    //idToBlooper[id].tier          = 0;
-    idToBlooper[id].fullFace      = uint8(predictableRandom[4])%(noOfFullFaces*10); // 10% chance for fullface
+    idToBlobber[id].bodyColor      = uint8(predictableRandom[0])%(colsLength);
+    idToBlobber[id].gradientColor1 = uint8(predictableRandom[1])%(colsLength);
+    idToBlobber[id].gradientColor2 = uint8(predictableRandom[2])%(colsLength); 
+    idToBlobber[id].tier          = uint8(predictableRandom[3])%3;
+    //idToBlobber[id].tier          = 0;
+    idToBlobber[id].fullFace      = uint8(predictableRandom[4])%(noOfFullFaces*10); // 10% chance for fullface
 
-    if(idToBlooper[id].fullFace < noOfFullFaces){ 
+    if(idToBlobber[id].fullFace < noOfFullFaces){ 
        // set all others to default
-      idToBlooper[id].mouth          = 99;
-      idToBlooper[id].eye            = 99;
-      idToBlooper[id].hat            = 99;
-      idToBlooper[id].extra          = uint8(predictableRandom[5])%(noOfExtras*2); // 50% chance of extra when full face
-      idToBlooper[id].detail         = 99;
-      idToBlooper[id].mask           = 99;
+      idToBlobber[id].mouth          = 99;
+      idToBlobber[id].eye            = 99;
+      idToBlobber[id].hat            = 99;
+      idToBlobber[id].extra          = uint8(predictableRandom[5])%(noOfExtras*2); // 50% chance of extra when full face
+      idToBlobber[id].detail         = 99;
+      idToBlobber[id].mask           = 99;
     } 
     else {
       // else we are not using full face
       // Check if we roll a mask
-      idToBlooper[id].mask             = uint8(predictableRandom[5])%(noOfMasks*5); // 20% chance for mask if not a fullface
-      if(idToBlooper[id].mask < noOfMasks){
+      idToBlobber[id].mask             = uint8(predictableRandom[5])%(noOfMasks*5); // 20% chance for mask if not a fullface
+      if(idToBlobber[id].mask < noOfMasks){
         // we rolled a mask, set eye and mouth to default
-        idToBlooper[id].mouth          = 99;
-        idToBlooper[id].eye            = 99;
+        idToBlobber[id].mouth          = 99;
+        idToBlobber[id].eye            = 99;
       } else {
         // We didnt roll a mask, set mouth and eye
-        idToBlooper[id].mouth          = uint8(predictableRandom[6])%noOfMouths;
-        idToBlooper[id].eye            = uint8(predictableRandom[7])%noOfEyes;
+        idToBlobber[id].mouth          = uint8(predictableRandom[6])%noOfMouths;
+        idToBlobber[id].eye            = uint8(predictableRandom[7])%noOfEyes;
       }
       
-      idToBlooper[id].hat            = uint8(predictableRandom[8])%noOfHats;
-      idToBlooper[id].extra          = uint8(predictableRandom[9])%(noOfExtras*10);
-      idToBlooper[id].detail         = uint8(predictableRandom[10])%(noOfDetails*3);
+      idToBlobber[id].hat            = uint8(predictableRandom[8])%noOfHats;
+      idToBlobber[id].extra          = uint8(predictableRandom[9])%(noOfExtras*10);
+      idToBlobber[id].detail         = uint8(predictableRandom[10])%(noOfDetails*3);
     }
 
     // condom (no. 11) must have same color as body
-    idToBlooper[id].hatColor       = idToBlooper[id].hat==11 ? idToBlooper[id].bodyColor : uint8(predictableRandom[11])%(colsLength);
-    idToBlooper[id].mouthColor     = uint8(predictableRandom[12])%(colsLength);
-    idToBlooper[id].extraColor     = uint8(predictableRandom[13])%(colsLength);
-    idToBlooper[id].detailColor    = uint8(predictableRandom[14])%(colsLength);
-    idToBlooper[id].eyeColor       = uint8(predictableRandom[15])%(colsLength);
-    idToBlooper[id].fullFaceColor  = uint8(predictableRandom[16])%(colsLength);
-    idToBlooper[id].maskColor      = uint8(predictableRandom[17])%(colsLength);
+    idToBlobber[id].hatColor       = idToBlobber[id].hat==11 ? idToBlobber[id].bodyColor : uint8(predictableRandom[11])%(colsLength);
+    idToBlobber[id].mouthColor     = uint8(predictableRandom[12])%(colsLength);
+    idToBlobber[id].extraColor     = uint8(predictableRandom[13])%(colsLength);
+    idToBlobber[id].detailColor    = uint8(predictableRandom[14])%(colsLength);
+    idToBlobber[id].eyeColor       = uint8(predictableRandom[15])%(colsLength);
+    idToBlobber[id].fullFaceColor  = uint8(predictableRandom[16])%(colsLength);
+    idToBlobber[id].maskColor      = uint8(predictableRandom[17])%(colsLength);
     // 3 modes (set rarity)
-    idToBlooper[id].mode           = uint8(predictableRandom[18])%3;
+    idToBlobber[id].mode           = uint8(predictableRandom[18])%3;
 
-    idToBlooper[id].upgraded       = false;
+    idToBlobber[id].upgraded       = false;
 
     chubbiness[id] = 35+((55*uint256(uint8(predictableRandom[3])))/255);
     mouthLength[id] = 180+((uint256(chubbiness[id]/4)*uint256(uint8(predictableRandom[4])))/255);
@@ -261,8 +256,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   function tokenURI(uint256 id) public view override returns (string memory) {
       require(_exists(id), "not exist");
-      string memory name = string(abi.encodePacked('Blooper #',id.toString()));
-      string memory description = string(abi.encodePacked('This Blooper is the color #',cols[idToBlooper[id].bodyColor]));
+      string memory name = string(abi.encodePacked('Blobber #',id.toString()));
+      string memory description = string(abi.encodePacked('This Blobber is the color #',cols[idToBlobber[id].bodyColor]));
       string memory image = Base64.encode(bytes(generateSVGofTokenById(id)));
 
       string memory firstPart = string(
@@ -274,7 +269,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                               '", "external_url":"https://burnyboys.com/token/',
                               id.toString(),
                               '", "attributes": [{"trait_type": "color", "value": "#',
-                              cols[idToBlooper[id].bodyColor],
+                              cols[idToBlobber[id].bodyColor],
                               '"},{"trait_type": "chubbiness", "value": ',
                               uint2str(chubbiness[id]),
                               '},{"trait_type": "mouthLength", "value": ',
@@ -307,40 +302,40 @@ contract YourCollectible is ERC721Enumerable, Ownable {
   function generateSVGofTokenById(uint256 id) public view returns (string memory) {
 
     string memory svgMode = '';
-    if(idToBlooper[id].mode == 1) { //transparent
+    if(idToBlobber[id].mode == 1) { //transparent
       svgMode = ' fill-opacity="0.3" ';
     } 
-    else if(idToBlooper[id].mode ==2 ) { //glow
+    else if(idToBlobber[id].mode ==2 ) { //glow
       svgMode =  ' stroke="none" style="filter:url(#glow)" ';
     }
 
     string memory svgP1 = string(abi.encodePacked(
-      '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><title>Bloops</title><defs><linearGradient id="linear-gradient" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">',
-      '<stop offset="0" stop-color="#',cols[idToBlooper[id].gradientColor1],'" />',
-      '<stop offset="1" stop-color="#',cols[idToBlooper[id].gradientColor2],'" /></linearGradient>'
+      '<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1080 1080"><title>Blobbers</title><defs><linearGradient id="linear-gradient" x2="1080" y2="1080" gradientUnits="userSpaceOnUse">',
+      '<stop offset="0" stop-color="#',cols[idToBlobber[id].gradientColor1],'" />',
+      '<stop offset="1" stop-color="#',cols[idToBlobber[id].gradientColor2],'" /></linearGradient>'
       ));
 
     string memory svgP2 = string(abi.encodePacked(
       '<filter id="glow"><feGaussianBlur stdDeviation="20" result="coloredBlur" /><feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>',
       '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
-      extraGenerator.render(idToBlooper[id].extra, cols[idToBlooper[id].extraColor]),
-      '<g fill="#',cols[idToBlooper[id].bodyColor],'"', svgMode, '>',
-      bodyGenerator.render(idToBlooper[id].tier),
+      extraGenerator.render(idToBlobber[id].extra, cols[idToBlobber[id].extraColor]),
+      '<g fill="#',cols[idToBlobber[id].bodyColor],'"', svgMode, '>',
+      bodyGenerator.render(idToBlobber[id].tier),
       '</g>'
     ));
 
     string memory svgP3 = string(abi.encodePacked(
-      fullFaceGenerator.render(idToBlooper[id].fullFace, cols[idToBlooper[id].fullFaceColor]),
-      hatGenerator.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor]),
-      hatGenerator2.render(idToBlooper[id].hat, cols[idToBlooper[id].hatColor]),
-      eyeGenerator.render(idToBlooper[id].eye, cols[idToBlooper[id].eyeColor])
+      fullFaceGenerator.render(idToBlobber[id].fullFace, cols[idToBlobber[id].fullFaceColor]),
+      hatGenerator.render(idToBlobber[id].hat, cols[idToBlobber[id].hatColor]),
+      hatGenerator2.render(idToBlobber[id].hat, cols[idToBlobber[id].hatColor]),
+      eyeGenerator.render(idToBlobber[id].eye, cols[idToBlobber[id].eyeColor])
     ));
 
     string memory svgP4 = string(abi.encodePacked(
-      mouthGenerator.render(idToBlooper[id].mouth, cols[idToBlooper[id].mouthColor]),
-      mouthGenerator2.render(idToBlooper[id].mouth, cols[idToBlooper[id].mouthColor]),
-      maskGenerator.render(idToBlooper[id].mask, cols[idToBlooper[id].maskColor]),
-      detailGenerator.render(idToBlooper[id].detail, cols[idToBlooper[id].detailColor]),
+      mouthGenerator.render(idToBlobber[id].mouth, cols[idToBlobber[id].mouthColor]),
+      mouthGenerator2.render(idToBlobber[id].mouth, cols[idToBlobber[id].mouthColor]),
+      maskGenerator.render(idToBlobber[id].mask, cols[idToBlobber[id].maskColor]),
+      detailGenerator.render(idToBlobber[id].detail, cols[idToBlobber[id].detailColor]),
       '</g></svg>'
     ));
 
@@ -351,17 +346,17 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
   function upgrade(uint256 id) public {
     require(_isApprovedOrOwner(msg.sender, id), "NOT OWNER/APPROVED");
-    require(!idToBlooper[id].upgraded, "Already upgraded");
+    require(!idToBlobber[id].upgraded, "Already upgraded");
 
-    bool toContractTransfer = bloopToken.transferFrom(msg.sender, address(this), priceToUpgrade);
+    bool toContractTransfer = blobToken.transferFrom(msg.sender, address(this), priceToUpgrade);
     require(toContractTransfer, "NOT SUCCESSFUL INGOING TRANSFER");
 
 
-    idToBlooper[id].upgraded = true; // upgrade the tier;
+    idToBlobber[id].upgraded = true; // upgrade the tier;
 
     // Randomly choose a few traits from toBurnId and use in toUpgradeId instead.
     bytes32 predictableRandom = keccak256(abi.encodePacked( blockhash(block.number-1), msg.sender, address(this), id ));
-    idToBlooper[id].eye = uint8(predictableRandom[7])%noOfEyes;
+    idToBlobber[id].eye = uint8(predictableRandom[7])%noOfEyes;
     emit Upgrade(msg.sender, id);
   }
 

@@ -47,7 +47,7 @@ export default function Balance(props) {
 
   let displayBalance = floatBalance.toFixed(4);
 
-  displayBalance = floatBalance.toFixed(2) + " BLP";
+  displayBalance = floatBalance.toFixed(2) + " BLB";
 
   const price = props.price || props.dollarMultiplier || 1;
   

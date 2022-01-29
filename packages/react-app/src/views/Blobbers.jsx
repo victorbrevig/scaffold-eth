@@ -4,23 +4,23 @@ import { Button, Card, List, Spin } from "antd";
 import { Address } from "../components";
 import { ethers } from "ethers";
 
-function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBUG }) {
-  const [allBloopers, setAllBloopers] = useState();
+function Blobbers({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBUG }) {
+  const [allBlobbers, setAllBlobbers] = useState();
   const [page, setPage] = useState(1);
-  const [loadingBloopers, setLoadingBloopers] = useState(true);
+  const [loadingBlobbers, setLoadingBlobbers] = useState(true);
   const perPage = 8;
 
   useEffect(() => {
-    const updateAllBloopers = async () => {
+    const updateAllBlobbers = async () => {
       if (readContracts.YourCollectible && totalSupply) {
-        setLoadingBloopers(true);
+        setLoadingBlobbers(true);
         const collectibleUpdate = [];
         let startIndex = totalSupply - 1 - perPage * (page - 1);
         for (let tokenIndex = startIndex; tokenIndex > startIndex - perPage && tokenIndex >= 0; tokenIndex--) {
           try {
             if (DEBUG) console.log("Getting token index", tokenIndex);
             const tokenId = await readContracts.YourCollectible.tokenByIndex(tokenIndex);
-            if (DEBUG) console.log("Getting Blooper tokenId: ", tokenId);
+            if (DEBUG) console.log("Getting Blobber tokenId: ", tokenId);
             const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
             if (DEBUG) console.log("tokenURI: ", tokenURI);
             const jsonManifestString = atob(tokenURI.substring(29));
@@ -35,11 +35,11 @@ function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, 
             console.log(e);
           }
         }
-        setAllBloopers(collectibleUpdate);
-        setLoadingBloopers(false);
+        setAllBlobbers(collectibleUpdate);
+        setLoadingBlobbers(false);
       }
     };
-    updateAllBloopers();
+    updateAllBlobbers();
   }, [readContracts.YourCollectible, (totalSupply || "0").toString(), page]);
 
   return (
@@ -67,8 +67,8 @@ function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, 
               },
               showTotal: (total, range) => `${range[0]}-${range[1]} of ${totalSupply} items`,
             }}
-            loading={loadingBloopers}
-            dataSource={allBloopers}
+            loading={loadingBlobbers}
+            dataSource={allBlobbers}
             renderItem={item => {
               const id = item.id.toNumber();
 
@@ -81,7 +81,7 @@ function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, 
                       </div>
                     }
                   >
-                    <img src={item.image} alt={"Blooper #" + id} width="200" />
+                    <img src={item.image} alt={"Blobber #" + id} width="200" />
                     <div>
                       <Address
                         address={item.owner}
@@ -101,4 +101,4 @@ function Bloopers({ readContracts, mainnetProvider, blockExplorer, totalSupply, 
   );
 }
 
-export default Bloopers;
+export default Blobbers;

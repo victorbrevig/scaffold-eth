@@ -31,7 +31,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { YourBloopers, Bloopers } from "./views";
+import { YourBlobbers, Blobbers } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -160,20 +160,20 @@ function App(props) {
   const maxSupply = useContractReader(readContracts, "YourCollectible", "limit")-0;
   const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply")-0;
   if (DEBUG) console.log("🤗 totalSupply:", totalSupply);
-  const bloopersLeft = maxSupply - totalSupply;
+  const blobbersLeft = maxSupply - totalSupply;
 
   
   // keep track of a variable from the contract in the local React state:
   const balance = useContractReader(readContracts, "YourCollectible", "balanceOf", [address]);
   if (DEBUG) console.log("🤗 address: ", address, " balance:", balance);
 
-  const yourTokenBalance = useContractReader(readContracts, "BloopToken", "balanceOf", [address]);
+  const yourTokenBalance = useContractReader(readContracts, "BlobToken", "balanceOf", [address]);
   
 
 
   const yourCollectibleAddress = "0x998abeb3E57409262aE5b751f60747921B33613E";
 
-  const tokenAllowance = useContractReader(readContracts, "BloopToken", "allowance", [address, yourCollectibleAddress]);
+  const tokenAllowance = useContractReader(readContracts, "BlobToken", "allowance", [address, yourCollectibleAddress]);
 
   // EVENT LISTENERS
   const mintEvent = useEventListener(readContracts, "YourCollectible", "Mint", localProvider, 1);
@@ -208,7 +208,7 @@ function App(props) {
         try {
           if (DEBUG) console.log("Getting token index", tokenIndex);
           const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
-          if (DEBUG) console.log("Getting Blooper tokenId: ", tokenId);
+          if (DEBUG) console.log("Getting Blobber tokenId: ", tokenId);
           const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
           
           const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
@@ -384,8 +384,8 @@ function App(props) {
         <Menu.Item key="/">
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item key="/yourBloopers">
-          <Link to="/yourBloopers">Your Bloopers</Link>
+        <Menu.Item key="/yourBlobbers">
+          <Link to="/yourBlobbers">Your Blobbers</Link>
         </Menu.Item>
       </Menu>
       </div>
@@ -393,7 +393,7 @@ function App(props) {
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
           <p>
-            Only <strong>{ maxSupply } Bloopers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
+            Only <strong>{ maxSupply } Blobbers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
           </p>
         </div>
 
@@ -413,13 +413,13 @@ function App(props) {
         </Button>
 
         <p style={{ fontWeight: "bold" }}>
-          { bloopersLeft } left
+          { blobbersLeft } left
         </p>
       </div>
 
       <Switch>
         <Route exact path="/">
-          <Bloopers
+          <Blobbers
             readContracts={readContracts}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}
@@ -427,8 +427,8 @@ function App(props) {
             DEBUG={DEBUG}
           />
         </Route>
-        <Route exact path="/yourBLoopers">
-          <YourBloopers
+        <Route exact path="/yourBlobbers">
+          <YourBlobbers
             readContracts={readContracts}
             writeContracts={writeContracts}
             priceToMint={priceToMint}
@@ -482,7 +482,7 @@ function App(props) {
             contractConfig={contractConfig}
           />
           <Contract
-              name="BloopToken"
+              name="BlobToken"
               signer={userSigner}
               provider={localProvider}
               address={address}

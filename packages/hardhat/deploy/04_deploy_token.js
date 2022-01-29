@@ -9,7 +9,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deployer } = await getNamedAccounts();
   const chainId = await getChainId();
 
-  await deploy("BloopToken", {
+  await deploy("BlobToken", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
@@ -17,7 +17,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   });
 
   // Getting a previously deployed contract
-  const bloopToken = await ethers.getContract("BloopToken", deployer);
+  const blobToken = await ethers.getContract("BlobToken", deployer);
 
   
 
@@ -58,10 +58,10 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   // You don't want to verify on localhost
   if (chainId !== localChainId) {
     await run("verify:verify", {
-      address: YourCollectible.address,
-      contract: "contracts/BloopToken.sol:BloopToken",
+      address: blobToken.address,
+      contract: "contracts/BlobToken.sol:BlobToken",
       contractArguments: [],
     });
   }
 };
-module.exports.tags = ["BloopToken"];
+module.exports.tags = ["BlobToken"];

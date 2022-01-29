@@ -38,7 +38,7 @@ function Home({
                 const hasEnoughTokens = yourTokenBalance.gte(priceToUpgrade);
                 return (
                   <Button
-                    // disabled if not enough BLP or already upgraded
+                    // disabled if not enough BLB or already upgraded
                     disabled={!hasEnoughTokens}
                     onClick={() => {
                       tx(writeContracts.YourCollectible.upgrade(id));
@@ -53,13 +53,13 @@ function Home({
                   <Button
                     onClick={() => {
                       // current 1000000000000, maybe set higher
-                      tx(writeContracts.BloopToken.approve(yourCollectibleAddress, ethers.utils.parseEther("10000000000000000")));
+                      tx(writeContracts.BlobToken.approve(yourCollectibleAddress, ethers.utils.parseEther("10000000000000000")));
                     }}
                   >
-                    APPROVE BLP
+                    APPROVE BLB
                   </Button>
                 );
-               //return <Button>APPROVE BLP</Button>;
+               //return <Button>APPROVE BLB</Button>;
               }
             };
 
@@ -67,11 +67,11 @@ function Home({
               return (
                 <Button
                   onClick={() => {
-                    tx(writeContracts.YourCollectible.claimBLP(id));
+                    tx(writeContracts.YourCollectible.claimBLB(id));
                     // REFRESH COMPONENT (need to update yourCollectibles at this id index)
                   }}
                 >
-                  CLAIM BLP
+                  CLAIM BLB
                 </Button>
               );
             };
@@ -85,7 +85,7 @@ function Home({
                     </div>
                   }
                 >
-                  <img src={item.image} alt={"Blooper #" + id} />
+                  <img src={item.image} alt={"Blobber #" + id} />
                   <div style={{ marginTop: 20 }}>
                     <AddressInput
                       ensProvider={mainnetProvider}

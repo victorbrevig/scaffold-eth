@@ -21,33 +21,33 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const svgExtra = await ethers.getContract("SVGExtraGenerator", deployer);
   
 
-  const bloopToken = await ethers.getContract("BloopToken", deployer);
+  const blobToken = await ethers.getContract("BlobToken", deployer);
   
 
   await deploy("YourCollectible", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    args: [svgBody.address, svgHat.address, svgHat2.address, svgFullFace.address, svgMask.address, svgEye.address, svgMouth.address, svgMouth2.address, svgDetail.address, svgExtra.address, bloopToken.address],
+    args: [svgBody.address, svgHat.address, svgHat2.address, svgFullFace.address, svgMask.address, svgEye.address, svgMouth.address, svgMouth2.address, svgDetail.address, svgExtra.address, blobToken.address],
     log: true,
   });
 
   // Getting a previously deployed contract
-  const bloopers = await ethers.getContract("YourCollectible", deployer);
+  const blobbers = await ethers.getContract("YourCollectible", deployer);
 
   
-  // transfer all BLP to this contract
-  const result = await bloopToken.transfer(
-    bloopers.address,
+  // transfer all BLB to this contract
+  const result = await blobToken.transfer(
+    blobbers.address,
     ethers.utils.parseEther("1000000000")
   );
     
 
   // MINT 100
   for (let i = 0; i < 2; i++) {
-    const id = await bloopers.mintItem({value: ethers.utils.parseEther("0.02")});
-    //console.log(await bloopers.ownerOf("1"));
-    await bloopers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6", i.toString()); 
+    const id = await blobbers.mintItem({value: ethers.utils.parseEther("0.02")});
+    //console.log(await blobbers.ownerOf("1"));
+    await blobbers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6", i.toString()); 
   }
   
   
@@ -90,7 +90,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   // You don't want to verify on localhost
   if (chainId !== localChainId) {
     await run("verify:verify", {
-      address: YourCollectible.address,
+      address: blobbers.address,
       contract: "contracts/YourCollectible.sol:YourCollectible",
       contractArguments: [],
     });

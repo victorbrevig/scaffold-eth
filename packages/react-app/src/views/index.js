@@ -1,2 +1,2 @@
-export { default as YourBloopers } from "./YourBloopers";
-export { default as Bloopers } from "./Bloopers";
+export { default as YourBlobbers } from "./YourBlobbers";
+export { default as Blobbers } from "./Blobbers";
