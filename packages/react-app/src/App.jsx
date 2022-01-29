@@ -157,18 +157,18 @@ function App(props) {
 
   const priceToUpgrade = useContractReader(readContracts, "YourCollectible", "priceToUpgrade");
 
-  const maxSupply = useContractReader(readContracts, "YourCollectible", "limit")-0;
-  const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply")-0;
+  const maxSupply = useContractReader(readContracts, "YourCollectible", "limit") - 0;
+  const totalSupply = useContractReader(readContracts, "YourCollectible", "totalSupply") - 0;
   if (DEBUG) console.log("🤗 totalSupply:", totalSupply);
   const blobbersLeft = maxSupply - totalSupply;
 
-  
+
   // keep track of a variable from the contract in the local React state:
   const balance = useContractReader(readContracts, "YourCollectible", "balanceOf", [address]);
   if (DEBUG) console.log("🤗 address: ", address, " balance:", balance);
 
   const yourTokenBalance = useContractReader(readContracts, "BlobToken", "balanceOf", [address]);
-  
+
 
 
   const yourCollectibleAddress = "0x998abeb3E57409262aE5b751f60747921B33613E";
@@ -199,7 +199,7 @@ function App(props) {
   console.log(yourCollectibles);
   console.log("----------------------------------");
   */
-  
+
 
   useEffect(() => {
     const updateYourCollectibles = async () => {
@@ -210,7 +210,7 @@ function App(props) {
           const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
           if (DEBUG) console.log("Getting Blobber tokenId: ", tokenId);
           const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
-          
+
           const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
 
           if (DEBUG) console.log("tokenURI: ", tokenURI);
@@ -238,21 +238,21 @@ function App(props) {
       const collectibleUpdate = [];
       let tokenId;
       try {
-        const lastEvent = upgradeEvent[upgradeEvent.length-1];
+        const lastEvent = upgradeEvent[upgradeEvent.length - 1];
         tokenId = lastEvent.args[1].toNumber();
-      } catch(e) {
+      } catch (e) {
         console.log(e);
       }
       for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
         try {
           const collectible = yourCollectibles[tokenIndex];
-          if(tokenId == collectible.id) {
+          if (tokenId == collectible.id) {
             const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
             const jsonManifestString = atob(tokenURI.substring(29));
             try {
               const jsonManifest = JSON.parse(jsonManifestString);
               collectibleUpdate.push({ id: collectible.id, uri: tokenURI, owner: address, tokensToClaim: collectible.tokensToClaim, ...jsonManifest });
-            } catch(e) {
+            } catch (e) {
               console.log(e);
             }
           }
@@ -372,15 +372,14 @@ function App(props) {
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
-      <Header />
       <NetworkDisplay
         NETWORKCHECK={NETWORKCHECK}
         localChainId={localChainId}
         selectedChainId={selectedChainId}
         targetNetwork={targetNetwork}
       />
-      <div className="glass">
-      <Menu style={{textAlign: "center"}} selectedKeys={[location.pathname]} mode="horizontal">
+
+      <Menu style={{ textAlign: "center" }} selectedKeys={[location.pathname]} mode="horizontal">
         <Menu.Item key="/">
           <Link to="/">Home</Link>
         </Menu.Item>
@@ -388,12 +387,12 @@ function App(props) {
           <Link to="/yourBlobbers">Your Blobbers</Link>
         </Menu.Item>
       </Menu>
-      </div>
-      
+      <Header />
+
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
           <p>
-            Only <strong>{ maxSupply } Blobbers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
+            Only <strong>{maxSupply} Blobbers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
           </p>
         </div>
 
@@ -413,7 +412,7 @@ function App(props) {
         </Button>
 
         <p style={{ fontWeight: "bold" }}>
-          { blobbersLeft } left
+          {blobbersLeft} left
         </p>
       </div>
 
@@ -482,13 +481,13 @@ function App(props) {
             contractConfig={contractConfig}
           />
           <Contract
-              name="BlobToken"
-              signer={userSigner}
-              provider={localProvider}
-              address={address}
-              blockExplorer={blockExplorer}
-              contractConfig={contractConfig}
-            />
+            name="BlobToken"
+            signer={userSigner}
+            provider={localProvider}
+            address={address}
+            blockExplorer={blockExplorer}
+            contractConfig={contractConfig}
+          />
         </Route>
       </Switch>
 
