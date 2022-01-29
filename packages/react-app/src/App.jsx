@@ -170,8 +170,8 @@ function App(props) {
   const yourTokenBalance = useContractReader(readContracts, "BlobToken", "balanceOf", [address]);
   
 
-
-  const yourCollectibleAddress = "0x998abeb3E57409262aE5b751f60747921B33613E";
+  // CHANGE ON EVERY DEPLOY TO UPGRADE
+  const yourCollectibleAddress = "0x77AD263Cd578045105FBFC88A477CAd808d39Cf6";
 
   const tokenAllowance = useContractReader(readContracts, "BlobToken", "allowance", [address, yourCollectibleAddress]);
 
@@ -372,7 +372,7 @@ function App(props) {
   return (
     <div className="App">
       {/* ✏️ Edit the header and change the title to your project name */}
-      <Header />
+      
       <NetworkDisplay
         NETWORKCHECK={NETWORKCHECK}
         localChainId={localChainId}
@@ -389,6 +389,7 @@ function App(props) {
         </Menu.Item>
       </Menu>
       </div>
+      <Header />
       
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
