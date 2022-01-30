@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-image: url("stars-bg.png");
+  background-image: url("stars-bg-big.png");
   background-size: cover; /* or contain depending on what you want */
   background-position: center center;
   background-repeat: no-repeat;

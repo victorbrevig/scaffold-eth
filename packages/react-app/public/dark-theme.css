@@ -2325,7 +2325,7 @@ mark {
   line-height: 1.5715;
   position: relative;
   display: inline-block;
-  font-weight: 400;
+  font-weight: 600;
   white-space: nowrap;
   text-align: center;
   background-image: none;
@@ -2341,7 +2341,7 @@ mark {
   padding: 4px 15px;
   font-size: 14px;
   border-radius: 4px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 1);
   background: #F9BD28;
 }
 .ant-btn > .anticon {
@@ -3972,7 +3972,7 @@ a.ant-btn-sm {
   background: #212121;
   border-radius: 4px;
 
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   
 }
@@ -4000,7 +4000,7 @@ a.ant-btn-sm {
   background: 0 0;
   border-radius: 4px 4px 0 0;
 
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
 }
 .ant-card-head::before {
@@ -4047,8 +4047,10 @@ a.ant-btn-sm {
 .ant-card-body {
   padding: 24px;
 
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
+
+  border-radius: 0px 0px 5px 5px;
 
 }
 .ant-card-body::after,
@@ -14767,7 +14769,6 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   font-variant: tabular-nums;
   font-feature-settings: "tnum";
   margin: 0;
-  padding: 0;
   color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
   line-height: 0;
@@ -14776,9 +14777,10 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   outline: 0;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   height: 100px;
+  padding-top: 52px;
 }
 .ant-menu::after,
 .ant-menu::before {
@@ -16573,7 +16575,7 @@ table tr th.ant-table-selection-column .ant-radio-wrapper {
   outline: 0;
   transition: all 0.3s;
 
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
 }
 .ant-pagination-next:focus .ant-pagination-item-link,

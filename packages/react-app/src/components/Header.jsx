@@ -13,7 +13,7 @@ import React from "react";
 export default function Header() {
   return (
     <a href="/">
-      <div style={{ position: "absolute", left: 30, top: 30 }}>
+      <div style={{ position: "absolute", left: 30, top: 25 }}>
         <img src="logo-yellow.png" width="221.6" height="45.4" cursor="pointer" alt="Blobber" />
       </div>
     </a>
