@@ -176,7 +176,7 @@ contract SVGEyeGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g transform="translate(0 -15)">',
+                        '<g transform="translate(0 -10)">',
                         '<defs><linearGradient id="linear-gradient-visor" x1="585" y1="402" x2="585" y2="490" gradientUnits="userSpaceOnUse">',
                         '<stop offset="0" stop-color="#ff005c" /><stop offset="1" stop-color="#f9ff08" /></linearGradient></defs>',
                         '<rect x="392" y="411" width="18" height="50" rx="9" fill="#3a3a3a" /><rect x="311" y="421" width="81" height="30" fill="#161616" />',

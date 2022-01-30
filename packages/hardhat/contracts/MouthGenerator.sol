@@ -21,17 +21,10 @@ contract SVGMouthGenerator {
             return
                 string(
                     abi.encodePacked(
-                        "<g>",
-                        '<line x1="547.38" y1="513" x2="626.38" y2="513" />',
-                        '<rect x="472" y="487" width="229" height="118" rx="23" fill="#cbe7ff" />',
-                        '<path d="M472,510a23,23,0,0,1,23-23H678a23,23,0,0,1,23,23Z" fill="#fff" />',
-                        '<line x1="498" y1="535" x2="675" y2="535" stroke="#85b9e7" />',
-                        '<line x1="498" y1="558" x2="675" y2="558" stroke="#85b9e7" />',
-                        '<line x1="498" y1="581" x2="675" y2="581" stroke="#85b9e7" />',
-                        '<path d="M472.29,565.25H296.71a29.13,29.13,0,0,1-29.12-29.13h0A29.12,29.12,0,0,1,296.71,507H472.29" fill="none" />',
-                        '<path d="M772.16,507H700.59" fill="none" />',
-                        '<path d="M700.59,565.25h71.57" fill="none" />',
-                        "</g>"
+                        '<g transform="translate(0 10)"><line x1="547.38" y1="513" x2="626.38" y2="513" /><path transform="translate(70 10)" d="M472.29,565.25H296.71a29.13,29.13,0,0,1-29.12-29.13h0A29.12,29.12,0,0,1,296.71,507H472.29" fill="none" />',
+                        '<rect x="472" y="487" width="229" height="118" rx="23" fill="#cbe7ff" /><path d="M472,510a23,23,0,0,1,23-23H678a23,23,0,0,1,23,23Z" fill="#fff" /><line x1="498" y1="535" x2="675" y2="535" stroke="#85b9e7" /><line x1="498" y1="558" x2="675" y2="558" stroke="#85b9e7" />',
+                        '<line x1="498" y1="581" x2="675" y2="581" stroke="#85b9e7" /><g transform="translate(0 10)" ><path d="M772.16,507H700.59" fill="none" />',
+                        '<path d="M700.59,565.25h71.57" fill="none" /></g></g>'
                     )
                 );
         } else if (mouth == 2) {
