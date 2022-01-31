@@ -198,6 +198,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 constant noOfMasks = 10;
     uint8 constant noOfExtras = 5;
     uint8 constant noOfDetails = 8;
+    uint8 constant noOfBodies = 4;
 
     /*
   // NFT id => timestamp of last time BLB collected
@@ -298,8 +299,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         idToBlobber[id].gradientColor2 =
             uint8(predictableRandom[2]) %
             (colsLength);
-        idToBlobber[id].tier = uint8(predictableRandom[3]) % 4;
-        //idToBlobber[id].tier          = 0;
+        idToBlobber[id].tier = uint8(predictableRandom[3]) % noOfBodies;
         idToBlobber[id].fullFace =
             uint8(predictableRandom[4]) %
             (noOfFullFaces * 10); // 10% chance for fullface
