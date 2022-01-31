@@ -245,7 +245,39 @@ contract SVGHatGenerator {
                         '<rect x="488.59" y="79.5" width="99.41" height="12" fill="#ff3636" stroke="none" /><rect x="488.59" y="90.5" width="99.41" height="12" stroke="none" /></g>'
                     )
                 );
-        } 
+        } else if (hat == 16) {
+            // sailor
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><path d="M622,149H468a72,72,0,0,1,72-72h10a72,72,0,0,1,72,72Z" fill="#f2f2f2" /><path d="M509,149c0-20.47,4-38.94,10.51-52,6.1-12.36,14.38-20,23.49-20" fill="none" opacity="0.1" />',
+                        '<path d="M582,149c0-20.47-4-38.94-10.51-52-6.1-12.36-14.38-20-23.49-20" fill="none" opacity="0.1" /><polygon points="629.97 174.05 460.03 174.05 449 116 641 116 629.97 174.05" fill="#f2f2f2" />',
+                        '<rect x="573.5" y="138" width="8" height="16.5" rx="4" stroke="#6e85e5" /></g>'
+                    )
+                );
+        } else if (hat == 17) {
+            // camera
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><polygon points="568 83 515 83 519 57 564 57 568 83" fill="#383838" /><polygon points="590.46 73 588 57 543 57 540.54 73 449.27 73 449.27 93.48 626.73 93.48 626.73 73 590.46 73" fill="#999" />',
+                        '<rect x="456.94" y="93.48" width="162.11" height="58.87" fill="#7c5235" /><rect x="449.27" y="152.35" width="177.47" height="13.65" fill="#999" /><polyline points="471.22 73 471.22 93.48 477.14 93.48 477.14 152.35 471.22 152.35 471.22 166" fill="none" />',
+                        '<path d="M570.52,85.64a30,30,0,0,0,0,60h41.13v-60Z" fill="#383838" /><path d="M530.48,94.69a41.92,41.92,0,0,0,10,55.2" fill="none" /><circle cx="611.01" cy="115.63" r="29" fill="#c1c1c1" />',
+                        '<circle cx="611.01" cy="115.63" r="19" fill="#1c1c1c" stroke="none" /><line x1="561" y1="73" x2="570" y2="73" fill="none" opacity="0.5" /><line x1="493" y1="112" x2="509" y2="112" fill="none" opacity="0.6" stroke="#fff" /></g>'
+                    )
+                );
+        } else if (hat == 18) {
+            // toilet paper
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#efefef"><path d="M522.45,173h64.1a43.45,43.45,0,1,0,0-86.9h-64.1Z" /><path d="M522.45,86.1a43.45,43.45,0,1,0,43.45,43.45A43.45,43.45,0,0,0,522.45,86.1Z" fill="#e2e2e2" />',
+                        '<polyline points="566 130 566 264 630 264 630 130" /><g opacity="0.1"><line x1="571" y1="189.15" x2="572" y2="189.15" /><line x1="588.45" y1="189.15" x2="616.78" y2="189.15" stroke-dasharray="1.83 16.45" />',
+                        '<line x1="625" y1="189.15" x2="626" y2="189.15" /><line x1="566" y1="109.15" x2="567" y2="109.15" /><line x1="583.45" y1="109.15" x2="611.78" y2="109.15" stroke-dasharray="1.83 16.45" />',
+                        '<line x1="620" y1="109.15" x2="621" y2="109.15" /></g><circle cx="522.45" cy="129.55" r="15.42" fill="#3d3325" /></g>'
+                    )
+                );
+        }
 
         return "";
     }

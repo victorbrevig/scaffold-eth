@@ -13,7 +13,7 @@ contract SVGHatGenerator2 {
         pure
         returns (string memory)
     {
-        if (hat == 16) {
+        if (hat == 19) {
             // bun
             return
                 string(
@@ -22,11 +22,11 @@ contract SVGHatGenerator2 {
                         color,
                         '"><polyline points="479 159 504.37 177.48 479 177" fill="none" /><circle cx="540" cy="150" r="45" /><path d="M546,161a29,29,0,0,1-29,29" fill="none" />',
                         '<path d="M566,161a29,29,0,0,1-29,29" fill="none" /><circle cx="503" cy="195" r="11" fill="#fff" /><circle cx="521.75" cy="195" r="11" fill="#fff" />',
-                        '<circle cx="540.5" cy="195" r="11" fill="#fff" /><circle cx="559.25" cy="195" r="11" fill="#fff" /><circle cx="578" cy="195" r="11" fill="#fff" />',
+                        '<circle cx="540.5" cy="195" r="11" fill="#fff" /><circle cx="559.25" cy="195" r="11" fill="#fff" /><circle cx="578" cy="195" r="11" fill="#fff" /><path d="M542.5,205h0a228.85,228.85,0,0,0-168.78,74l25,25h.85l28.39-28.39L456.33,304H457v-.08l28.31-28.31L513.7,304h.85l28.39-28.39L571.33,304H572v-.08l28.31-28.31L628.7,304h.85l28.39-28.39L686.33,304H687v-.08l24.59-24.58A228.89,228.89,0,0,0,542.5,205Z"/>',
                         "</g>"
                     )
                 );
-        } else if (hat == 17) {
+        } else if (hat == 20) {
             // bunny ears
             return
                 string(
@@ -42,7 +42,7 @@ contract SVGHatGenerator2 {
                         "</g>"
                     )
                 );
-        } else if (hat == 18) {
+        } else if (hat == 21) {
             // airmax 1s
             return
                 string(
@@ -61,7 +61,7 @@ contract SVGHatGenerator2 {
                         ' stroke-linejoin="round" stroke-width="10" /></g>'
                     )
                 );
-        } else if (hat == 19) {
+        } else if (hat == 22) {
             //bucket hat
             return
                 string(
@@ -76,7 +76,7 @@ contract SVGHatGenerator2 {
                         '<line x1="573" y1="83" x2="573" y2="88" stroke="#fff" /><line x1="575" y1="101" x2="597" y2="101" opacity="0.3" stroke="#fff" /></g>'
                     )
                 );
-        } else if (hat == 20) {
+        } else if (hat == 23) {
             // chicken
             return
                 string(
@@ -93,7 +93,7 @@ contract SVGHatGenerator2 {
                         "</g>"
                     )
                 );
-        } else if (hat == 21) {
+        } else if (hat == 24) {
             // chameleon
             return
                 string(
@@ -107,7 +107,7 @@ contract SVGHatGenerator2 {
                         "</g>"
                     )
                 );
-        } else if (hat == 22) {
+        } else if (hat == 25) {
             // BOWL HAIR
             return
                 string(
@@ -119,7 +119,42 @@ contract SVGHatGenerator2 {
                         "</g>"
                     )
                 );
+        } else if (hat == 26) {
+            // BD HAT
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '"><polygon points="590.47 175 496.53 175 543.5 62.1 590.47 175" fill="#eaeaea" /><polygon points="505.53 153.37 577.76 175 590.47 175 581.08 152.42 514.25 132.41 505.53 153.37" />',
+                        '<polygon points="522.97 111.45 569.88 125.5 558.67 98.57 531.69 90.49 522.97 111.45" /><circle cx="543.95" cy="51.26" r="14.45" fill="#ff3131" /><line x1="533.11" y1="40.42" x2="526.79" y2="35" />',
+                        '<line x1="528.6" y1="49.45" x2="522.27" y2="48.55" /></g>'
+                    )
+                );
+        } else if (hat == 27) {
+            // UNDERWEAR
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><rect x="321" y="306" width="445" height="17" rx="2.65" fill="#e2e2e2" /><path d="M737,275H661c-35.35,0-64-38.65-64-74H491c0,35.35-28.65,74-64,74H351l-23,31H760Z" fill="#f2f2f2" />',
+                        '<line x1="484.88" y1="306" x2="452.87" y2="269" /><path d="M476.6,201a2.28,2.28,0,0,0-2.25,2.06c-3,26.8-25.42,54.94-52.65,54.94H353.28a2.28,2.28,0,0,0-2.28,2.28v12.44a2.28,2.28,0,0,0,2.28,2.28H427c35.35,0,64-38.65,64-74H476.6Z" fill="#e2e2e2" />',
+                        '<line x1="603.13" y1="306" x2="635.13" y2="269" /><path d="M610.92,201a2.8,2.8,0,0,1,2.78,2.45c3.17,26.68,25.5,54.55,52.6,54.55h67.89a2.81,2.81,0,0,1,2.81,2.81v11.38a2.81,2.81,0,0,1-2.81,2.81H661c-35.35,0-64-38.65-64-74h13.92Z" fill="#e2e2e2" />',
+                        '<path d="M473.87,287.5l19.78-17.9a25.3,25.3,0,0,0,2.16-35.32l-8.69-10.05" fill="none" /></g>'
+                    )
+                );
+        } else if (hat == 28) {
+            // CAT
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#',
+                        color,
+                        '"><path d="M538,206h9c1.77,0,3.54,0,5.31.07L557,200l-16-30s-65.93-2-80.65,49.76A224.58,224.58,0,0,1,538,206Z" /><path d="M378.5,201h19.08A13.42,13.42,0,0,1,411,214.42v30.84a224.86,224.86,0,0,1,25-14.86V211.28A35.29,35.29,0,0,0,400.72,176H378.5a12.5,12.5,0,0,0,0,25Z" />',
+                        '<path d="M535,207h26a0,0,0,0,1,0,0v65a13,13,0,0,1-13,13h0a13,13,0,0,1-13-13V207A0,0,0,0,1,535,207Z" /><path d="M595,207h26a0,0,0,0,1,0,0v65a13,13,0,0,1-13,13h0a13,13,0,0,1-13-13V207A0,0,0,0,1,595,207Z" /><path d="M630,166l-5.73-32.64a4.62,4.62,0,0,0-8.73-1.17L604.38,156H571.12L560,132.22a4.62,4.62,0,0,0-8.73,1.17L545.5,166a31.87,31.87,0,0,0-8.75,22h0a32,32,0,0,0,32,32h38a32,32,0,0,0,32-32h0A31.87,31.87,0,0,0,630,166Z" />',
+                        '<path d="M588,189v6a9,9,0,0,1-9,9h-3" /><path d="M588,189v6a9,9,0,0,0,9,9h3" /><circle cx="560" cy="185" r="1" /><circle cx="616" cy="185" r="1" /><polygon points="588 193 584.67 189 591.33 189 588 193" /></g>'
+                    )
+                );
         }
-        return '';
+        return "";
     }
 }
