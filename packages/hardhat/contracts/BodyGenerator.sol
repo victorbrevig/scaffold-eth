@@ -52,5 +52,6 @@ contract SVGBodyGenerator {
                     )
                 );
         }
+        return '';
     }
 }
