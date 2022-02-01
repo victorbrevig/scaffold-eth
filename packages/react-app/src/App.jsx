@@ -31,7 +31,7 @@ import externalContracts from "./contracts/external_contracts";
 // contracts
 import deployedContracts from "./contracts/hardhat_contracts.json";
 import { Transactor, Web3ModalSetup } from "./helpers";
-import { YourBlobbers, Blobbers } from "./views";
+import { YourBlobbers, Blobbers, Home } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
 const { ethers } = require("ethers");
@@ -381,6 +381,9 @@ function App(props) {
 
       <Menu style={{ textAlign: "center" }} selectedKeys={[location.pathname]} mode="horizontal">
         <Menu.Item key="/">
+          <Link to="/">Home (del)</Link>
+        </Menu.Item>
+        <Menu.Item key="/home">
           <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="/yourBlobbers">
@@ -419,6 +422,15 @@ function App(props) {
       <Switch>
         <Route exact path="/">
           <Blobbers
+            readContracts={readContracts}
+            mainnetProvider={mainnetProvider}
+            blockExplorer={blockExplorer}
+            totalSupply={totalSupply}
+            DEBUG={DEBUG}
+          />
+        </Route>
+        <Route exact path="/home">
+          <Home
             readContracts={readContracts}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}
