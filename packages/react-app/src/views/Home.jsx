@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Typography } from "antd";
+import { Button, Typography, Carousel } from "antd";
 import { Address } from "../components";
 import { ethers } from "ethers";
 
@@ -9,8 +9,31 @@ function Home({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBU
 
     const { Paragraph, Title } = Typography;
 
+    const contentStyle = {
+        height: '160px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: 'rgba(0,0,0,0)',
+      };
+
     return (
         <div style={{ width: "auto", margin: "auto", paddingBottom: 25, minHeight: 800 }}>
+            
+            <Carousel autoplay={true} dots={false}>
+                <div>
+                    <img src="logo-yellow.png" width="221.6" height="45.4" cursor="pointer" alt="Blobber" />
+                </div>
+                <div>
+                <h3 style={contentStyle}>2</h3>
+                </div>
+                <div>
+                <h3 style={contentStyle}>3</h3>
+                </div>
+                <div>
+                <h3 style={contentStyle}>4</h3>
+                </div>
+            </Carousel>
             <Title level={2}>What are Blobbers?</Title>
             <Paragraph>
                 Blobbers is a diverse NFT collection on the Optimism network. Each blobber is drawn from SVG code which is fully on-chain. This allows the owner of a blobber to change it's apperance. 

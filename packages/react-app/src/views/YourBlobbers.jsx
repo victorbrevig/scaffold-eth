@@ -62,7 +62,8 @@ function YourBlobbers({
   useEffect(() => {
     const updateTokensToClaim = async () => {
       const collectibleUpdate = [];
-      for (let tokenIndex = 0; tokenIndex < yourBalance; tokenIndex++) {
+      let startIndex = yourBalance - 1 - perPage * (page - 1);
+      for (let tokenIndex = startIndex; tokenIndex > startIndex - perPage && tokenIndex >= 0; tokenIndex--) {
         try {
           let collectible = yourBlobbers[tokenIndex];
           let tokenId = collectible.id;
