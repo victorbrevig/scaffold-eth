@@ -384,7 +384,7 @@ function App(props) {
           <Link to="/">Home (del)</Link>
         </Menu.Item>
         <Menu.Item key="/home">
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </Menu.Item>
         <Menu.Item key="/yourBlobbers">
           <Link to="/yourBlobbers">Your Blobbers</Link>
