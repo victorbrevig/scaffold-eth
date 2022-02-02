@@ -171,7 +171,7 @@ function App(props) {
 
 
   // CHANGE ON EVERY DEPLOY TO UPGRADE
-  const yourCollectibleAddress = "0x7bB28eD46EA0f614737dbFaF6006094F89910D55";
+  const yourCollectibleAddress = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
 
   const tokenAllowance = useContractReader(readContracts, "BlobToken", "allowance", [address, yourCollectibleAddress]);
 
@@ -183,7 +183,7 @@ function App(props) {
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
   //
   const yourBalance = balance && balance.toNumber && balance.toNumber();
-  const [yourCollectibles, setYourCollectibles] = useState();
+  
   const [transferToAddresses, setTransferToAddresses] = useState({});
 
   /*
@@ -200,7 +200,7 @@ function App(props) {
   console.log("----------------------------------");
   */
 
-
+  /*
   useEffect(() => {
     const updateYourCollectibles = async () => {
       const collectibleUpdate = [];
@@ -273,6 +273,7 @@ function App(props) {
     };
     updateYourCollectibles();
   }, [upgradeEvent]);
+  
 
   // Only fetch tokensToClaim yourTokenBalance changes
   useEffect(() => {
@@ -300,7 +301,7 @@ function App(props) {
     };
     updateYourCollectibles();
   }, [yourTokenBalance]);
-
+  */
 
   //
   // 🧫 DEBUG 👨🏻‍🔬
@@ -444,9 +445,10 @@ function App(props) {
             writeContracts={writeContracts}
             priceToMint={priceToMint}
             priceToUpgrade={priceToUpgrade}
-            yourCollectibles={yourCollectibles}
             yourTokenBalance={yourTokenBalance}
             tokenAllowance={tokenAllowance}
+            yourBalance={yourBalance}
+            upgradeEvent={upgradeEvent}
             tx={tx}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}
