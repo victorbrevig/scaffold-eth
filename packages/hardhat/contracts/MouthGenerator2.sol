@@ -98,15 +98,26 @@ contract SVGMouthGenerator2 {
                 );
         } else if (mouth == 19) {
             // SPIKES
-            return string(abi.encodePacked(
-                '<g fill="#ddd"><line x1="546" y1="511" x2="625" y2="511" /><rect x="305" y="534" width="467" height="72" fill="#232323" />',
-                '<polygon points="305 590 305 550 245 570 305 590" /><polygon points="772 590 772 550 832 570 772 590" /><path d="M347,550l-31,20,31,20a20,20,0,0,0,0-40Z" />
-                <path d="M728,550l31,20-31,20a20,20,0,0,1,0-40Z" />
-                <circle cx="424.2" cy="570" r="20" />
-                <circle cx="500.4" cy="570" r="20" />
-                <circle cx="576.6" cy="570" r="20" />
-                <circle cx="652.8" cy="570" r="20" />
-            </g>));
+            return
+                string(
+                    abi.encodePacked(
+                        '<g fill="#ddd"><line x1="546" y1="511" x2="625" y2="511" /><rect x="305" y="534" width="467" height="72" fill="#232323" />',
+                        '<polygon points="305 590 305 550 245 570 305 590" /><polygon points="772 590 772 550 832 570 772 590" /><path d="M347,550l-31,20,31,20a20,20,0,0,0,0-40Z" />',
+                        '<path d="M728,550l31,20-31,20a20,20,0,0,1,0-40Z" /><circle cx="424.2" cy="570" r="20" /><circle cx="500.4" cy="570" r="20" /><circle cx="576.6" cy="570" r="20" />',
+                        '<circle cx="652.8" cy="570" r="20" /></g>'
+                    )
+                );
+        } else if (mouth == 20) {
+            // HUNTER
+            return
+                string(
+                    abi.encodePacked(
+                        '<g><rect x="305" y="553" width="474" height="83" stroke-width="10" fill="#a02525" /><rect x="338" y="553" width="10" height="78" opacity="0.5" stroke="none" fill="#ddd"/><rect x="354" y="553" width="20" height="78" opacity="0.5" stroke="none"/><rect x="451" y="553" width="10" height="78" opacity="0.5" stroke="none"fill="#ddd"/>',
+                        '<rect x="467" y="553" width="20" height="78" opacity="0.5" stroke="none"/><rect x="564" y="553" width="10" height="78" opacity="0.5" stroke="none"fill="#ddd"/><rect x="580" y="553" width="20" height="78" opacity="0.5" stroke="none"/><rect x="677" y="553" width="10" height="78" opacity="0.5" stroke="none"fill="#ddd"/>',
+                        '<rect x="693" y="553" width="20" height="78" opacity="0.5" stroke="none"/><rect x="310" y="578" width="464" height="10" opacity="0.5" stroke="none"fill="#ddd"/><rect x="310" y="594" width="464" height="20" opacity="0.5" stroke="none"/><path d="M634.69,493.14H542.31A20.31,20.31,0,0,0,522,513.45v11.41h48.73a18.39,18.39,0,0,0,17.66-13.27.75.75,0,0,1,1.44,0,18.39,18.39,0,0,0,17.66,13.27H655V513.45A20.31,20.31,0,0,0,634.69,493.14Z" fill="#7c5b25"/>',
+                        '<path d="M460.3,499h-150a18.32,18.32,0,0,0-17.18,24.69L304,553H503l-12.12-32.72A32.6,32.6,0,0,0,460.3,499Z" fill="#d6ba92"/><path d="M710.7,499h63a18.32,18.32,0,0,1,17.18,24.69L780,553H668l12.12-32.72A32.6,32.6,0,0,1,710.7,499Z" fill="#d6ba92"/></g>'
+                    )
+                );
         }
         return "";
     }
