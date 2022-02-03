@@ -44,7 +44,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     
 
   // MINT 100
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
     const id = await blobbers.mintItem({value: ethers.utils.parseEther("0.02")});
     //console.log(await blobbers.ownerOf("1"));
     await blobbers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6", i.toString()); 

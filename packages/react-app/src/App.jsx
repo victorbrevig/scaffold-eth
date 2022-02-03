@@ -171,13 +171,14 @@ function App(props) {
 
 
   // CHANGE ON EVERY DEPLOY TO UPGRADE
-  const yourCollectibleAddress = "0xB7f8BC63BbcaD18155201308C8f3540b07f84F5e";
+  const yourCollectibleAddress = "0xc5a5C42992dECbae36851359345FE25997F5C42d";
 
   const tokenAllowance = useContractReader(readContracts, "BlobToken", "allowance", [address, yourCollectibleAddress]);
 
   // EVENT LISTENERS
   const mintEvent = useEventListener(readContracts, "YourCollectible", "Mint", localProvider, 1);
   const upgradeEvent = useEventListener(readContracts, "YourCollectible", "Upgrade", localProvider, 1);
+  const claimEvent = useEventListener(readContracts, "YourCollectible", "Claim", localProvider, 1);
 
   //
   // 🧠 This effect will update yourCollectibles by polling when your balance changes
@@ -449,6 +450,7 @@ function App(props) {
             tokenAllowance={tokenAllowance}
             yourBalance={yourBalance}
             upgradeEvent={upgradeEvent}
+            claimEvent={claimEvent}
             tx={tx}
             mainnetProvider={mainnetProvider}
             blockExplorer={blockExplorer}

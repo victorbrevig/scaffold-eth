@@ -32,6 +32,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     event Mint(address indexed _to, uint256 indexed _id);
     event Upgrade(address indexed _by, uint256 indexed _id);
+    event Claim(address indexed _by, uint256 indexed _id, uint256 indexed _amount);
 
     BlobToken blobToken;
 
@@ -229,6 +230,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
         idToLastBlockClaimed[id] = block.number;
         blobToken.transfer(msg.sender, amountToClaim);
+        emit Claim(msg.sender, id, amountToClaim);
     }
 
     function getMintBlockNumberById(uint256 id) public view returns (uint256) {
@@ -533,7 +535,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
             address(this),
             priceToUpgrade
         );
-        require(toContractTransfer, "NOT SUCCESSFUL INGOING TRANSFER");
+        require(toContractTransfer, "NOT SUCCESSFUL");
 
         idToBlobber[id].upgraded = true; // upgrade the tier;
 
