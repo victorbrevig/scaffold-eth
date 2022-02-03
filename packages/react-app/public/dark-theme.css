@@ -787,10 +787,10 @@ a {
   -webkit-text-decoration-skip: objects;
 }
 a:hover {
-  color: #DDA21F;
+  color: #ff2424;
 }
 a:active {
-  color: #FFCF64;
+  color: #ff6464;
 }
 a:active,
 a:hover {
@@ -2470,7 +2470,7 @@ mark {
   display: inline-block;
 }
 .ant-btn-primary {
-  color: #fff;
+  color: rgb(14, 19, 82);
   background: #F9BD28;
   border-color: #F9BD28;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -2478,14 +2478,14 @@ mark {
 }
 .ant-btn-primary:focus,
 .ant-btn-primary:hover {
-  color: #fff;
-  background: #DDA21F;
-  border-color: #DDA21F;
+  color: rgb(14, 19, 82);;
+  background: #e0a91b;
+  border-color: #e0a91b;
 }
 .ant-btn-primary:active {
-  color: #fff;
-  background: #FFCF64;
-  border-color: #FFCF64;
+  color: rgb(14, 19, 82);;
+  background: #ffffff;
+  border-color: #ffffff;
 }
 .ant-btn-ghost > a:only-child,
 .ant-btn-primary:active > a:only-child {
@@ -14778,9 +14778,9 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
-  height: 100px;
-  padding-top: 52px;
+  backdrop-filter: blur(5px);
+  height: 130px;
+  padding-top: 82px;
 }
 .ant-menu::after,
 .ant-menu::before {
@@ -14813,7 +14813,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
 .ant-menu-item a:hover,
 .ant-menu-item > .ant-badge a:hover,
 .ant-menu-submenu-selected {
-  color: #F9BD28;
+  color: #ffffff;
 }
 .ant-menu-item:active,
 .ant-menu-submenu-title:active {
