@@ -13,54 +13,7 @@ contract SVGMouthGenerator2 {
         pure
         returns (string memory)
     {
-        if (mouth == 11) {
-            // BURP
-            return
-                string(
-                    abi.encodePacked(
-                        '<g><path d="M568.5,548A21.51,21.51,0,0,1,547,526.5h0A21.51,21.51,0,0,1,568.5,505" fill="none" />',
-                        '<path d="M620.05,505.62l-3.44,8.44a6.09,6.09,0,0,1-11.57,0l-1.6-4.88a6.09,6.09,0,0,0-11.57,0l-1.6,4.87a6.08,6.08,0,0,1-11.56,0l-1.6-4.86a6.51,6.51,0,0,0-7.11-4.14" fill="none" />',
-                        '<path d="M570,548.1a6,6,0,0,0,7.11-4l1.6-4.87a6.08,6.08,0,0,1,11.56,0l1.6,4.87a6.09,6.09,0,0,0,11.57,0l1.6-4.88a6.09,6.09,0,0,1,11.57,0l3.44,8.45" fill="none" />',
-                        '<path d="M551,517a18,18,0,0,0-1.81.1A21.44,21.44,0,0,0,562,547a17,17,0,0,0-11-30Z" fill="#912424" />',
-                        '<circle cx="649" cy="524" r="8" fill="none" /><line x1="690" y1="497" x2="690" y2="513" />',
-                        '<line x1="698" y1="505" x2="682" y2="505" /><circle cx="679" cy="536" r="5" stroke="none" />',
-                        '<circle cx="679" cy="552" r="5" stroke="none" /><circle cx="687" cy="544" r="5" stroke="none" />',
-                        '<circle cx="671" cy="544" r="5" stroke="none" /><circle cx="713" cy="534" r="8" fill="none" /></g>'
-                    )
-                );
-        } else if (mouth == 12) {
-            // FOOTBALL KIT
-            return
-                string(
-                    abi.encodePacked(
-                        '<g fill="#',
-                        color,
-                        '"><rect x="305" y="529" width="475" height="107" />',
-                        '<line x1="545.38" y1="513" x2="624.38" y2="513" /><rect x="305" y="529" width="475" height="24" stroke-width="10" fill="#fff" />',
-                        '<rect x="320" y="558" width="12" height="73" fill="#fff" stroke="none" /><rect x="342" y="558" width="12" height="73" fill="#fff" stroke="none" />',
-                        '<circle cx="705" cy="589.75" r="16" fill="#fff" /><line x1="439" y1="582.25" x2="465" y2="582.25" />',
-                        '<line x1="439" y1="597.25" x2="465" y2="597.25" opacity="0.3" /><polyline points="589 579 572 579 572 609 589 609 589 594 572 594" fill="none" stroke="#fff" /></g>'
-                    )
-                );
-        } else if (mouth == 13) {
-            // BULLET VEST
-            return
-                string(
-                    abi.encodePacked(
-                        '<g><path d="M652,518a30.68,30.68,0,0,0-30.63-29H545.68a30.68,30.68,0,0,0-30.63,29H318v57H777V518Z" fill="#606060" stroke="none" fill-opacity="0.6"/><path d="M651,511a30.68,30.68,0,0,0-30.63-29H544.68a30.68,30.68,0,0,0-30.63,29H313v57H772V511Z" fill="#4b4b4b" stroke="none" opacity="0.7" />',
-                        '<line x1="313" y1="509" x2="313" y2="553" transform="translate(2 0)" /><line x1="772" y1="509" x2="772" y2="553" transform="translate(2 0)" />',
-                        '<polygon points="750 553 750 502 710 502 710 545 460 545 460 502 410 502 410 553 297 553 297 641 782 641 782 553 750 553" fill="#262626" />',
-                        '<rect x="460" y="545" width="250" height="35" stroke-width="10" /><rect x="460" y="580" width="250" height="20.22" fill="#424242" /><rect x="460" y="600.39" width="250" height="20.22" fill="#424242" /><rect x="460" y="620.78" width="250" height="20.22" fill="#424242" />',
-                        '<rect x="290" y="580" width="136" height="49" fill="#424242" /><rect x="745" y="580" width="47" height="49" fill="#424242" /><line x1="725" y1="522" x2="735" y2="522" opacity="0.2" stroke="#fff" /><line x1="427" y1="522" x2="443" y2="522" opacity="0.2" stroke="#fff" />',
-                        '<path d="M324,607.05v23.52H306V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,324,607.05Z" fill="#ffd62c" />',
-                        '<path d="M344,607.05v23.52H326V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,344,607.05Z" fill="#ffd62c" />',
-                        '<path d="M364,607.05v23.52H346V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,364,607.05Z" fill="#ffd62c" />',
-                        '<path d="M384,607.05v23.52H366V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,384,607.05Z" fill="#ffd62c" />',
-                        '<path d="M404,607.05v23.52H386V607.05a96.94,96.94,0,0,1,4.22-28.16l1.88-6.17c.7-2.29,5.1-2.29,5.8,0l1.88,6.17A96.94,96.94,0,0,1,404,607.05Z" fill="#ffd62c" /><line x1="544" y1="511" x2="624" y2="511"/>',
-                        "</g>"
-                    )
-                );
-        } else if (mouth == 14) {
+        if (mouth == 14) {
             // HOODIE
             return
                 string(
@@ -143,6 +96,17 @@ contract SVGMouthGenerator2 {
                         "</g>"
                     )
                 );
+        } else if (mouth == 19) {
+            // SPIKES
+            return string(abi.encodePacked(
+                '<g fill="#ddd"><line x1="546" y1="511" x2="625" y2="511" /><rect x="305" y="534" width="467" height="72" fill="#232323" />',
+                '<polygon points="305 590 305 550 245 570 305 590" /><polygon points="772 590 772 550 832 570 772 590" /><path d="M347,550l-31,20,31,20a20,20,0,0,0,0-40Z" />
+                <path d="M728,550l31,20-31,20a20,20,0,0,1,0-40Z" />
+                <circle cx="424.2" cy="570" r="20" />
+                <circle cx="500.4" cy="570" r="20" />
+                <circle cx="576.6" cy="570" r="20" />
+                <circle cx="652.8" cy="570" r="20" />
+            </g>));
         }
         return "";
     }
