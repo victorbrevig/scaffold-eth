@@ -118,7 +118,7 @@ function YourBlobbers({
           console.log(e);
         }
       }
-      setYourBlobbers(collectibleUpdate.reverse());
+      setYourBlobbers(collectibleUpdate);
     };
     upgradeBlooperUpdate();
   }, [upgradeEvent]);
