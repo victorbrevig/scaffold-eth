@@ -44,9 +44,7 @@ contract SVGDetailGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g fill="#',
-                        color,
-                        '" transform="translate(-20 -10)"><circle cx="338.5" cy="483.5" r="18.5" /></g>'
+                        '<g fill="#EDC624" transform="translate(-20 -10)"><circle cx="338.5" cy="483.5" r="18.5" /></g>'
                     )
                 );
         } else if (detail == 4) {
@@ -54,9 +52,7 @@ contract SVGDetailGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g fill="#',
-                        color,
-                        '"><path d="M355.45,476.7l-11.23,16.54a11,11,0,1,1-12.44,0L320.55,476.7a31,31,0,1,0,34.9,0Z" /></g>'
+                        '<g fill="#EDC624"><path d="M355.45,476.7l-11.23,16.54a11,11,0,1,1-12.44,0L320.55,476.7a31,31,0,1,0,34.9,0Z" /></g>'
                     )
                 );
         } else if (detail == 5) {

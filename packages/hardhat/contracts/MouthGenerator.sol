@@ -43,9 +43,7 @@ contract SVGMouthGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g><g fill="#',
-                        color,
-                        '">',
+                        '<g><g fill="#EDC624">',
                         '<rect x="594.5" y="592.5" width="19" height="50" /><rect x="325" y="572.56" width="440" height="20" />',
                         '<rect x="562" y="618" width="79.5" height="55.5" rx="13.11" /><rect x="302" y="563.06" width="39" height="39" rx="13.22" />',
                         '<rect x="364.86" y="563.06" width="39" height="39" rx="13.22" /><rect x="427.71" y="563.06" width="39" height="39" rx="13.22" />',

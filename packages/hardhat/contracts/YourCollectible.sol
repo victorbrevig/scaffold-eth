@@ -366,7 +366,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
             (colsLength);
         idToBlobber[id].maskColor = uint8(predictableRandom[17]) % (colsLength);
         // 3 modes (set rarity)
-        idToBlobber[id].mode = uint8(predictableRandom[18]) % 3;
+        idToBlobber[id].mode = uint8(predictableRandom[18]) % 1;
 
         idToBlobber[id].upgraded = false;
 
@@ -486,9 +486,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
         string memory svgP3 = string(
             abi.encodePacked(
-                fullFaceGenerator.render(
-                    idToBlobber[id].fullFace,
-                    cols[idToBlobber[id].fullFaceColor]
+                maskGenerator.render(
+                    idToBlobber[id].mask,
+                    cols[idToBlobber[id].maskColor]
                 ),
                 hatGenerator.render(
                     idToBlobber[id].hat,
@@ -515,9 +515,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                     idToBlobber[id].mouth,
                     cols[idToBlobber[id].mouthColor]
                 ),
-                maskGenerator.render(
-                    idToBlobber[id].mask,
-                    cols[idToBlobber[id].maskColor]
+                fullFaceGenerator.render(
+                    idToBlobber[id].fullFace,
+                    cols[idToBlobber[id].fullFaceColor]
                 ),
                 detailGenerator.render(
                     idToBlobber[id].detail,
