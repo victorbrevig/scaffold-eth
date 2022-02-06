@@ -2341,8 +2341,9 @@ mark {
   padding: 4px 15px;
   font-size: 14px;
   border-radius: 4px;
-  color: rgba(255, 255, 255, 1);
-  background: #F9BD28;
+  color: #0E1352;
+  background: #ffffff;
+  margin: 10px;
 }
 .ant-btn > .anticon {
   line-height: 1;
@@ -2473,8 +2474,10 @@ mark {
   color: rgb(14, 19, 82);
   background: #F9BD28;
   border-color: #F9BD28;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+  font-size: 22px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+  height: 50px;
+
 }
 .ant-btn-primary:focus,
 .ant-btn-primary:hover {
@@ -15178,7 +15181,7 @@ table tr th.ant-table-selection-column .ant-radio-wrapper {
   bottom: -2px;
 }
 .ant-menu-horizontal > .ant-menu-item-selected a {
-  color: #F9BD28;
+  color: #ffffff;
 }
 .ant-menu-horizontal::after {
   display: block;
