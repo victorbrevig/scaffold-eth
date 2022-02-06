@@ -383,10 +383,7 @@ function App(props) {
 
       <Menu style={{ textAlign: "center" }} selectedKeys={[location.pathname]} mode="horizontal">
         <Menu.Item key="/">
-          <Link to="/">Home (del)</Link>
-        </Menu.Item>
-        <Menu.Item key="/home">
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="/yourBlobbers">
           <Link to="/yourBlobbers">Your Blobbers</Link>
@@ -423,15 +420,6 @@ function App(props) {
 
       <Switch>
         <Route exact path="/">
-          <Blobbers
-            readContracts={readContracts}
-            mainnetProvider={mainnetProvider}
-            blockExplorer={blockExplorer}
-            totalSupply={totalSupply}
-            DEBUG={DEBUG}
-          />
-        </Route>
-        <Route exact path="/home">
           <Home
             readContracts={readContracts}
             mainnetProvider={mainnetProvider}
@@ -504,30 +492,8 @@ function App(props) {
             blockExplorer={blockExplorer}
             contractConfig={contractConfig}
           />
-        </Route>
-      </Switch>
-
-      {/* <ThemeSwitch /> */}
-
-      {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
-        <Account
-          address={address}
-          localProvider={localProvider}
-          userSigner={userSigner}
-          mainnetProvider={mainnetProvider}
-          price={price}
-          web3Modal={web3Modal}
-          loadWeb3Modal={loadWeb3Modal}
-          logoutOfWeb3Modal={logoutOfWeb3Modal}
-          blockExplorer={blockExplorer}
-          yourTokenBalance={yourTokenBalance}
-        />
-        <FaucetHint localProvider={localProvider} targetNetwork={targetNetwork} address={address} />
-      </div>
-
-      {/* 🗺 Extra UI like gas price, eth price, faucet, and support: */}
-      <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
+          {/* 🗺 Extra UI like gas price, eth price, faucet, and support: */}
+          <div style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 10 }}>
         <Row align="middle" gutter={[4, 4]}>
           <Col span={8}>
             <Ramp price={price} address={address} networks={NETWORKS} />
@@ -565,6 +531,30 @@ function App(props) {
           </Col>
         </Row>
       </div>
+        </Route>
+      </Switch>
+
+      {/* <ThemeSwitch /> */}
+
+      {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
+      <div style={{ position: "fixed", textAlign: "right", right: 0, top: 0, padding: 10 }}>
+        <Account
+          address={address}
+          localProvider={localProvider}
+          userSigner={userSigner}
+          mainnetProvider={mainnetProvider}
+          price={price}
+          web3Modal={web3Modal}
+          loadWeb3Modal={loadWeb3Modal}
+          logoutOfWeb3Modal={logoutOfWeb3Modal}
+          blockExplorer={blockExplorer}
+          yourTokenBalance={yourTokenBalance}
+        />
+        <FaucetHint localProvider={localProvider} targetNetwork={targetNetwork} address={address} />
+      </div>
+
+      
+      
     </div>
   );
 }
