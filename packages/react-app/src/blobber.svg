@@ -1,0 +1,98 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+    <title>Bloops</title>
+
+
+
+
+    <g transform="translate(-540 -540)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+
+        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" />
+
+
+        <rect x="313" y="205" width="459" height="595" rx="229.5" fill="#d8ae00" />
+
+        <g transform="translate(0 10)">
+            <circle cx="451.88" cy="437.25" r="26" fill="#fff" />
+            <circle cx="711.88" cy="437.25" r="26" fill="#fff" />
+        </g>
+
+
+        <g fill="#d39337">
+            <path
+                d="M552.17,667.42l1.15-.32a32.28,32.28,0,0,1,21.18,1.49,46.7,46.7,0,0,0,30.84,1.89h0a47,47,0,0,0,32.54-58l-13.53-48.13a47,47,0,0,0-58-32.54h0A46.85,46.85,0,0,0,541,549.53a32.18,32.18,0,0,1-17.3,12.31l-1.15.32a31.79,31.79,0,0,1-29.69-6.79,60.47,60.47,0,0,0-56.5-13h0A60.51,60.51,0,0,0,394.52,617l19.74,70.26a60.51,60.51,0,0,0,74.62,41.89h0a60.48,60.48,0,0,0,41.48-40.49A31.82,31.82,0,0,1,552.17,667.42Z"
+                fill="#d39337" />
+            <path
+                d="M862.79,536.86l-7-25a14,14,0,0,1-17-9l-55,18.81L796.18,566l56.75-12.59A14,14,0,0,1,862.79,536.86Z" />
+            <line x1="832.08" y1="523.68" x2="808.02" y2="530.44" />
+            <line x1="836.41" y1="539.08" x2="812.34" y2="545.84" />
+            <circle cx="821.89" cy="498.49" r="5" />
+            <circle cx="799.33" cy="506.91" r="5" />
+            <circle cx="840.83" cy="565.88" r="5" />
+            <circle cx="817.18" cy="570.45" r="5" />
+            <circle cx="556.98" cy="609.28" r="33" fill="none" stroke="#ff4040" />
+            <rect x="662.26" y="460.82" width="36" height="228" transform="translate(1049.63 -235.57) rotate(74.31)"
+                fill="#9b6f34" />
+            <rect x="437.61" y="628.41" width="54" height="14" transform="translate(950.65 16.24) rotate(74.31)"
+                fill="#bcbcbc" />
+            <circle cx="556.98" cy="609.28" r="23.83" fill="#515151" />
+            <line x1="751.81" y1="536.02" x2="761.54" y2="570.68" />
+            <line x1="715.7" y1="546.16" x2="725.44" y2="580.82" />
+            <line x1="679.6" y1="556.31" x2="689.34" y2="590.96" />
+            <line x1="643.5" y1="566.45" x2="653.24" y2="601.11" />
+            <line x1="607.4" y1="576.6" x2="617.14" y2="611.25" />
+            <line x1="785.14" y1="526.65" x2="466.48" y2="616.19" opacity="0.5" />
+            <line x1="790.01" y1="543.98" x2="471.35" y2="633.52" opacity="0.5" />
+            <line x1="794.88" y1="561.31" x2="476.22" y2="650.85" opacity="0.5" />
+            <line x1="546" y1="511" x2="624" y2="511" />
+        </g>
+
+        <g transform="translate(0 15)" fill="#292b31">
+            <rect x="358.5" y="246.5" width="367" height="29" rx="10" />
+            <path d="M712.76,246.5a229,229,0,0,0-342.52,0Z" />
+
+            <line x1="376.91" y1="248" x2="376.91" y2="268" />
+            <line x1="406.91" y1="248" x2="406.91" y2="268" />
+            <line x1="436.91" y1="248" x2="436.91" y2="268" />
+            <line x1="466.91" y1="248" x2="466.91" y2="268" />
+            <line x1="496.91" y1="248" x2="496.91" y2="268" />
+            <line x1="526.91" y1="248" x2="526.91" y2="268" />
+            <line x1="556.91" y1="248" x2="556.91" y2="268" />
+            <line x1="586.91" y1="248" x2="586.91" y2="268" />
+            <line x1="616.91" y1="248" x2="616.91" y2="268" />
+            <line x1="646.91" y1="248" x2="646.91" y2="268" />
+            <line x1="676.91" y1="248" x2="676.91" y2="268" />
+            <line x1="706.91" y1="248" x2="706.91" y2="268" />
+
+        </g>
+
+
+
+
+
+
+    </g>
+
+
+
+
+
+
+    <g transform="translate(0 40)" opacity="0.1" stroke="none" fill="#000">
+        <rect x="510" y="834" width="255" height="58" rx="29">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+        <rect x="510" y="834" width="255" height="58" rx="29" transform="scale (-1, 1)" transform-origin="center">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+
+    </g>
+
+
+
+</svg>
