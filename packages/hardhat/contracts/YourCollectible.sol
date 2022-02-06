@@ -32,7 +32,11 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     event Mint(address indexed _to, uint256 indexed _id);
     event Upgrade(address indexed _by, uint256 indexed _id);
-    event Claim(address indexed _by, uint256 indexed _id, uint256 indexed _amount);
+    event Claim(
+        address indexed _by,
+        uint256 indexed _id,
+        uint256 indexed _amount
+    );
 
     BlobToken blobToken;
 
@@ -192,9 +196,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         "484872"
     ];
 
-    uint8 constant noOfHats = 29;
+    uint8 constant noOfHats = 33;
     uint8 constant noOfEyes = 24;
-    uint8 constant noOfMouths = 20;
+    uint8 constant noOfMouths = 23;
     uint8 constant noOfFullFaces = 8;
     uint8 constant noOfMasks = 10;
     uint8 constant noOfExtras = 5;
@@ -362,7 +366,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
             (colsLength);
         idToBlobber[id].maskColor = uint8(predictableRandom[17]) % (colsLength);
         // 3 modes (set rarity)
-        idToBlobber[id].mode = uint8(predictableRandom[18]) % 3;
+        idToBlobber[id].mode = uint8(predictableRandom[18]) % 1;
 
         idToBlobber[id].upgraded = false;
 
@@ -465,7 +469,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         string memory svgP2 = string(
             abi.encodePacked(
                 '<filter id="glow"><feGaussianBlur stdDeviation="20" result="coloredBlur" /><feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>',
-                '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g transform="translate(0 20)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
+                '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g transform="translate(0 60)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
                 extraGenerator.render(
                     idToBlobber[id].extra,
                     cols[idToBlobber[id].extraColor]
@@ -482,9 +486,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
         string memory svgP3 = string(
             abi.encodePacked(
-                fullFaceGenerator.render(
-                    idToBlobber[id].fullFace,
-                    cols[idToBlobber[id].fullFaceColor]
+                maskGenerator.render(
+                    idToBlobber[id].mask,
+                    cols[idToBlobber[id].maskColor]
                 ),
                 hatGenerator.render(
                     idToBlobber[id].hat,
@@ -511,9 +515,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                     idToBlobber[id].mouth,
                     cols[idToBlobber[id].mouthColor]
                 ),
-                maskGenerator.render(
-                    idToBlobber[id].mask,
-                    cols[idToBlobber[id].maskColor]
+                fullFaceGenerator.render(
+                    idToBlobber[id].fullFace,
+                    cols[idToBlobber[id].fullFaceColor]
                 ),
                 detailGenerator.render(
                     idToBlobber[id].detail,
