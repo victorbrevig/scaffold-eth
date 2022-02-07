@@ -4002,9 +4002,6 @@ a.ant-btn-sm {
   font-size: 16px;
   background: 0 0;
   border-radius: 4px 4px 0 0;
-
-  background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
 }
 .ant-card-head::before {
   display: table;
@@ -14781,7 +14778,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   height: 130px;
   padding-top: 82px;
 }

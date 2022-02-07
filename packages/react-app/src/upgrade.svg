@@ -11,7 +11,7 @@
 
     <g transform="translate(-540 -530)">
 
-        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" />
+        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" begin="0.4s" />
 
 
         <rect x="276" y="265.62" width="434.38" height="434.38" rx="52.19" fill="#a81b77" stroke="#000"
@@ -58,7 +58,7 @@
 
     <g transform="translate(0 40)" opacity="0.1" stroke="none" fill="#000">
         <rect x="510" y="834" width="255" height="58" rx="29">
-            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0.4s;anim2.end"
                 dur="1s" />
             <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
                 dur="1s" />

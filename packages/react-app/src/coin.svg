@@ -14,7 +14,7 @@
 
     <g transform="translate(-540 -520)">
 
-        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" />
+        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" begin="0.2s" />
         <circle cx="520" cy="500" r="263" fill="#d8ae00" stroke="#000" stroke-miterlimit="10" stroke-width="10" />
         <line x1="473" y1="242" x2="547" y2="242" fill="#F9BD28" stroke="#000" stroke-linecap="round"
             stroke-linejoin="round" stroke-width="10" />
@@ -87,7 +87,7 @@
                 dur="1s" />
         </rect>
         <rect x="510" y="834" width="255" height="58" rx="29" transform="scale (-1, 1)" transform-origin="center">
-            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0.2s;anim2.end"
                 dur="1s" />
             <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
                 dur="1s" />

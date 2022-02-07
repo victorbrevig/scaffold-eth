@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, List } from "antd";
+import { Button, Card, List, Typography } from "antd";
 import { Address, AddressInput } from "../components";
 import Balance from "../components/Balance";
 import { ethers } from "ethers";
@@ -29,6 +29,7 @@ function YourBlobbers({
   const [page, setPage] = useState(1);
   const [loadingBlobbers, setLoadingBlobbers] = useState(true);
   const perPage = 8;
+  const { Paragraph, Title } = Typography;
 
   useEffect(() => {
     const updateYourBlobbers = async () => {
@@ -85,11 +86,11 @@ function YourBlobbers({
       console.log(eventAddress);
       console.log("-----------------------------");
 
-      if(address != eventAddress) 
+      if (address != eventAddress)
         return;
-      
-      
-      for (let tokenIndex = 0; tokenIndex < perPage && tokenIndex < (yourBalance - (page-1)*perPage); tokenIndex++) {
+
+
+      for (let tokenIndex = 0; tokenIndex < perPage && tokenIndex < (yourBalance - (page - 1) * perPage); tokenIndex++) {
         try {
           let collectible = yourBlobbers[tokenIndex];
           let tokenId = collectible.id;
@@ -120,7 +121,7 @@ function YourBlobbers({
       } catch (e) {
         console.log(e);
       }
-      for (let tokenIndex = 0; tokenIndex < perPage && tokenIndex < (yourBalance - (page-1)*perPage); tokenIndex++) {
+      for (let tokenIndex = 0; tokenIndex < perPage && tokenIndex < (yourBalance - (page - 1) * perPage); tokenIndex++) {
         try {
           const collectible = yourBlobbers[tokenIndex];
           if (tokenId == collectible.id) {
@@ -154,7 +155,7 @@ function YourBlobbers({
   return (
     <div style={{ width: "auto", margin: "auto", paddingBottom: 25, minHeight: 800 }}>
       {false ? (
-        <Spin tip={"Fetching your blobbers..."} style={{ marginTop: 100 }}  />
+        <Spin tip={"Fetching your blobbers..."} style={{ marginTop: 100 }} />
       ) : (
         <div>
           <List
@@ -224,47 +225,46 @@ function YourBlobbers({
 
               return (
                 <List.Item key={id + "_" + item.uri + "_" + item.owner}>
-                  <Card
-                  title={
-                    <div>
-                      <span style={{ fontSize: 18, marginRight: 8 }}>{item.name}</span>
+                  <Card className="ant-card">
+                    <img src={item.image} alt={"Blobber #" + id} />
+                    <div className="blobberTitle">
+                      <h2 level={2} style={{ fontSize: 34, marginRight: 0, fontWeight: 10, float: "left", opacity: 0.6 }}>Blobber #</h2>
+                      <h2 level={2} style={{ fontSize: 34, marginRight: 0, fontWeight: 900, float: "left" }}>{id}</h2>
                     </div>
-                  }
-                >
-                  <img src={item.image} alt={"Blobber #" + id} />
-                  <div style={{ marginTop: 20 }}>
-                    <AddressInput
-                      ensProvider={mainnetProvider}
-                      placeholder="transfer to address"
-                      value={transferToAddresses[id]}
-                      onChange={newValue => {
-                        const update = {};
-                        update[id] = newValue;
-                        setTransferToAddresses({ ...transferToAddresses, ...update });
-                      }}
-                    />
-                    <Button
-                      onClick={() => {
-                        tx(writeContracts.YourCollectible.transferFrom(address, transferToAddresses[id], id));
-                      }}
-                    >
-                      Transfer
-                    </Button>
-                  </div>
-                  <p>
-                    Available to claim:
-                  </p>
-                  <Balance balance={tokensToClaim} fontSize={24} />
-                  {renderUpgradeButton()}
-                  {renderClaimButton()}
-                </Card>
+                    <div style={{ marginTop: 20 }}>
+                      <AddressInput
+                        ensProvider={mainnetProvider}
+                        placeholder="transfer to address"
+                        value={transferToAddresses[id]}
+                        onChange={newValue => {
+                          const update = {};
+                          update[id] = newValue;
+                          setTransferToAddresses({ ...transferToAddresses, ...update });
+                        }}
+                      />
+                      <Button
+                        onClick={() => {
+                          tx(writeContracts.YourCollectible.transferFrom(address, transferToAddresses[id], id));
+                        }}
+                      >
+                        Transfer
+                      </Button>
+                    </div>
+                    <p>
+                      Available to claim:
+                    </p>
+                    <Balance balance={tokensToClaim} fontSize={24} />
+                    {renderUpgradeButton()}
+                    {renderClaimButton()}
+                  </Card>
                 </List.Item>
               );
             }}
           />
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 
 

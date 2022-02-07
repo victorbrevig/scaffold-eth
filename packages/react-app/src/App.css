@@ -9,10 +9,6 @@
   padding:0;
 }
 
-.cards{
-
-}
-
 .rowHome{
   display: block;
   margin-left: auto;
@@ -25,6 +21,49 @@
 
 .imagesHome{
   object-fit: contain;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.blobberTitle{
+  clear: both;
+  padding-top: 15px;
+}
+
+.glassCard {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  background: #212121;
+  border-radius: 4px;
+
+  background-color: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  
+}
+
+.glassBox {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  background: #212121;
+  border-radius: 40px 0 0 40px;
+
+  background-color: rgba(21, 20, 83, 0.6);
+  backdrop-filter: blur(10px);
+  
 }
