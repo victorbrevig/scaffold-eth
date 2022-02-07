@@ -203,7 +203,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 constant noOfMasks = 10;
     uint8 constant noOfExtras = 5;
     uint8 constant noOfDetails = 8;
-    uint8 constant noOfBodies = 4;
+    uint8 constant noOfBodies = 6;
 
     /*
   // NFT id => timestamp of last time BLB collected

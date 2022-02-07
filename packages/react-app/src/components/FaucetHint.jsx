@@ -28,13 +28,12 @@ function FaucetHint({ localProvider, targetNetwork, address }) {
     ethers.utils.formatEther(yourLocalBalance) <= 0
   ) {
     faucetHint = (
-      <div style={{ padding: 16 }}>
+      <div style={{ padding: 0 }}>
         <Button
-          type="primary"
           onClick={() => {
             faucetTx({
               to: address,
-              value: ethers.utils.parseEther("0.01"),
+              value: ethers.utils.parseEther("0.1"),
             });
             setFaucetClicked(true);
           }}
