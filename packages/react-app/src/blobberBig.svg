@@ -1,0 +1,81 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+    <title>blobberBig</title>
+
+
+
+
+    <g transform="translate(-540 -530)">
+
+        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" begin="0s" />
+
+
+        <path
+            d="M547,47h0C700.2,47,824.37,171.16,824.37,324.33V488.67C824.37,641.84,700.2,766,547,766h0c-153.16,0-277.33-124.16-277.33-277.33V324.33C269.71,171.16,393.88,47,547,47Z"
+            fill="#ffd62c" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="16.56" />
+        <circle cx="437.53" cy="339.74" r="31.42" fill="#fff" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <circle cx="751.72" cy="339.74" r="31.42" fill="#fff" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <path
+            d="M558.72,605.79l1.39-.39a39,39,0,0,1,25.6,1.8A56.42,56.42,0,0,0,623,609.49h0a56.79,56.79,0,0,0,39.33-70v-.06L646,481.24a56.81,56.81,0,0,0-70-39.34l-.06,0h0a56.57,56.57,0,0,0-30.63,21.41,38.93,38.93,0,0,1-20.91,14.88l-1.39.38a38.41,38.41,0,0,1-35.88-8.2,73,73,0,0,0-68.27-15.71h0a73.12,73.12,0,0,0-50.56,90.18l23.85,84.9a73.12,73.12,0,0,0,90.17,50.62h0a73.07,73.07,0,0,0,50.13-48.92A38.46,38.46,0,0,1,558.72,605.79Z"
+            fill="#d39337" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12.08" />
+        <path
+            d="M934.08,448l-8.46-30.21a16.91,16.91,0,0,1-20.54-10.87l-66.46,22.73,15,53.56L922.16,468A16.92,16.92,0,0,1,934.08,448Z"
+            fill="#d39337" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="896.97" y1="432.09" x2="867.89" y2="440.26" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="902.2" y1="450.7" x2="873.12" y2="458.87" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <circle cx="884.66" cy="401.65" r="6.04" fill="#d39337" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <circle cx="857.39" cy="411.83" r="6.04" fill="#d39337" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <circle cx="907.54" cy="483.09" r="6.04" fill="#d39337" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <circle cx="878.96" cy="488.61" r="6.04" fill="#d39337" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <circle cx="564.54" cy="535.53" r="39.88" fill="none" stroke="#ff4040" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <rect x="575.67" y="472.11" width="275.52" height="43.5" transform="translate(-106.97 211.34) rotate(-15.69)"
+            stroke-width="12.08" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#9b6f34" />
+        <rect x="444.4" y="534.44" width="16.92" height="65.25" transform="translate(-136.48 143.6) rotate(-15.69)"
+            stroke-width="12.08" stroke="#000" stroke-linecap="round" stroke-linejoin="round" fill="#bcbcbc" />
+        <circle cx="564.54" cy="535.53" r="28.8" fill="#515151" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="799.97" y1="447.01" x2="811.73" y2="488.89" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="756.34" y1="459.26" x2="768.1" y2="501.14" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="712.71" y1="471.52" x2="724.48" y2="513.4" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="669.09" y1="483.78" x2="680.86" y2="525.66" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="625.46" y1="496.04" x2="637.23" y2="537.91" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+        <line x1="840.25" y1="435.68" x2="455.18" y2="543.88" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" opacity="0.5" style="isolation:isolate" />
+        <line x1="846.13" y1="456.62" x2="461.06" y2="564.83" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" opacity="0.5" style="isolation:isolate" />
+        <line x1="852.02" y1="477.57" x2="466.95" y2="585.77" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" opacity="0.5" style="isolation:isolate" />
+        <line x1="551.27" y1="416.77" x2="645.52" y2="416.77" fill="none" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="12.08" />
+    </g>
+    <g transform="translate(0 40)" opacity="0.1" stroke="none" fill="#000">
+        <rect x="510" y="834" width="255" height="58" rx="29">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+        <rect x="510" y="834" width="255" height="58" rx="29" transform="scale (-1, 1)" transform-origin="center">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+
+    </g>
+
+
+</svg>

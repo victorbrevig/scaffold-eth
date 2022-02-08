@@ -17,12 +17,19 @@
   padding-left: 100px;
   padding-top: 10px;
   padding-bottom: 50px;
+  width: 100%
 }
 
 .imagesHome{
   object-fit: contain;
-  max-width: 300px;
-  max-height: 300px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.imagesHome2{
+  object-fit: contain;
+  max-width: 220px;
+  max-height: 220px;
 }
 
 .blobberTitle{
@@ -65,5 +72,22 @@
 
   background-color: rgba(21, 20, 83, 0.6);
   backdrop-filter: blur(10px);
-  
+}
+
+.glassBox2 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  background: #212121;
+  border-radius: 0 40px 40px 0;
+
+  background-color: rgba(21, 20, 83, 0.6);
+  backdrop-filter: blur(10px);
 }

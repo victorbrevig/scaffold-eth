@@ -47,7 +47,7 @@ export default function Balance(props) {
 
   let displayBalance = floatBalance.toFixed(4);
 
-  displayBalance = floatBalance.toFixed(2) + " BLB";
+  displayBalance = floatBalance.toFixed(2) + " BLOB";
 
   const price = props.price || props.dollarMultiplier || 1;
 
@@ -56,7 +56,7 @@ export default function Balance(props) {
     <span
       style={{
         verticalAlign: "middle",
-        fontSize: props.size ? props.size : 32,
+        fontSize: props.size ? props.size : 24,
         padding: 8,
         cursor: "auto",
       }}

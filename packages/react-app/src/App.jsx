@@ -34,6 +34,9 @@ import { Transactor, Web3ModalSetup } from "./helpers";
 import { YourBlobbers, Blobbers, Home } from "./views";
 import { useStaticJsonRPC } from "./hooks";
 
+import { FaDiscord, FaTwitter } from 'react-icons/fa';
+
+
 const { ethers } = require("ethers");
 /*
     Welcome to 🏗 scaffold-eth !
@@ -537,7 +540,7 @@ function App(props) {
       {/* <ThemeSwitch /> */}
 
       {/* 👨‍💼 Your account is in the top right with a wallet at connect options */}
-      <div className="glassBox" style={{ position: "fixed", textAlign: "right", right: 0, top: 0, paddingRight: 5, paddingLeft: 25, paddingTop: 15, paddingBottom: 15, marginTop: 22 }}>
+      <div className="glassBox" style={{ position: "fixed", textAlign: "right", right: 0, top: 0, paddingRight: 5, paddingLeft: 25, paddingTop: 5, paddingBottom: 5, marginTop: 22 }}>
         <Account
           address={address}
           localProvider={localProvider}
@@ -551,6 +554,27 @@ function App(props) {
           yourTokenBalance={yourTokenBalance}
         />
         <FaucetHint localProvider={localProvider} targetNetwork={targetNetwork} address={address} />
+      </div>
+
+
+
+
+      <div className="glassBox2" style={{ position: "fixed", textAlign: "left", left: 0, bottom: 20, padding: 20, paddingLeft: 30 }}>
+        <Row align="middle" gutter={[4, 4]}>
+
+          <Col span={8} style={{ marginRight: 20 }}>
+            <a href="https://discord.gg/efrUhB7J" target="_blank">
+              <FaDiscord style={{ color: "#fff", width: 30, height: 30 }} />
+            </a>
+          </Col>
+
+          <Col span={8} style={{ textAlign: "center" }}>
+            <a href="https://twitter.com/home" target="_blank">
+              <FaTwitter style={{ color: "#fff", width: 30, height: 30 }} />
+            </a>
+          </Col>
+
+        </Row>
       </div>
 
 

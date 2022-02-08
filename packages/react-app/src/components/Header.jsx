@@ -14,8 +14,8 @@ import LOGO from "../logo.svg";
 export default function Header() {
   return (
     <a href="/">
-      <div style={{ position: "absolute", left: 30, top: 35 }}>
-        <img src={LOGO} alt="Blobber" width="300" height="58" />
+      <div style={{ position: "absolute", left: 30, top: 25 }}>
+        <img src={LOGO} alt="Blobber" width="240" height="46.4" />
       </div>
     </a>
   );

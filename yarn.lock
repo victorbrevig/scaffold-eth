@@ -2415,7 +2415,7 @@
     "estree-walker" "^1.0.1"
     "picomatch" "^2.2.2"
 
-"@scaffold-eth/hardhat@file:C:\\Users\\victo\\Desktop\\ScaffoldEthFun\\bloopers\\packages\\hardhat":
+"@scaffold-eth/hardhat@file:C:\\Users\\juanc\\Documents\\Juan\\Projects\\NFTs\\Bloops\\scaffold-eth\\packages\\hardhat":
   "resolved" "file:packages/hardhat"
   "version" "1.0.0"
   dependencies:
@@ -2437,7 +2437,7 @@
     "qrcode-terminal" "^0.12.0"
     "ramda" "^0.27.1"
 
-"@scaffold-eth/react-app@file:C:\\Users\\victo\\Desktop\\ScaffoldEthFun\\bloopers\\packages\\react-app":
+"@scaffold-eth/react-app@file:C:\\Users\\juanc\\Documents\\Juan\\Projects\\NFTs\\Bloops\\scaffold-eth\\packages\\react-app":
   "resolved" "file:packages/react-app"
   "version" "1.0.0"
   dependencies:
@@ -2480,11 +2480,11 @@
     "walletlink" "^2.1.5"
     "web3modal" "^1.9.1"
 
-"@scaffold-eth/services@file:C:\\Users\\victo\\Desktop\\ScaffoldEthFun\\bloopers\\packages\\services":
+"@scaffold-eth/services@file:C:\\Users\\juanc\\Documents\\Juan\\Projects\\NFTs\\Bloops\\scaffold-eth\\packages\\services":
   "resolved" "file:packages/services"
   "version" "1.0.0"
 
-"@scaffold-eth/subgraph@file:C:\\Users\\victo\\Desktop\\ScaffoldEthFun\\bloopers\\packages\\subgraph":
+"@scaffold-eth/subgraph@file:C:\\Users\\juanc\\Documents\\Juan\\Projects\\NFTs\\Bloops\\scaffold-eth\\packages\\subgraph":
   "resolved" "file:packages/subgraph"
   "version" "1.0.0"
   dependencies:

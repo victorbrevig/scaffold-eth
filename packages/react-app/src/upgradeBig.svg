@@ -1,0 +1,67 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+    <title>upgradeBig</title>
+
+
+    <defs>
+        <linearGradient id="linear-gradient-crown" x1="400" y1="400" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#ff00a4" />
+            <stop offset="1" stop-color="#ffe000" />
+        </linearGradient>
+    </defs>
+
+    <g transform="translate(-540 -530)">
+
+        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" begin="0s" />
+
+        <rect x="115.79" y="46.62" width="719.38" height="719.38" rx="86.44" fill="#a81b77" stroke="#000"
+            stroke-miterlimit="10" stroke-width="16.56" />
+        <rect x="270.84" y="46.62" width="719.38" height="719.38" rx="86.44" stroke-width="16.56" stroke="#000"
+            stroke-linecap="round" stroke-linejoin="round" fill="url(#linear-gradient-crown)" />
+        <rect x="344.76" y="120.55" width="571.53" height="571.53" rx="42.99" fill="none" stroke="#fff"
+            stroke-miterlimit="10" stroke-width="16.56" />
+        <rect x="310.59" y="86.37" width="639.88" height="639.88" rx="48.13" stroke-width="16.56" stroke="#000"
+            stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        <path d="M886,165.14a14.28,14.28,0,0,0-14.28-14.28" fill="none" stroke="#fff" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16.56" />
+        <path d="M871.7,661.76A14.27,14.27,0,0,0,886,647.49" fill="none" stroke="#fff" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16.56" />
+        <path d="M375.08,647.49a14.27,14.27,0,0,0,14.27,14.27" fill="none" stroke="#fff" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16.56" />
+        <path d="M389.35,150.86a14.27,14.27,0,0,0-14.27,14.28" fill="none" stroke="#fff" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="16.56" />
+        <rect x="171.68" y="125.95" width="46.88" height="560.72" rx="23.22" fill="none" stroke="#cecece"
+            stroke-miterlimit="10" stroke-width="16.56" />
+        <path
+            d="M653.33,454.78H611.8V427a28.1,28.1,0,0,1,7.25-18.89,37.77,37.77,0,0,1,18.27-11.63l3.75-1a18.91,18.91,0,0,0,9.64-6.75,17.62,17.62,0,0,0,3.88-11,18.41,18.41,0,0,0-5.51-13.52,18.11,18.11,0,0,0-13.26-5.5,17.18,17.18,0,0,0-13.26,6.13,24.23,24.23,0,0,0-6,15.39h-44a69,69,0,0,1,5.38-25.9,67.74,67.74,0,0,1,13.76-21,64.83,64.83,0,0,1,20-14,58.11,58.11,0,0,1,24.15-5.13,60.38,60.38,0,0,1,24.64,5.13,63.4,63.4,0,0,1,20.15,13.89,67,67,0,0,1,13.51,20.39,62.48,62.48,0,0,1,5,24.9,54.44,54.44,0,0,1-3.38,18.77,66.88,66.88,0,0,1-9.26,17.14,71.74,71.74,0,0,1-13.64,13.88,56.19,56.19,0,0,1-16.76,9Zm4.51,40.79a8.5,8.5,0,0,1-2.76,6.38,9.41,9.41,0,0,1-6.75,2.62H618.05a9.55,9.55,0,0,1-6.63-2.62,8.33,8.33,0,0,1-2.88-6.38v-26a8.69,8.69,0,0,1,2.88-6.5,9.3,9.3,0,0,1,6.63-2.76h30.28a9.17,9.17,0,0,1,6.75,2.76,8.87,8.87,0,0,1,2.76,6.5Z"
+            fill="#fff" />
+        <circle cx="553.72" cy="637.82" r="20.95" fill="#fff" />
+        <circle cx="709.55" cy="637.82" r="20.95" fill="#fff" />
+        <rect x="596.07" y="602.5" width="71.14" height="17.79" rx="7.68" fill="#fff" />
+        <circle cx="553.72" cy="173.95" r="20.95" fill="#fff" />
+        <circle cx="709.55" cy="173.95" r="20.95" fill="#fff" />
+        <rect x="596.07" y="191.49" width="71.14" height="17.79" rx="7.68" fill="#fff" />
+        <circle cx="399.71" cy="327.97" r="20.95" fill="#fff" />
+        <circle cx="399.71" cy="483.8" r="20.95" fill="#fff" />
+        <rect x="390.56" y="396.99" width="71.14" height="17.79" rx="7.68"
+            transform="translate(832.02 -20.25) rotate(90)" fill="#fff" />
+        <circle cx="863.57" cy="327.97" r="20.95" fill="#fff" />
+        <circle cx="863.57" cy="483.8" r="20.95" fill="#fff" />
+        <rect x="801.57" y="396.99" width="71.14" height="17.79" rx="7.68"
+            transform="translate(1243.03 -431.26) rotate(90)" fill="#fff" />
+    </g>
+    <g transform="translate(0 40)" opacity="0.1" stroke="none" fill="#000">
+        <rect x="510" y="834" width="255" height="58" rx="29">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+        <rect x="510" y="834" width="255" height="58" rx="29" transform="scale (-1, 1)" transform-origin="center">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+
+    </g>
+</svg>

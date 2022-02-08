@@ -78,7 +78,7 @@ contract SVGHatGenerator {
                         '<path d="M552,246V114h0a99,99,0,0,0-99,99v14.16S519,216,552,246Z" fill="#000" opacity="0.2" />',
                         '<g transform="translate(-15 -10)"><circle cx="440" cy="275" r="1"/><circle cx="512" cy="256" r="1"/>',
                         '<circle cx="473" cy="257" r="1"/><circle cx="493" cy="276" r="1"/>',
-                        "</g>"
+                        "</g></g>"
                     )
                 );
         } else if (hat == 5) {

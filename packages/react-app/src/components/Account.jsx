@@ -82,7 +82,7 @@ export default function Account({
           <Button
             key="loginbutton"
             style={{ verticalAlign: "top", marginLeft: 8, marginTop: 8 }}
-            size="large"
+            size="medium"
             /* type={minimized ? "default" : "primary"}     too many people just defaulting to MM and having a bad time */
             onClick={loadWeb3Modal}
           >

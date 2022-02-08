@@ -1,0 +1,91 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080">
+    <title>coinBig</title>
+
+
+
+    <g transform="translate(-540 -520)">
+
+        <animateMotion dur="2s" repeatCount="indefinite" path="M540,579.5v-80h0v80" begin="0s" />
+        <circle cx="512.78" cy="407.97" r="357.97" fill="#d8ae00" stroke="#000" stroke-miterlimit="10"
+            stroke-width="13.61" />
+        <line x1="448.81" y1="56.81" x2="549.53" y2="56.81" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="338.56" y1="97.64" x2="549.53" y2="97.64" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="282.75" y1="138.47" x2="549.53" y2="138.47" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="240.56" y1="179.31" x2="549.53" y2="179.31" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="210.61" y1="220.14" x2="549.53" y2="220.14" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="186.11" y1="260.97" x2="549.53" y2="260.97" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="172.5" y1="301.81" x2="549.53" y2="301.81" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="162.97" y1="342.64" x2="549.53" y2="342.64" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="157.53" y1="383.47" x2="549.53" y2="383.47" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="157.53" y1="424.31" x2="549.53" y2="424.31" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="160.25" y1="465.14" x2="549.53" y2="465.14" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="169.78" y1="505.97" x2="549.53" y2="505.97" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="183.39" y1="546.81" x2="549.53" y2="546.81" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="206.53" y1="587.64" x2="549.53" y2="587.64" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="231.03" y1="628.47" x2="549.53" y2="628.47" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="269.14" y1="669.31" x2="549.53" y2="669.31" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="320.86" y1="710.14" x2="549.53" y2="710.14" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <line x1="409.33" y1="750.97" x2="549.53" y2="750.97" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <circle cx="512.78" cy="407.97" r="357.97" fill="none" />
+        <rect x="512.78" y="50" width="54.44" height="715.94" stroke-width="13.61" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" fill="#ffd62c" />
+        <circle cx="567.22" cy="407.97" r="357.97" fill="#ffd62c" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <circle cx="567.22" cy="407.97" r="313.06" fill="#f2cb27" stroke="#000" stroke-linecap="round"
+            stroke-linejoin="round" stroke-width="13.61" />
+        <circle cx="567.22" cy="407.97" r="279.36" fill="none" stroke="#d8ae00" stroke-miterlimit="10"
+            stroke-width="13.61" />
+        <circle cx="491.1" cy="587.06" r="23.08" fill="#d8ae00" />
+        <circle cx="662.72" cy="587.06" r="23.08" fill="#d8ae00" />
+        <rect x="537.73" y="548.16" width="78.35" height="19.59" rx="8.46" fill="#d8ae00" />
+        <circle cx="491.1" cy="235.04" r="23.08" fill="#d8ae00" />
+        <circle cx="662.72" cy="235.04" r="23.08" fill="#d8ae00" />
+        <rect x="537.73" y="254.35" width="78.35" height="19.59" rx="8.46" fill="#d8ae00" />
+        <path
+            d="M443.93,408.78a28.07,28.07,0,0,0,4.9-4.52q5.76-6.74,5.76-17.94v-2.43q0-16.08-11.36-24.76t-32.14-8.68H364.66V470.9H415.8q14.11,0,23.86-4.06t14.77-11.69q5-7.63,5-18.34v-2.28q0-11.36-5.68-18.18A29.52,29.52,0,0,0,443.93,408.78ZM412.39,373.5q6.64,0,9.65,3.33t3,9.49q0,6-3,9.34T412.39,399H393.88V373.5Zm14.28,70.94q-3.24,3.4-9.9,3.41H393.88V421.39h22.89q6.66,0,9.9,3.32t3.25,9.82Q429.92,441,426.67,444.44Z"
+            fill="#d8ae00" />
+        <polygon
+            points="504.07 351.42 473.88 351.42 473.88 469.92 500.82 469.92 504.07 469.92 548.87 469.92 548.87 443.63 504.07 443.63 504.07 351.42"
+            fill="#d8ae00" />
+        <path
+            d="M664.41,367a58.87,58.87,0,0,0-20-14q-11.94-5.21-27.52-5.2-15.75,0-27.67,5.2A58.92,58.92,0,0,0,557,386.57a62.09,62.09,0,0,0-4.05,22v3.57a60.56,60.56,0,0,0,3.89,20.78,63.4,63.4,0,0,0,11.85,19.89,59.1,59.1,0,0,0,20,14.77q12,5.6,28.24,5.6,16.08,0,28.09-5.6a59.16,59.16,0,0,0,20-14.77,64.61,64.61,0,0,0,11.93-19.89,59.58,59.58,0,0,0,4-20.78v-3.57A61.17,61.17,0,0,0,664.41,367ZM648,424.06a31.84,31.84,0,0,1-6.66,11,30.24,30.24,0,0,1-10.55,7.31,38.92,38.92,0,0,1-27.92,0A30.24,30.24,0,0,1,592.34,435a31.81,31.81,0,0,1-6.65-11,39.21,39.21,0,0,1-2.28-13.55,41.45,41.45,0,0,1,2.28-14.12,30.05,30.05,0,0,1,6.65-10.88,29.58,29.58,0,0,1,10.55-7,37.84,37.84,0,0,1,14-2.43,37.35,37.35,0,0,1,13.8,2.43,29.58,29.58,0,0,1,10.55,7,31.1,31.1,0,0,1,6.74,10.88,40.26,40.26,0,0,1,2.35,14.12A39.44,39.44,0,0,1,648,424.06Z"
+            fill="#d8ae00" />
+        <path
+            d="M784.34,416.35a29.52,29.52,0,0,0-9.85-7.57,28.43,28.43,0,0,0,4.9-4.52q5.76-6.74,5.76-17.94v-2.43q0-16.08-11.36-24.76t-32.14-8.68H695.22V470.9h51.14q14.11,0,23.86-4.06T785,455.15q5-7.63,5-18.34v-2.28Q790,423.17,784.34,416.35ZM743,373.5q6.64,0,9.65,3.33t3,9.49q0,6-3,9.34T743,399H724.44V373.5Zm14.28,70.94q-3.24,3.4-9.9,3.41H724.44V421.39h22.89q6.66,0,9.9,3.32t3.25,9.82Q760.48,441,757.23,444.44Z"
+            fill="#d8ae00" />
+        <rect x="341.34" y="399" width="472" height="22" fill="#d8ae00" />
+    </g>
+    <g transform="translate(0 40)" opacity="0.1" stroke="none" fill="#000">
+        <rect x="510" y="834" width="255" height="58" rx="29">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+        <rect x="510" y="834" width="255" height="58" rx="29" transform="scale (-1, 1)" transform-origin="center">
+            <animate id="anim1" attributeName="width" attributeType="XML" from="180" to="140" begin="0s;anim2.end"
+                dur="1s" />
+            <animate id="anim2" attributeName="width" attributeType="XML" from="140" to="180" begin="anim1.end"
+                dur="1s" />
+        </rect>
+
+    </g>
+</svg>

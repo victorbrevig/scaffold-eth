@@ -118,7 +118,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     mapping(uint256 => uint256) public chubbiness; // Not used
     mapping(uint256 => uint256) public mouthLength; // Not used
 
-    uint8 constant colsLength = 74;
+    uint8 constant colsLength = 73;
     string[colsLength] cols = [
         "252525",
         "ffffff",
@@ -167,7 +167,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         "ffa318",
         "ffde20",
         "bdff23",
-        "4fff23",
         "22ff90",
         "26ffe2",
         "25afff",

@@ -14779,8 +14779,8 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   background-color: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
-  height: 130px;
-  padding-top: 82px;
+  height: 99px;
+  padding-top: 52px;
 }
 .ant-menu::after,
 .ant-menu::before {
