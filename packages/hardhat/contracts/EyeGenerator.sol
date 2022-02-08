@@ -62,7 +62,7 @@ contract SVGEyeGenerator {
             return
                 string(
                     abi.encodePacked(
-                        '<g fill="#',
+                        "<g>",
                         '<circle cx="585" cy="446" r="26" fill="#fff"/>',
                         "</g>"
                     )
