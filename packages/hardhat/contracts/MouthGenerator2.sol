@@ -153,6 +153,17 @@ contract SVGMouthGenerator2 {
                         '<polygon points="624.4 592.89 624.4 580.11 632.47 580.11 632.47 572.71 624.06 568 615.65 572.71 615.65 600.29 624.06 605 632.47 600.29 632.47 592.89 624.4 592.89" /></g></g>'
                     )
                 );
+        } else if (mouth == 24) {
+            // BOX
+            return
+                string(
+                    abi.encodePacked(
+                        '<g transform="translate(0 10)" fill="#ccaa7d"><polygon points="775 573 845 573 801 499 731 499 775 573" fill="#b59268" /><rect x="349" y="499" width="449" height="130" /><rect x="279" y="499" width="70" height="130" fill="#b59268" /><polygon points="305 573 235 573 279 499 349 499 305 573" />',
+                        '<g opacity="0.6"><line x1="392.75" y1="567" x2="392.75" y2="529" fill="none" /><polyline points="377.9 541.5 392.75 526.65 407.6 541.5" fill="none" /><line x1="442.75" y1="567" x2="442.75" y2="529" fill="none" /><polyline points="427.9 541.5 442.75 526.65 457.6 541.5" fill="none" /></g><g opacity="0.4">',
+                        '<line x1="776" y1="591" x2="776" y2="607.26" /><line x1="720" y1="591" x2="720" y2="607.26" /><line x1="702" y1="591" x2="702" y2="607.26" /><line x1="733" y1="591" x2="733" y2="607.26" /><line x1="689" y1="591" x2="689" y2="607.26" /><line x1="677" y1="591" x2="677" y2="607.26" /><rect x="747" y="591" width="10" height="16.26" />',
+                        '</g><rect x="614.11" y="519" width="168.78" height="51" fill="#e8e8e8" /><line x1="631" y1="536" x2="703" y2="536" opacity="0.5" /><line x1="631" y1="553" x2="673" y2="553" opacity="0.5" /><line x1="381" y1="591" x2="422" y2="591" opacity="0.6" /><line x1="302" y1="598" x2="323" y2="598" opacity="0.6" /><line x1="381" y1="605" x2="462" y2="605" opacity="0.6" /></g>'
+                    )
+                );
         }
         return "";
     }
