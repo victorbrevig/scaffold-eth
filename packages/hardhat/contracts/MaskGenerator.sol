@@ -60,13 +60,13 @@ contract SVGMaskGenerator {
                     )
                 );
         } else if (mask == 3) {
-            // googles
+            // goggles
             return
                 string(
                     abi.encodePacked(
                         '<g fill="#',
                         color,
-                        '"><rect x="533.5" y="466.5" width="101" height="46" fill="#000" />',
+                        '" transform="translate(0 10)"><rect x="533.5" y="466.5" width="101" height="46" fill="#000" />',
                         '<rect x="739.5" y="196.5" width="38" height="196" fill="#fff" /><rect x="299.5" y="422.5" width="71" height="44" /><rect x="739.5" y="216.5" width="38" height="17" />',
                         '<path d="M584,433a53,53,0,0,1,37.57,15.53l31.11,31.12a51.81,51.81,0,0,0,36.88,15.27H714a46.93,46.93,0,1,0,0-93.86H453a46.93,46.93,0,1,0,0,93.86h25.46a51.81,51.81,0,0,0,36.88-15.27l31.11-31.12A53,53,0,0,1,584,433Z" fill="#fff" fill-opacity="0.5" />',
                         '<polygon points="446.5 395.5 540 489 601.55 462.44 654 515 727.5 515.5 581.5 369.5 446.5 395.5" fill="#ffffff" stroke="none" />',
