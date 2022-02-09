@@ -3976,7 +3976,8 @@ a.ant-btn-sm {
   border-radius: 4px;
 
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  
   
 }
 .ant-card-rtl {
@@ -4048,7 +4049,8 @@ a.ant-btn-sm {
   padding: 24px;
 
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  
 
   border-radius: 0px 0px 5px 5px;
 
@@ -14778,7 +14780,7 @@ tr.ant-table-expanded-row .ant-descriptions-view table {
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32), 0 9px 28px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   height: 99px;
   padding-top: 52px;
 }
@@ -16576,7 +16578,8 @@ table tr th.ant-table-selection-column .ant-radio-wrapper {
   transition: all 0.3s;
 
   background-color: rgba(255,255,255,0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
+  
 }
 .ant-pagination-next:focus .ant-pagination-item-link,
 .ant-pagination-next:hover .ant-pagination-item-link,

@@ -1,0 +1,550 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 1920 1080">
+    <defs>
+        <linearGradient id="linear-gradient" x1="960" y1="1080" x2="960" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#171955" />
+            <stop offset="1" stop-color="#1c0f3d" />
+        </linearGradient>
+        <linearGradient id="linear-gradient-2" x1="-1130.26" y1="298.86" x2="-1058.12" y2="298.96"
+            gradientTransform="translate(1391.59 -134.24)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" />
+            <stop offset="0.04" stop-color="#fff" stop-opacity="0.94" />
+            <stop offset="0.25" stop-color="#fff" stop-opacity="0.66" />
+            <stop offset="0.45" stop-color="#fff" stop-opacity="0.43" />
+            <stop offset="0.63" stop-color="#fff" stop-opacity="0.24" />
+            <stop offset="0.78" stop-color="#fff" stop-opacity="0.11" />
+            <stop offset="0.91" stop-color="#fff" stop-opacity="0.03" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        </linearGradient>
+        <linearGradient id="linear-gradient-3" x1="-2178.35" y1="304.79" x2="-2106.21" y2="304.9"
+            gradientTransform="translate(1559.1 -258.82) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-4" x1="-1796.98" y1="809.13" x2="-1724.84" y2="809.23"
+            gradientTransform="translate(1856.7 -549.01) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-5" x1="-438.31" y1="1373.35" x2="-366.18" y2="1373.46"
+            gradientTransform="translate(1948.71 -938.23)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-6" x1="-875.98" y1="992.89" x2="-803.84" y2="993"
+            gradientTransform="translate(1844.12 -946.92) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-7" x1="-494.6" y1="1497.23" x2="-422.46" y2="1497.34"
+            gradientTransform="translate(2141.72 -1237.11) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-8" x1="-1731.16" y1="1196.49" x2="-1659.02" y2="1196.6"
+            gradientTransform="translate(2120.42 -687.06) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-9" x1="-1495.94" y1="1054.77" x2="-1423.8" y2="1054.87"
+            gradientTransform="translate(2033.21 -97.07)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-10" x1="-2877.75" y1="674.31" x2="-2805.61" y2="674.42"
+            gradientTransform="translate(1928.62 -105.75) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-11" x1="-2496.37" y1="1178.65" x2="-2424.23" y2="1178.76"
+            gradientTransform="translate(2226.22 -395.95) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-12" x1="-3732.93" y1="877.91" x2="-3660.79" y2="878.02"
+            gradientTransform="translate(2204.92 154.11) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-13" x1="-807.84" y1="1742.87" x2="-735.7" y2="1742.98"
+            gradientTransform="translate(2318.23 -785.17)" xlink:href="#linear-gradient-2" />
+        <linearGradient id="linear-gradient-14" x1="-1194" y1="1866.75" x2="-1121.86" y2="1866.86"
+            gradientTransform="translate(2511.24 -1084.05) scale(0.53 1)" xlink:href="#linear-gradient-2" />
+    </defs>
+    <title>bgAnim</title>
+    <rect width="1920" height="1080" fill="url(#linear-gradient)" />
+
+
+
+    <g opacity="0.8">
+        <circle cx="84.67" cy="212.34" r="2.69" fill="#fff" />
+        <circle cx="425.34" cy="241.88" r="1.01" fill="#fff" />
+        <circle cx="563.96" cy="215.03" r="2.01" fill="#fff" />
+        <path
+            d="M55.63,79.59l-.39-2.48a6.85,6.85,0,0,0-5.09-5.57h0A6.85,6.85,0,0,0,55.24,66l.39-2.49L56,66a6.85,6.85,0,0,0,5.09,5.57h0A6.85,6.85,0,0,0,56,77.11Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="5.79" cy="112.32" r="2.69" fill="#fff" />
+        <circle cx="19.22" cy="123.4" r="0.34" fill="#fff" />
+        <circle cx="45.73" cy="34.11" r="0.34" fill="#fff" />
+        <circle cx="8.48" cy="133.13" r="1.01" fill="#fff" />
+        <circle cx="36.33" cy="28.07" r="1.68" fill="#fff" />
+        <path
+            d="M873.63,386.63l.32-2a5.57,5.57,0,0,1,4.11-4.5h0a5.54,5.54,0,0,1-4.11-4.49l-.32-2-.32,2a5.53,5.53,0,0,1-4.11,4.49h0a5.55,5.55,0,0,1,4.11,4.5Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="913.91" cy="413.08" r="2.17" fill="#fff" />
+        <circle cx="903.06" cy="422.03" r="0.27" fill="#fff" />
+        <circle cx="881.63" cy="349.88" r="0.27" fill="#fff" />
+        <circle cx="911.74" cy="429.9" r="0.81" fill="#fff" />
+        <circle cx="889.23" cy="345" r="1.36" fill="#fff" />
+        <path
+            d="M901.79,48l-.25-1.55A4.29,4.29,0,0,0,898.36,43h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56A4.28,4.28,0,0,0,905.22,43h0A4.28,4.28,0,0,0,902,46.49Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="917.4" cy="63.65" r="0.67" fill="#fff" />
+        <circle cx="902.96" cy="66" r="0.34" fill="#fff" />
+        <circle cx="913.03" cy="109.63" r="1.34" fill="#fff" />
+        <circle cx="799.25" cy="34.11" r="2.01" fill="#fff" />
+        <circle cx="847.58" cy="74.06" r="1.34" fill="#fff" />
+        <path
+            d="M116.89,458.69l-.24-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.24-1.55.25,1.55a4.29,4.29,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="132.5" cy="474.29" r="0.67" fill="#fff" />
+        <circle cx="118.07" cy="476.64" r="0.34" fill="#fff" />
+        <circle cx="128.14" cy="520.28" r="1.34" fill="#fff" />
+        <circle cx="62.69" cy="484.7" r="1.34" fill="#fff" />
+        <path
+            d="M196.94,222.24l-.25-1.55a4.27,4.27,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56a4.3,4.3,0,0,0,3.19,3.48h0a4.29,4.29,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <path
+            d="M405.37,260.17l-.24-1.56a4.27,4.27,0,0,0-3.19-3.47h0a4.3,4.3,0,0,0,3.19-3.48l.24-1.56.25,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.26,4.26,0,0,0-3.18,3.47Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="182.34" cy="202.27" r="1.01" fill="#fff" />
+        <circle cx="179.32" cy="215.7" r="0.67" fill="#fff" />
+        <circle cx="198.11" cy="174.41" r="0.67" fill="#fff" />
+        <path
+            d="M507.41,72.88l-.25-1.55A4.27,4.27,0,0,0,504,67.85h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56a4.28,4.28,0,0,0,3.19,3.48h0a4.27,4.27,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="677.08" cy="69.69" r="0.67" fill="#fff" />
+        <circle cx="572.35" cy="5.92" r="0.67" fill="#fff" />
+        <circle cx="248.12" cy="55.93" r="0.67" fill="#fff" />
+        <circle cx="611.29" cy="173.74" r="0.67" fill="#fff" />
+        <circle cx="580.07" cy="234.83" r="0.67" fill="#fff" />
+        <circle cx="493.48" cy="55.93" r="0.67" fill="#fff" />
+        <circle cx="401.18" cy="44.52" r="0.67" fill="#fff" />
+        <circle cx="238.73" cy="6.59" r="0.67" fill="#fff" />
+        <circle cx="278" cy="94.53" r="0.67" fill="#fff" />
+        <circle cx="426.01" cy="71.37" r="0.67" fill="#fff" />
+        <circle cx="129.31" cy="43.18" r="0.67" fill="#fff" />
+        <circle cx="160.27" cy="324.8" r="0.67" fill="#fff" />
+        <circle cx="169.66" cy="275.47" r="0.67" fill="#fff" />
+        <circle cx="130.39" cy="363.4" r="0.67" fill="#fff" />
+        <circle cx="279.08" cy="312.05" r="0.67" fill="#fff" />
+        <circle cx="10.15" cy="284.17" r="0.67" fill="#fff" />
+        <circle cx="483.75" cy="61.3" r="1.34" fill="#fff" />
+        <path
+            d="M45.71,389l-.25-1.55A4.26,4.26,0,0,0,42.28,384h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56L46,380.5A4.29,4.29,0,0,0,49.13,384h0A4.26,4.26,0,0,0,46,387.46Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="31.78" cy="372.06" r="0.67" fill="#fff" />
+        <circle cx="22.04" cy="377.43" r="1.34" fill="#fff" />
+        <circle cx="353.52" cy="174.41" r="1.34" fill="#fff" />
+        <circle cx="711.65" cy="266.38" r="2.01" fill="#fff" />
+        <path
+            d="M872.59,253.46l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.55.24,1.55a4.27,4.27,0,0,0,3.19,3.48h0a4.28,4.28,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="809.32" cy="172.4" r="0.67" fill="#fff" />
+        <circle cx="937.53" cy="176.43" r="0.67" fill="#fff" />
+        <path
+            d="M474.85,494.67l-.25,1.55a4.29,4.29,0,0,1-3.18,3.48h0a4.29,4.29,0,0,1,3.18,3.48l.25,1.56.25-1.56a4.27,4.27,0,0,1,3.18-3.48h0a4.27,4.27,0,0,1-3.18-3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="490.46" cy="479.06" r="0.67" fill="#fff" />
+        <circle cx="476.02" cy="476.71" r="0.34" fill="#fff" />
+        <circle cx="469.8" cy="399.4" r="1.34" fill="#fff" />
+        <circle cx="356.02" cy="474.92" r="2.01" fill="#fff" />
+        <circle cx="420.64" cy="468.65" r="1.34" fill="#fff" />
+        <circle cx="366.08" cy="336.63" r="0.67" fill="#fff" />
+        <circle cx="494.3" cy="332.61" r="0.67" fill="#fff" />
+        <circle cx="573.58" cy="526.75" r="0.67" fill="#fff" />
+        <circle cx="701.79" cy="522.72" r="0.67" fill="#fff" />
+        <circle cx="677.75" cy="177.1" r="0.67" fill="#fff" />
+        <circle cx="695.54" cy="246.58" r="0.67" fill="#fff" />
+        <circle cx="179.46" cy="350.82" r="0.67" fill="#fff" />
+        <circle cx="279.82" cy="443.46" r="2.01" fill="#fff" />
+        <circle cx="245.92" cy="354.17" r="0.67" fill="#fff" />
+        <circle cx="263.71" cy="423.65" r="0.67" fill="#fff" />
+        <circle cx="858.66" cy="236.51" r="0.67" fill="#fff" />
+        <circle cx="848.92" cy="241.88" r="1.34" fill="#fff" />
+        <path
+            d="M620.39,448.76l.24-1.55a4.26,4.26,0,0,1,3.18-3.48h0a4.29,4.29,0,0,1-3.18-3.48l-.24-1.56-.25,1.56a4.29,4.29,0,0,1-3.18,3.48h0a4.26,4.26,0,0,1,3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="592.92" cy="353.55" r="0.67" fill="#fff" />
+        <circle cx="671.79" cy="403.57" r="0.67" fill="#fff" />
+        <circle cx="764.1" cy="392.15" r="0.67" fill="#fff" />
+        <circle cx="739.26" cy="419.01" r="0.67" fill="#fff" />
+        <circle cx="681.53" cy="408.94" r="1.34" fill="#fff" />
+        <circle cx="877.62" cy="505.68" r="0.67" fill="#fff" />
+        <circle cx="785.32" cy="494.27" r="0.67" fill="#fff" />
+        <circle cx="810.16" cy="521.12" r="0.67" fill="#fff" />
+        <circle cx="867.89" cy="511.05" r="1.34" fill="#fff" />
+        <circle cx="1057.79" cy="212.34" r="2.69" fill="#fff" />
+        <circle cx="1398.47" cy="241.88" r="1.01" fill="#fff" />
+        <circle cx="1537.09" cy="215.03" r="2.01" fill="#fff" />
+        <path
+            d="M1028.76,79.59l-.4-2.48a6.85,6.85,0,0,0-5.09-5.57h0a6.85,6.85,0,0,0,5.09-5.57l.4-2.49.39,2.49a6.85,6.85,0,0,0,5.09,5.57h0a6.85,6.85,0,0,0-5.09,5.57Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="978.91" cy="112.32" r="2.69" fill="#fff" />
+        <circle cx="992.34" cy="123.4" r="0.34" fill="#fff" />
+        <circle cx="1018.85" cy="34.11" r="0.34" fill="#fff" />
+        <circle cx="981.6" cy="133.13" r="1.01" fill="#fff" />
+        <circle cx="1009.46" cy="28.07" r="1.68" fill="#fff" />
+        <path
+            d="M1846.75,386.63l.32-2a5.57,5.57,0,0,1,4.12-4.5h0a5.54,5.54,0,0,1-4.12-4.49l-.32-2-.31,2a5.54,5.54,0,0,1-4.12,4.49h0a5.57,5.57,0,0,1,4.12,4.5Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1887.03" cy="413.08" r="2.17" fill="#fff" />
+        <circle cx="1876.18" cy="422.03" r="0.27" fill="#fff" />
+        <circle cx="1854.76" cy="349.88" r="0.27" fill="#fff" />
+        <circle cx="1884.86" cy="429.9" r="0.81" fill="#fff" />
+        <circle cx="1862.35" cy="345" r="1.36" fill="#fff" />
+        <path
+            d="M1874.91,48l-.25-1.55a4.27,4.27,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.56.25,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1890.52" cy="63.65" r="0.67" fill="#fff" />
+        <circle cx="1876.09" cy="66" r="0.34" fill="#fff" />
+        <circle cx="1886.16" cy="109.63" r="1.34" fill="#fff" />
+        <circle cx="1772.37" cy="34.11" r="2.01" fill="#fff" />
+        <circle cx="1820.7" cy="74.06" r="1.34" fill="#fff" />
+        <path
+            d="M1090,458.69l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.55.25,1.55a4.27,4.27,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1105.63" cy="474.29" r="0.67" fill="#fff" />
+        <circle cx="1091.19" cy="476.64" r="0.34" fill="#fff" />
+        <circle cx="1101.26" cy="520.28" r="1.34" fill="#fff" />
+        <circle cx="1035.81" cy="484.7" r="1.34" fill="#fff" />
+        <path
+            d="M1170.06,222.24l-.25-1.55a4.26,4.26,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.56.25,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <path
+            d="M1378.5,260.17l-.25-1.56a4.26,4.26,0,0,0-3.18-3.47h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.26,4.26,0,0,0-3.18,3.47Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1155.46" cy="202.27" r="1.01" fill="#fff" />
+        <circle cx="1152.44" cy="215.7" r="0.67" fill="#fff" />
+        <circle cx="1171.24" cy="174.41" r="0.67" fill="#fff" />
+        <path
+            d="M1480.53,72.88l-.25-1.55a4.26,4.26,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.56.25,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1650.2" cy="69.69" r="0.67" fill="#fff" />
+        <circle cx="1545.48" cy="5.92" r="0.67" fill="#fff" />
+        <circle cx="1221.25" cy="55.93" r="0.67" fill="#fff" />
+        <circle cx="1584.41" cy="173.74" r="0.67" fill="#fff" />
+        <circle cx="1553.2" cy="234.83" r="0.67" fill="#fff" />
+        <circle cx="1466.6" cy="55.93" r="0.67" fill="#fff" />
+        <circle cx="1374.3" cy="44.52" r="0.67" fill="#fff" />
+        <circle cx="1211.85" cy="6.59" r="0.67" fill="#fff" />
+        <circle cx="1251.12" cy="94.53" r="0.67" fill="#fff" />
+        <circle cx="1399.14" cy="71.37" r="0.67" fill="#fff" />
+        <circle cx="1102.43" cy="43.18" r="0.67" fill="#fff" />
+        <circle cx="1133.39" cy="324.8" r="0.67" fill="#fff" />
+        <circle cx="1142.79" cy="275.47" r="0.67" fill="#fff" />
+        <circle cx="1103.52" cy="363.4" r="0.67" fill="#fff" />
+        <circle cx="1252.21" cy="312.05" r="0.67" fill="#fff" />
+        <circle cx="983.28" cy="284.17" r="0.67" fill="#fff" />
+        <circle cx="1456.87" cy="61.3" r="1.34" fill="#fff" />
+        <path
+            d="M1018.83,389l-.25-1.55a4.26,4.26,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.25,1.56a4.27,4.27,0,0,0,3.18,3.48h0a4.25,4.25,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1004.9" cy="372.06" r="0.67" fill="#fff" />
+        <circle cx="995.17" cy="377.43" r="1.34" fill="#fff" />
+        <circle cx="1326.64" cy="174.41" r="1.34" fill="#fff" />
+        <circle cx="1684.77" cy="266.38" r="2.01" fill="#fff" />
+        <path
+            d="M1845.71,253.46l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.55.25,1.55a4.27,4.27,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1782.44" cy="172.4" r="0.67" fill="#fff" />
+        <circle cx="1910.66" cy="176.43" r="0.67" fill="#fff" />
+        <path
+            d="M1448,494.67l-.24,1.55a4.28,4.28,0,0,1-3.19,3.48h0a4.28,4.28,0,0,1,3.19,3.48l.24,1.56.25-1.56a4.29,4.29,0,0,1,3.18-3.48h0a4.29,4.29,0,0,1-3.18-3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1463.58" cy="479.06" r="0.67" fill="#fff" />
+        <circle cx="1449.15" cy="476.71" r="0.34" fill="#fff" />
+        <circle cx="1442.92" cy="399.4" r="1.34" fill="#fff" />
+        <circle cx="1329.14" cy="474.92" r="2.01" fill="#fff" />
+        <circle cx="1393.77" cy="468.65" r="1.34" fill="#fff" />
+        <circle cx="1339.21" cy="336.63" r="0.67" fill="#fff" />
+        <circle cx="1467.42" cy="332.61" r="0.67" fill="#fff" />
+        <circle cx="1546.7" cy="526.75" r="0.67" fill="#fff" />
+        <circle cx="1674.92" cy="522.72" r="0.67" fill="#fff" />
+        <circle cx="1650.87" cy="177.1" r="0.67" fill="#fff" />
+        <circle cx="1668.66" cy="246.58" r="0.67" fill="#fff" />
+        <circle cx="1152.59" cy="350.82" r="0.67" fill="#fff" />
+        <circle cx="1252.94" cy="443.46" r="2.01" fill="#fff" />
+        <circle cx="1219.04" cy="354.17" r="0.67" fill="#fff" />
+        <circle cx="1236.83" cy="423.65" r="0.67" fill="#fff" />
+        <circle cx="1831.78" cy="236.51" r="0.67" fill="#fff" />
+        <circle cx="1822.05" cy="241.88" r="1.34" fill="#fff" />
+        <path
+            d="M1593.51,448.76l.25-1.55a4.25,4.25,0,0,1,3.18-3.48h0a4.27,4.27,0,0,1-3.18-3.48l-.25-1.56-.25,1.56a4.29,4.29,0,0,1-3.18,3.48h0a4.26,4.26,0,0,1,3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1566.04" cy="353.55" r="0.67" fill="#fff" />
+        <circle cx="1644.92" cy="403.57" r="0.67" fill="#fff" />
+        <circle cx="1737.22" cy="392.15" r="0.67" fill="#fff" />
+        <circle cx="1712.38" cy="419.01" r="0.67" fill="#fff" />
+        <circle cx="1654.65" cy="408.94" r="1.34" fill="#fff" />
+        <circle cx="1850.74" cy="505.68" r="0.67" fill="#fff" />
+        <circle cx="1758.44" cy="494.27" r="0.67" fill="#fff" />
+        <circle cx="1783.28" cy="521.12" r="0.67" fill="#fff" />
+        <circle cx="1841.01" cy="511.05" r="1.34" fill="#fff" />
+        <circle cx="84.67" cy="734.92" r="2.69" fill="#fff" />
+        <circle cx="425.34" cy="764.46" r="1.01" fill="#fff" />
+        <circle cx="563.96" cy="737.61" r="2.01" fill="#fff" />
+        <path
+            d="M55.63,602.18l-.39-2.49a6.85,6.85,0,0,0-5.09-5.57h0a6.85,6.85,0,0,0,5.09-5.57l.39-2.48.4,2.48a6.85,6.85,0,0,0,5.09,5.57h0A6.85,6.85,0,0,0,56,599.69Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="5.79" cy="634.9" r="2.69" fill="#fff" />
+        <circle cx="19.22" cy="645.98" r="0.34" fill="#fff" />
+        <circle cx="45.73" cy="556.7" r="0.34" fill="#fff" />
+        <circle cx="8.48" cy="655.71" r="1.01" fill="#fff" />
+        <circle cx="36.33" cy="550.66" r="1.68" fill="#fff" />
+        <path
+            d="M873.63,909.22l.32-2a5.54,5.54,0,0,1,4.11-4.5h0a5.54,5.54,0,0,1-4.11-4.5l-.32-2-.32,2a5.53,5.53,0,0,1-4.11,4.5h0a5.53,5.53,0,0,1,4.11,4.5Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="913.91" cy="935.66" r="2.17" fill="#fff" />
+        <circle cx="903.06" cy="944.61" r="0.27" fill="#fff" />
+        <circle cx="881.63" cy="872.46" r="0.27" fill="#fff" />
+        <circle cx="911.74" cy="952.48" r="0.81" fill="#fff" />
+        <circle cx="889.23" cy="867.58" r="1.36" fill="#fff" />
+        <path
+            d="M901.79,570.63l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.55.24,1.55a4.28,4.28,0,0,0,3.19,3.48h0a4.28,4.28,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="917.4" cy="586.23" r="0.67" fill="#fff" />
+        <circle cx="902.96" cy="588.58" r="0.34" fill="#fff" />
+        <circle cx="913.03" cy="632.22" r="1.34" fill="#fff" />
+        <circle cx="799.25" cy="556.7" r="2.01" fill="#fff" />
+        <circle cx="847.58" cy="596.64" r="1.34" fill="#fff" />
+        <path
+            d="M116.89,981.27l-.24-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.26,4.26,0,0,0,3.18-3.48l.24-1.55.25,1.55a4.26,4.26,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="132.5" cy="996.88" r="0.67" fill="#fff" />
+        <circle cx="118.07" cy="999.23" r="0.34" fill="#fff" />
+        <circle cx="128.14" cy="1042.86" r="1.34" fill="#fff" />
+        <circle cx="62.69" cy="1007.28" r="1.34" fill="#fff" />
+        <path
+            d="M196.94,744.82l-.25-1.55a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.55.24,1.55a4.3,4.3,0,0,0,3.19,3.48h0a4.3,4.3,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <path
+            d="M405.37,782.75l-.24-1.55a4.29,4.29,0,0,0-3.19-3.48h0a4.3,4.3,0,0,0,3.19-3.48l.24-1.56.25,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="182.34" cy="724.85" r="1.01" fill="#fff" />
+        <circle cx="179.32" cy="738.28" r="0.67" fill="#fff" />
+        <circle cx="198.11" cy="697" r="0.67" fill="#fff" />
+        <path
+            d="M507.41,595.46l-.25-1.55a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56a4.28,4.28,0,0,0,3.19,3.48h0a4.28,4.28,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="677.08" cy="592.28" r="0.67" fill="#fff" />
+        <circle cx="572.35" cy="528.5" r="0.67" fill="#fff" />
+        <circle cx="248.12" cy="578.51" r="0.67" fill="#fff" />
+        <circle cx="611.29" cy="696.32" r="0.67" fill="#fff" />
+        <circle cx="580.07" cy="757.41" r="0.67" fill="#fff" />
+        <circle cx="493.48" cy="578.51" r="0.67" fill="#fff" />
+        <circle cx="401.18" cy="567.1" r="0.67" fill="#fff" />
+        <circle cx="238.73" cy="529.17" r="0.67" fill="#fff" />
+        <circle cx="278" cy="617.11" r="0.67" fill="#fff" />
+        <circle cx="426.01" cy="593.95" r="0.67" fill="#fff" />
+        <circle cx="129.31" cy="565.76" r="0.67" fill="#fff" />
+        <circle cx="160.27" cy="847.39" r="0.67" fill="#fff" />
+        <circle cx="169.66" cy="798.05" r="0.67" fill="#fff" />
+        <circle cx="130.39" cy="885.99" r="0.67" fill="#fff" />
+        <circle cx="279.08" cy="834.63" r="0.67" fill="#fff" />
+        <circle cx="10.15" cy="806.75" r="0.67" fill="#fff" />
+        <circle cx="483.75" cy="583.88" r="1.34" fill="#fff" />
+        <path
+            d="M45.71,911.59,45.46,910a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56a4.29,4.29,0,0,0,3.18,3.48h0A4.29,4.29,0,0,0,46,910Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="31.78" cy="894.64" r="0.67" fill="#fff" />
+        <circle cx="22.04" cy="900.01" r="1.34" fill="#fff" />
+        <circle cx="353.52" cy="697" r="1.34" fill="#fff" />
+        <circle cx="711.65" cy="788.96" r="2.01" fill="#fff" />
+        <path
+            d="M872.59,776l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.26,4.26,0,0,0,3.18-3.47l.25-1.56.24,1.56A4.26,4.26,0,0,0,876,771h0a4.28,4.28,0,0,0-3.19,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="809.32" cy="694.98" r="0.67" fill="#fff" />
+        <circle cx="937.53" cy="699.01" r="0.67" fill="#fff" />
+        <path
+            d="M474.85,1017.25l-.25,1.55a4.26,4.26,0,0,1-3.18,3.48h0a4.29,4.29,0,0,1,3.18,3.48l.25,1.56.25-1.56a4.27,4.27,0,0,1,3.18-3.48h0a4.25,4.25,0,0,1-3.18-3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="490.46" cy="1001.64" r="0.67" fill="#fff" />
+        <circle cx="476.02" cy="999.29" r="0.34" fill="#fff" />
+        <circle cx="469.8" cy="921.98" r="1.34" fill="#fff" />
+        <circle cx="356.02" cy="997.5" r="2.01" fill="#fff" />
+        <circle cx="420.64" cy="991.24" r="1.34" fill="#fff" />
+        <circle cx="366.08" cy="859.22" r="0.67" fill="#fff" />
+        <circle cx="494.3" cy="855.19" r="0.67" fill="#fff" />
+        <circle cx="573.58" cy="1049.33" r="0.67" fill="#fff" />
+        <circle cx="701.79" cy="1045.3" r="0.67" fill="#fff" />
+        <circle cx="677.75" cy="699.68" r="0.67" fill="#fff" />
+        <circle cx="695.54" cy="769.16" r="0.67" fill="#fff" />
+        <circle cx="179.46" cy="873.4" r="0.67" fill="#fff" />
+        <circle cx="279.82" cy="966.04" r="2.01" fill="#fff" />
+        <circle cx="245.92" cy="876.76" r="0.67" fill="#fff" />
+        <circle cx="263.71" cy="946.23" r="0.67" fill="#fff" />
+        <circle cx="858.66" cy="759.09" r="0.67" fill="#fff" />
+        <circle cx="848.92" cy="764.46" r="1.34" fill="#fff" />
+        <path
+            d="M620.39,971.34l.24-1.55a4.29,4.29,0,0,1,3.18-3.48h0a4.29,4.29,0,0,1-3.18-3.48l-.24-1.56-.25,1.56a4.29,4.29,0,0,1-3.18,3.48h0a4.29,4.29,0,0,1,3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="592.92" cy="876.14" r="0.67" fill="#fff" />
+        <circle cx="671.79" cy="926.15" r="0.67" fill="#fff" />
+        <circle cx="764.1" cy="914.74" r="0.67" fill="#fff" />
+        <circle cx="739.26" cy="941.59" r="0.67" fill="#fff" />
+        <circle cx="681.53" cy="931.52" r="1.34" fill="#fff" />
+        <circle cx="877.62" cy="1028.27" r="0.67" fill="#fff" />
+        <circle cx="785.32" cy="1016.85" r="0.67" fill="#fff" />
+        <circle cx="810.16" cy="1043.7" r="0.67" fill="#fff" />
+        <circle cx="867.89" cy="1033.64" r="1.34" fill="#fff" />
+        <circle cx="1057.79" cy="734.92" r="2.69" fill="#fff" />
+        <circle cx="1398.47" cy="764.46" r="1.01" fill="#fff" />
+        <circle cx="1537.09" cy="737.61" r="2.01" fill="#fff" />
+        <path
+            d="M1028.76,602.18l-.4-2.49a6.85,6.85,0,0,0-5.09-5.57h0a6.85,6.85,0,0,0,5.09-5.57l.4-2.48.39,2.48a6.85,6.85,0,0,0,5.09,5.57h0a6.85,6.85,0,0,0-5.09,5.57Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="978.91" cy="634.9" r="2.69" fill="#fff" />
+        <circle cx="992.34" cy="645.98" r="0.34" fill="#fff" />
+        <circle cx="1018.85" cy="556.7" r="0.34" fill="#fff" />
+        <circle cx="981.6" cy="655.71" r="1.01" fill="#fff" />
+        <circle cx="1009.46" cy="550.66" r="1.68" fill="#fff" />
+        <path
+            d="M1846.75,909.22l.32-2a5.54,5.54,0,0,1,4.12-4.5h0a5.54,5.54,0,0,1-4.12-4.5l-.32-2-.31,2a5.54,5.54,0,0,1-4.12,4.5h0a5.54,5.54,0,0,1,4.12,4.5Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1887.03" cy="935.66" r="2.17" fill="#fff" />
+        <circle cx="1876.18" cy="944.61" r="0.27" fill="#fff" />
+        <circle cx="1854.76" cy="872.46" r="0.27" fill="#fff" />
+        <circle cx="1884.86" cy="952.48" r="0.81" fill="#fff" />
+        <circle cx="1862.35" cy="867.58" r="1.36" fill="#fff" />
+        <path
+            d="M1874.91,570.63l-.25-1.56a4.27,4.27,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.55.25,1.55a4.29,4.29,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1890.52" cy="586.23" r="0.67" fill="#fff" />
+        <circle cx="1876.09" cy="588.58" r="0.34" fill="#fff" />
+        <circle cx="1886.16" cy="632.22" r="1.34" fill="#fff" />
+        <circle cx="1772.37" cy="556.7" r="2.01" fill="#fff" />
+        <circle cx="1820.7" cy="596.64" r="1.34" fill="#fff" />
+        <path
+            d="M1090,981.27l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.26,4.26,0,0,0,3.18-3.48l.25-1.55.25,1.55a4.25,4.25,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1105.63" cy="996.88" r="0.67" fill="#fff" />
+        <circle cx="1091.19" cy="999.23" r="0.34" fill="#fff" />
+        <circle cx="1101.26" cy="1042.86" r="1.34" fill="#fff" />
+        <circle cx="1035.81" cy="1007.28" r="1.34" fill="#fff" />
+        <path
+            d="M1170.06,744.82l-.25-1.55a4.27,4.27,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.55.25,1.55a4.29,4.29,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <path
+            d="M1378.5,782.75l-.25-1.55a4.27,4.27,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.24,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1155.46" cy="724.85" r="1.01" fill="#fff" />
+        <circle cx="1152.44" cy="738.28" r="0.67" fill="#fff" />
+        <circle cx="1171.24" cy="697" r="0.67" fill="#fff" />
+        <path
+            d="M1480.53,595.46l-.25-1.55a4.27,4.27,0,0,0-3.18-3.48h0a4.27,4.27,0,0,0,3.18-3.48l.25-1.56.25,1.56a4.29,4.29,0,0,0,3.18,3.48h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1650.2" cy="592.28" r="0.67" fill="#fff" />
+        <circle cx="1545.48" cy="528.5" r="0.67" fill="#fff" />
+        <circle cx="1221.25" cy="578.51" r="0.67" fill="#fff" />
+        <circle cx="1584.41" cy="696.32" r="0.67" fill="#fff" />
+        <circle cx="1553.2" cy="757.41" r="0.67" fill="#fff" />
+        <circle cx="1466.6" cy="578.51" r="0.67" fill="#fff" />
+        <circle cx="1374.3" cy="567.1" r="0.67" fill="#fff" />
+        <circle cx="1211.85" cy="529.17" r="0.67" fill="#fff" />
+        <circle cx="1251.12" cy="617.11" r="0.67" fill="#fff" />
+        <circle cx="1399.14" cy="593.95" r="0.67" fill="#fff" />
+        <circle cx="1102.43" cy="565.76" r="0.67" fill="#fff" />
+        <circle cx="1133.39" cy="847.39" r="0.67" fill="#fff" />
+        <circle cx="1142.79" cy="798.05" r="0.67" fill="#fff" />
+        <circle cx="1103.52" cy="885.99" r="0.67" fill="#fff" />
+        <circle cx="1252.21" cy="834.63" r="0.67" fill="#fff" />
+        <circle cx="983.28" cy="806.75" r="0.67" fill="#fff" />
+        <circle cx="1456.87" cy="583.88" r="1.34" fill="#fff" />
+        <path
+            d="M1018.83,911.59l-.25-1.55a4.29,4.29,0,0,0-3.18-3.48h0a4.29,4.29,0,0,0,3.18-3.48l.25-1.56.25,1.56a4.27,4.27,0,0,0,3.18,3.48h0a4.27,4.27,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1004.9" cy="894.64" r="0.67" fill="#fff" />
+        <circle cx="995.17" cy="900.01" r="1.34" fill="#fff" />
+        <circle cx="1326.64" cy="697" r="1.34" fill="#fff" />
+        <circle cx="1684.77" cy="788.96" r="2.01" fill="#fff" />
+        <path
+            d="M1845.71,776l-.25-1.56a4.29,4.29,0,0,0-3.18-3.48h0a4.26,4.26,0,0,0,3.18-3.47l.25-1.56.25,1.56a4.26,4.26,0,0,0,3.18,3.47h0a4.29,4.29,0,0,0-3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1782.44" cy="694.98" r="0.67" fill="#fff" />
+        <circle cx="1910.66" cy="699.01" r="0.67" fill="#fff" />
+        <path
+            d="M1448,1017.25l-.24,1.55a4.26,4.26,0,0,1-3.19,3.48h0a4.28,4.28,0,0,1,3.19,3.48l.24,1.56.25-1.56a4.29,4.29,0,0,1,3.18-3.48h0a4.26,4.26,0,0,1-3.18-3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+        <circle cx="1463.58" cy="1001.64" r="0.67" fill="#fff" />
+        <circle cx="1449.15" cy="999.29" r="0.34" fill="#fff" />
+        <circle cx="1442.92" cy="921.98" r="1.34" fill="#fff" />
+        <circle cx="1329.14" cy="997.5" r="2.01" fill="#fff" />
+        <circle cx="1393.77" cy="991.24" r="1.34" fill="#fff" />
+        <circle cx="1339.21" cy="859.22" r="0.67" fill="#fff" />
+        <circle cx="1467.42" cy="855.19" r="0.67" fill="#fff" />
+        <circle cx="1546.7" cy="1049.33" r="0.67" fill="#fff" />
+        <circle cx="1674.92" cy="1045.3" r="0.67" fill="#fff" />
+        <circle cx="1650.87" cy="699.68" r="0.67" fill="#fff" />
+        <circle cx="1668.66" cy="769.16" r="0.67" fill="#fff" />
+        <circle cx="1152.59" cy="873.4" r="0.67" fill="#fff" />
+        <circle cx="1252.94" cy="966.04" r="2.01" fill="#fff" />
+        <circle cx="1219.04" cy="876.76" r="0.67" fill="#fff" />
+        <circle cx="1236.83" cy="946.23" r="0.67" fill="#fff" />
+        <circle cx="1831.78" cy="759.09" r="0.67" fill="#fff" />
+        <circle cx="1822.05" cy="764.46" r="1.34" fill="#fff" />
+        <path
+            d="M1593.51,971.34l.25-1.55a4.27,4.27,0,0,1,3.18-3.48h0a4.27,4.27,0,0,1-3.18-3.48l-.25-1.56-.25,1.56a4.29,4.29,0,0,1-3.18,3.48h0a4.29,4.29,0,0,1,3.18,3.48Z"
+            transform="translate(0 0)" fill="#fff" />
+
+
+        <circle cx="1566.04" cy="876.14" r="0.67" fill="#fff" />
+        <circle cx="1644.92" cy="926.15" r="0.67" fill="#fff" />
+        <circle cx="1737.22" cy="914.74" r="0.67" fill="#fff" />
+        <circle cx="1712.38" cy="941.59" r="0.67" fill="#fff" />
+        <circle cx="1654.65" cy="931.52" r="1.34" fill="#fff" />
+        <circle cx="1850.74" cy="1028.27" r="0.67" fill="#fff" />
+        <circle cx="1758.44" cy="1016.85" r="0.67" fill="#fff" />
+        <circle cx="1783.28" cy="1043.7" r="0.67" fill="#fff" />
+        <circle cx="1841.01" cy="1033.64" r="1.34" fill="#fff" />
+    </g>
+
+    <g opacity="0.8" transform="translate(-201.72 196.85)">
+
+        <animateMotion path="M1599.5-1377.5s-3144.19,3160.67-3193,3193" dur="40s" repeatCount="indefinite" />
+
+        <rect x="263.56" y="163.34" width="79.55" height="2.69" rx="1.22"
+            transform="translate(-27.6 262.73) rotate(-45)" fill="url(#linear-gradient-2)" />
+
+        <rect x="409.36" y="44.69" width="42.03" height="2.69" rx="1.22" transform="translate(93.5 317.8) rotate(-45)"
+            fill="url(#linear-gradient-3)" />
+        <rect x="908.46" y="258.83" width="42.03" height="2.69" rx="1.22"
+            transform="translate(88.26 733.44) rotate(-45)" fill="url(#linear-gradient-4)" />
+        <rect x="1512.62" y="433.84" width="79.55" height="2.69" rx="1.22"
+            transform="translate(146.97 1225.17) rotate(-45)" fill="url(#linear-gradient-5)" />
+        <rect x="1382.48" y="44.69" width="42.03" height="2.69" rx="1.22"
+            transform="translate(378.52 1005.9) rotate(-45)" fill="url(#linear-gradient-6)" />
+        <rect x="1881.58" y="258.83" width="42.03" height="2.69" rx="1.22"
+            transform="translate(373.28 1421.54) rotate(-45)" fill="url(#linear-gradient-7)" />
+        <rect x="1206.95" y="508.15" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-0.6 1017.53) rotate(-45)" fill="url(#linear-gradient-8)" />
+        <rect x="539.5" y="956.42" width="79.55" height="2.69" rx="1.22"
+            transform="translate(-507.58 690.13) rotate(-45)" fill="url(#linear-gradient-9)" />
+
+    </g>
+
+    <g opacity="0.8" transform="translate(-201.72 196.85)">
+
+        <animateMotion path="M1057-835S-1200.69,1439.17-1249.5,1471.5" begin="0s" dur="20s" repeatCount="indefinite" />
+
+
+
+        <rect x="1206.95" y="508.15" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-0.6 1017.53) rotate(-45)" fill="url(#linear-gradient-8)" />
+        <rect x="539.5" y="956.42" width="79.55" height="2.69" rx="1.22"
+            transform="translate(-507.58 690.13) rotate(-45)" fill="url(#linear-gradient-9)" />
+        <rect x="409.36" y="567.28" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-276.02 470.86) rotate(-45)" fill="url(#linear-gradient-10)" />
+        <rect x="908.46" y="781.42" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-281.26 886.5) rotate(-45)" fill="url(#linear-gradient-11)" />
+        <rect x="233.83" y="1030.74" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-655.15 482.49) rotate(-45)" fill="url(#linear-gradient-12)" />
+        <rect x="1512.62" y="956.42" width="79.55" height="2.69" rx="1.22"
+            transform="translate(-222.56 1378.23) rotate(-45)" fill="url(#linear-gradient-13)" />
+        <rect x="1881.58" y="781.42" width="42.03" height="2.69" rx="1.22"
+            transform="translate(3.76 1574.6) rotate(-45)" fill="url(#linear-gradient-14)" />
+    </g>
+
+    <g opacity="0.8" transform="translate(-201.72 196.85)">
+
+        <animateMotion path="M1057-835S-1200.69,1439.17-1249.5,1471.5" begin="10s" dur="20s" repeatCount="indefinite" />
+
+
+
+        <rect x="1206.95" y="508.15" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-0.6 1017.53) rotate(-45)" fill="url(#linear-gradient-8)" />
+        <rect x="539.5" y="956.42" width="79.55" height="2.69" rx="1.22"
+            transform="translate(-507.58 690.13) rotate(-45)" fill="url(#linear-gradient-9)" />
+        <rect x="409.36" y="567.28" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-276.02 470.86) rotate(-45)" fill="url(#linear-gradient-10)" />
+        <rect x="908.46" y="781.42" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-281.26 886.5) rotate(-45)" fill="url(#linear-gradient-11)" />
+        <rect x="233.83" y="1030.74" width="42.03" height="2.69" rx="1.22"
+            transform="translate(-655.15 482.49) rotate(-45)" fill="url(#linear-gradient-12)" />
+        <rect x="1512.62" y="956.42" width="79.55" height="2.69" rx="1.22"
+            transform="translate(-222.56 1378.23) rotate(-45)" fill="url(#linear-gradient-13)" />
+        <rect x="1881.58" y="781.42" width="42.03" height="2.69" rx="1.22"
+            transform="translate(3.76 1574.6) rotate(-45)" fill="url(#linear-gradient-14)" />
+    </g>
+
+</svg>
