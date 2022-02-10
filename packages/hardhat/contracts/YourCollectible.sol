@@ -56,9 +56,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     address payable public constant recipient =
         payable(0x6946EC240f5C64D6AF2b3a210394a9D24737d1E6);
 
-    uint256 public constant limit = 1000;
-    uint256 public constant curve = 1002; // price increase 0,2% with each purchase
-    uint256 public price = 0.001 ether;
+    uint256 public constant limit = 5000;
+    uint256 public price = 0.05 ether;
 
     uint256 public priceToUpgrade = 4000e18; // in BLB
 
@@ -285,7 +284,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     function mintItem() public payable returns (uint256) {
         require(_tokenIds.current() < limit, "DONE MINTING");
         require(msg.value >= price, "NOT ENOUGH");
-        price = (price * curve) / 1000;
         uint256 id = _tokenIds.current();
         _tokenIds.increment();
         _mint(msg.sender, id);
@@ -516,7 +514,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                 ),
                 fullFaceGenerator.render(
                     idToBlobber[id].fullFace,
-                    cols[idToBlobber[id].fullFaceColor]
+                    cols[idToBlobber[id].fullFaceColor],
+                    cols[idToBlobber[id].bodyColor]
                 ),
                 detailGenerator.render(
                     idToBlobber[id].detail,

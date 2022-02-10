@@ -8,7 +8,7 @@ contract SVGFullFaceGenerator {
 
     constructor() {}
 
-    function render(uint8 fullFace, string memory color)
+    function render(uint8 fullFace, string memory color, string memory bodycolor)
         external
         pure
         returns (string memory)
@@ -54,7 +54,7 @@ contract SVGFullFaceGenerator {
                 string(
                     abi.encodePacked(
                         '<g fill="#',
-                        color,
+                        bodycolor,
                         '"><path d="M714,390H456a58,58,0,0,0-58,58h0a58,58,0,0,0,58,58h71v31a58,58,0,0,0,58,58h0a58,58,0,0,0,58-58V506h71a58,58,0,0,0,58-58h0A58,58,0,0,0,714,390Z" fill="#c9ae90" /><path d="M650.5,262a28.42,28.42,0,0,1-20-8.2,28.5,28.5,0,1,1,0-40.6,28.49,28.49,0,0,1,40,0A28.51,28.51,0,0,1,718,226.09a28.73,28.73,0,0,1,1,7.41" stroke="none" />',
                         '<path d="M650.5,262a28.42,28.42,0,0,0,20-8.2,28.5,28.5,0,1,0,0-40.6,28.49,28.49,0,0,0-40,0A28.51,28.51,0,0,0,583,226.09a28.73,28.73,0,0,0-1,7.41" /><path d="M772,528a53,53,0,0,0,0-106Z" fill="#c9ae90" transform="translate(0 10)" />',
                         '<circle cx="315" cy="475" r="53" fill="#c9ae90" transform="translate(0 10)" /><path d="M315,500a25,25,0,0,1,0-50" fill="none" transform="translate(0 10)" />',

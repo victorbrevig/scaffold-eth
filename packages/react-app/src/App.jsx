@@ -397,7 +397,7 @@ function App(props) {
       <div style={{ maxWidth: 820, margin: "auto", marginTop: 32, paddingBottom: 32 }}>
         <div style={{ fontSize: 16 }}>
           <p>
-            Only <strong>{maxSupply} Blobbers</strong> available on a price curve <strong>increasing 0.2%</strong> with each new mint.
+            Only <strong>{maxSupply} Blobbers</strong> available to mint.
           </p>
         </div>
 
