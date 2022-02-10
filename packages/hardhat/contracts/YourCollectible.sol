@@ -112,9 +112,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     mapping(uint256 => Blobber) private idToBlobber;
 
-    mapping(uint256 => uint256) public chubbiness; // Not used
-    mapping(uint256 => uint256) public mouthLength; // Not used
-
     uint8 constant colsLength = 73;
     string[colsLength] cols = [
         "252525",
@@ -191,6 +188,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         "da9760",
         "484872"
     ];
+
 
     uint8 constant noOfHats = 33;
     uint8 constant noOfEyes = 24;
@@ -320,13 +318,8 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         idToBlobber[id].fullFaceColor = uint8(predictableRandom[16]) % (colsLength);
         idToBlobber[id].maskColor     = uint8(predictableRandom[17]) % (colsLength);
 
-        // 3 modes (set rarity)
         idToBlobber[id].mode = uint8(predictableRandom[18]) % 1;
-
         idToBlobber[id].upgraded = false;
-
-        chubbiness[id] = 35 + ((55 * uint256(uint8(predictableRandom[3]))) / 255);
-        mouthLength[id] = 180 + ((uint256(chubbiness[id] / 4) * uint256(uint8(predictableRandom[4]))) / 255);
 
         idToLastBlockClaimed[id] = block.number - 1;
         mintBlockNumbersArray[id] = block.number;
@@ -367,14 +360,14 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                 name,
                 '", "description":"',
                 description,
-                '", "external_url":"https://burnyboys.com/token/',
+                '", "external_url":"https://blobbers.io/',
                 id.toString(),
                 '", "attributes": [{"trait_type": "color", "value": "#',
                 cols[idToBlobber[id].bodyColor],
-                '"},{"trait_type": "chubbiness", "value": ',
-                uint2str(chubbiness[id]),
-                '},{"trait_type": "mouthLength", "value": ',
-                uint2str(mouthLength[id]),
+                '"},{"trait_type": "full-face", "value": ',
+                uint2str(idToBlobber[id].fullFace),
+                '},{"trait_type": "hat", "value": ',
+                uint2str(idToBlobber[id].hat),
                 '}], "owner":"'
             )
         );
