@@ -23,11 +23,11 @@ function YourBlobbers({
   transferToAddresses,
   setTransferToAddresses,
   address,
-  yourCollectibleAddress,
+  yourCollectibleAddress
 }) {
   const [yourBlobbers, setYourBlobbers] = useState();
-  const [page, setPage] = useState(1);
   const [loadingBlobbers, setLoadingBlobbers] = useState(true);
+  const [page, setPage] = useState(1);
   const perPage = 8;
   const { Paragraph, Title } = Typography;
 

@@ -33,7 +33,7 @@ function Home({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBU
                                 <Title level={2} style={{ fontSize: 34, marginRight: 8 }}>What are Blobbers?</Title>
                                 <Paragraph style={{ fontSize: 14 }}>
                                     Planet Blob-6 has become unhabitable due to global warming... sounds familiar? All of its inhabitants, the Blobbers, have had to migrate to other planets in the known universe where life is prosperous. Earth has caught their attention, and as they start their migration to our planet, the Blobbers are getting used to our weird clothes and consumer products. It seems that all they want is to find an owner that adopts them and in return, they'll produce some sort of BLOB which to them is just their poop, but to us humans it has value, it's cryptocurrency! Mint and collect these blobbers, each with their own traits, some rarer than others and help the blobbers carry on their legacy as the first life forms to excrete cryptocurrency.
-                                    Blobbers is a diverse NFT collection on the Optimism network. Each blobber is drawn from SVG code which is fully on-chain. This allows the owner of a blobber to change it's apperance through upgrades.
+                                    Blobbers is a diverse NFT collection on Arbitrum. Each blobber is drawn from SVG code which is fully on-chain. This allows the owner of a blobber to change it's apperance through upgrades.
                                 </Paragraph>
                             </div>
 

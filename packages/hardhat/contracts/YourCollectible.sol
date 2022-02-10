@@ -58,9 +58,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     uint256 public constant limit = 5000;
     uint256 public price = 0.05 ether;
-
     uint256 public priceToUpgrade = 4000e18; // in BLB
-
     uint256 issuancePerBlock = 1000 * 1e18;
 
     constructor(
@@ -202,20 +200,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 constant noOfExtras = 5;
     uint8 constant noOfDetails = 8;
     uint8 constant noOfBodies = 6;
-
-    /*
-  // NFT id => timestamp of last time BLB collected
-  mapping (uint256 => uint256) public lastBlockHarvestedById;
-  uint256 issuancePerBlock = 1000;
-  // when a mint happens, the issuancePerBlock is split between one more Blobber
-  // calculating rewards:
-  // 40 blocks * 1000/1 -> (next mint happens) + 69 blocks * 1000/2 -> (next mint happens) + 100 blocks * 1000/3 + ...
-  // 22, 23, 26
-  // 20 blocks * 1000/1 -> (20-22)
-  // 2*(issuance #block 20)
-  // we need to store triples (supply, start block with that supply, end block with that supply) 
-  
-  */
     function viewBlockNumber() public view returns (uint256) {
         return block.number;
     }
@@ -281,9 +265,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         return idToBlobber[_id];
     }
 
-    function mintItem() public payable returns (uint256) {
-        require(_tokenIds.current() < limit, "DONE MINTING");
-        require(msg.value >= price, "NOT ENOUGH");
+    function mintItem() private returns (uint256) {
         uint256 id = _tokenIds.current();
         _tokenIds.increment();
         _mint(msg.sender, id);
@@ -296,25 +278,17 @@ contract YourCollectible is ERC721Enumerable, Ownable {
             )
         );
         idToBlobber[id].bodyColor = uint8(predictableRandom[0]) % (colsLength);
-        idToBlobber[id].gradientColor1 =
-            uint8(predictableRandom[1]) %
-            (colsLength);
-        idToBlobber[id].gradientColor2 =
-            uint8(predictableRandom[2]) %
-            (colsLength);
+        idToBlobber[id].gradientColor1 = uint8(predictableRandom[1]) % (colsLength);
+        idToBlobber[id].gradientColor2 = uint8(predictableRandom[2]) % (colsLength);
         idToBlobber[id].tier = uint8(predictableRandom[3]) % noOfBodies;
-        idToBlobber[id].fullFace =
-            uint8(predictableRandom[4]) %
-            (noOfFullFaces * 10); // 10% chance for fullface
+        idToBlobber[id].fullFace = uint8(predictableRandom[4]) % (noOfFullFaces * 20); // 5% chance for fullface
 
         if (idToBlobber[id].fullFace < noOfFullFaces) {
             // set all others to default
             idToBlobber[id].mouth = 99;
             idToBlobber[id].eye = 99;
             idToBlobber[id].hat = 99;
-            idToBlobber[id].extra =
-                uint8(predictableRandom[5]) %
-                (noOfExtras * 2); // 50% chance of extra when full face
+            idToBlobber[id].extra = uint8(predictableRandom[5]) % (noOfExtras * 2); // 50% chance of extra when full face
             idToBlobber[id].detail = 99;
             idToBlobber[id].mask = 99;
         } else {
@@ -329,60 +303,49 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                 idToBlobber[id].eye = 99;
             } else {
                 // We didnt roll a mask, set mouth and eye
-                idToBlobber[id].mouth =
-                    uint8(predictableRandom[6]) %
-                    noOfMouths;
+                idToBlobber[id].mouth = uint8(predictableRandom[6]) % noOfMouths;
                 idToBlobber[id].eye = uint8(predictableRandom[7]) % noOfEyes;
             }
 
-            idToBlobber[id].hat = uint8(predictableRandom[8]) % noOfHats;
-            idToBlobber[id].extra =
-                uint8(predictableRandom[9]) %
-                (noOfExtras * 10);
-            idToBlobber[id].detail =
-                uint8(predictableRandom[10]) %
-                (noOfDetails * 3);
+            idToBlobber[id].hat     = uint8(predictableRandom[8]) % noOfHats;
+            idToBlobber[id].extra   = uint8(predictableRandom[9]) % (noOfExtras * 10);
+            idToBlobber[id].detail  = uint8(predictableRandom[10]) % (noOfDetails * 3);
         }
 
-        // condom (no. 11) must have same color as body
-        idToBlobber[id].hatColor = idToBlobber[id].hat == 11
-            ? idToBlobber[id].bodyColor
-            : uint8(predictableRandom[11]) % (colsLength);
-        idToBlobber[id].mouthColor =
-            uint8(predictableRandom[12]) %
-            (colsLength);
-        idToBlobber[id].extraColor =
-            uint8(predictableRandom[13]) %
-            (colsLength);
-        idToBlobber[id].detailColor =
-            uint8(predictableRandom[14]) %
-            (colsLength);
-        idToBlobber[id].eyeColor = uint8(predictableRandom[15]) % (colsLength);
-        idToBlobber[id].fullFaceColor =
-            uint8(predictableRandom[16]) %
-            (colsLength);
-        idToBlobber[id].maskColor = uint8(predictableRandom[17]) % (colsLength);
+        idToBlobber[id].hatColor      = uint8(predictableRandom[11]) % (colsLength);
+        idToBlobber[id].mouthColor    = uint8(predictableRandom[12]) % (colsLength);
+        idToBlobber[id].extraColor    = uint8(predictableRandom[13]) % (colsLength);
+        idToBlobber[id].detailColor   = uint8(predictableRandom[14]) % (colsLength);
+        idToBlobber[id].eyeColor      = uint8(predictableRandom[15]) % (colsLength);
+        idToBlobber[id].fullFaceColor = uint8(predictableRandom[16]) % (colsLength);
+        idToBlobber[id].maskColor     = uint8(predictableRandom[17]) % (colsLength);
+
         // 3 modes (set rarity)
         idToBlobber[id].mode = uint8(predictableRandom[18]) % 1;
 
         idToBlobber[id].upgraded = false;
 
-        chubbiness[id] =
-            35 +
-            ((55 * uint256(uint8(predictableRandom[3]))) / 255);
-        mouthLength[id] =
-            180 +
-            ((uint256(chubbiness[id] / 4) *
-                uint256(uint8(predictableRandom[4]))) / 255);
-        // Send to recipient address
-        (bool success, ) = recipient.call{value: msg.value}("");
-        require(success, "could not send");
+        chubbiness[id] = 35 + ((55 * uint256(uint8(predictableRandom[3]))) / 255);
+        mouthLength[id] = 180 + ((uint256(chubbiness[id] / 4) * uint256(uint8(predictableRandom[4]))) / 255);
 
         idToLastBlockClaimed[id] = block.number - 1;
         mintBlockNumbersArray[id] = block.number;
 
         emit Mint(msg.sender, id);
         return id;
+    }
+
+
+    function mintItems(uint8 number) public payable {
+        require(_tokenIds.current() + (number-1) < limit, "DONE MINTING");
+        require(msg.value >= price*number, "NOT ENOUGH");
+        require(number >= 1 && number <= 10, "NOT IN RANGE");
+        for(uint8 i=0; i < number; i++) {
+            mintItem();
+        }
+        // Send to recipient address
+        (bool success, ) = recipient.call{value: msg.value}("");
+        require(success, "could not send");
     }
 
     function tokenURI(uint256 id) public view override returns (string memory) {
@@ -552,14 +515,6 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         );
         idToBlobber[id].eye = uint8(predictableRandom[7]) % noOfEyes;
         emit Upgrade(msg.sender, id);
-    }
-
-    function burn(uint256 tokenId) internal {
-        require(
-            _isApprovedOrOwner(_msgSender(), tokenId),
-            "ERC721Burnable: caller is not owner nor approved"
-        );
-        _burn(tokenId);
     }
 
     function totalMinted() public view returns (uint256) {

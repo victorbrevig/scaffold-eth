@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Alert, Button, Col, Menu, Row } from "antd";
+import { Alert, Button, Col, Menu, Row, Slider } from "antd";
 import "antd/dist/antd.css";
 import {
   useBalance,
@@ -37,7 +37,7 @@ import { useStaticJsonRPC } from "./hooks";
 import { FaDiscord, FaTwitter } from 'react-icons/fa';
 
 
-const { ethers } = require("ethers");
+const { ethers, BigNumber } = require("ethers");
 /*
     Welcome to 🏗 scaffold-eth !
 
@@ -82,6 +82,7 @@ const providers = [
 function App(props) {
   const [injectedProvider, setInjectedProvider] = useState();
   const [address, setAddress] = useState();
+  const [slider, setSlider] = useState(1);
   const location = useLocation();
 
   // load all your providers
@@ -190,122 +191,6 @@ function App(props) {
 
   const [transferToAddresses, setTransferToAddresses] = useState({});
 
-  /*
-  console.log("MintEvent ----------------");
-  console.log(mintEvent);
-  console.log("----------------------------------");
-
-  console.log("UpgradeEvent ----------------");
-  console.log(upgradeEvent);
-  console.log("----------------------------------");
-  
-  console.log("YourCollectibles ----------------");
-  console.log(yourCollectibles);
-  console.log("----------------------------------");
-  */
-
-  /*
-  useEffect(() => {
-    const updateYourCollectibles = async () => {
-      const collectibleUpdate = [];
-      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
-        try {
-          if (DEBUG) console.log("Getting token index", tokenIndex);
-          const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
-          if (DEBUG) console.log("Getting Blobber tokenId: ", tokenId);
-          const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
-
-          const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
-
-          if (DEBUG) console.log("tokenURI: ", tokenURI);
-          const jsonManifestString = atob(tokenURI.substring(29));
-
-          try {
-            const jsonManifest = JSON.parse(jsonManifestString);
-            collectibleUpdate.push({ id: tokenId, uri: tokenURI, owner: address, tokensToClaim: tokensToClaim, ...jsonManifest });
-          } catch (e) {
-            console.log(e);
-          }
-        } catch (e) {
-          console.log(e);
-        }
-      }
-      console.log("::::::::::::::::::::::::::::::::::::");
-      setYourCollectibles(collectibleUpdate.reverse());
-    };
-    updateYourCollectibles();
-  }, [address, yourBalance]);
-
-  // When Upgrade event is emitted, ONLY fetch tokenURI for the upraded nft
-  useEffect(() => {
-    const updateYourCollectibles = async () => {
-      const collectibleUpdate = [];
-      let tokenId;
-      try {
-        const lastEvent = upgradeEvent[upgradeEvent.length - 1];
-        tokenId = lastEvent.args[1].toNumber();
-      } catch (e) {
-        console.log(e);
-      }
-      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
-        try {
-          const collectible = yourCollectibles[tokenIndex];
-          if (tokenId == collectible.id) {
-            const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
-            const jsonManifestString = atob(tokenURI.substring(29));
-            try {
-              const jsonManifest = JSON.parse(jsonManifestString);
-              collectibleUpdate.push({ id: collectible.id, uri: tokenURI, owner: address, tokensToClaim: collectible.tokensToClaim, ...jsonManifest });
-            } catch (e) {
-              console.log(e);
-            }
-          }
-          else {
-            try {
-              collectibleUpdate.push(collectible);
-            } catch (e) {
-              console.log(e);
-            }
-          }
-        } catch (e) {
-          console.log(e);
-        }
-      }
-      console.log("/////////////////////////////////////////");
-      setYourCollectibles(collectibleUpdate);
-      console.log(yourCollectibles);
-    };
-    updateYourCollectibles();
-  }, [upgradeEvent]);
-  
-
-  // Only fetch tokensToClaim yourTokenBalance changes
-  useEffect(() => {
-    const updateYourCollectibles = async () => {
-      const collectibleUpdate = [];
-      for (let tokenIndex = 0; tokenIndex < balance; tokenIndex++) {
-        try {
-          let collectible = yourCollectibles[tokenIndex];
-          let tokenId = collectible.id;
-          const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
-          collectible.tokensToClaim = tokensToClaim;
-
-          try {
-            collectibleUpdate.push(collectible);
-          } catch (e) {
-            console.log(e);
-          }
-        } catch (e) {
-          console.log(e);
-        }
-      }
-      console.log("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
-      setYourCollectibles(collectibleUpdate);
-      console.log(yourCollectibles);
-    };
-    updateYourCollectibles();
-  }, [yourTokenBalance]);
-  */
 
   //
   // 🧫 DEBUG 👨🏻‍🔬
@@ -399,6 +284,9 @@ function App(props) {
           <p>
             Only <strong>{maxSupply} Blobbers</strong> available to mint.
           </p>
+          <p>
+            Use the slider to choose how many Blobbers to mint
+          </p>
         </div>
 
         <Button
@@ -406,15 +294,24 @@ function App(props) {
           onClick={async () => {
             const priceRightNow = await readContracts.YourCollectible.price();
             try {
-              const txCur = await tx(writeContracts.YourCollectible.mintItem({ value: priceRightNow }));
+              const txCur = await tx(writeContracts.YourCollectible.mintItems(slider, { value: priceRightNow.mul(slider) }));
               await txCur.wait();
             } catch (e) {
               console.log("mint failed", e);
             }
           }}
         >
-          MINT for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)).toFixed(4)}
+          MINT {slider} for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)*slider).toFixed(2)}
         </Button>
+        
+        <div style={{maxWidth: 300, margin: "auto"}}>
+          <Slider 
+            min={1} 
+            max={10} 
+            step={1} 
+            onChange={(value) => setSlider(value)}>
+          </Slider>
+        </div>
 
         <p style={{ fontWeight: "bold" }}>
           {blobbersLeft} left
@@ -563,13 +460,13 @@ function App(props) {
         <Row align="middle" gutter={[4, 4]}>
 
           <Col span={8} style={{ marginRight: 20 }}>
-            <a href="https://discord.gg/efrUhB7J" target="_blank">
+            <a href="discord.gg/vHaYttpWHQ" target="_blank">
               <FaDiscord style={{ color: "#fff", width: 30, height: 30 }} />
             </a>
           </Col>
 
           <Col span={8} style={{ textAlign: "center" }}>
-            <a href="https://twitter.com/home" target="_blank">
+            <a href="https://twitter.com/blobbersio" target="_blank">
               <FaTwitter style={{ color: "#fff", width: 30, height: 30 }} />
             </a>
           </Col>
