@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const directoryName = "build";
 
-const BUCKETNAME = "YOUR_BUCKET_NAME_HERE"; // <<---- SET YOUR BUCKET NAME AND CREATE aws.json ** see below vvvvvvvvvv
+const BUCKETNAME = "blobbers.io"; // <<---- SET YOUR BUCKET NAME AND CREATE aws.json ** see below vvvvvvvvvv
 
 if (!BUCKETNAME) {
   console.log("☢️   Enter a bucket name in packages/react-app/scripts/s3.js ");
@@ -77,6 +77,13 @@ s3.createBucket(bucketParams, function(err, data) {
         ///
         /// After the bucket is created, we upload to it:
         ///
+
+        var fs = require('fs');
+        var files = fs.readdirSync(directoryName);
+        console.log("--------------------");
+        console.log(files);
+        console.log("--------------------");
+
         s3FolderUpload(directoryName, credentials, options /* , invalidation */);
       }
     });

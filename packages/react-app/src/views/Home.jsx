@@ -9,7 +9,7 @@ import BOX from "../upgradeBig.svg";
 import BLOBBER from "../blobberBig.svg";
 import COIN from "../coinBig.svg";
 
-function Home({ readContracts, mainnetProvider, blockExplorer, totalSupply, DEBUG }) {
+function Home() {
 
     const { Paragraph, Title } = Typography;
 
