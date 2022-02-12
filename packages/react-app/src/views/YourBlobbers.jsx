@@ -40,16 +40,10 @@ function YourBlobbers({
         let startIndex = yourBalance - 1 - perPage * (page - 1);
         for (let tokenIndex = startIndex; tokenIndex > startIndex - perPage && tokenIndex >= 0; tokenIndex--) {
           try {
-            console.log("TIMEBEFORE1: " + new Date(Date.now()));
             const tokenId = await readContracts.YourCollectible.tokenOfOwnerByIndex(address, tokenIndex);
-            console.log("TIMEAFTER1: " + new Date(Date.now()));
-            console.log("TIMEBEFORE2: " + new Date(Date.now()));
             const tokenURI = await readContracts.YourCollectible.tokenURI(tokenId);
-            console.log("TIMEAFTER2: " + new Date(Date.now()));
             const jsonManifestString = atob(tokenURI.substring(29));
-            console.log("TIMEBEFORE3: " + new Date(Date.now()));
             const tokensToClaim = await readContracts.YourCollectible.amountAvailableToClaim(tokenId);
-            console.log("TIMEAFTER3: " + new Date(Date.now()));
             try {
               const jsonManifest = JSON.parse(jsonManifestString);
               collectibleUpdate.push({ id: tokenId, uri: tokenURI, tokensToClaim: tokensToClaim, owner: address, ...jsonManifest });
@@ -64,7 +58,6 @@ function YourBlobbers({
         setLoadingBlobbers(false);
       }
     };
-    console.log("FULLREFRESTFULLREFRESHFULLREFRESH");
     updateYourBlobbers();
   }, [readContracts.YourCollectible, page, yourBalance]);
 
@@ -74,17 +67,10 @@ function YourBlobbers({
       let eventAddress;
       try {
         const lastEvent = claimEvent[claimEvent.length - 1];
-        console.log("/////////////////////////////");
-        console.log(lastEvent);
-        console.log("/////////////////////////////");
         eventAddress = lastEvent.args[0];
       } catch (e) {
         console.log(e);
       }
-      console.log("-----------------------------");
-      console.log(address);
-      console.log(eventAddress);
-      console.log("-----------------------------");
 
       if (address != eventAddress)
         return;
@@ -108,7 +94,6 @@ function YourBlobbers({
       setYourBlobbers(collectibleUpdate);
     };
     updateTokensToClaim();
-    console.log("TOKENSTOCLAIMTOKENSTOCLAIMTOKENSTOCLAIM");
   }, [claimEvent]);
 
   useEffect(() => {
@@ -148,7 +133,6 @@ function YourBlobbers({
       setYourBlobbers(collectibleUpdate);
     };
     upgradeBlooperUpdate();
-    console.log("UPGRADEUPGRADEUPGRADEUPGRADEUPGRADE");
   }, [upgradeEvent]);
 
 
@@ -254,8 +238,10 @@ function YourBlobbers({
                       Available to claim:
                     </p>
                     <Balance balance={tokensToClaim} fontSize={24} />
-                    {renderUpgradeButton()}
-                    {renderClaimButton()}
+                    <div style={{display: "inline-block"}}>
+                      {renderUpgradeButton()}
+                      {renderClaimButton()}
+                    </div>
                   </Card>
                 </List.Item>
               );

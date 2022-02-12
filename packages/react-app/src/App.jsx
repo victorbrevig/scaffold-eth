@@ -175,7 +175,7 @@ function App(props) {
 
 
   // CHANGE ON EVERY DEPLOY TO UPGRADE
-  const yourCollectibleAddress = "0xc5a5C42992dECbae36851359345FE25997F5C42d";
+  const yourCollectibleAddress = "0x7B30384cc2A8f9D97CF11D14A18479Fd610321F2";
 
   const tokenAllowance = useContractReader(readContracts, "BlobToken", "allowance", [address, yourCollectibleAddress]);
 

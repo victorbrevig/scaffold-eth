@@ -18622,40 +18622,40 @@ span.ant-transfer-list-search-action {
   background-color: #262626;
 }
 .ant-slider-track {
-  background-color: #244a58;
+  background-color: #f0bf4c;
 }
 .ant-slider-handle {
   position: absolute;
   width: 14px;
   height: 14px;
   margin-top: -5px;
-  background-color: #212121;
-  border: solid 2px #244a58;
+  background-color: #191342;
+  border: solid 2px #f0bf4c;
   border-radius: 50%;
   box-shadow: 0;
   cursor: pointer;
   transition: border-color 0.3s, box-shadow 0.6s, transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 .ant-slider-handle-dragging.ant-slider-handle-dragging.ant-slider-handle-dragging {
-  border-color: #56bbe1;
+  border-color: #f0bf4c;
   box-shadow: 0 0 0 5px rgba(44, 170, 217, 0.12);
 }
 .ant-slider-handle:focus {
-  border-color: #56bbe1;
+  border-color: #f0bf4c;
   outline: 0;
   box-shadow: 0 0 0 5px rgba(44, 170, 217, 0.12);
 }
 .ant-slider-handle.ant-tooltip-open {
-  border-color: #F9BD28;
+  border-color: #f0bf4c;
 }
 .ant-slider:hover .ant-slider-rail {
   background-color: #6f6c6c;
 }
 .ant-slider:hover .ant-slider-track {
-  background-color: #265f74;
+  background-color: #f0bf4c;
 }
 .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
-  border-color: #265f74;
+  border-color: #f0bf4c;
 }
 .ant-slider-mark {
   position: absolute;
