@@ -189,6 +189,82 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         "484872"
     ];
 
+    uint8[colsLength] gradientMap = [
+        1,
+        10,
+        55,
+        38,
+        42,
+        64,
+        11,
+        45,
+        25,
+        12,
+        58,
+        26,
+        65,
+        53,
+        30,
+        37,
+        52,
+        70,
+        24,
+        47,
+        5,
+        68,
+        63,
+        15,
+        9,
+        72,
+        57,
+        34,
+        61,
+        28,
+        54,
+        33,
+        36,
+        14,
+        20,
+        43,
+        31,
+        35,
+        60,
+        69,
+        0,
+        59,
+        22,
+        51,
+        19,
+        29,
+        40,
+        66,
+        46,
+        49,
+        44,
+        6,
+        17,
+        4,
+        16,
+        23,
+        62,
+        3,
+        18,
+        39,
+        21,
+        32,
+        50,
+        13,
+        56,
+        7,
+        41,
+        27,
+        2,
+        67,
+        71,
+        48,
+        8
+    ];
+
 
     uint8 constant noOfHats = 33;
     uint8 constant noOfEyes = 24;
@@ -198,6 +274,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 constant noOfExtras = 5;
     uint8 constant noOfDetails = 8;
     uint8 constant noOfBodies = 6;
+    uint8 constant noOfModes = 3;
     function viewBlockNumber() public view returns (uint256) {
         return block.number;
     }
@@ -277,7 +354,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         );
         idToBlobber[id].bodyColor = uint8(predictableRandom[0]) % (colsLength);
         idToBlobber[id].gradientColor1 = uint8(predictableRandom[1]) % (colsLength);
-        idToBlobber[id].gradientColor2 = uint8(predictableRandom[2]) % (colsLength);
+        idToBlobber[id].gradientColor2 = idToBlobber[id].gradientColor1;
         idToBlobber[id].tier = uint8(predictableRandom[3]) % noOfBodies;
         idToBlobber[id].fullFace = uint8(predictableRandom[4]) % (noOfFullFaces * 20); // 5% chance for fullface
 
@@ -414,7 +491,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                 cols[idToBlobber[id].gradientColor1],
                 '" />',
                 '<stop offset="1" stop-color="#',
-                cols[idToBlobber[id].gradientColor1],
+                cols[idToBlobber[id].gradientColor2],
                 '" /></linearGradient>'
             )
         );
@@ -506,7 +583,10 @@ contract YourCollectible is ERC721Enumerable, Ownable {
                 id
             )
         );
-        idToBlobber[id].eye = uint8(predictableRandom[7]) % noOfEyes;
+
+        // set gradient color
+        idToBlobber[id].gradientColor2 = gradientMap[idToBlobber[id].gradientColor1];
+        idToBlobber[id].mode = uint8(predictableRandom[0]) % noOfModes;
         emit Upgrade(msg.sender, id);
     }
 
