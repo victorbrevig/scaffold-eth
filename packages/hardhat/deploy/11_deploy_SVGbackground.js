@@ -1,4 +1,3 @@
-// deploy/00_deploy_your_contract.js
 
 const { ethers } = require("hardhat");
 
@@ -9,51 +8,15 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   const { deployer } = await getNamedAccounts();
   const chainId = await getChainId();
 
-  const svgBody = await ethers.getContract("SVGBodyGenerator", deployer);
-  const svgHat = await ethers.getContract("SVGHatGenerator", deployer);
-  const svgHat2 = await ethers.getContract("SVGHatGenerator2", deployer);
-  const svgFullFace = await ethers.getContract("SVGFullFaceGenerator", deployer);
-  const svgMask = await ethers.getContract("SVGMaskGenerator", deployer);
-  const svgEye = await ethers.getContract("SVGEyeGenerator", deployer);
-  const svgMouth = await ethers.getContract("SVGMouthGenerator", deployer);
-  const svgMouth2 = await ethers.getContract("SVGMouthGenerator2", deployer);
-  const svgDetail = await ethers.getContract("SVGDetailGenerator", deployer);
-  const svgExtra = await ethers.getContract("SVGExtraGenerator", deployer);
-
-
-  const blobToken = await ethers.getContract("BlobToken", deployer);
-
-
-  await deploy("YourCollectible", {
+  await deploy("SVGBackgroundGenerator", {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    args: [svgBody.address, svgHat.address, svgHat2.address, svgFullFace.address, svgMask.address, svgEye.address, svgMouth.address, svgMouth2.address, svgDetail.address, svgExtra.address, blobToken.address],
     log: true,
   });
 
   // Getting a previously deployed contract
-  const blobbers = await ethers.getContract("YourCollectible", deployer);
-
-
-  // transfer all BLB to this contract
-  const result = await blobToken.transfer(
-    blobbers.address,
-    ethers.utils.parseEther("1000000000")
-  );
-
-
-  
-  // MINT 100
-  for (let i = 0; i < 100; i++) {
-    const id = await blobbers.mintItems(1, { value: ethers.utils.parseEther("0.05")});
-    
-    //console.log(await blobbers.ownerOf("1"));
-    await blobbers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x7B30384cc2A8f9D97CF11D14A18479Fd610321F2", i.toString());
-  }
-  
-
-
+  const SVGBackgroundGenerator = await ethers.getContract("SVGBackgroundGenerator", deployer);
 
 
   /*  await YourContract.setPurpose("Hello");
@@ -93,10 +56,10 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   // You don't want to verify on localhost
   if (chainId !== localChainId) {
     await run("verify:verify", {
-      address: blobbers.address,
-      contract: "contracts/YourCollectible.sol:YourCollectible",
+      address: SVGBackgroundGenerator.address,
+      contract: "contracts/BackgroundGenerator.sol:SVGBackgroundGenerator",
       contractArguments: [],
     });
   }
 };
-module.exports.tags = ["YourCollectible"];
+module.exports.tags = ["SVGBackgroundGenerator"];

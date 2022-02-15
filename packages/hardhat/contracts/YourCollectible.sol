@@ -19,6 +19,7 @@ import "./FullFaceGenerator.sol";
 import "./HatGenerator.sol";
 import "./HatGenerator2.sol";
 import "./MaskGenerator.sol";
+import "./BackgroundGenerator.sol";
 
 import "./BlobToken.sol";
 
@@ -50,6 +51,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     SVGMouthGenerator2 mouthGenerator2;
     SVGDetailGenerator detailGenerator;
     SVGExtraGenerator extraGenerator;
+    SVGBackgroundGenerator backgroundGenerator;
 
     Counters.Counter private _tokenIds;
 
@@ -72,6 +74,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         address mouthGenerator2Address,
         address detailGeneratorAddress,
         address extraGeneratorAddress,
+        address backgroundGeneratorAddress,
         address blobTokenAddress
     ) ERC721("Blobbers", "BLOB") {
         bodyGenerator = SVGBodyGenerator(bodyGeneratorAddress);
@@ -84,6 +87,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         mouthGenerator2 = SVGMouthGenerator2(mouthGenerator2Address);
         detailGenerator = SVGDetailGenerator(detailGeneratorAddress);
         extraGenerator = SVGExtraGenerator(extraGeneratorAddress);
+        backgroundGenerator = SVGBackgroundGenerator(backgroundGeneratorAddress);
         blobToken = BlobToken(blobTokenAddress);
     }
 
@@ -107,6 +111,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         uint8 mask;
         uint8 fullFace;
         uint8 mode;
+        uint8 background;
         bool upgraded;
     }
 
@@ -275,6 +280,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 constant noOfDetails = 8;
     uint8 constant noOfBodies = 6;
     uint8 constant noOfModes = 3;
+    uint8 constant noOfBackgrounds = 2;
     function viewBlockNumber() public view returns (uint256) {
         return block.number;
     }
@@ -357,6 +363,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         idToBlobber[id].gradientColor2 = idToBlobber[id].gradientColor1;
         idToBlobber[id].tier = uint8(predictableRandom[3]) % noOfBodies;
         idToBlobber[id].fullFace = uint8(predictableRandom[4]) % (noOfFullFaces * 20); // 5% chance for fullface
+        idToBlobber[id].background = noOfBackgrounds+1; //no background for normal mints
 
         if (idToBlobber[id].fullFace < noOfFullFaces) {
             // set all others to default
@@ -481,7 +488,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
             svgMode = ' fill-opacity="0.5" ';
         } else if (idToBlobber[id].mode == 2) {
             //glow
-            svgMode = ' stroke="none" style="filter:url(#glow)" ';
+            svgMode = ' stroke="none" ';
         }
 
         string memory svgP1 = string(
@@ -499,7 +506,9 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         string memory svgP2 = string(
             abi.encodePacked(
                 '<filter id="glow"><feGaussianBlur stdDeviation="20" result="coloredBlur" /><feMerge><feMergeNode in="coloredBlur" /><feMergeNode in="SourceGraphic" /></feMerge>',
-                '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" /><g transform="translate(0 60)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
+                '</filter></defs><rect width="1080" height="1080" fill="url(#linear-gradient)" />',
+                backgroundGenerator.render(idToBlobber[id].background),
+                '<g transform="translate(0 60)" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">',
                 extraGenerator.render(
                     idToBlobber[id].extra,
                     cols[idToBlobber[id].extraColor]
@@ -587,6 +596,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         // set gradient color
         idToBlobber[id].gradientColor2 = gradientMap[idToBlobber[id].gradientColor1];
         idToBlobber[id].mode = uint8(predictableRandom[0]) % noOfModes;
+        idToBlobber[id].background = uint8(predictableRandom[1]) % noOfBackgrounds;
         emit Upgrade(msg.sender, id);
     }
 
