@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, List, Typography } from "antd";
+import { Button, Card, Divider, List, Typography } from "antd";
 import { Address, AddressInput } from "../components";
 import Balance from "../components/Balance";
 import { ethers } from "ethers";
@@ -215,6 +215,7 @@ function YourBlobbers({
                       <h2 level={2} style={{ fontSize: 34, marginRight: 0, fontWeight: 10, float: "left", opacity: 0.6 }}>Blobber #</h2>
                       <h2 level={2} style={{ fontSize: 34, marginRight: 0, fontWeight: 900, float: "left" }}>{id}</h2>
                     </div>
+                    <Divider></Divider>
                     <div style={{ marginTop: 20 }}>
                       <AddressInput
                         ensProvider={mainnetProvider}
@@ -227,6 +228,7 @@ function YourBlobbers({
                         }}
                       />
                       <Button
+                        style={{ marginTop: 20 }}
                         onClick={() => {
                           tx(writeContracts.YourCollectible.transferFrom(address, transferToAddresses[id], id));
                         }}
@@ -234,11 +236,11 @@ function YourBlobbers({
                         Transfer
                       </Button>
                     </div>
-                    <p>
+                    <p style={{ marginTop: 10, marginBottom: 0 }}>
                       Available to claim:
                     </p>
                     <Balance balance={tokensToClaim} fontSize={24} />
-                    <div style={{display: "inline-block"}}>
+                    <div style={{ display: "inline-block" }}>
                       {renderUpgradeButton()}
                       {renderClaimButton()}
                     </div>

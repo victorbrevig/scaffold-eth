@@ -75,7 +75,7 @@ contract SVGDetailGenerator {
                     abi.encodePacked(
                         '<g fill="#',
                         color,
-                        '" stroke="none"><rect width="1080" height="1080" fill="#fff" transform="translate(0 -20)" opacity="0" /><rect x="699" y="896" width="87" height="61" rx="30" />',
+                        '"><rect width="1080" height="1080" fill="#fff" transform="translate(0 -20)" opacity="0" /><rect x="699" y="896" width="87" height="61" rx="30" />',
                         '<circle cx="725" cy="915" r="5" fill="#fff" stroke="none" opacity="0.6" /><circle cx="739" cy="920" r="5" fill="#000" stroke="none" opacity="0.3" /><circle cx="757" cy="914" r="5" fill="#fff" stroke="none" opacity="0.6" />',
                         '<circle cx="754" cy="926" r="5" fill="#fff" stroke="none" opacity="0.6" /><circle cx="768" cy="925" r="5" fill="#fff" stroke="none" opacity="0.6" /><circle cx="759" cy="939" r="5" fill="#000" stroke="none" opacity="0.3" />',
                         '<circle cx="743" cy="934" r="5" fill="#fff" stroke="none" opacity="0.6" /><circle cx="730" cy="938" r="5" fill="#000" stroke="none" opacity="0.3" /><circle cx="721" cy="929" r="5" fill="#000" stroke="none" opacity="0.3" />',

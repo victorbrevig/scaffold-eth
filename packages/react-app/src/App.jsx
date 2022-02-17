@@ -175,7 +175,7 @@ function App(props) {
 
 
   // CHANGE ON EVERY DEPLOY TO UPGRADE
-  const yourCollectibleAddress = "0x5A50e02607f5B093f346a1CD917C4f895dEBE217";
+  const yourCollectibleAddress = "0x70eE76691Bdd9696552AF8d4fd634b3cF79DD529";
 
   const tokenAllowance = useContractReader(readContracts, "BlobToken", "allowance", [address, yourCollectibleAddress]);
 
@@ -301,14 +301,14 @@ function App(props) {
             }
           }}
         >
-          MINT {slider} for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint)*slider).toFixed(2)}
+          MINT {slider} for Ξ{priceToMint && (+ethers.utils.formatEther(priceToMint) * slider).toFixed(2)}
         </Button>
-        
-        <div style={{maxWidth: 300, margin: "auto"}}>
-          <Slider 
-            min={1} 
-            max={10} 
-            step={1} 
+
+        <div style={{ maxWidth: 300, margin: "auto" }}>
+          <Slider
+            min={1}
+            max={10}
+            step={1}
             onChange={(value) => setSlider(value)}>
           </Slider>
         </div>
