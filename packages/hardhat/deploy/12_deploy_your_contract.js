@@ -29,7 +29,7 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
     // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
     from: deployer,
     // args: [ "Hello", ethers.utils.parseEther("1.5") ],
-    args: [svgBody.address, svgHat.address, svgHat2.address, svgFullFace.address, svgMask.address, svgEye.address, svgMouth.address, svgMouth2.address, svgDetail.address, svgExtra.address,svgBackground.address, blobToken.address],
+    args: [svgBody.address, svgHat.address, svgHat2.address, svgFullFace.address, svgMask.address, svgEye.address, svgMouth.address, svgMouth2.address, svgDetail.address, svgExtra.address, svgBackground.address, blobToken.address],
     log: true,
   });
 
@@ -44,15 +44,15 @@ module.exports = async ({ getNamedAccounts, deployments, getChainId }) => {
   );
 
 
-  
+
   // MINT 100
   for (let i = 0; i < 100; i++) {
-    const id = await blobbers.mintItems(1, { value: ethers.utils.parseEther("0.05")});
-    
+    const id = await blobbers.mintItems(1, { value: ethers.utils.parseEther("0.05") });
+
     //console.log(await blobbers.ownerOf("1"));
-    await blobbers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x7B30384cc2A8f9D97CF11D14A18479Fd610321F2", i.toString());
+    await blobbers.transferFrom("0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266", "0x7bB28eD46EA0f614737dbFaF6006094F89910D55", i.toString());
   }
-  
+
 
 
 
