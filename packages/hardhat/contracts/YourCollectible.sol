@@ -112,7 +112,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         uint8 fullFace;
         uint8 mode;
         uint8 background;
-        bool upgraded;
+        uint8 upgraded;
     }
 
     mapping(uint256 => Blobber) private idToBlobber;
@@ -281,6 +281,18 @@ contract YourCollectible is ERC721Enumerable, Ownable {
     uint8 constant noOfBodies = 6;
     uint8 constant noOfModes = 3;
     uint8 constant noOfBackgrounds = 2;
+
+    string[] hatNames = ['Planet', 'Halo', 'Ether', 'Sweat band', 'Mohawk', 'Horns', 'Cap', 'Beanie', 'Afro', 'Crown', 'Toupe', 'Condom', 'Mic', 'Cowboy', 'KFC Bucket', 'Sombrero', 'Sailor', 'Camera', 'Toilet paper', 'Bun', 'Bunny ears', 'Airmax 1s', 'Bucket hat', 'Chicken', 'Chameleon', 'Bowl hat', 'BD hat', 'Undies', 'Cat', 'Dreadlocks', 'Cactus', 'Beret', 'Fries'];
+    string[] eyeNames = ['Default', 'Three eyes', 'Classic Shades', '3D glasses', 'Cyclops', 'IG glasses', 'Ninja', 'Tired', 'Teary', 'Happy', 'Sad', 'Boujee shades', 'Visor shades', 'Dead', 'Wink', 'Eye liner', 'Cateye shades', 'Nerd glasses', 'VR headset', 'Buttons', 'Heart', 'Dizzy', 'Pirate', 'Unibrow'];
+    string[] mouthNames = ['Default', 'Medical mask', 'Smoker', 'Mobster', 'Bandana', 'Whistle', 'Puffer jacket', 'Floatie', 'Scarf', 'Teeth', 'Suit', 'Burp', 'Football kit', 'Bullet vest', 'Hoodie', 'Fanny pack', 'Moustache', 'Rich', 'Striped t-shirt', 'Beard', 'Spikes', 'Hunter', 'Guitar', 'Trumpet', 'Rock', 'Box'];
+    string[] fullFaceNames = ['Animal skull', 'Ski mask', 'Ape', 'PC', 'Paper bag', 'Mummy', 'Headgear', 'Astronaut'];
+    string[] maskNames = ['Munchies', 'Sassy', 'Gas mask', 'Goggles', 'Lazer', 'Hockey', 'Ray goggles', 'Purge', 'Rolex', 'Skull'];
+    string[] extraNames = ['Wings', 'Backpack', 'Turtle shell', 'Arrows', 'AK-47'];
+    string[] detailsNames = ['Lightning', 'Tattoo', 'Scar', 'Stud earring', 'Ring earring', 'Diamond earring', 'Precious stone', 'Barcode'];
+    //string[] bodyNames = [];
+    //string[] modeNames = [];
+    //string[] backgroundNames = [];
+
     function viewBlockNumber() public view returns (uint256) {
         return block.number;
     }
@@ -318,7 +330,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
         uint256 amountAvailable = 0;
 
-        for (uint256 i = 1; i < totalMinted(); i++) {
+        for (uint256 i = 1; i < totalMinted(); ++i) {
             if (
                 mintBlockNumbersArray[i] > lastBlock &&
                 mintBlockNumbersArray[i] < lastFarmBlockNumber
@@ -403,7 +415,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         idToBlobber[id].maskColor     = uint8(predictableRandom[17]) % (colsLength);
 
         idToBlobber[id].mode = uint8(predictableRandom[18]) % 1;
-        idToBlobber[id].upgraded = false;
+        idToBlobber[id].upgraded = 0;
 
         idToLastBlockClaimed[id] = block.number - 1;
         mintBlockNumbersArray[id] = block.number;
@@ -417,7 +429,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         require(_tokenIds.current() + (number-1) < limit, "DONE MINTING");
         require(msg.value >= price*number, "NOT ENOUGH");
         require(number >= 1 && number <= 10, "NOT IN RANGE");
-        for(uint8 i=0; i < number; i++) {
+        for(uint8 i=0; i < number; ++i) {
             mintItem();
         }
         // Send to recipient address
@@ -572,7 +584,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
 
     function upgrade(uint256 id) public {
         require(_isApprovedOrOwner(msg.sender, id), "NOT OWNER/APPROVED");
-        require(!idToBlobber[id].upgraded, "Already upgraded");
+        require(idToBlobber[id].upgraded == 0, "Already upgraded");
 
         bool toContractTransfer = blobToken.transferFrom(
             msg.sender,
@@ -581,7 +593,7 @@ contract YourCollectible is ERC721Enumerable, Ownable {
         );
         require(toContractTransfer, "NOT SUCCESSFUL");
 
-        idToBlobber[id].upgraded = true; // upgrade the tier;
+        idToBlobber[id].upgraded = 1; // upgrade the tier;
 
         // Randomly choose a few traits from toBurnId and use in toUpgradeId instead.
         bytes32 predictableRandom = keccak256(
